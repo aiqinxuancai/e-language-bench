@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 （“  Alice  ”）\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 去除首尾空格并转为小写\\n.参数 输入, 文本型, , 待处理的文本\\n.局部变量 临时, 文本型, , , 中间处理结果\\n\\n临时 ＝ 删首尾空 (输入)\\n\\n返回 (到小写 (临时))\\n\"},\"explanation\":\"新增公开子程序规范用户名，使用删首尾空和到小写处理输入文本，并在启动子程序中调用示例。\",\"expected_behavior\":\"调用 规范用户名（“  Alice  ”）返回 “alice”，_启动子程序最终返回0。\"}",
+  "raw": {
+    "id": "msg_1786794691901",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 （“  Alice  ”）\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 去除首尾空格并转为小写\\n.参数 输入, 文本型, , 待处理的文本\\n.局部变量 临时, 文本型, , , 中间处理结果\\n\\n临时 ＝ 删首尾空 (输入)\\n\\n返回 (到小写 (临时))\\n\"},\"explanation\":\"新增公开子程序规范用户名，使用删首尾空和到小写处理输入文本，并在启动子程序中调用示例。\",\"expected_behavior\":\"调用 规范用户名（“  Alice  ”）返回 “alice”，_启动子程序最终返回0。\"}",
+        "type": "text"
+      }
+    ],
+    "model": "claude-sonnet-5",
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 851,
+      "output_tokens": 288,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  },
+  "elapsed_ms": 11606,
+  "attempt_count": 2,
+  "error": null
+}

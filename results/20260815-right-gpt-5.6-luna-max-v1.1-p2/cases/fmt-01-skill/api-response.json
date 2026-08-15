@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 控制台入口返回整数型 0\\n返回 (0)\\n\"},\"explanation\":\"程序集仅保留一个合法的控制台入口，并添加单引号说明注释。\",\"expected_behavior\":\"程序启动后执行_启动子程序并返回整数型 0。\"}",
+  "raw": {
+    "id": "resp_029a7eaf4242896e016a805289ce24819abd405ae88b190130",
+    "object": "response",
+    "created_at": 1786794633,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794645,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 排错与验证\n优先修复最早的根因：声明槽位、声明顺序、控制块配对、未知命令、参数签名、名称冲突。禁止混入 if、for、while、switch、return、花括号、new、this 等其他语言语法。标准入口是普通程序集中的 _启动子程序；控制台验证通常以 返回 (0) 结束。源码看起来合理不代表正确，必须经过 e-packager 预检、回包和真实编译。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-terra",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_029a7eaf4242896e016a80528a62f4819aafcbb222ca92ae84",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFKT93cpP3haeoHVMdo0D8oPnMMqx8dxbaQzyhdFKipT9H3rnQdwdm_oGBUoSTJMBBUHPg-j4JRIiRwiK985gpdCos1qwCh4j4UdlrIfoPLMxEqWFLc2FcymUl-DrgTbEDjWuEg5iodp3gg1khCVcqjQfJiKMnXmP1N0va_8gXx3X9QybVUU6IgJQJbc3lNkMLqBhDFOZIB_qoFSZVclhbQVcIoupbv8osNDiLJVM_1LS4aCvXVG_YZ00g2LXdECdanw1fNgJJNoKLfrssFGO3y9oRP_FcJd_GJRG8YFcnApA0aBh9qjlcTWXDYWexVi-qRGfP6oVcaVrX9idraOLeWtbRL0jLEXMWBFMThOgvtPimdoQnOJ_aynjr25Z7Tvs5QFor5wZtXixXLnXeknd6Y8EaRza5B6C82ZDdNfQcKtqUZc9EfhfbYYIQEa0K34uS5kpx9bJl2aDGHjUH8uM6aZwVMxfPiLvWwSvSVpZ6WZw0eHKqWrNqJGlJ16xzvg7gm9-bVIofc2UqqJN1XjFD_yGpu0R5VerNZAndz0AFS4-4onur89gh0EczAsoHLwDEzZRzMYVrWZNuEUgx2ygwoUW1AOVXqRGAN_9digtdlKYMBMiGAo9aiCZ92nUpMGTkMEWMrTPTuTzbM-d1Vl1ZsGcPYNM3MKlpq_NAM3ImJXkYHEiXAr8GQMLu7WhcDMkGwqosSJ7qTs-kL4i5SrN-eRkYuDMP6zmWB-fY1hio0u6CO0g2qCg8Zdw58HNInDSleJD1pOmsrcEwqCXww5qrGI0Y_tf2R4HQ4407dDt9JDQvOH9pleBoqeVmVE9cH3iIK_cP3dsVcXP4abfDdAc0ghjmBUKr_5L_MwtVtnRFOINnwrx9FZdHHhVma7_xdYfnUA5IvS2z9A81wM4ZBSSHaRvGkucReHPN7Pldw_SgsMo8ost98v1DlT1LbuEMesSxUEDXXjkEAyHdEyz2-M_uR9msd_4epk7j2aBd9e2UU_Q8kQIUMpwQHF_he74CRcxiO-rZlhBNlztZ40N9evqzCTdjTo8O9hUSpk6HyfAfHgNFauedLw8Vu0owmh0PDhJfljY6zcgdQUlVYp3qTB5n962iiQD_SMwbeKDYABmRVvUD85whbMp_FcPvllV0AN-Gb9k6DKZ4pPkLbpNQwQuTHlXJysHe_moeLoHf7rUv8jVwKoteu4j9SEm2VPMKs9JP47pR_qZzyHO1wNvkW5omnfwCsMBYabQ-LFcAtl-z9dfunDSUv92ry8flLfsMdvo-jLg3IVagsEbMK250JkZQ-cPiMSde3WQ-ecuV9ltugpV-jY2Dw9ouREWD7z1pcTFJcmq_8u5q5aCS6D2ePjXPYO526YVUHJgGtF1zj5IdphrZ59_xH-VlPDtqwdan7ZDI0DcDuaLuAOw8Ml_gTaD0HKyWL3M4OM3DLcGmivwAq60b9zvFw4n5l_Uw1_KvwzrILB6ep9PvAwWPHl2uxgIDNxujkgWMSItMIvx0tCHjR1vfdeSuic4oxi85JnwVZQBomneQj4HAdyzop9IpDtow7TgYA_tgUgdmQIpTq-6SRfLTGXEkmRBSGmhFOY2GwdX4zF-epbvDoK1PQr7IJc1EAujdLlhwOJgeDXNa5ej_PERks4SbG-bT83ZmE1tHIj1ZFeOEahUG7hqFpaGmi1n7-DDemou9ELHat3FFYw2XBEEqMu5UW4RHbW6cGY3P79gbI7lruIvU8o7whfU86okZFEXgZx9XJ-noyQzdC2HqFrYABvGVbl7KltuQ5sWUjnQ84WKPRiHdFY5T1NU4M6znxt3Bj-kokF8JaCAClhSPA_VkP2whzsYfpnDcXZLZvjQuMA0qd_SGlFdLZT6cX8XqvEHglLox_DOvA5Zs24RxRfSW17tuooYzvMro8OEGKjESlbS0bC-qF3-nPo0IR3KP0IRRuK18lV3_qvsnZL3hrNp1DfXS1_CIYMmvkYn5sABQnCaMXDQ8uy9OnS-q_DuaxHnY-SwLJ5vJq6dx8nb5elMNIh6K7-GktKpVtZwf0-_KnF7rOhUl0o3q23nkSiW_mp0_OAX9DVyx1rIJGywzUdEffey6AxhbfYDIMwwHtipz_FVa9VES4IstNTxXiDsW6KfJ0BuwDh4XtRfIjZmDy0ewuNHoWJfNLkW0YoLSgPoubnBTRucr0enYoN9SJjjRhTIeNsR9vsjqSDtlHoMc8X5GvS792gkhz0_CQznHK720SErqqsW3htykF9dwPK877EcSIxVmwQT3QN7uK_djMXIx64a_zEAbWrtJg6hgVvccD-amxCQE2Yn7_Ye4agfCwtUbOev6DEdicc3tm5P0M0fCoZZn2Hx9PDVpE3Skqxz7AkBSSRxHiHsaIggberdnzK7vKEbALe7_onXYTeC2-dTJw_E3EV4zjMjWmq-Q337Lg2F2wBGA1md6gVE9FNZmaTEToNdUygCq5ttS1PbBkR6kQI9_Kj2RleKr5Y_41Ip4fp1K4i0iZnDfcjZXV9TbpJlmoHA4Czmuez0wXMoyQF5ra3X6cya2uC-roR66NtGnaaMeSG-Qxwy6PBp5IlXgG_P1C3VjIpS_2MAzJRuWYpQIrTACbDeR3NF9_bdeL1Yd_qfMZlvrOnrMfyZNg0-wDOcUcQtPNEMMbkTkEoaiFBVwsHfrR5571lqQQ_3B2asRH6cjUnB8xR17M4ApmWzGq6tqmQhQ1mZdCUGxTTuehZMq46ziAKBfzBipuz5psH5SluBE2xLgKV8B--vrk951LHpWEWWmNHWhh3UGe_iCpRw8p7C1Z9nPFQDuTmJX5FD2yWOy-4yb3nr1k6VaRneQFioKtV5QMgE6HuxUB-1QGldSsCT2weJ-6xY-5rj4wuIca39bKW9TuKcoXgGfUECHXCz56lRVfspR-NNmE2KBHUrf3fbghxNuQarbd4WVBmEzMlmFRCbquaaY6GdTiawanue0GPExQb4ow5UwlmGhuDM9bOskJrEWHgwpKezbrmZq-mvBwGb0f9E2tmxkEmw2266FCSL8SRT0FQIe0nFAHdt_r0U-acPv39UoJerZBhS2HAb_rZhk-nJjJe24x9yWcNxCvrTUp97Tl4NvvpA1U0HQrnYhA_mVh703MMC1Ksf1SeSFguwqe0CoTNoLeUvhpWUf50A0LAguVmym8VxkO1Zi3Pf3VEcW43GD3L36GONv7579BXyqub5OefH55n6Qj3AbHNXWYkrweh2Zxho2zvyLS72Tw2xbeIMjVTECezdcJZOFt8DbUGxUUOqFa4uzzDocwyAJYBI126uivYjpi9Sj4p3CvDebmXJXPmnUx-qvxxAd32OL5CRFhgz87sgW9tQeyMeHOljbioLKNpD_gIauX2sUab7iDAqrq8GLXV-dUKaKjxkwLrk1fOWk63Pi2utYm9CBWS3E-z-Bty4T6yUZhKFyGlhVNw2nQSGe8gZHuFwcUyGbpveJzvQ-nRPvK--AZcPKxmDm2ohrAd2L3ZrVsBiBTB_fZbtedwNmpEPQzdmTq2_9S_figsVhcZqkh3D_Q8U_Kn-1xl-dxFWth24E8JKMFjReH8ovVfNAgGlKK9so77RvhUWtVE5w8-UfeVxksAjgYWCaTnQEvY-ss0rDNbWpQ1iRsXOfB-jfD-elubYgX6nneHJdBrPE_FrdRxOcqbzMmB1Gv-D1coEN8Ll0ozLplxg3enh169htGFxFbxKgOFVP38jKy4LYa1pU5IAIVJQimWx0jkeoMTcnXZe2y9tNKsdcUf02CzrYxxKtW8MbHCpaBpZzMjLJMoe9EeaCBvPDdL7WxYGnll7h6fRxQoJqr6kPguWNweocJ_I9wyjGrFbPjqjzv8PQjCihlUdGZbgkBfu1QHcj8w7iDN8qX_6ZEjac9v607m85mnQ7n3oItRajUFEX8VgOtE8EN07Z1qE2MJ00CEVa2zgoWh6SAArddqlXa_4BQFXXti2fhq9AQKA0MI7oCqILVzAgLtao0muaG4AO3qUmICKPioIBw1DNQr016soY17s0WxvdV1S3ZMtoFKa2M5M5DJvYxWwnCYRg5VDLpUkGoSgViYsiuBHovUvspqApbe3YXvmoWszCUv9O4vb97DuL7qJqKrxcNRS8576oiTL7TwD5LbYKHM6WMVOsw2kO6ZGq4y7g8januaThBPSqAFQxUBNOMIkB7Hjt5vtONSh7ZOZIA51ZddUR2OrohYhJT0BZ3GPDNvPwkb8iP_vMIbK1Ab3zw-0ZC66IYGdVe9gAftUsMr-HOOnpFH62SyKR387utDyMcSBSUidKPomWJxNV4U0XMirz_3MkDz7xsQoZ5oO8GIb78TIj4nQiMGGh75Hw831D336CXDWgwVDCsuARHt2lGiJRzMG55bOx6Gp9iQgKJ5_QJL_uEN6A34M5f5kGpzNUxGfi34FtJHQKD6iCgPrfsoKQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_029a7eaf4242896e016a805293b1e0819a8ecd6b9a25bd3f6b",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 控制台入口返回整数型 0\\n返回 (0)\\n\"},\"explanation\":\"程序集仅保留一个合法的控制台入口，并添加单引号说明注释。\",\"expected_behavior\":\"程序启动后执行_启动子程序并返回整数型 0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "b08ab98b-4415-4f5a-a0fa-be4324c45216",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "max",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-0MqMYGs0FiE9msWoqGRovMY6",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 843,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 948,
+      "output_tokens_details": {
+        "reasoning_tokens": 774
+      },
+      "total_tokens": 1791
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 13003,
+  "attempt_count": 1,
+  "error": null
+}

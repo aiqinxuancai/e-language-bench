@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n规范用户名（“  Alice  ”）\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 规范用户名, 文本型, 公开, 规范用户名\\n.参数 输入, 文本型, , \\n返回 (到小写(删首尾空(输入))) ' 先用 删首尾空 去掉两端空格，再用 到小写 转成小写并返回。\"},\"explanation\":\"新增公开子程序规范用户名，先删首尾空再到小写，并在启动子程序中调用测试\",\"expected_behavior\":\"启动后返回0，规范用户名输入'  Alice  ' 返回'alice'\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n规范用户名（“  Alice  ”）\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 规范用户名, 文本型, 公开, 规范用户名\\n.参数 输入, 文本型, , \\n返回 (到小写(删首尾空(输入))) ' 先用 删首尾空 去掉两端空格，再用 到小写 转成小写并返回。\"},\"explanation\":\"新增公开子程序规范用户名，先删首尾空再到小写，并在启动子程序中调用测试\",\"expected_behavior\":\"启动后返回0，规范用户名输入'  Alice  ' 返回'alice'\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786778584,
+    "id": "e41dfe90-7610-9d30-a0cc-333135dd04a9",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 5629,
+      "completion_tokens_details": {
+        "reasoning_tokens": 5440
+      },
+      "context_details": {
+        "input_tokens": 741,
+        "output_tokens": 5629
+      },
+      "cost_in_usd_ticks": 348720000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 741,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "total_tokens": 6370
+    }
+  },
+  "elapsed_ms": 70302,
+  "attempt_count": 1,
+  "error": null
+}

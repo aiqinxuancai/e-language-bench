@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/计数器.txt\":\".版本 2\\n\\n.程序集 计数器, , 公开\\n\\n.程序集变量 当前值, 整数型\\n\\n.子程序 _初始化\\n\\n.子程序 _销毁\\n\\n.子程序 增加, , 公开\\n.参数 增量, 整数型\\n\\n当前值 ＝ 当前值 ＋ 增量\\n\\n.子程序 取当前值, 整数型, 公开\\n\\n返回 (当前值)\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"创建公开类程序集计数器，添加程序集变量当前值，生命周期子程序_初始化与_销毁，以及公开方法增加和取当前值。\",\"expected_behavior\":\"公开类计数器可正常被创建销毁，通过增加方法累加数值，通过取当前值方法返回最新数值。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151151461152830428268d9d6W5Cpyoyl",
+    "object": "response",
+    "created_at": 1786794708,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151151461152830428268d9d6W5Cpyoyl_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/计数器.txt\":\".版本 2\\n\\n.程序集 计数器, , 公开\\n\\n.程序集变量 当前值, 整数型\\n\\n.子程序 _初始化\\n\\n.子程序 _销毁\\n\\n.子程序 增加, , 公开\\n.参数 增量, 整数型\\n\\n当前值 ＝ 当前值 ＋ 增量\\n\\n.子程序 取当前值, 整数型, 公开\\n\\n返回 (当前值)\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"创建公开类程序集计数器，添加程序集变量当前值，生命周期子程序_初始化与_销毁，以及公开方法增加和取当前值。\",\"expected_behavior\":\"公开类计数器可正常被创建销毁，通过增加方法累加数值，通过取当前值方法返回最新数值。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 594,
+      "completion_tokens": 1609,
+      "total_tokens": 2203,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 270,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1339
+      },
+      "input_tokens": 594,
+      "output_tokens": 1609,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 594,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 2849,
+  "attempt_count": 1,
+  "error": null
+}

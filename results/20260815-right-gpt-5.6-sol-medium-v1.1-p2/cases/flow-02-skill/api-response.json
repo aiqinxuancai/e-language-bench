@@ -1,0 +1,113 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n求范围内奇数和 (10)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 求范围内奇数和, 整数型, 公开\\n.参数 上限, 整数型\\n.局部变量 累加和, 整数型\\n.局部变量 计数, 整数型\\n\\n累加和 ＝ 0\\n.计次循环首 (上限, 计数)\\n.如果真 (求余数 (计数, 2) ＝ 0)\\n到循环尾 ()\\n.如果真结束\\n累加和 ＝ 累加和 ＋ 计数\\n.计次循环尾 ()\\n返回 (累加和)\\n\"},\"explanation\":\"新增公开子程序“求范围内奇数和”，从1计次循环到上限，偶数使用到循环尾跳过，累加奇数并返回结果；启动子程序以10调用后返回0。\",\"expected_behavior\":\"启动时调用求范围内奇数和(10)，计算1、3、5、7、9的和并返回55，随后入口返回0。\"}",
+  "raw": {
+    "id": "resp_0ad9ec4b228c34ee016a8053279e6c87d094c4f8332c59d723",
+    "object": "response",
+    "created_at": 1786794791,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794810,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 流程控制\n单分支使用 .如果真 / .如果真结束。双分支使用 .如果 / .否则 / .如果结束，不能混用闭合方式。多路判断使用 .判断开始(条件)、.判断(条件)、.默认、.判断结束。循环包括 .计次循环首/.计次循环尾、.变量循环首/.变量循环尾、.判断循环首/.判断循环尾、.循环判断首/.循环判断尾。跳出循环() 提前退出，到循环尾() 跳过本轮。所有块必须严格嵌套并完整闭合。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0ad9ec4b228c34ee016a80532833c087d084d324655b017748",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFMx8xaLtStsS59Y0uv-K9-ZBvnQL7bpqXVY23Q3-AJpvcZKlQCy49_Xf4-udaHsl62Flm4hiprpJhrb3D9Ush47eqni5h3pMCNgsI5ABvx6s3pu9jW6PBMOv-DP3qX6CVWiuxI5i8egb_51f5nDuVomBuVQntJXgV9o_Jv8C4c7D7eY6dBCWzC2qmCp9EbRQ1HVE2D2NnleIacBXrgOIEwLGuNf810O567a28jJaTa10h9xzXsdnU4gzMPS06Og8lXGpr1KgkaUqhM4ASV1kDkoZCdsllwsmanA0UNbrtBMwZwHDst6ccHulHMg-Gic450PfY-tMarNm7_SbkQm68gUF7gI9VPDxKcF6Nq0orc7iGPn9oy0sQFTc7xwfhgbJqI0B9A0enWvVwhmx74Bw-5wJ1q8lmIL8oLAYdJGDe-FqT0UvA0wMt5PBpwNDsNmi-8B1ia6_CxAvY1c7G93OkF3bhR9qj0yIPlPliPXb17tcVj65PFl2XnrCTymewD43SYeGU25cMXkIZUkTP9ti1wyPG6fD-DBWNnsBx7ykfJyVgAdMyzbeBLB5d0gFnIohJzCEFRfsPc_OMDksFSnJk-X2CedEybecV5LCXTlXIpbpbgUFzM0XIo4O5tpc16f1o2iUSEOkZNXwcqB7zqNvdjR88AAUOWjbp9GJLezZM2jldK0z0aBnlKJygOdLL6uli2Kekf71kxXHWCJ1gPJR3iH5Wt3SoAeoSp0QoL_TMffS5RIRq60Xz_wB4aEnbCWsLoli24CnoxtV2tn9SEzseAtvX4aXFU78drWY1sSLwpKHfvB3Nw-ahx6uf3tPI0m-e2dWrfg2b7ZXHBlNZ1bCiNGmbcfYVVWaL_N3Z75EC6Z9EqCb71HEoOYRRFIF0_ZJpotXG0KVTEOTS2T_7KYL-7nRemkuDLXzQhr_aBFol3O1zQiWT-ju0JXkd3kbwL_Bmu7-1LnBWaHPnO85TRYBjMqBVl8CgNNAjGi3GRJ7sISKo_UE0oZErnLeFwBA0TM76zIzz6iIE_sxcxAmuR6O8b_SU4diGkSBs9WsO8twMN53BUQvaOlYeEtukRo-4bjPrLPpZdnkZKtQAW0CpryhrioOUVijPfSocWiD71c387n-UZUU6ixtk_t5GltCbW9-bC4Vf6wQnbNU_L3b_luNl3PiY7lnwIrnsEOwHwg_CzavaSH2OjgsyF4Ds4rAayv7EJfifoe7ovUsDwThD8NXBE_XHyqmOoByEJmrlKIRtqtbMGFaLloaPkyH6sXm_-Mr-OZsRCjO4Fej0P8pJrdm_gBnWF2bvyO0Bc5auX3vUQwvRrf0ZVFu-elogMy-Ezo8ZoMPbqJnnyiwqmjq3RF7QE0Ihe4FzGcipcS-oJSUFMo8PXfAXHyusWGxyrsozRYZH7Kivfbq8gic5-9oYmWgqsJSjRGtruPS6IsJRbPWzbFSNK2h4--D5Tv_EUhtFPHiyusZvNPWDswqyRtCaCXYpnWUE1YBZrq7FfKOk55oFpR74fpJfXc7ErHmzSlWHtkNCFNW3kuK4_D1yprftUXDI7XDctUlrj61K6LjddGQcHVcBc7CilPJgfXmOzd2kkQmty6yVr4Ro0U-72pyeL1flJRVeiR-ifh-nGDWenb1LMnzWZt63kcBLwqReRFebUgDszVTNvu5d3c71St4I5Oy2RIjfRRXwvAJzDlCCm2h-PePz86fHCvm2jCUumDUJps8RvFaP6X0ziWCTe7D-J7Cj1fJrTun1rjrVmPZIIpQQYTnjofPodlFztjjG2fCNkmQsFZ6Rjlka_fzB0MdG7dPV7rTxkzeZtyJEcuEqtB81oGiYUOtBu_7llur7uVxl2cASMCpEsETTy9YZzp9y6w-IZlXmcPeU86NfLKCqOpM1qKa7BGCxiZMVOYpGs0giaOU-kd3_NobgMbD0kf-K6feKn8pkIGFLJyAjM82mcyEY2hFMdcEKSZCewXFeOUsl3N8I2O86Wq52-IbwN2eo1p6_9YIPCRDfSfvlDP04iYsJxuoDkvlchCTgTkZ6AsjvWlnXyHc-VYO1gHsWjln2wpgRjfAU2ImSopDimKU5z7vXiJtsVVrWFxaUP7RyGR-QbWibYD_KBWXdUzUAE2PYFneU2EuTv0F5AckWvpVYEcRWiIvYYIRGXoquGGM7mhLd9_KXkmp6PEDGKgEUvRSgS22533Z_gPGk1r7kSOIbdCTeLAQn02_ObD92kzWYbqosNAM-EUu6tR4a5HwSqTjQozn_YEQUCqtT9HWysSmB9KvAC2OQGrVqz7gZ5o-pA6b49CqoHOtxyM8UXNIZv8_WFqLtTx43fybENXO8hUmQBrq_xP_COxeFNu-WUqO4iP4Qf4FBekvXdevrC86ca3u_bClsvqpsgfncVtvspRCObiNg5-uZGs32CJIn3_HjH0YkfcSdDBtfQmm7dNPgMmf8DSJJ24JbVDsm38CqmUCy3VU64O--eXbpkkU7B6wl2bKS0s4l1pnnvNy0NPtHgCYKGPsb5KYU-LWtm5ljbGectmQAStkclH5whqZhaTEMwUr1GjTD04dNkYDxVrjfWB8_ocweL82F4n5q_VETcQY7swq5CXPhxahsZ8RlgpdQfVJQzkiINyCOwr_A20usL_K7MI7H0QTQs_D4yq0YmgTGfEoVejQYIqro9hOSCDDDdmbdu_niYcfRnwe5h6fmkXL2lRO_GKGfm5Qlbuhsb2VFm-uPvf6YT2Y3ttEFZKuS7OkqEm05dEqiruN05phYW5cCKuWCPzr5tfbobvzQZnuQ3M9D4tvDWHapPoSc9WIZ-GlT_2wA0KlNiH6FUHw9kh_NuEqYE6t4i9iQkZ-YBn2iaSB2MroMV_WgYtK4WwN390T0xeZbYOYKPOILHJmmCMTAp3lpqeiyH2aXyN8YBx4fWMVe8GmRKzOKoprQ7xIcW0QD6RAT_kXYOb6mTtriizPj63spZaIM07CT3huBW-RCoKEzbkylVo395Jjwh8VraTblz6uhjsG26NyXPfbCTbbtZxiQaCnsWpbYY_4qKCkMGleUcWAga6GG_BqAXds48x9T4g-9z8WESqPCoYTJjYgwqSGb8f9pt_LSoTCiwbvR9R-dZyei-pe8AH2-IXkrB-wqa9Qvs65n5BSd20HxRu2vTtvLt5eLhH0LY8YZw1rKqxJFZ83P8UUadg39bSTkzLjg0AjUxaWj9hVe1v18QUbmxncGOd4NPl1Rf4dG9ewG_wneWJUyh_k3cJL_QlJNYAvae9oSqFu-dC-QZog9m9Sa5CvAOQWxr8rsWOMdhqUXPjnA_0dH2w54LJG-UqoV9fs1s-tr17P5YrmKZNrpcC0iguqCavxebj0x6nnYKB-us8YCMD4UZIMJoey7GVtzZibKsgxCYDUX-yZSnGbcOBvK3Nd7TF_wHve0_PerBrWfVKI2FHG9nn2ZXjY0c9Y270shsyKiMj8yTtlqUPMUiFDemRhy_jJLKToELCcs-V5gFvlJpNSH5vG2QT8qIB8G-SiCAbG8EewM84s92OSv_vdka9LsEhkkUW3Bz8XQrm3ahkNHP3yhMi54dowEjj0aZD4T2Tr5hBQT1ItyYt_hocLE647-NK7EDx5RN0zZZiXqnl39zawy4xoPeUciUlHVF4Fr5RwSBa",
+        "summary": []
+      },
+      {
+        "id": "rs_0ad9ec4b228c34ee016a8053317f4c87d0bb2c1379878822a0",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFM09y2eUha2AvvcKVgxQFZf656nz_Yu-W0ayZxvWOOEVTuJS55oH6_UuxR9GZ9UA1IrP4Zi61nvhg8Q9y_mORwaBMB0l5OBXrfvS4AHkbAPehWRgO5bMcBR3_hwM5COKAWckcbz0c9obI1z6Rl4RQEO-mIpHbFpp5uiwOhO64kDoSA9SVYHB-CxvIgQf-6IuMd8c9hCy1-Bm4vpbDtY5-cEHyzFMz92VmCq5PolYIRu4INgces8tx-rlFYBpzRs-peoJZWU-18VwDTBghDtiTwjICHjrNloha6peUhGYKajDhOr5lArWHjQ0PKSTHofJAXcoF6x7p6aeTyyfvgEWa-OKC7V-F33oTvl2tWyKlBX_e_jwR0aN7jYXfzoGt66i4HsgiIvzxwa7XGm2A8dhQmMhzCQJUwVfk2UZJPL1eeZVVqaJ9NI9MTKkmA-BmCCS3NY0jGlShrLWsFwMvWxI8fsgXUXtN5TozBAT7UIYmyjYEM9CuaySwccv8uwlWy8hKOBkX0lviQq3MjHa6GaDbU6IA5v6BalB1oJt4eNhZKe-DTfK-YNiV6J6eJuxSFgDUxebosueadrY8s5c9_RFo8zte_SsiGR94IaFZ2m6hX-Mz_Y9StuV1QME3JqEKt5O3RdJTRGDcOmV0uhlJVb4v1xSyLTOtaRFi3O71TAQE29zJEfZSvGsJ901RNKnKsPT9RI3KwTiSsywvKUlbq6EkwJ0RycCVTyv4lIf3WFmzdekkTEKb8kKcduaTwFCgM-W4k1KDraxNfj_Y7GVtWvFUrktUNMdLzOFpZjs6fXihWdDhmET4o1HM4dFnufW4PkldXaUqDQc4FiZQCoqgGED0zOrfyzAVQmd6q0H64btNSOZICQdTEHxjHjIncn-O7xSsxByhrNSgGiqmvqyTOzeYUcN6fRjcm-gQKJF1I-Aak-dgzPowKFBaY3Dxz11rKwKOtg8PS0nD8bSx4A-oa-UcaMQAQd6VTfMqwSw8Fs_rsJzeOEJga2FGan0my5bKG-qjJ0wOwsUe6DIYeLSiWFc7g8HPtq2_Cd1KoS2br6kQ8kWIVcHxGMb6nRyDTFNGbxR_muQfM_qaavIWw64c0OChzl8Tghos6ThwDUStm_-neW23mwOeQ7BY3wVnvw3EsRlWql2rTb77aeXxLU8mS8_esmN6YvKzIH6b9lGtoV7DdvHbGum9c49SENQPM9mtLzXv9INjbA3TZ0_C-CY0KyK5HvEuNLBCKEWnUM9XcvkB8AdFdtLU1EIRqsN2PjK3YwFqToD4PzDWIqsYNyTo1MaE_hwGh_HFLLx9SjQFAVOwwjxhaKdM87oty-opWhkVuqhuMZxmR0b2wRYeEbDIjAy1PkL9bW-6DBPQXiymOnp7zUrcpgQFLgtu2zzyr7Dy4_vqCyFVB_ZdN3o27bDeDI5ubvjcOKBEcQA5LMd05HHHIsNXj5ihLAuhwnwFt0S7MS-Z95FBlfkreEPsTmRlamy15ik6JCLu-2pMPRlJYWchGPben1-2iUE3T3-5ZQPSU4SDKF4VR5iNj4_mk6qadQijflp3yvvewN_9MNP988nLN8AZTJm8MJQjdU3Wf17HwdcEOyWLS3CZdS9KusFDw8-1Q2rxhFbka9XdVuMvaLvax21Bd1OwyjQIdK_Ln8FHkHB_D9x9LILkkxdL8R3XcaILUQ1xsuBewe_05WQu2MNjg4GxhD9FtUWLAy5wI8w8tFdVzZ088bEKSAaDjX2wO7qCcaGGnZltenVliJMOW7HjqoWkoO_qrm4TMbgwgqsNM9g9QsRLntrZxH9bMl4pRIbUF1GZsVXZcNAPQsCFxNEVjhLnwHxua_v2NDTrdG42Fxhs7Yp_D3qiHoht-GZLkMkoTWNRDNC0JpIzXibj9kHDthLDrWLD9hGgHOihW2HcwHHdBiD77p-yGIlyvsyeft-tUbKsCJ-rejVdFFMnzJivBwtzz9OhZdV8c1nfPVTHEivnk_oov41A_f969z_su48vE9RUztwtK68LZUmcFPgVA7VE1clv7FCt9Iy3NYBLfHhWg6AjroOpvsCHdwi-3dgLsR8byfGgYw87dpr9zgX3Tr1TfRZ8efHH3OGNTRco4yYWNBk_xY1XG_4uP_l1r-z9zzWlTAQY5fzGANq86_0KHAQISPSIfMKDLOIpiTUFAuvad93vf7DPOcWcbWXDm9awlIjKMW0GfxpffTZd2sC2kWhag=",
+        "summary": []
+      },
+      {
+        "id": "msg_0ad9ec4b228c34ee016a805334881087d0b0bc2b8c14ec5cc0",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n求范围内奇数和 (10)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 求范围内奇数和, 整数型, 公开\\n.参数 上限, 整数型\\n.局部变量 累加和, 整数型\\n.局部变量 计数, 整数型\\n\\n累加和 ＝ 0\\n.计次循环首 (上限, 计数)\\n.如果真 (求余数 (计数, 2) ＝ 0)\\n到循环尾 ()\\n.如果真结束\\n累加和 ＝ 累加和 ＋ 计数\\n.计次循环尾 ()\\n返回 (累加和)\\n\"},\"explanation\":\"新增公开子程序“求范围内奇数和”，从1计次循环到上限，偶数使用到循环尾跳过，累加奇数并返回结果；启动子程序以10调用后返回0。\",\"expected_behavior\":\"启动时调用求范围内奇数和(10)，计算1、3、5、7、9的和并返回55，随后入口返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "64caa15f-3be5-4af2-aad7-7e6a6e27c342",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-B7nFS9UdLO5r9iX30BSdZpRW",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 904,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1497,
+      "output_tokens_details": {
+        "reasoning_tokens": 1028
+      },
+      "total_tokens": 2402
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 19333,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 文本型, , , 保存规范化后的用户名\\n\\n结果 ＝ 规范用户名（\\\"  Alice  \\\"）\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转为小写\\n.参数 输入, 文本型, , 待规范的用户名\\n\\n返回 (到小写（删首尾空（输入））)\"},\"explanation\":\"新增公开子程序 规范用户名，先用核心库命令 删首尾空 去除输入文本两端空格，再用 到小写 转为小写后返回；_启动子程序 调用 规范用户名（\\\"  Alice  \\\"）并将结果存入局部变量，随后返回 0。\",\"expected_behavior\":\"程序启动时调用 规范用户名（\\\"  Alice  \\\"），返回值为 \\\"alice\\\"（两端空格被去除且转为小写），_启动子程序 最终返回 0。\"}",
+  "raw": {
+    "created_at": 1786804799,
+    "id": "resp_021786804798229953f584df703753d1068e2d4c6b117bc17908c",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680479940100000000000000000000ffffac1807ad1d7f67",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Need to add public subroutine 规范用户名 with parameter 输入 文本型, return 文本型, calls 删首尾空 then 到小写, entry calls it and returns 0.\n\nFormat: .子程序 规范用户名, 文本型, 公开, 说明\n.参数 输入, 文本型, , 说明\n\nLocal variable? Could just return 到小写(删首尾空(输入)). Keep simple."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 文本型, , , 保存规范化后的用户名\\n\\n结果 ＝ 规范用户名（\\\"  Alice  \\\"）\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转为小写\\n.参数 输入, 文本型, , 待规范的用户名\\n\\n返回 (到小写（删首尾空（输入））)\"},\"explanation\":\"新增公开子程序 规范用户名，先用核心库命令 删首尾空 去除输入文本两端空格，再用 到小写 转为小写后返回；_启动子程序 调用 规范用户名（\\\"  Alice  \\\"）并将结果存入局部变量，随后返回 0。\",\"expected_behavior\":\"程序启动时调用 规范用户名（\\\"  Alice  \\\"），返回值为 \\\"alice\\\"（两端空格被去除且转为小写），_启动子程序 最终返回 0。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680480071200000000000000000000ffffac1807adb761f1"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 568,
+      "output_tokens": 384,
+      "total_tokens": 952,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 核心库\n普通中文命令通常来自核心库或支持库，不得臆造。可使用已确认的核心命令：删首尾空、到小写、取文本长度、到文本、取绝对值、求平方根、四舍五入、清除数组、加入成员、取数组成员数、重定义数组。调用允许空参数槽，不能删除中间空参数。数组通常从 1 开始。变量声明后已有类型默认值，不要生成无意义初始化。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 5688,
+  "attempt_count": 1,
+  "error": null
+}

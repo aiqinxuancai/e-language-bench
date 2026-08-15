@@ -1,0 +1,91 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开\\n.参数 输入, 文本型\\n.局部变量 结果, 文本型\\n\\n结果 ＝ 删首尾空 (输入)\\n结果 ＝ 到小写 (结果)\\n返回 (结果)\\n\"},\"explanation\":\"新增公开子程序 规范用户名，使用删首尾空去掉两端空格，再使用到小写转为小写。入口调用该子程序后返回0。\",\"expected_behavior\":\"程序启动后调用规范用户名将“  Alice  ”转换为“alice”，然后返回0。\"}",
+  "raw": {
+    "id": "5e9bbba7-1ca8-4a7f-aa7e-0402be60be36",
+    "object": "response",
+    "created_at": 1786794763,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794765,
+    "content_filters": null,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "deepseek-v4-flash",
+    "moderation": null,
+    "output": [
+      {
+        "type": "reasoning",
+        "id": "33cca5ae-2d05-403d-8f01-c85d2e9f2106",
+        "status": "completed",
+        "content": [
+          {
+            "type": "reasoning_text",
+            "text": "我们只需要生成JSON。修改文件src/程序集1.txt，添加子程序规范用户名并调用。注意易语言命令：删首尾空，到小写。返回0。文件内容要完整。"
+          }
+        ],
+        "summary": []
+      },
+      {
+        "type": "message",
+        "id": "c6cdff08-55a0-4b41-aa19-2183818d5f31",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开\\n.参数 输入, 文本型\\n.局部变量 结果, 文本型\\n\\n结果 ＝ 删首尾空 (输入)\\n结果 ＝ 到小写 (结果)\\n返回 (结果)\\n\"},\"explanation\":\"新增公开子程序 规范用户名，使用删首尾空去掉两端空格，再使用到小写转为小写。入口调用该子程序后返回0。\",\"expected_behavior\":\"程序启动后调用规范用户名将“  Alice  ”转换为“alice”，然后返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": null,
+    "reasoning": {
+      "effort": "max",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": null
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1.0,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 384,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 246,
+      "output_tokens_details": {
+        "reasoning_tokens": 44
+      },
+      "total_tokens": 630
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 2524,
+  "attempt_count": 1,
+  "error": null
+}

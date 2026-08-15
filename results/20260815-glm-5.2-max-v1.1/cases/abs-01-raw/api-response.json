@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 数甲, 整数型\\n.局部变量 数乙, 整数型\\n\\n数甲 = 5\\n数乙 = 9\\n交换整数 (数甲, 数乙)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开, 通过参考参数交换两个整数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，两个整数型参考参数 甲、乙，用局部整数 临时值 借助三步赋值完成交换；_启动子程序中声明两个局部整数并赋值，调用交换整数后返回 0。\",\"expected_behavior\":\"_启动子程序启动后，数甲、数乙 被赋初值 5 和 9，调用 交换整数 后两变量值互换（数甲为 9，数乙为 5），子程序本身不返回值；程序最终执行 返回 (0)，即进程退出码为 0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 数甲, 整数型\\n.局部变量 数乙, 整数型\\n\\n数甲 = 5\\n数乙 = 9\\n交换整数 (数甲, 数乙)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开, 通过参考参数交换两个整数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，两个整数型参考参数 甲、乙，用局部整数 临时值 借助三步赋值完成交换；_启动子程序中声明两个局部整数并赋值，调用交换整数后返回 0。\",\"expected_behavior\":\"_启动子程序启动后，数甲、数乙 被赋初值 5 和 9，调用 交换整数 后两变量值互换（数甲为 9，数乙为 5），子程序本身不返回值；程序最终执行 返回 (0)，即进程退出码为 0。\"}",
+          "reasoning_content": "The user wants me to generate Yi language (易语言) code for a task. The task:\n\nTask abs-01: Reference parameter swap\n- Add a public subroutine 交换整数 (SwapIntegers), no return value, parameters 甲 and 乙 both integer reference parameters (整数型 reference, in Yi language this is \"整数型\" with 参考 attribute — in Yi language source code, reference parameters are declared like: .参数 甲, 整数型, 参考)\n- Use a local integer 临时值 (temp) to complete the swap.\n- In the entry (_启动子程序), declare two integers, assign values, call 交换整数, then return 0.\n\nWait — \"入口声明两个整数\" — declare two integers in the entry. In Yi language, local variables are declared in a .局部变量 block. So:\n\n.局部变量 a, 整数型\n.局部变量 b, 整数型\n\nActually in Yi language, local variables are declared after the subroutine declaration line but need to be placed before executable statements. Format:\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 数甲, 整数型\n.局部变量 数乙, 整数型\n\nThen assign:\n\n数甲 = 1\n数乙 = 2\n交换整数 (数甲, 数乙)\n返回 (0)\n\nAnd the subroutine:\n\n.子程序 交换整数, , 公开, 交换两个整数的值\n.参数 甲, 整数型, 参考\n.参数 乙, 整数型, 参考\n.局部变量 临时值, 整数型\n\n临时值 = 甲\n甲 = 乙\n乙 = 临时值\n\nNote: In Yi language, public subroutine declaration: .子程序 交换整数, , 公开 — the second field is return type (empty means no return value), the third is public/private (公开 means public), the fourth is comment.\n\nWait actually the syntax is: .子程序 name, return type, publicity (公开/私有), comment. So `.子程序 交换整数, , 公开, 交换两个整数`.\n\nParameter syntax: .参数 name, type, attributes (参考/数组/可空), comment. So `.参数 甲, 整数型, 参考`.\n\nThe _启动子程序 in the original file has \"返回 (0)\" with a comment. We need to modify: declare two integers, assign, call, then return 0.\n\nFull file:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 数一, 整数型\n.局部变量 数二, 整数型\n\n数一 = 3\n数二 = 7\n交换整数 (数一, 数二)\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 交换整数, , 公开, 交换两个整数型变量的值\n.参数 甲, 整数型, 参考\n.参数 乙, 整数型, 参考\n.局部变量 临时值, 整数型\n\n临时值 = 甲\n甲 = 乙\n乙 = 临时值\n\nNote in Yi language, local variable declarations must come immediately after the .子程序 line (before any statements). Also blank lines between are fine.\n\nThe user said \"返回0\" at the end — keep the original return (0) line.\n\nOutput as JSON: {\"files\":{\"src/程序集1.txt\":\"...\"},\"explanation\":\"...\",\"expected_behavior\":\"...\"}\n\nNeed to escape newlines as \\n in JSON. The content includes Chinese characters, fine.\n\nLet me construct the file content precisely:\n\n```\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 数甲, 整数型\n.局部变量 数乙, 整数型\n\n数甲 = 5\n数乙 = 9\n交换整数 (数甲, 数乙)\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 交换整数, , 公开, 交换两个整数型参考参数的值\n.参数 甲, 整数型, 参考\n.参数 乙, 整数型, 参考\n.局部变量 临时值, 整数型\n\n临时值 = 甲\n甲 = 乙\n乙 = 临时值\n```\n\nThat looks correct. JSON string with \\n escapes.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786785585,
+    "id": "021786785570878650199c56ec016826a8a57eb1bcd96302784b0",
+    "model": "glm-5.3",
+    "service_tier": "default",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 1292,
+      "prompt_tokens": 284,
+      "total_tokens": 1576,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "elapsed_ms": 14761,
+  "attempt_count": 1,
+  "error": null
+}

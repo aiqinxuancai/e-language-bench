@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 程序入口，返回0表示正常结束\\n\"},\"explanation\":\"精简程序集1，仅保留一个合法的控制台入口_启动子程序，返回整数型0，并保留单引号说明注释，未引用任何支持库。\",\"expected_behavior\":\"程序启动后执行_启动子程序，直接返回0并正常退出，不产生其他输出或副作用。\"}",
+  "raw": {
+    "id": "msg_1786794637610",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 程序入口，返回0表示正常结束\\n\"},\"explanation\":\"精简程序集1，仅保留一个合法的控制台入口_启动子程序，返回整数型0，并保留单引号说明注释，未引用任何支持库。\",\"expected_behavior\":\"程序启动后执行_启动子程序，直接返回0并正常退出，不产生其他输出或副作用。\"}",
+        "type": "text"
+      }
+    ],
+    "model": "claude-sonnet-5",
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 389,
+      "output_tokens": 193,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  },
+  "elapsed_ms": 4761,
+  "attempt_count": 1,
+  "error": null
+}

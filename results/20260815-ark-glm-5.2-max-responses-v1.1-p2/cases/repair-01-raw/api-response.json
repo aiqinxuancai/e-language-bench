@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取较大值, 整数型, 公开, 返回两个整数中较大的一个\\n    .参数 a, 整数型\\n    .参数 b, 整数型\\n    .如果 (a > b)\\n        返回 (a)\\n    .否则\\n        返回 (b)\\n    .如果结束\\n\"},\"explanation\":\"将C语言风格的 if/else/花括号/return 转换为易语言原生结构：使用 .如果/.否则/.如果结束 流程控制语句和中文 返回 () 语句，定义公开子程序 取较大值，接收两个整数型参数并返回较大值；全程未使用花括号、英文关键字或半角赋值符号，_启动子程序 保持返回0。\",\"expected_behavior\":\"调用 取较大值(a,b) 时，若 a 大于 b 则返回 a，否则返回 b；程序启动后 _启动子程序 返回 0。\"}",
+  "raw": {
+    "created_at": 1786805053,
+    "id": "resp_0217868050521842aa527f157b6a110efda50fc2be4a17a233b1c",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680505331800000000000000000000ffffac15483dcc9325",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Need E language code, no if/else/return/curly braces/half-width assignment. Use .如果真 / .否则 or use branch. \"不得保留...半角赋值符号\" means use = or no assignments. Write:\n\n.子程序 取较大值, 整数型, 公开\n.参数 a, 整数型\n.参数 b, 整数型\n.如果 (a > b)\n    返回 (a)\n.否则\n    返回 (b)\n\nWait \"不得保留 if, else, return\" — those are English keywords; E language uses .如果/.否则/返回 which are Chinese, allowed. Also \"返回 (0)\" in startup — return 0. Keep that but it uses Chinese 返回, fine.\n\nAlso cannot use half-width assignment \"=\" as assignment — we don't assign anything."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取较大值, 整数型, 公开, 返回两个整数中较大的一个\\n    .参数 a, 整数型\\n    .参数 b, 整数型\\n    .如果 (a > b)\\n        返回 (a)\\n    .否则\\n        返回 (b)\\n    .如果结束\\n\"},\"explanation\":\"将C语言风格的 if/else/花括号/return 转换为易语言原生结构：使用 .如果/.否则/.如果结束 流程控制语句和中文 返回 () 语句，定义公开子程序 取较大值，接收两个整数型参数并返回较大值；全程未使用花括号、英文关键字或半角赋值符号，_启动子程序 保持返回0。\",\"expected_behavior\":\"调用 取较大值(a,b) 时，若 a 大于 b 则返回 a，否则返回 b；程序启动后 _启动子程序 返回 0。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680505629500000000000000000000ffffac15483db2267e"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 301,
+      "output_tokens": 449,
+      "total_tokens": 750,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 7250,
+  "attempt_count": 1,
+  "error": null
+}

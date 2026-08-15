@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , , 坐标标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, , , 默认坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开自定义数据类型坐标记录及其成员，新增全局变量默认坐标并保留属性和数组维数空槽，入口程序集保持返回0。\",\"expected_behavior\":\"正确定义坐标记录数据类型和默认坐标全局变量，项目正常编译且启动子程序返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151150488529145738268d9d6qsVSHCCZ",
+    "object": "response",
+    "created_at": 1786794652,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151150488529145738268d9d6qsVSHCCZ_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , , 坐标标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, , , 默认坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开自定义数据类型坐标记录及其成员，新增全局变量默认坐标并保留属性和数组维数空槽，入口程序集保持返回0。\",\"expected_behavior\":\"正确定义坐标记录数据类型和默认坐标全局变量，项目正常编译且启动子程序返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 856,
+      "completion_tokens": 1991,
+      "total_tokens": 2847,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 239,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1752
+      },
+      "input_tokens": 856,
+      "output_tokens": 1991,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 856,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3712,
+  "attempt_count": 1,
+  "error": null
+}

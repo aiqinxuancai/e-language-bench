@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n返回 (0)  ' 返回整数型 0 作为控制台退出码\\n\"},\"explanation\":\"重写后的程序集1仅包含一个标准控制台入口 _启动子程序，返回类型为整数型，函数体只有一条 返回 (0) 语句，并用单引号附一行说明注释，未引用任何支持库。\",\"expected_behavior\":\"程序作为控制台程序启动后立即执行 _启动子程序，返回整数型 0，进程以退出码 0 正常结束，无任何其他输出或副作用。\"}",
+  "raw": {
+    "created_at": 1786804754,
+    "id": "resp_02178680475382627e8fc0fa0715a86ae045e34656b3bc83bb7d6",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680475493800000000000000000000ffffac154ca2a9170a",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "The task: rewrite assembly to only contain a valid console entry _启动子程序, returning integer 0, with a single-quoted comment line. Keep format. Return JSON.\n\nThe original file already basically does this. Need to ensure comment is one line with single quote. Provide:\n\n```\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n返回 (0)  ' 返回整数型0作为控制台退出码\n```\n\nWait—must statements be on their own lines? Yes. Keep as-is but with comment. Also local variables come after parameters; no params. Fine."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n返回 (0)  ' 返回整数型 0 作为控制台退出码\\n\"},\"explanation\":\"重写后的程序集1仅包含一个标准控制台入口 _启动子程序，返回类型为整数型，函数体只有一条 返回 (0) 语句，并用单引号附一行说明注释，未引用任何支持库。\",\"expected_behavior\":\"程序作为控制台程序启动后立即执行 _启动子程序，返回整数型 0，进程以退出码 0 正常结束，无任何其他输出或副作用。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680475724500000000000000000000ffffac154ca2590cfb"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 535,
+      "output_tokens": 316,
+      "total_tokens": 851,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 排错与验证\n优先修复最早的根因：声明槽位、声明顺序、控制块配对、未知命令、参数签名、名称冲突。禁止混入 if、for、while、switch、return、花括号、new、this 等其他语言语法。标准入口是普通程序集中的 _启动子程序；控制台验证通常以 返回 (0) 结束。源码看起来合理不代表正确，必须经过 e-packager 预检、回包和真实编译。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 5835,
+  "attempt_count": 1,
+  "error": null
+}

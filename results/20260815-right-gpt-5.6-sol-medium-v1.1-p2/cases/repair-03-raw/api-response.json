@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 统计结果, 整数型\\n\\n统计结果 ＝ 统计非空项 (“甲, ,乙,丙”, “,”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 统计非空项, 整数型, 公开\\n.参数 输入, 文本型\\n.参数 分隔符, 文本型\\n.局部变量 文本数组, 文本型, , \\\"0\\\"\\n.局部变量 索引, 整数型\\n.局部变量 非空数量, 整数型\\n\\n文本数组 ＝ 分割文本 (输入, 分隔符, )\\n.计次循环首 (取数组成员数 (文本数组), 索引)\\n    .如果真 (删首尾空 (文本数组 [索引]) ≠ “”) \\n        非空数量 ＝ 非空数量 ＋ 1\\n    .如果真结束\\n.计次循环尾 ()\\n返回 (非空数量)\\n\"},\"explanation\":\"新增公开子程序“统计非空项”，分割输入文本后逐项删除首尾空白并统计非空成员；启动入口按指定参数调用该子程序，随后返回0。\",\"expected_behavior\":\"统计非空项（“甲, ,乙,丙”, “,”）得到3；_启动子程序完成调用后返回0。\"}",
+  "raw": {
+    "id": "resp_04a879cb874f587b016a8053a210d887d0bb5cadfa03f84b73",
+    "object": "response",
+    "created_at": 1786794914,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794924,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_04a879cb874f587b016a8053a28b3c87d08b6b1959c1e2565e",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFOlAFvhoMZc21EiXxhFkr_K2i71S2rCyOvEUYBl2M2hr-maAiguzgjz_Wb-V1noKeNZ3iMUSM9Y0c5Se2235Emnjtoc26svT6AsUY2OFKfW_61L7ffez5JX654pmddVTggmfKcrlFwKK3tMWfVZwI78XX0zwBgZSyY2BhsOgt0zc7bVURMojEL_2V63usIb4jmXajjid3efnemfeEdjA0DvbO1uNe9GKKL4xkHi-5YTRRTOlQCY5RkhqhJyrVsvUnO_8xEqiru5zGr9nS3w_kFPii-vXZHpB3ltfgyzP6-Ac5yCIAG6tb2W95MvJnKJIHD_ZnVtwmb338C38FI3nDxWlwDyBz1C1tGK7YURWyLJGSM-xweAZcnC9jR4TtyILcMQhQOMAr6s-PGS6bauHMcZgx78QIO2lTXGWnsCENgAvS_XPtoT9YgXDyqE2fZoD9LLN-SMUElTBrrQUftaYiagk6G6OmjDyq2ARda9RsjTPSsUl7o3LGQV6EY0pcqgUxMfy3l6x8qjIc2aiLx90BDhLS4M5cQ4Ui8Bwu57x8ElB5kJeIy7cYb9m7_ZqpOdmIUp5a05tGXopmptARulkdnsnHOySB4eci0dmWzi7_gwq9esHYEjDG5IHUR-R4xaeqOJ3wrcwu9p_O4oflBqbl3NzyNqywypxPdqfdAk4qFq9ujHq2ys-8VRBgZOJmQUHuv7gPWYcIS_Oo5Bn23Rw6JrY_JBabkvh_qf4ZlzPfmD-DRlB_MiJ1fI9I39dQBVMPHclxLLFqI7rhtda9-PxmmrVaizYgPiWkBS1G9lgLZlCXZo046ekwxBhx9t6wg0PEvJnL8ogpaqtwR-RQdtVfpKTdj4oEVVHQcODiSL2XJQR8thYTDvuJbpGt8kHUf6FgkLXbunIpLcJ9xalq8OVIxz-FWHiapbTA0XgUMdRjvCVOTWu-PEiF6Q6NSA5s6UFVG8T2unYOsbvrKBqR_IfSgH-HNcSnqsEXpkJWYfEhJSNXuP0gEaKKyOfCkTszRjhhbuNd2k5kKRFQfcgGGIWKyksHyNH4oYyljKNggh9s1-ApiCq_EoT_O9jn2Y99Y_3LrsThSavRu8VKGVlWm8eKpD5kLPkUcxI6IONkjQZk30T6nrVwga0FMA8o--b-HeBeFb23uSGqdcdHyD2FJP0pTOo2-6ZY0Bo1BunG5VUjMpGTBT5zqTQfDdEkJU7aKeNx_ItRYRBDdEandCkpXh4yMUfjtkOucQI1awvi81rfCtuj7W7VP_Qg9vdhsAwWq115BNG2Iu9Tc9F_2vGITrPaW40lqfsyoyS9gaT0sYz484SEcFYISI4xLRjP5ARM8wZCCLKmrrT6OG_5NwisaKsQnX1Gis0azDI1dtPWUFv-GYLV0k0fuXP46Vo0RJaajeELTsXrVY0rjuZTgwrkl23CpekqvGwGi0-v7A2NdMXUCykE1Aij8QVyCh39M1EIL57z-Hkvj14jcrE8a_cd7nvWe1eL7Zb5VkXEZg3ajew-FzZoXNTRtJb7o0QcK5Inf4_D7vX9dAVDRXCBaYgcmgDLETEeqIMdzKHG6KaP2_e4rc6FWwEAqZoid9-Bv2O5LtJYA5uVAqmE1HUwH6PGIZwTWfFJFZ_yekDvG3O6MhkG9aTJnvoXh0963D_GQO5RmaG5hID4dwua3FzBZEXcwICZTIf1LPgMXpY4Vh-dE4tmDFb_lhZ02oGS8XGDCOn3yUvEWow0qyOup6ptdKChyB3FKHj2lYeczj_k7lQhDQPoPswy2IBLH1vnR340F9kqs3mGfuktRvTq5aDwvxghp-XIpfDVPCHIqeAGxgzw98PmTlbuvWrfLYwxB4nGEwnS_ESiUkO79fBXC_uHCok6Yh8wFdss1j6_fn8fYpKdnC0yaElUSGMO0tBfqfuc_5Zu_fipX1qTMyCCk9zN3Y-l-IN9DXJX-biE1CTIk8kOADlhw2PJ9GBXS7-LQRyOEbq2En0f3jndu4e1tu1rNAt2iBy2vZ2xIArIB4GxqJbx_W-sxKLNAaOgpPgoKiYIVBXLxOuLfO7RiUVExbF7lW88zt_2VU2A==",
+        "summary": []
+      },
+      {
+        "id": "msg_04a879cb874f587b016a8053a59bf887d09c4599bda1d72e90",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 统计结果, 整数型\\n\\n统计结果 ＝ 统计非空项 (“甲, ,乙,丙”, “,”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 统计非空项, 整数型, 公开\\n.参数 输入, 文本型\\n.参数 分隔符, 文本型\\n.局部变量 文本数组, 文本型, , \\\"0\\\"\\n.局部变量 索引, 整数型\\n.局部变量 非空数量, 整数型\\n\\n文本数组 ＝ 分割文本 (输入, 分隔符, )\\n.计次循环首 (取数组成员数 (文本数组), 索引)\\n    .如果真 (删首尾空 (文本数组 [索引]) ≠ “”) \\n        非空数量 ＝ 非空数量 ＋ 1\\n    .如果真结束\\n.计次循环尾 ()\\n返回 (非空数量)\\n\"},\"explanation\":\"新增公开子程序“统计非空项”，分割输入文本后逐项删除首尾空白并统计非空成员；启动入口按指定参数调用该子程序，随后返回0。\",\"expected_behavior\":\"统计非空项（“甲, ,乙,丙”, “,”）得到3；_启动子程序完成调用后返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "a02a2438-9ff8-4a63-b5b6-6db6a0049ff9",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-zL7xKuI4maDJECqtNN8orMk9",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 652,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1062,
+      "output_tokens_details": {
+        "reasoning_tokens": 338
+      },
+      "total_tokens": 1714
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 11248,
+  "attempt_count": 1,
+  "error": null
+}

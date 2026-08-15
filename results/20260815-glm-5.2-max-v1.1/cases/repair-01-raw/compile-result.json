@@ -1,0 +1,98 @@
+{
+  "compile_dialogs": [
+    {
+      "kind": "warning",
+      "mode": "pending",
+      "output_path": "D:\\git\\e-language-bench\\results\\20260815-glm-5.2-max-v1.1\\cases\\repair-01-raw\\candidate.exe",
+      "static_compile": false,
+      "target": "win_console_exe",
+      "trace": "compile_invoked_dialog_pending",
+      "type": "compile_output_target"
+    }
+  ],
+  "compile_result": {
+    "artifact_verified": false,
+    "caret_line_text": "",
+    "caret_page_name": "程序集1",
+    "caret_page_type": "程序集",
+    "caret_row": 3,
+    "dependency_write_dialog_suppressed": false,
+    "error": "compile artifact was not created or updated",
+    "ok": false,
+    "output_capture_available": false,
+    "output_capture_source": "output_window_control",
+    "output_capture_truncated": false,
+    "output_file_existed_before_compile": false,
+    "output_file_exists": false,
+    "output_file_modified_after_compile": false,
+    "output_file_size_after_compile": null,
+    "output_file_size_before_compile": null,
+    "output_path": "D:\\git\\e-language-bench\\results\\20260815-glm-5.2-max-v1.1\\cases\\repair-01-raw\\candidate.exe",
+    "output_window_text": "正在编译现行程序\r\n正在检查重复名称...\r\n正在预处理现行程序\r\n正在进行名称连接...\r\n正在统计需要编译的子程序\r\n正在编译...\r\n错误(10022): 子程序“_启动子程序”具有返回值定义，但实际上却没有返回数据或者并不是所有程序分支都返回了数据。\r\n",
+    "requested_target": "win_console_exe",
+    "static_compile": false,
+    "target": "win_console_exe",
+    "trace": "compile_invoked_dialog_pending",
+    "wait_elapsed_ms": 264,
+    "wait_outcome": "compile_error_output"
+  },
+  "compile_tool_ok": false,
+  "eide_info": {
+    "current_page_name": "程序集1",
+    "current_page_type": "程序集",
+    "main_window_title": "易语言-加密狗版 - D:\\git\\e-language-bench\\results\\20260815-glm-5.2-max-v1.1\\cases\\repair-01-raw\\candidate.e [无编译条件] - Windows控制台程序 - [程序集: 程序集1]",
+    "mcp_endpoint": "http://127.0.0.1:19209/mcp",
+    "mcp_gateway_endpoint": "http://127.0.0.1:19207/mcp",
+    "mcp_gateway_owner": false,
+    "mcp_instance_id": "pid-36300-DB1BE27",
+    "mcp_port": 19209,
+    "mcp_running": true,
+    "ok": true,
+    "page_name_ok": true,
+    "page_name_trace": "mdi_active_child_title",
+    "process_id": 36300,
+    "process_name": "e5.95.exe",
+    "process_path": "C:\\Users\\aiqin\\OneDrive\\e5.6\\e5.95.exe",
+    "project_default_compile_target": "win_console_exe",
+    "project_supported_compile_modes": [
+      "compile",
+      "static_compile"
+    ],
+    "project_supported_compile_targets": [
+      "win_console_exe"
+    ],
+    "project_type": "win_console_exe",
+    "project_type_label": "Windows控制台程序",
+    "source_directory": "D:\\git\\e-language-bench\\results\\20260815-glm-5.2-max-v1.1\\cases\\repair-01-raw",
+    "source_file_exists": true,
+    "source_file_name": "candidate.e",
+    "source_file_path": "D:\\git\\e-language-bench\\results\\20260815-glm-5.2-max-v1.1\\cases\\repair-01-raw\\candidate.e",
+    "source_open": true,
+    "source_state": "source_open"
+  },
+  "error": "compile artifact was not created or updated",
+  "error_location": {
+    "caret_line_text": "",
+    "caret_page_name": "程序集1",
+    "caret_page_type": "程序集",
+    "caret_row": 3
+  },
+  "exit_code": 1,
+  "launcher_process_exit_code": 1,
+  "launcher_request_file": "C:\\Users\\aiqin\\OneDrive\\e5.6\\AutoLinker\\Log\\headless_compile_request.json",
+  "launcher_timed_out": false,
+  "mode": "autolinker_headless_compile",
+  "ok": false,
+  "process_id": 36300,
+  "request": {
+    "exit_after_compile": true,
+    "hide_window": true,
+    "output_path": "D:\\git\\e-language-bench\\results\\20260815-glm-5.2-max-v1.1\\cases\\repair-01-raw\\candidate.exe",
+    "result_path": "D:\\git\\e-language-bench\\results\\20260815-glm-5.2-max-v1.1\\cases\\repair-01-raw\\compile-result.json",
+    "startup_timeout_seconds": 120,
+    "static_compile": false,
+    "target": "win_console_exe"
+  },
+  "resolved_target": "win_console_exe",
+  "result_file": "C:\\Users\\aiqin\\OneDrive\\e5.6\\AutoLinker\\Log\\headless_compile_last.json"
+}

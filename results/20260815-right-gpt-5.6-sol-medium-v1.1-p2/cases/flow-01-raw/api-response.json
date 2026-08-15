@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 评级, 文本型, 公开, 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (\\\"优秀\\\")\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (\\\"及格\\\")\\n    .否则\\n        返回 (\\\"不及格\\\")\\n    .如果结束\\n.如果结束\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 文本型\\n\\n结果 = 评级 (90)\\n返回 (0)\\n\"},\"explanation\":\"新增公开子程序“评级”，使用嵌套的条件结构按分数返回对应评级；启动子程序调用一次评级后返回0。\",\"expected_behavior\":\"分数大于等于90返回“优秀”，大于等于60且小于90返回“及格”，小于60返回“不及格”；程序入口调用评级一次并返回0。\"}",
+  "raw": {
+    "id": "resp_00b68fb69e1cf205016a805309a35c87d094bf6075792528cb",
+    "object": "response",
+    "created_at": 1786794761,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794772,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_00b68fb69e1cf205016a80530a10d887d08527c78e483fc83f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFMQ_DFrsv_d4Um8HqjcAvtxxW-U5CWkqI8Auci4SawjH7JnBzXDJjSjIkOexcot4f44Zv0YDYtVYLWBJ7o3vbpb3bjbCSz821aPf5NWvxXmxzS4NcROkVAZ6jPvgcef3bSLLv-uJSvk8o6FNuSkCUVFjQYmmwgLpKyUihPssNL6vhWhgPTSZinjAv3K1exqTQobmrkovW5KKZkf5orEUzAh1kuNnc9rPBq96NLx8n5KTmC6ZtXq9dhWdepNRWVsf5vmcSZk01NF4m32tXvmUUkHOv20aHjqJdrjHiw7ivOx-MTTLKRYHryAZMXaPLx3ShOqajDrPA2NEuxvmMwk2dzutM-6jfrQlQZ4nhAl992Vo-SWrv296vwGjsvzg57hXaT9BoNGVxcsv8vTyoB8IptGdjqRjwFm3ZUGOk8plWk9MTC5Nqm72H25nZqV5FLIwTU-vaWAe2qGGWrxPcDbG_vxjIJM6NW4jTkgc1UU0ycTJWQv7c20P8N7eYDyEo3kxsxlejv2YMpHO_s1ZKAkX9aGVcrxFbJD4vHYU0nCS7stZKxSuysAYdPndPJAOMz3ZbqywO2RpVhDfH-c_G6ZDzncrDGaemqScBeyd-AjTNcLbP6Np027jlGNtGBW1KFVPDYBgFsGbYuySF7tviFqh7vIVfV1kuEOcmegC8ZXC0AnLzKnpxKanBPed6W0TLVFKoNW_sxYjgKH1S-rCSWKZPTv5FGtyWmX3AB2Y78Okmsde93LQ4OXs5j_IXOxGd6K67NWKZqpmDSQRvmSIeBXbvwtPiQv9jE_mCCQ26PVKas9nrFPrXD-5hZS12fD2jYZWbbeHyy2-Op9W4uMkIVwzG1plathVwYNo3rtX218hWOSq9DMt_ZgrYZTjsWAkRoujE_8TbevBXs09744HOwftqGZ28GLUtH-LYMW5jvwNEOSEHpNlNwNjpnWb27CvruSrcmAbQNWFLfWbP7zJ0cC5SU_W3y7m-Qzcqog_UNKsoqMzxyq4aKTDPUYvmA-bPu3YH04Yji8hUB7zVfbTj-kAbNRPCK7_5Ot52_FVJkzhZoDvMrvzmdZ-1B0-r6JBKvHM4Q9nUmXXNZljQFzZykFqe2R4Fdpce-33L05YZJVQgZseKLWO2dxbXJgKgus314pRLwqwHdEtYdszT97CuxwVORhkI-58yuZNm2U6UUBL793KmpQZxEimsduFaf8Ro7G4LFXWTjpG_MV1SqyKEQrIH2guNQ9n04YB3aP0yvKNAwj_kDcyE3C8AHfIfj4Dm-meCUgdUS16uPxArCDz6pjHkO5LNKwAvS22B3JFNtsGeqarH1pXvH8i-aTJvvS2YpXcJXnTAH9lzoVFmJzHhTpMDB4xKJMWE9rt9etmEzyq_vt5Tlu1EQh7thde6oO1z8laapHgNZRdxkxelXeh4TvyCnD05qvSerpNgvSZbWzWowYg5OvI5klyby6xsH5941R_0XhWYOyoRt93aL8Lx9Eos66u51dzzsEaP8PpZMwqQvcqcHM6s0EbpZjNSy5wjY-0BMnj7eZInOqK8c-8iq1n2yl6cAArWuyDBEA5TAZKw1SrMMcjnAbT_3_q_KyZRmhyI6UYdz5KAkilBpY4dppe4lMrPjG0QtWCgo0g28gcohv6G1c0EQ8Ymi93LoHTXfoBTIUrTq1Sq8ab8Ln0Wrm0kTZiGXTE2TF2Oj6EzsdW7lZ674TPJOWHFwRIwgKPhh_t2oN6HGpHQKW6k_rroV0t4lDxLzbvxDe07TJ7Y2rHCex-4IlypckEVz0t24r89C3l5xC2PCYnozIXOPrKe66AKS7VcboUFrbht0su1EDm7TmlRlYG7ErrUA1bN_mPpi3HUiz35L5ZJr06ncWLWVYRYMwaz-Ce88hotOT0OiXhHCEXH2Fzn4mm2smBgr5ghN7XutHRuBmy1xUw755cUcSsxWslNISa04WFqZ0k9ar_x3NVnsKJe91uSE4qkb-ZU2gon5sSS0m2pRsQc2S540z1fyFQhNqoq5Q9xdyJs5tFCxGJWkOlG0MGWBLLMenfC2LJwqnW-EAC1QGPArkdF91B65irFJHsR8jEUfUn8agkxJVTNPbSNsk8O7ClPc4BxSl2RxS58-iKhyCSmDNxJ7dsrx9pPyY61IEtG-rk1SOrdr0n1LheZWLYwysUN1YA6GQjr5XVsO9QqvLMG0FTQInN9fjrjFi2V9l5_170gllcQ-ynXSqACSNHm0jvRgd3pJaJWgIKOIgRVX5DDexyRY0C6tmYDifoqVmpjeJ5ade8Lhaf_c0ibKtERsYVg4uzUkXxzHJYt5tBBhoSBdourTYjvlC4F6Ptr7nszAu3qEhBUHhTGXm2kHp27ay9g4dc4kDwEUk3WFnpbo40smnT7spBMu_-c9k7ArBrPDGh0egs6cV2cK4_4CF2-AFHBBK3l1RNKQRnhGg-CguqbSp1kX2ihsX7bns_NQhnA4g1kZVisU4mDBi1JClsJLh8DsfGHhvr9LdSEOlrdWCc0zq5ecfQy0Elh_JiWNnJhEq8o2_uSzVDJYE60Pfve56PPCKbdzeL6rHKorpjsKmcVAdEakzRkX9NQiexNHIhcMGbOAiaASbYYPCJlbMAhjTiWndo4eHttT6wAsAGn4RiGL_7Rt4kZopZvcbIgWHUK_Rwp987Gn8ztftDQvP5eQVQpkVzN5qhKUNB7gfBpcWiUgI42qAl1tnte4f1wiBXGseKNufbo1N1imf7erRLzBBgpWJUsAMciE7T6T6Ia8ew9Yhq-mWh7sP3ewZmaYhMNBFPXypg6nI5qMqXsVGUZZ_e4aX5YyVD8fAO6gQX4GZvcQnBcE2Okvq_HNjVQ9Pkj_m6-06yxuXOWjARxqeEOuovkWMy00SqVepQX3TtkH402kNhOM8-jxhhm9wGiOS_lUZce9SpmST7hZ6xCbOvs-HTGigq6mV3gY9Qbybd361DhqExhRCZarqn56TiXgXkZ05VFUX_UsvAm3XoNwB6nvU0AX-FS5hscME",
+        "summary": []
+      },
+      {
+        "id": "msg_00b68fb69e1cf205016a80531015a487d08ed9e5d57f0abb0f",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 评级, 文本型, 公开, 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (\\\"优秀\\\")\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (\\\"及格\\\")\\n    .否则\\n        返回 (\\\"不及格\\\")\\n    .如果结束\\n.如果结束\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 文本型\\n\\n结果 = 评级 (90)\\n返回 (0)\\n\"},\"explanation\":\"新增公开子程序“评级”，使用嵌套的条件结构按分数返回对应评级；启动子程序调用一次评级后返回0。\",\"expected_behavior\":\"分数大于等于90返回“优秀”，大于等于60且小于90返回“及格”，小于60返回“不及格”；程序入口调用评级一次并返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "4fcab496-6778-4206-95f5-3d4b9b58e448",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-GkJ2LWkYi5jr9K8kxrMGgaSQ",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 636,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1168,
+      "output_tokens_details": {
+        "reasoning_tokens": 666
+      },
+      "total_tokens": 1804
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 11761,
+  "attempt_count": 1,
+  "error": null
+}

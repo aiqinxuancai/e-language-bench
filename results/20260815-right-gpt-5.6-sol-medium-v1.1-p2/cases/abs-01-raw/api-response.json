@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过整数型参考参数和局部变量“临时值”交换两个整数；启动入口声明并赋值两个整数后调用该子程序。\",\"expected_behavior\":\"程序启动后，甲初始为1、乙初始为2；调用交换整数后甲变为2、乙变为1，最后返回0。\"}",
+  "raw": {
+    "id": "resp_053689d3e38ed74f016a8053481ac8819889507ce586834ec8",
+    "object": "response",
+    "created_at": 1786794824,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794834,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_053689d3e38ed74f016a805348ee188198b8712bfe99cbc518",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFNNSV-mKbFY1EWodqMW6HqgCEbsVlJ-eHJTKXt4DYXW1BmfGnO-e-gJx4sjsqIFwqGpFSNFQVmi13NL1zubc1yevFW0HNaPZNX2d25IzDsof-oUB_Zto6LITv4eAcahbxIs-PRQmmgKEmqXPO4Bt5lk0dhtI5F304kF7l592wSRh-bYSrWyLNS3A1WeeyyoOvdAulBeWcUAhKCg_LEm_Q3KvgmOf-uuz-wK8sxYKtXrBq425V5S53nMHC2svq1xBUfzxUZpOI8iyOi1QLCNbxkHgCmLaGvhhtbX_kTnQhQLUtP3XXypqeTHO6VqusNX8Bjku1XqxEOh2gp_jJLqKp32T1IruK-fF0IeEpUMSCmTztkVxOW1Pvcg4b9J9j4Ss9tI7F58RCmQOXuFiqXGL1tg4KtUoqys40ZyXS5gIN2F8T0KWXXtFtRQC2SvoIGToS3PRc7thX-NsX5STsqOsw3graoczoWQUiIeVVbZJDgTpmMxz8oWbKDm8rAtifvtVf-cOGhbxLgtIMt_tTLuoZkgj7ty0-tyi5B-TbYyotuWat2uwb0pZvnikSLAdEhXA9dIB2KYifVzURNlnaPPxqs96x13fvov3OPHLbmthCtUd6wcgrBK0Zu3QZNprZDJqkle5nz8KMmud0hluYFLZ97nclFaU7bf055R8Fxo__4s9oZ3SJqpKndlsVwJGcIPxYLVVfg01bDM0MGwYqosaB0UuKc3Jm5SBmqprAkyaPjRLLmp1FzACDomiBZSQTKoH6_KCyWKGBf9nP0UZvFj5g9C4H4qLpp2Jnx1OsQ2pWIBxJaWq3iyn64vwSUWBk7YmNEbzfA-_TGfwSOZqSFPGCe305jVvUR5XoZk69dEdkyYPhri4aAPOYvDu0ds9NEyZAb1ykTx0SgivFMthITLwlnycTgfico2UpYHcUzWYzmiTmy1XfKp1edoHy-jRLlk8Njir4tdyQ6LjrnSowEHDqoseAnQVGpXSNyKT2OSxPbU9KM5HeVaI5afHO25JApcIBx0l0ygxl6HRH6G-DEafzDCbsSRz7xjHLLXWo1pL_cbJFtvKR3FxJ_bypBgRm7GJFi2jlrqSavXxztmVc-_eqPieSU6QUS6KM-0bkPNDeKk2xbrwE_M9VYLzP42g3b1KlYP1s6iHysQ9qAespkG42_dp6Pq_iyBchg8hW_iVFLcUWL-aZzsD-fpRZIYiz83MRCwDHefcUm72RcPr2wDxbpAWNx_yBEIbT9-k7uZ6Ef934dHrBXTM5AJ4lnkj-bi0lU39Gk0s5DJF4KseL6ErGPM9his8ZjWAyacs9IsIEsCul_1i62QBvr6jmrN7djUi4X5Is91vGzUUss3ahi7t1OyrohyY4pmMVJ84FtD7vJIm3JBssdGSStcP-qACFt03QGIFz7XC1RLUkSlyp8m8sh4wU1Zfx4FiV63Os7mXfQTgY-O6kbpQOH0HgHuo7F1IRQnhuvVxocKsauGcAw2DtWneGjo9aCtwjCU5PuH44lAS8mLy0T0CVkvzjvLDZ3So4gF9ovAGoBDECQhqTWR-v0wZRDMwxNP8R6CgIIL3pJfeg8j5kQh6j9v9lo4asYEqwyOXmxoEu7ixz5qo0Li1vVih2w0hlDdeDVlJDO557eriaBqUVTwnOWO8MxJgsEddQeAk13q4Uf7wODdFjTojKdltRFgr0yI5XK8sV7SdwQwQSyLOJe-fuROKP_JfiVQLmx-dmeHnU0AE4aN8KTldfF9iqm9vxO_bmx_oyAg0f7uMaliB230xqnmSFebE9zUPqbYUd21yxJMJMk8Fy_hYPIXYXzgZnw92sYe4jY8c5dF6lF04drzM1Jc_p7FZZuHdkCWfPSs8Cd2frWLYFMC7iRc5yXCtBynKvbXhzp--8Z7ERI7nJrwf4Qv5jGIyLMcuxmBU1B8-4VZwymnPyzVwJahKGyEo2yXEsDczdRzgxikKzVA4EF0uty5ZFks3BZcQEfdALoXQVNdYsmwyHVEn2W6IMpUl61tv_3C6pm-njqXdFnp7PTuKa_aOUm57qREnV2VCMALSl7CM6mghRAxyLA7tjAEhjxsWCTrizUBqP2eXVQoGuRAMbKndaeIVTWjN3v-dkv8RpLnPTv2IHVGQlsM0CiFNBWUKX9GlnTTBmOE_yjN7MCn-cV_HzMcrX0rnTb1oxNI5uEzphZX7Paj4hu0hodqHOVwm8Pjup3fYGh4N0rQbJTId5kkJ085ueklOJc0ApvNlWF4tG4YuOzHpAH7ZXaHC2x6BaHWq-WKqae7m0YKoeDiyL-rK9YhfHmvMKNDEaPJbvyZuJMHcJm-ZOY7vre2gLAJotFfrYja1eHCYOQ3Yb0VgosJu43SPl-YbyqTmrvtpEXr4cWqBEI9L7FVkmJmCS3t_g_fus086LpWT1t0078Ln3R58RvN4xIYHcRjVe3gKwd5JTdM44EcABgc6YX2qRiHQEs7Xx_o7mIPNB89rKGqWEsuQGk5N7FagZQ3MV4Om2MZdmL6cFLRg-LDdkE0hZCJKKV1iI1i4JMPWWo=",
+        "summary": []
+      },
+      {
+        "id": "msg_053689d3e38ed74f016a80534db4a8819894c2affa541f4eab",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过整数型参考参数和局部变量“临时值”交换两个整数；启动入口声明并赋值两个整数后调用该子程序。\",\"expected_behavior\":\"程序启动后，甲初始为1、乙初始为2；调用交换整数后甲变为2、乙变为1，最后返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "b68f23d6-e080-4f1a-8201-83fe93070b96",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-cDLpkmHSjOAiIjGjBMLCdEGN",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 582,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1076,
+      "output_tokens_details": {
+        "reasoning_tokens": 528
+      },
+      "total_tokens": 1658
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 11304,
+  "attempt_count": 1,
+  "error": null
+}

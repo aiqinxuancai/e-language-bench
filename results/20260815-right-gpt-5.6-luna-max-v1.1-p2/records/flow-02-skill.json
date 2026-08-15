@@ -1,0 +1,166 @@
+{
+  "task_id": "flow-02",
+  "title": "循环与跳过本轮",
+  "category": "flow",
+  "track": "skill",
+  "response": {
+    "ok": true,
+    "status": 200,
+    "elapsed_ms": 1002309,
+    "attempt_count": 2,
+    "error": null,
+    "model": "gpt-5.6-terra"
+  },
+  "state": {
+    "contract_ok": true,
+    "utf8_ok": true,
+    "paths_ok": true,
+    "validate_ok": false,
+    "pack_attempt_count": 1,
+    "pack_failure_count": 1,
+    "pack_ok": false,
+    "reunpack_ok": false,
+    "compare_ok": false,
+    "ide_open_ok": false,
+    "compile_ok": false,
+    "semantic_earned": 10,
+    "semantic_total": 20,
+    "diagnostics": [
+      {
+        "stage": "validate",
+        "code": "expression_syntax_invalid",
+        "message": "flow condition or selector cannot be parsed",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 12,
+        "deduction": 9.0
+      },
+      {
+        "stage": "pack",
+        "code": "expression_syntax_invalid",
+        "message": "flow condition or selector cannot be parsed",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 12,
+        "deduction": 0.0
+      },
+      {
+        "stage": "score",
+        "code": "pack_failure_attempts",
+        "message": "1 e-packager pack attempts failed; format deduction is 15.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 15.0
+      },
+      {
+        "stage": "score",
+        "code": "validation_failed",
+        "message": "total score capped at 39.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      }
+    ]
+  },
+  "score": {
+    "scoring_version": "v1.1-pack-failure-count",
+    "format_score": 46.0,
+    "format_components": {
+      "contract_utf8": 10.0,
+      "declarations_syntax": 20.0,
+      "flow_names": 16.0,
+      "pack": 0.0,
+      "pack_failure_attempts": -0.0,
+      "roundtrip": 0.0,
+      "ide_open": 0.0
+    },
+    "pack_failure_count": 1,
+    "pack_failure_deduction": 15.0,
+    "compile_score": 0.0,
+    "semantic_score": 50.0,
+    "uncapped_total": 30.7,
+    "score_cap": 39.0,
+    "cap_reason": "validation_failed",
+    "total_score": 30.7,
+    "passed": false
+  },
+  "commands": {
+    "prepare": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "unpack",
+        "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+        "D:\\git\\e-language-bench\\results\\20260815-right-gpt-5.6-luna-max-v1.1-p2\\cases\\flow-02-skill\\workspace",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260815-right-gpt-5.6-luna-max-v1.1-p2\\cases\\flow-02-skill\\workspace\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 288,
+      "timed_out": false
+    },
+    "validate": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "validate",
+        "D:\\git\\e-language-bench\\results\\20260815-right-gpt-5.6-luna-max-v1.1-p2\\cases\\flow-02-skill\\workspace"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\nvalidate failed: files=5, lines=27, errors=1, warnings=0\r\nsource_preflight_error: file=src/程序集1.txt, line=12, code=expression_syntax_invalid, detail=flow condition or selector cannot be parsed\r\n",
+      "elapsed_ms": 570,
+      "timed_out": false
+    },
+    "pack": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "pack",
+        "D:\\git\\e-language-bench\\results\\20260815-right-gpt-5.6-luna-max-v1.1-p2\\cases\\flow-02-skill\\workspace",
+        "D:\\git\\e-language-bench\\results\\20260815-right-gpt-5.6-luna-max-v1.1-p2\\cases\\flow-02-skill\\candidate.e"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\npack failed: source_preflight_failed: files=5, lines=27, errors=1, warnings=0\r\nsource_preflight_error: file=src/程序集1.txt, line=12, code=expression_syntax_invalid, detail=flow condition or selector cannot be parsed\r\n",
+      "elapsed_ms": 277,
+      "timed_out": false
+    },
+    "semantic_checks": [
+      {
+        "name": "计次循环",
+        "passed": false,
+        "points": 5
+      },
+      {
+        "name": "偶数判断",
+        "passed": false,
+        "points": 5
+      },
+      {
+        "name": "到循环尾",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "循环闭合",
+        "passed": true,
+        "points": 5
+      }
+    ]
+  },
+  "prepare": {
+    "argv": [
+      "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+      "unpack",
+      "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+      "D:\\git\\e-language-bench\\results\\20260815-right-gpt-5.6-luna-max-v1.1-p2\\cases\\flow-02-skill\\workspace",
+      "--main-only"
+    ],
+    "exit_code": 0,
+    "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260815-right-gpt-5.6-luna-max-v1.1-p2\\cases\\flow-02-skill\\workspace\r\n",
+    "stderr": "e-packager dev\r\n",
+    "elapsed_ms": 288,
+    "timed_out": false
+  }
+}

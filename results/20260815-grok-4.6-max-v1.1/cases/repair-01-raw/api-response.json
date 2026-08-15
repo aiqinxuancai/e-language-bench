@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\n\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.公开子程序 取较大值, 整数型, (整数型 a, 整数型 b), 取较大值\\n如果 a > b 那么\\n返回 a\\n否则\\n返回 b\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n取较大值(a,b)\\n返回 (0)  ' 可以根据您的需要返回任意数值\"},\n\"explanation\":\"用易语言中文语法实现取较大值公开子程序\",\n\"expected_behavior\":\"入口调用后返回0，取较大值返回较大值\"\n}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\n\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.公开子程序 取较大值, 整数型, (整数型 a, 整数型 b), 取较大值\\n如果 a > b 那么\\n返回 a\\n否则\\n返回 b\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n取较大值(a,b)\\n返回 (0)  ' 可以根据您的需要返回任意数值\"},\n\"explanation\":\"用易语言中文语法实现取较大值公开子程序\",\n\"expected_behavior\":\"入口调用后返回0，取较大值返回较大值\"\n}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786779980,
+    "id": "3c550b7d-aa3e-9506-8cb6-16e7e276f82a",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 5250,
+      "completion_tokens_details": {
+        "reasoning_tokens": 5104
+      },
+      "context_details": {
+        "input_tokens": 493,
+        "output_tokens": 5250
+      },
+      "cost_in_usd_ticks": 321980000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 493,
+      "prompt_tokens_details": {
+        "cached_tokens": 192
+      },
+      "total_tokens": 5743
+    }
+  },
+  "elapsed_ms": 68433,
+  "attempt_count": 1,
+  "error": null
+}

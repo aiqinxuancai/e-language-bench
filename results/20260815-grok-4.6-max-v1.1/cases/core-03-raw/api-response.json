@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n声明动态数组 奇数数组,整数型\\n调用 生成奇数,5,奇数数组\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 生成奇数,整数型,整数型参考数组,整数型\\n形参 数量\\n形参 结果\\n清空数组 结果\\n计次循环 数量\\n加入 结果, (2 * 计次 -1)\\n取数组成员数 结果\\n返回 取数组成员数 结果\"},\"explanation\":\"新增生成奇数子程序实现动态数组核心命令\",\"expected_behavior\":\"入口声明动态数组并调用生成5个奇数，数组成员数为5\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n声明动态数组 奇数数组,整数型\\n调用 生成奇数,5,奇数数组\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 生成奇数,整数型,整数型参考数组,整数型\\n形参 数量\\n形参 结果\\n清空数组 结果\\n计次循环 数量\\n加入 结果, (2 * 计次 -1)\\n取数组成员数 结果\\n返回 取数组成员数 结果\"},\"explanation\":\"新增生成奇数子程序实现动态数组核心命令\",\"expected_behavior\":\"入口声明动态数组并调用生成5个奇数，数组成员数为5\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786778724,
+    "id": "b5b542f4-1e1c-97fd-b937-1fb4592f8f63",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 4667,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4478
+      },
+      "context_details": {
+        "input_tokens": 496,
+        "output_tokens": 4667
+      },
+      "cost_in_usd_ticks": 287060000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 496,
+      "prompt_tokens_details": {
+        "cached_tokens": 192
+      },
+      "total_tokens": 5163
+    }
+  },
+  "elapsed_ms": 30519,
+  "attempt_count": 1,
+  "error": null
+}

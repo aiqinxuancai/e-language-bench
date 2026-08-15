@@ -1,0 +1,86 @@
+{
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.1-pack-failure-count",
+  "run_id": "20260815-deepseek-v4-flash-max-v1.1-p2",
+  "model": "deepseek-v4-flash",
+  "reasoning_effort": "max",
+  "protocol": "openai_responses",
+  "wire_protocol": "openai_responses",
+  "observed_models": [
+    "deepseek-v4-flash"
+  ],
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "run_status": "complete",
+  "total_score": 46.76,
+  "track_scores": {
+    "raw": {
+      "score": 42.42,
+      "format_score": 55.97,
+      "compile_rate": 0.1333,
+      "pass_at_1": 0.0667,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 10,
+      "count": 15
+    },
+    "skill": {
+      "score": 51.09,
+      "format_score": 80.53,
+      "compile_rate": 0.0667,
+      "pass_at_1": 0.0667,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 6,
+      "count": 15
+    }
+  },
+  "skill_gain": 8.67,
+  "category_scores": {
+    "abstraction": {
+      "label": "子程序与数据结构",
+      "score": 55.19,
+      "format_score": 74.5,
+      "pass_at_1": 0.1667
+    },
+    "core": {
+      "label": "核心库指令",
+      "score": 46.98,
+      "format_score": 75.33,
+      "pass_at_1": 0.0
+    },
+    "flow": {
+      "label": "流程控制",
+      "score": 28.52,
+      "format_score": 47.0,
+      "pass_at_1": 0.0
+    },
+    "format": {
+      "label": "格式与工程",
+      "score": 59.69,
+      "format_score": 73.67,
+      "pass_at_1": 0.1667
+    },
+    "repair": {
+      "label": "修复与综合",
+      "score": 43.38,
+      "format_score": 70.75,
+      "pass_at_1": 0.0
+    }
+  },
+  "cap_reason_counts": {
+    "validation_failed": 11,
+    "compile_failed": 11,
+    "none": 3,
+    "pack_failed": 5
+  },
+  "pack_failure_reason_counts": {
+    "source_preflight_failed": 11,
+    "function_not_found": 1,
+    "semantic_method_rebuild_failed": 4
+  },
+  "pack_attempt_count": 30,
+  "pack_failure_count": 16,
+  "pack_failure_format_deduction": 240.0,
+  "completed_records": 30,
+  "expected_records": 30,
+  "infrastructure_failures": []
+}

@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , 坐标标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认使用的二维坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开自定义类型“坐标记录”及其 X、Y、标签成员，并新增公开的全局变量“默认坐标”，保留数组维数空槽和说明字段。\",\"expected_behavior\":\"程序启动后直接返回 0，不读取或修改全局变量“默认坐标”的任何成员。\"}",
+  "raw": {
+    "id": "resp_03255ec092e4092e016a8052a8184c87d0acedee1ccb3ed658",
+    "object": "response",
+    "created_at": 1786794664,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794680,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_03255ec092e4092e016a8052a9af6087d085c6db3550b273f7",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFK115fvlAM-SGAGJzTn8zAFeUBAf6pwnJofM_Nx1L-g-jlE5Ny8Co2SLXLb-1BV9MfJrSNtPTxEfo9nszQf0Iy75DbpAHxYPmTdf-rniSfhg0_Qzmp8fkzz-0fPnSZ3UBxWgvFI1zj-3wEJ6NlayloLmkB9EgepwBMeyyoknkNvmCnmXGet-6Z1RI3g026bmDg7LAbzcwdwoXnZs_mAQOjldUl4xd5tnb2uj0oYAaRoZU_blw8VMrP5LUDdgoBPNKaNR-Px4lWJ-7-x0L5lIOvywXadFnX-g-B8DJ3hmblQU-VZvKgmJErwbFFhdC8XXQSNOtgK78d7CJPSB7q2foh5VJIInuv3SCu43Jrot5zFH4r1Yz8WPdsUqWyVAzFOX36vN_sxdB_xHrG8TkfenSlQGREDZOjLmJ14cepDRWVpnsMizkCEOTwHfbF9mxZF9QdqVV96hd4JmmCsbjOYR5EeiU2OB9WrHiF9c9yDUw0k2KyezAskoUK5RYTx3xFpEF-TnGhSvD2KI4ztasY-w8LqMccu7Tm1jY3HdVROnLdbvq6orlryqhwxyEH6v37FnDou_S1anwbzlhs-p_8BoR0odHSX1B272h_vuLLtiOaC264uKDsTD7ELmRRVX4bcK8jmltgl6jB47Rn1L--gMrsXkG7eZMJpIrRJkm_MZ2al0sC8qM8LSgIoTpDlUElW3-SxUSYFHuACEK6U7pAAzdNcAXoBjKyykayRc8MjLztFprC2TzTQL1SmYr57aoULlX7OItrJbMVUGYMupGVRmpyxjmxOf5ifckm34znySar1gFRD9P-eHncMGNUhYuEasq-l1joYOrx7N1Sqv1J_szwzyWuyR4NtZAk21q2jV5kpFQbUwNf-bmS7qrprsJ96D7mq-nZbSk8ZRP6mZF_0Z4wrK5dcvU71AEErh5xw8CgxPHvuu6Vo8AKqeSgwsCZH67W-B0cU23bOyYrOn1ccHtiB_Gwr5tfj_jyxRDlJIgDyIpF_CdMzSo4Xdv_uyRoAMyYUq0a9ilEV-qKUFeBXFSu39ds971URxqn1F5eK5q3hfZw1ZIDdkCaPxucmgAV4ORGhy_IYKamCZaEVjU_x-3fwBeUjc8uES6vSsJaFm8WqzOLvhgnlQVM2kGnSwGb0l1uy7Wp5DWa-iJ0t8dfiTsQZuPN_J0KmGaRnvMYgWbuDhJcuGwuMZ3a74T2m4g8RfICwjfAOn3-cLCzer1RKyxxbdP9ZBjIFshoma-pReE23bV6usGzO461MX970y7RxjUPymvqK0Lub6tKZvvqUelDuXEmIfeX09ilEpOM7ITTRWnTx6y434C1qUZlOoUkTxjwLastLGkLtgPmOkcvabfX2_QAfpoi368p4xJdSuyazjkhHrJu_ZVmo-9hWLvDdj4GuN6bEeN4dQQKqvLfzZr1hJEiJi2KcOkFqrT2__IY9s17UWL49wAqkg6Xrve23YkHQi2uCdkAF7cYw7IfxpWCYDjd9jCmJnjJi1Eay4yObq56PgC7o-GQPEZf0xbiRobAPl--aac3-p0ni2-_MxyBQcf4DQJ0ByLgGEeS71ypTnkx1nyK9rV3UiCMS2s6ASvOARGVlqe8IE9fzM7-VBq10U27LVjOM_eF0ZN2jZpRpHb7wyFtU5ddscSBqXLJu2w9a0hFAcl-zMbJWnhaflo8TYuPsSMZbblALbQtHMDzkBF-eBmNwkGedYrD0BxtL08UXu9nl3wW7s4fNWyNwgw5mIqMPh16xphqh5CDV6t_O-O9Jm8s8PZDwcpicKhhYebonVT124J7PNPIBHsSDdz6_--yVTObxBEv2pAMDYQ8cTKkP4nqcyD5bVya6a41rK1hUgUhHjMmvjF-iGoxFZ0iphNYGfOQQ_rxCNNAIvvc3Cjb4JgcZNqAysfnx7QlhSm0moN5GTm_bKRYclKfcmQKZOfIm32cext2DqpxRfcT5LqKfI7a-dr9U5CigVo_Y3bG1LRoOgINKmWm1le6-k8Tr8qaFIE72N78uunRaLZytajCJgUAeV2GFzTEXocjM2VHQ2jK_LcJ2PYzBt3bxEemPhbQh_7-MpwJu8rajBpR9_lPsNt5LUJ1-OzSNXQ7ABPdvxUqX9itLPFfzQqqik4uN6q2X5MZelQfgDW0qRgkgZ12BaJTejiVYRBRF13hn5SlSV7sJVNrmkEdMd_3TfA9YOxkZuwsXvK4dT0clEmmiffjF58YlaCERCBW26fVEdbSD_JEc3BmVh5Q_mDRAD6cQxX-15ztLROzhzvAJLP-M6Sff8wDw2VWKJlrb6QkLGM2OeV3M7VstvQs7aVuiwR7MOCIFXtw2DaD0j8BpfyE4g-upHsHMbp3iUYEocGcr0cOWXnagSjeoMUGUzHIl6gBb7tUeuRpoQAK_nLkQnhUbryKle-AjwD8D88F1b7EjPugEt8G-8bLx0nJYfjvIxXvHMC6JET_AOyxU_T7VcHYzFNEZOfgRp0-9R1uyw6CY4bafG3K3wJVCmsS1tAS_kgGQujhYlhbYcgyxxdLIbYEVXwP9x0h2ZtRgf08IOLaiGNqhimUgIV3RZ0RvUl1ak3J9k0tJeobld_-nMxBLM9JjNxXnlYjnDs-zX6Co1NBjzf1u-UBR5FRMQyd0m4OndedLaHP_rrQ9kliDiRwNxh8RjZifwbiWQrZ1y_9LHxcU88GisrXw4U4b3PnUf3aWfnQTjTmeEKf1snFa2awPEI_tRI-wCwcZtjh1Z7suts6Jx0pKrUuhau_slobMTtC3EmAnbVDjyvABEhKL773Ejhu_lna3yr8NwGZSxz3zQ6P9Z9Zsp8Z3T9Kn3VtbhuxJJ3WXh_ltCApZDor1ZQIRp0JoZu_mJNe8U56Sqv7E6EJ9H3cTrGenfDU4Iuge0jKzMphpDWaJM4h2sNukqH5DTo0FVJ_p-PZ7IjQ6RzoOaGlM3JH_GF6fhbELPscKGx2RcxZK0uNSYqWCxR5fXM98xfe-bkzDT1kITW0ojOJu9gxzcQfXtR7aRfbgKicvINlB5hXOxobcsuRhyIZLesAPBBZx05scPSfRHS0OfgeZpobaFkUIQRHbeDcW_XCmzTJz91BR9BGKzUp3ieDp-_Mij8SQn2IYflMHHf23ZXJFc2d7FBlH1ptSgTtitqeosXH1LDrdHuHXP_pTinhOhZQHQByeFZfN7Y7ZeQn7nMMNW0N5eAeHJp5PTp5_K77GTVkqSkIzAPYorSXR5oS0LxJWAJ9aojKJiZlde61YuV3fx2ATl3Wiz3hRBHTZ9pq4KFXHSeGf4RIRCEgkfd4yfq72IUAEwLHwnwPNkwUJxihLercI2_WXvJNZSfNhP9wgvwUYoKxSU6BAdrWj-LORSTDBhSilvWIoJdpMN48Ey9Y9FPkgHozUJOUk0YZroBkd4nhexmszbz-F7S-aMTaX9jpSDf8byWJY2SVkKGG2Z0tKPHG39zRRFXW9MQxABPpzqwZ5pANcSafcwUHEhmA2Ytt-urtiJygQbPpc-nAcr9R0aI5QPNRAh03qGzbHa5_IvsoWmqMDTNjskXSA_p34D54Hu1qDe2ftP5wC7wtqxHXUUjjsJJ_hTMIx39X0UaNBtOi9Y7fSFvtTscIQtRUrWio5mMDpFEEfI5sxO6LC1RCOy2w9Z1gzYZ_o0jTgE2NynDAGSqjJu34Prz9_VjPaFTURmIoCC5JEmoGtOI8R1dSXuTWQJMPJuxlur0CwjaAokEjLftYw7d6phYGa903HbSE45GLWwxrOHbrAaX6-bBtscCW-ys6urNf9n9v81QICrWs1CHZ_E5P7QakHw2VGPXa3j1SL916XGYx60R01DUm1F4ZHCXJhT2v8uxRwKKAy5ZB9oLA7mEqxXXNHjDYz3m3FbzmCb_pLlL6LIGlXGmGyhE3ADgFQ1u-GyhjvZ53jXuYQWaTAdDZuoM1sqdmygdjqfQSjIgatA7Edd2IgE8xVcBNNyVdjBdPX_X9EaKIW7D1TewxP72a8P1hV4xzjtZr8mmyCj8A1S-2emVLNRp-fghsL84tRw5BgtTo4HkpP4Rm46u2hZitBvt2YFcRRiX-dx4O_38av5KZ90VruMMA7Fa6Y92pz",
+        "summary": []
+      },
+      {
+        "id": "msg_03255ec092e4092e016a8052b5422c87d087d622b83f8cbd2b",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , 坐标标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认使用的二维坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开自定义类型“坐标记录”及其 X、Y、标签成员，并新增公开的全局变量“默认坐标”，保留数组维数空槽和说明字段。\",\"expected_behavior\":\"程序启动后直接返回 0，不读取或修改全局变量“默认坐标”的任何成员。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "792d7115-59a8-40bf-aa5f-5ff0bd2a402b",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-YXuof1UgAsgyxJSWJRWoVarO",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 708,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1528,
+      "output_tokens_details": {
+        "reasoning_tokens": 1032
+      },
+      "total_tokens": 2236
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 16809,
+  "attempt_count": 1,
+  "error": null
+}

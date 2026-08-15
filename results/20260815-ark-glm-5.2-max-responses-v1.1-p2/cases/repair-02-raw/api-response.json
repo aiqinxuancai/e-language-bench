@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型\\n\\n安全除法 (10, 2, 结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 安全除法, 逻辑型, 公开, 被除数为0时结果置0并返回假，否则计算整数除法返回真\\n.参数 被除数, 整数型\\n.参数 除数, 整数型\\n.参数 结果, 整数型, 参考\\n\\n.如果 (除数 ＝ 0)\\n    结果 ＝ 0\\n    返回 (假)\\n.否则\\n    结果 ＝ 被除数 ＼ 除数\\n    返回 (真)\\n.如果结束\\n\"},\"explanation\":\"在程序集中新增公开子程序 安全除法，三个参数（整数型、整数型、整数型参考）全部置于语句之前，使用如果…否则…如果结束双分支：除数为0时结果置0返回假，否则执行整数除法（＼）返回真；入口子程序中通过局部变量结果调用一次。\",\"expected_behavior\":\"程序启动时调用安全除法(10,2,结果)，结果为5并返回真；若除数为0则结果置0且返回假，不会发生除零错误。\"}",
+  "raw": {
+    "created_at": 1786805064,
+    "id": "resp_021786805062937851c6674979656280acb89444bc1bcee235791",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680506460700000000000000000000ffffac1541e23d18e7",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Generate E language file with subroutine 安全除法 and a call in _启动子程序."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型\\n\\n安全除法 (10, 2, 结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 安全除法, 逻辑型, 公开, 被除数为0时结果置0并返回假，否则计算整数除法返回真\\n.参数 被除数, 整数型\\n.参数 除数, 整数型\\n.参数 结果, 整数型, 参考\\n\\n.如果 (除数 ＝ 0)\\n    结果 ＝ 0\\n    返回 (假)\\n.否则\\n    结果 ＝ 被除数 ＼ 除数\\n    返回 (真)\\n.如果结束\\n\"},\"explanation\":\"在程序集中新增公开子程序 安全除法，三个参数（整数型、整数型、整数型参考）全部置于语句之前，使用如果…否则…如果结束双分支：除数为0时结果置0返回假，否则执行整数除法（＼）返回真；入口子程序中通过局部变量结果调用一次。\",\"expected_behavior\":\"程序启动时调用安全除法(10,2,结果)，结果为5并返回真；若除数为0则结果置0且返回假，不会发生除零错误。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680506460800000000000000000000ffffac1541e2807806"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 312,
+      "output_tokens": 353,
+      "total_tokens": 665,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 5585,
+  "attempt_count": 1,
+  "error": null
+}

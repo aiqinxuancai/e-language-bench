@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n.数据类型\\n类型 坐标记录\\n说明 为二维坐标\\nX 整数型\\nY 整数型\\n标签 文本型\\n说明 为标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n.全局变量\\n变量 默认坐标 坐标记录\\n说明 为默认坐标\\n公开属性\\n数组维数\\n\",\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增坐标记录数据类型及默认坐标全局变量，入口仅返回0\",\"expected_behavior\":\"程序启动返回0，未访问默认坐标X/Y/标签成员\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n.数据类型\\n类型 坐标记录\\n说明 为二维坐标\\nX 整数型\\nY 整数型\\n标签 文本型\\n说明 为标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n.全局变量\\n变量 默认坐标 坐标记录\\n说明 为默认坐标\\n公开属性\\n数组维数\\n\",\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增坐标记录数据类型及默认坐标全局变量，入口仅返回0\",\"expected_behavior\":\"程序启动返回0，未访问默认坐标X/Y/标签成员\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786778420,
+    "id": "6a7a4e7b-4106-9a38-9906-97c6f7c13861",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 5134,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4956
+      },
+      "context_details": {
+        "input_tokens": 529,
+        "output_tokens": 5134
+      },
+      "cost_in_usd_ticks": 315740000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 529,
+      "prompt_tokens_details": {
+        "cached_tokens": 192
+      },
+      "total_tokens": 5663
+    }
+  },
+  "elapsed_ms": 25576,
+  "attempt_count": 1,
+  "error": null
+}

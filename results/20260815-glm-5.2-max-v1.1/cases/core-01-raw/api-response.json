@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n    规范用户名 (“  Alice  ”)\\r\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转为小写\\r\\n    .参数 输入, 文本型\\r\\n\\r\\n    返回 (到小写 (删首尾空 (输入)))\\r\\n\"},\"explanation\":\"新增公开子程序 规范用户名（文本型参数 输入，返回文本型），内部先用核心库命令 删首尾空 去除两端空格，再用 到小写 转为小写后返回；入口子程序调用 规范用户名（“  Alice  ”）后返回 0。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，调用 规范用户名 并得到结果文本 “alice”（原输入两端空格被删除且已转为小写，结果未被使用），随后入口子程序返回 0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n    规范用户名 (“  Alice  ”)\\r\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转为小写\\r\\n    .参数 输入, 文本型\\r\\n\\r\\n    返回 (到小写 (删首尾空 (输入)))\\r\\n\"},\"explanation\":\"新增公开子程序 规范用户名（文本型参数 输入，返回文本型），内部先用核心库命令 删首尾空 去除两端空格，再用 到小写 转为小写后返回；入口子程序调用 规范用户名（“  Alice  ”）后返回 0。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，调用 规范用户名 并得到结果文本 “alice”（原输入两端空格被删除且已转为小写，结果未被使用），随后入口子程序返回 0。\"}",
+          "reasoning_content": "Task: generate 易语言 (EPL) code. Need to add public subroutine 规范用户名, parameter 输入 of 文本型, returns 文本型. Use 删首尾空 then 到小写. Entry calls 规范用户名(\"  Alice  \") and then returns 0.\n\nEPL syntax:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n    规范用户名 (“  Alice  ”)\n    返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 规范用户名, 文本型, 公开, \n    .参数 输入, 文本型\n\n    返回 (到小写 (删首尾空 (输入)))\n\nNote: EPL uses full-width quotes “ ” or half-width quotes? In EPL source, text literals are typically wrapped in “ ” (Chinese quotes). Yes, 易语言 uses “” for strings. Indentation typically not required but common.\n\nPublic subroutine declared with \"公开\" attribute in the third field? The .子程序 line format: .子程序 name, type, 公开/私有, comment. Actually the format is:\n\n.子程序 子程序名, 返回类型, 公开, 备注\n\nThe third field can be \"公开\" (public). Default is private. So:\n\n.子程序 规范用户名, 文本型, 公开, 规范化用户名\n\nThen .参数 输入, 文本型\n\nReturn: 返回 (到小写 (删首尾空 (输入)))\n\n到小写 is a real core command (到小写). 删首尾空 is real (删首尾空 or 删首尾空? Actually the command is 删首尾空). Yes.\n\nEntry: call 规范用户名 (“  Alice  ”), then 返回 (0).\n\nJSON output with files key containing src/程序集1.txt full content.\n\nAlso note \"入口调用 规范用户名（\"  Alice  \"）后返回0\" — call it and return 0.\n\nOutput JSON, no markdown fences.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786785136,
+    "id": "0217867851273491883cd0e543057f1d760ca21bba67f3c452ad3",
+    "model": "glm-5.3",
+    "service_tier": "default",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 747,
+      "prompt_tokens": 310,
+      "total_tokens": 1057,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "elapsed_ms": 8835,
+  "attempt_count": 1,
+  "error": null
+}

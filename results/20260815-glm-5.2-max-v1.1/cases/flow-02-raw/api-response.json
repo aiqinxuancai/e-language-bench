@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型\\n\\n结果 = 求范围内奇数和 (10)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 求范围内奇数和, 整数型, 公开, 计算1到上限之间所有奇数的和\\n.参数 上限, 整数型\\n.局部变量 累加值, 整数型\\n.局部变量 当前值, 整数型\\n\\n累加值 = 0\\n.计次循环首 (上限, 当前值)\\n    .如果 (当前值 % 2 = 0)\\n        到循环尾 ()\\n    .否则\\n        累加值 = 累加值 + 当前值\\n    .如果结束\\n.计次循环尾 ()\\n返回 (累加值)\\n\"},\"explanation\":\"新增公开子程序 求范围内奇数和，用 .计次循环首 使当前值从1递增到上限；当前值为偶数时通过 到循环尾 跳过本轮，否则累加，最后返回累加结果。启动子程序以10调用该子程序并返回0。\",\"expected_behavior\":\"求范围内奇数和(10) 遍历1..10，跳过偶数，累加1+3+5+7+9返回25；_启动子程序 调用后固定返回0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型\\n\\n结果 = 求范围内奇数和 (10)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 求范围内奇数和, 整数型, 公开, 计算1到上限之间所有奇数的和\\n.参数 上限, 整数型\\n.局部变量 累加值, 整数型\\n.局部变量 当前值, 整数型\\n\\n累加值 = 0\\n.计次循环首 (上限, 当前值)\\n    .如果 (当前值 % 2 = 0)\\n        到循环尾 ()\\n    .否则\\n        累加值 = 累加值 + 当前值\\n    .如果结束\\n.计次循环尾 ()\\n返回 (累加值)\\n\"},\"explanation\":\"新增公开子程序 求范围内奇数和，用 .计次循环首 使当前值从1递增到上限；当前值为偶数时通过 到循环尾 跳过本轮，否则累加，最后返回累加结果。启动子程序以10调用该子程序并返回0。\",\"expected_behavior\":\"求范围内奇数和(10) 遍历1..10，跳过偶数，累加1+3+5+7+9返回25；_启动子程序 调用后固定返回0。\"}",
+          "reasoning_content": "We need to generate Easy Language (易语言) code. Task: add public subroutine 求范围内奇数和 with parameter 上限 integer, returns integer. Use .计次循环首 from 1 to 上限; skip even with 到循环尾; accumulate odd and return. Entry calls with 10 and returns 0.\n\nNeed output JSON object with files containing full source for src/程序集1.txt. Need proper E language syntax.\n\nTypical E code:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 求范围内奇数和, 整数型, 公开, 返回1到上限之间所有奇数的和\n.参数 上限, 整数型\n.局部变量 累加值, 整数型\n.局部变量 当前值, 整数型\n\n累加值 = 0\n.计次循环首 (上限, 当前值)\n    .如果 (当前值 % 2 = 0)\n        到循环尾 ()\n    .否则\n        累加值 = 累加值 + 当前值\n    .如果结束\n.计次循环尾 ()\n返回 (累加值)\n\nEntry:\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 结果, 整数型\n\n结果 = 求范围内奇数和 (10)\n返回 (0)\n\nQuestion: \"遇到偶数时用 到循环尾 跳过\" — 到循环尾 is a command used like 到循环尾 (). Actually syntax in E: 到循环尾 () no args. Or \"到循环尾 ()\". The 计次循环首 with second parameter records current count. The task says \"从1遍历到上限\" - .计次循环首 (上限) loops 上限 times, with counter starting at 1. So use .计次循环首 (上限, i).\n\nAlso \"入口以10调用后返回0\" — entry calls with 10 then returns 0.\n\nPublic subroutine: in E, the third field for .子程序 is attributes like \"公开\" — Actually .子程序 name, type, 公开, note. The syntax: .子程序 求范围内奇数和, 整数型, 公开, 说明. Yes.\n\nModulo in E: \"当前值 ％ 2 = 0\"? In E language the modulo operator is \"%\" ASCII? In E, remainder operator is \"%\" (半角百分号) or \"％\"? I think in E language code, one uses \"取余\" maybe. Actually E supports arithmetic operators: + - * / \\ (integer division?) and % for modulo? Let me recall: 易语言 operators include ＋ － ×(?) Actually E uses full-width operators? Source code typically uses: 变量 = 变量 + 1, and 判断 (a % 2 = 0). I believe \"%\" works. Alternatively use 求余数 (当前值, 2) — there is a command \"求余数\" maybe? There is \"取余\" ... Hmm.\n\nCommon E code examples:\n\n.如果 (i % 2 = 0)\n    到循环尾 ()\n.否则\n...\n\nYes, \"%\" is used.\n\nNote that 到循环尾 must be inside loop; in E the syntax \"到循环尾 ()\". Some versions write \"到循环尾 ()\". Good.\n\nAlso E comments use ' single quote.\n\nFull file:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 结果, 整数型\n\n结果 = 求范围内奇数和 (10)\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 求范围内奇数和, 整数型, 公开, 计算1到上限之间所有奇数的和\n.参数 上限, 整数型\n.局部变量 累加值, 整数型\n.局部变量 当前值, 整数型\n\n累加值 = 0\n.计次循环首 (上限, 当前值)\n    .如果 (当前值 % 2 = 0)\n        到循环尾 ()\n    .否则\n        累加值 = 累加值 + 当前值\n    .如果结束\n.计次循环尾 ()\n返回 (累加值)\n\nE formatting: indentation not crucial. Also subroutine order: entry first, then new. Could also place new sub before entry. Fine.\n\nOutput JSON single object, no markdown fences. Need escape newlines as \\n inside JSON string. The files key path \"src/程序集1.txt\".\n\nexplanation and expected_behavior short.\n\nExpected behavior: calling 求范围内奇数和(10) returns 25 (1+3+5+7+9), entry returns 0.\n\nLet me ensure the \"公开\" descriptor. In E, .子程序 line format: .子程序 子程序名, 数据类型, 公开/私有, 注释. Default is private if omitted? The third field is like \"\" or \"公开\". So \", 公开,\" works.\n\nJSON output must not have markdown. Provide proper JSON.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786785463,
+    "id": "021786785444338d335b84ce8255b194a031442d80d4f21e820f0",
+    "model": "glm-5.3",
+    "service_tier": "default",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 1468,
+      "prompt_tokens": 300,
+      "total_tokens": 1768,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "elapsed_ms": 18908,
+  "attempt_count": 1,
+  "error": null
+}

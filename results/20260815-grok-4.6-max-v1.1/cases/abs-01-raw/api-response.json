@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部整数 甲\\n.局部整数 乙\\n甲 = 5\\n乙 = 10\\n调用 交换整数 甲 乙\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.公开子程序 交换整数, , , , 无返回值\\n.参数 甲 整数型 参考参数\\n.参数 乙 整数型 参考参数\\n.局部整数 临时值\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\"},\"explanation\":\"新增公开交换整数子程序，使用局部临时值交换甲乙，修改入口以演示赋值调用返回\",\"expected_behavior\":\"程序声明赋值两个整数后交换调用并返回0\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部整数 甲\\n.局部整数 乙\\n甲 = 5\\n乙 = 10\\n调用 交换整数 甲 乙\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.公开子程序 交换整数, , , , 无返回值\\n.参数 甲 整数型 参考参数\\n.参数 乙 整数型 参考参数\\n.局部整数 临时值\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\"},\"explanation\":\"新增公开交换整数子程序，使用局部临时值交换甲乙，修改入口以演示赋值调用返回\",\"expected_behavior\":\"程序声明赋值两个整数后交换调用并返回0\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786779216,
+    "id": "7eafd970-69f3-9bac-b20a-edae0f4a5194",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 6587,
+      "completion_tokens_details": {
+        "reasoning_tokens": 6395
+      },
+      "context_details": {
+        "input_tokens": 473,
+        "output_tokens": 6587
+      },
+      "cost_in_usd_ticks": 401800000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 473,
+      "prompt_tokens_details": {
+        "cached_tokens": 192
+      },
+      "total_tokens": 7060
+    }
+  },
+  "elapsed_ms": 133810,
+  "attempt_count": 2,
+  "error": null
+}

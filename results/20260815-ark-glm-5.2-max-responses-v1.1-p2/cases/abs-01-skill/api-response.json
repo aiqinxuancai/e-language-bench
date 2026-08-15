@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n.局部变量 甲, 整数型, , , \\r\\n.局部变量 乙, 整数型, , , \\r\\n\\r\\n甲 ＝ 3\\r\\n乙 ＝ 7\\r\\n交换整数 (甲, 乙)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 交换整数, , 公开, 交换两个整数的值\\r\\n.参数 甲, 整数型, 参考, \\r\\n.参数 乙, 整数型, 参考, \\r\\n.局部变量 临时值, 整数型, , , \\r\\n\\r\\n临时值 ＝ 甲\\r\\n甲 ＝ 乙\\r\\n乙 ＝ 临时值\\r\\n\"},\"explanation\":\"新增公开子程序交换整数，甲、乙为整数型参考参数，用局部变量临时值完成交换；_启动子程序声明两个整数并赋值后调用交换。\",\"expected_behavior\":\"程序启动后声明甲＝3、乙＝7，调用交换整数后甲＝7、乙＝3，最后返回0退出。\"}",
+  "raw": {
+    "created_at": 1786805000,
+    "id": "resp_021786804996555a33e1c11db957129a03bedef34588f575e39f1",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680500005700000000000000000000ffffac157afbc9dc31",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Need to produce E code text. Entry: declare two integers, assign, call 交换整数, return 0.\n\nFormat: .子程序 交换整数, , 公开, 说明; parameters 甲, 整数型, 参考; 乙, 整数型, 参考. Local 临时值, 整数型.\n\nEntry _启动子程序 has 局部变量 declarations before statements: 整数甲, 整数乙. Then assign values, call, return 0."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n.局部变量 甲, 整数型, , , \\r\\n.局部变量 乙, 整数型, , , \\r\\n\\r\\n甲 ＝ 3\\r\\n乙 ＝ 7\\r\\n交换整数 (甲, 乙)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 交换整数, , 公开, 交换两个整数的值\\r\\n.参数 甲, 整数型, 参考, \\r\\n.参数 乙, 整数型, 参考, \\r\\n.局部变量 临时值, 整数型, , , \\r\\n\\r\\n临时值 ＝ 甲\\r\\n甲 ＝ 乙\\r\\n乙 ＝ 临时值\\r\\n\"},\"explanation\":\"新增公开子程序交换整数，甲、乙为整数型参考参数，用局部变量临时值完成交换；_启动子程序声明两个整数并赋值后调用交换。\",\"expected_behavior\":\"程序启动后声明甲＝3、乙＝7，调用交换整数后甲＝7、乙＝3，最后返回0退出。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680500189800000000000000000000ffffac157afbb4def4"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 549,
+      "output_tokens": 400,
+      "total_tokens": 949,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 子程序与类型\n返回值使用 返回 (值)，不要写 return。普通参数可使用 参考、可空、数组属性；输出数组使用 参考 数组。自定义数据类型用 .数据类型，成员用 .成员，成员顺序决定布局。类程序集可写 .程序集 类名, , 公开，并保留 _初始化、_销毁；对外方法在 .子程序第三字段填写 公开。普通程序集和窗口程序集的子程序名按全工程解析，新增前避免重名。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 8531,
+  "attempt_count": 1,
+  "error": null
+}

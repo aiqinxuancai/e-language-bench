@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , , 坐标标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"在.数据类型.txt中定义公开的数据类型'坐标记录'及其成员X、Y与带说明的标签；在.全局变量.txt中声明带公开属性、留空数组维数槽和带说明的全局变量'默认坐标'；程序集1保持入口只返回0且不访问变量。\",\"expected_behavior\":\"正确编译易语言代码，包含坐标记录自定义数据类型及默认坐标全局变量，程序正常运行返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151150436586447238268d9d64RP1tn59",
+    "object": "response",
+    "created_at": 1786794648,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151150436586447238268d9d64RP1tn59_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , , 坐标标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"在.数据类型.txt中定义公开的数据类型'坐标记录'及其成员X、Y与带说明的标签；在.全局变量.txt中声明带公开属性、留空数组维数槽和带说明的全局变量'默认坐标'；程序集1保持入口只返回0且不访问变量。\",\"expected_behavior\":\"正确编译易语言代码，包含坐标记录自定义数据类型及默认坐标全局变量，程序正常运行返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 594,
+      "completion_tokens": 2963,
+      "total_tokens": 3557,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 279,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 2684
+      },
+      "input_tokens": 594,
+      "output_tokens": 2963,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 594,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 5214,
+  "attempt_count": 1,
+  "error": null
+}

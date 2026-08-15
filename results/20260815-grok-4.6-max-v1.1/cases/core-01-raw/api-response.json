@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n规范用户名（“  Alice  ”\\n返回 (0)\\n.子程序 规范用户名, 文本型, , \\n参数 输入, 文本型\\n本地变量 temp, 文本型\\ntemp = 删首尾空(输入)\\n返回 到小写(temp)\"},\"explanation\":\"新增公开子程序规范用户名，先删首尾空再到小写，并入口调用处理Alice后返回0\",\"expected_behavior\":\"入口调用后程序返回0\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n规范用户名（“  Alice  ”\\n返回 (0)\\n.子程序 规范用户名, 文本型, , \\n参数 输入, 文本型\\n本地变量 temp, 文本型\\ntemp = 删首尾空(输入)\\n返回 到小写(temp)\"},\"explanation\":\"新增公开子程序规范用户名，先删首尾空再到小写，并入口调用处理Alice后返回0\",\"expected_behavior\":\"入口调用后程序返回0\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786778513,
+    "id": "b583d159-593d-9b9e-8dda-2d80f9c55eee",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 7332,
+      "completion_tokens_details": {
+        "reasoning_tokens": 7186
+      },
+      "context_details": {
+        "input_tokens": 492,
+        "output_tokens": 7332
+      },
+      "cost_in_usd_ticks": 445920000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 492,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "total_tokens": 7824
+    }
+  },
+  "elapsed_ms": 65189,
+  "attempt_count": 1,
+  "error": null
+}

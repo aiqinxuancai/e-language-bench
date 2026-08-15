@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 根据原价和折扣率计算折扣结果\\n.参数 原价, 整数型, , 商品原始价格\\n.参数 折扣率, 整数型, , 以百分数表示的折扣率\\n.局部变量 结果, 整数型, , , 保存折扣计算结果\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"新增公开子程序“计算折扣”，按要求保留声明中间空槽，并将参数、局部变量置于执行语句之前；入口调用该子程序一次后返回0。\",\"expected_behavior\":\"程序启动时调用“计算折扣 (100, 80)”，子程序计算得到80并返回，随后入口返回0。\"}",
+  "raw": {
+    "id": "resp_08ba00016de2893e016a805295c42c819ba92bb872b1277972",
+    "object": "response",
+    "created_at": 1786794645,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794660,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 排错与验证\n优先修复最早的根因：声明槽位、声明顺序、控制块配对、未知命令、参数签名、名称冲突。禁止混入 if、for、while、switch、return、花括号、new、this 等其他语言语法。标准入口是普通程序集中的 _启动子程序；控制台验证通常以 返回 (0) 结束。源码看起来合理不代表正确，必须经过 e-packager 预检、回包和真实编译。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_08ba00016de2893e016a8052980d90819bb03269cb5d24f09f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFKggcA96bRMk-qdF7C1H5pf-wTRRvqG5wRneQHAS7BGKnl8YDbThCTu7veLtp-9mLYoZxh6qSnVLA8NMXHdE4tO812l_vM2KJq6ynSFcCdN97HW6fvut-PZckKPKOI1qZS0CMc40f6iHmKydxThxXt1AjFU19HBDz6rlQxO_HPBdRzxT96xeYvIv_15vMLs9abQxEaERQFhrZFYQO_HkGGOsnmFFuu2p5ycEAOouNaU2DKt0fa1npF5oOeYOXD9K2BY6DIX2pIVDg86Bpn78q4QDrIXraNfkjI1vE8Ne4tCj57RY3N6nfAbPLYAFsikQgAr6vHDOevNSfOwIiGmcEaAnSNb_o5DWzr6qu3Hpan7AAjD0eb_Pr3tbLV24etpWkEhcNE1dlg3YEeMS3xKjp66BISbZWq2sknyXFzb_rs9WMDKhPMYxi7Ab_b6K_4JJkj-obWK1yfzjxeQoujuRzbGVIsj2IUNat5Us5HgSDyqWwRVzRi3ULaAPB2Moiro6xl9HF5wC6ficAR562KukgLYPAdb71tfAievnFiRGn91AS_UM-NNnViw9sKofDMycd3KhvbJ_berp4SB-t_rfSXi_9hV5hniRaiWln52N40gjPUVNgkGRmdCvJR3UhZ2qhcgEqqd5IWgM-CKSywBAGc8xAnBPU9PR6bL0JdOFfGt7XoLK66A5hxWOdedltdj7xvwfhAn20E6Gh4R7NjsNsiYR8DUV43z3CEqfVmzlu8nFvXjhrUt4Zb3fCo5O2WP0m3soQMTpZrHztEv5wQfByZF6SAyJvqXAcBldzlkby2zN6NPpkLx52bwV4caW7a6wEt02WOyVWrCk3YIOx9HcnewL-iQfn9lr0bv243dBAClGF-z9OaqBCAg66u0K4G-YdPk5PLStDAdvjdZYYwiBlRnp5Z84mbX2nf5zGaPD2q82hVJrxmjr_Q9Yqq4okaa5F_YiOI8vyotFmCTDdx9vXSvED4F2TNg_rXab_cCq-S1Xj00-BQxh175SZqbdOduH6L2AyESCCGgz0dcj6ogdm-YUQqPs9ehoO2W7r0ZuPNgihSaIZk8xhbjLddjU_TRDCTYmL0QJm8iiMT2CcFCUKPXhOQ54HeR3hoWSnRpucmtJHyWJ1VaVjl-YxbZrQi_n5uR6fxdbm0BudiDRHVsdDqqVaTg3Giw4Rd9GG8SocKvoWI_YgHurjJLjLywvdUi39t-7FT-ffBa0Vw4Iqf0u9CDCzQ3ZLpJRzwzH9ocFn5dUVUUudmVo-7aGXMRDNQVQnAFAAvW6yaHot2yaQ7hxoOlvtqcpJ6P4j2KjYF_UTBbvZtIN5NwGC8IhILoOx7pn7erVyvlZWzEgz5Ld7Ohj1qZ6xQpCC6GgaTNXjm7J1g5RTe9EjC73vGAQO-kW3VgYeQzOT3XvRy-DB_qfGdX2GcAkT94JWu50Ygwv64zGZlf7GC4eFpprZzdVaaIRmDP02rqskItRAibx4szZeVUzUA-ynGsfsZkHRe1O_1papkwhs7hBPmVIzv3dMyrtEXQpprqjUoEvobfXn356ZsKMmJXrJjvHUcezGq__nEpY-QNUwNLfNW4gEHlvllrm570SVwHR3k58aIgwxp-AsV5ObasTmctf34sH5Yd5H7lKyF5CKWSxcpD2_obLIOTgAB6-0H5Bw7dp16j7-ov-VNFBx9yTuUnxWaxhDszxHflloGcJTxzyCHBI18pVy8UlMZcq_ScVpD8RoE2HayhWbzx-5je0qGMrjQLVMSk9rQmKDsIHeLgGMC6A-I0Jsb7nlZcLUObtmH2OarGH1BJAGnsWxu5I0Z4U5tDusEoq3PHRx_Ptohw7U50ztmjRKlIxHRfL27kmXtgtjErm1pVdYoiIZ31le_pIIion64XwQfRvr5-_j07fLo80nmNSNQzd5SZd_3PrCdDBCdpDFT57vYCiikkMK9GrQBX1xnV33ayXq818cOYm_55_JeKJTRbQGc2xOTffeIIrzq6rl0NnTIuF1EBEjdKU1DtdiTEazeeZdmSizwxff9fBbt0W3pPSdOE5vT3pEdEYHd14r3oi3nHl-qHrwqALkCuAHgJU_UFKPBwsZHRXAg7RdgbiG3qU9wnxGbMAbN-wE-Nsux0R2HhY5EUAzPWogD1Z0PJpRbY_kyFNHvKtHDxzoA02Mv3G3XCAbD9v8fj68ixOIoIyAtmHY028Gr1ix4LUNMnWkmncMPyFnOlsNL_l6gtbuF1GykrolWSEp024lNwOxRWk9g9beDrDpm1p28eY0l17yuIw4lJdXO8qTkk1P076aPByxv-cbuzow0QIX6eWaoDIlYdCkbXeOPRG9u5RqUA7u5CF_DHrbvEs5B6aMgm36UILuFTppL-t_jDQroWm6iXHvSGxTFGb3XLhZ_tm0ac2IH2MnrbRSWoPUrcIl7pi8IhHZAsd5VjwK3guGo1Zmq8MslTU2j2jVIgMry1rJ-xdxT3H2uZF5p2wWv2TwLptvYRl2SmEeN6XSV1vZps5H-tVQYPU6JsyjE6rrir7fG9dOpkLFbrzen18I4yzG8Z0EnJVSYk_NUpTj5tB6Ww1MWUXJY24c4AXdkNsvwVXEQYaz8v2sibvx0wVSEM2ihpzb953DlvLhdDRvXLU11_L-d36Hhg34DiKkeSYaWXeo0AmTL2MmBs4N3QetNxmoKDaD0lT12Xx1hl3zbhYvWKRsFGjaJstZWTSZoFUvDTQ04mSroKa5EIGYcK0pSNTSfjXIuRcQq8TtpccLoTxfdIUKEw1GSg-yPi0oXx7zNBUFBpPs9si3NN81w=",
+        "summary": []
+      },
+      {
+        "id": "msg_08ba00016de2893e016a8052a08bd0819bb18c541b163692f0",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 根据原价和折扣率计算折扣结果\\n.参数 原价, 整数型, , 商品原始价格\\n.参数 折扣率, 整数型, , 以百分数表示的折扣率\\n.局部变量 结果, 整数型, , , 保存折扣计算结果\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"新增公开子程序“计算折扣”，按要求保留声明中间空槽，并将参数、局部变量置于执行语句之前；入口调用该子程序一次后返回0。\",\"expected_behavior\":\"程序启动时调用“计算折扣 (100, 80)”，子程序计算得到80并返回，随后入口返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "9ef2e400-f9c6-44a2-8cd9-4c0bf3fadf2d",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-8hlESo4IJwqUUazQQ0wx2k9V",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 928,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 844,
+      "output_tokens_details": {
+        "reasoning_tokens": 438
+      },
+      "total_tokens": 1773
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 15319,
+  "attempt_count": 1,
+  "error": null
+}

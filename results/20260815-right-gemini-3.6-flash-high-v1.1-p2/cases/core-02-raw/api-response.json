@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"在程序集1中新增公开子程序`取绝对平方根整数`，对输入参数依次进行取绝对值、求平方根、四舍五入保留0位并转换为整数型返回；启动子程序中以 -81 调用该方法后返回0。\",\"expected_behavior\":\"调用 取绝对平方根整数(-81) 时，对 -81 取绝对值得到 81，求平方根得到 9，四舍五入保留0位得到 9 并转为整数型返回 9；启动子程序调用后返回 0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151150583649147938268d9d6pERl6pLz",
+    "object": "response",
+    "created_at": 1786794661,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151150583649147938268d9d6pERl6pLz_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"在程序集1中新增公开子程序`取绝对平方根整数`，对输入参数依次进行取绝对值、求平方根、四舍五入保留0位并转换为整数型返回；启动子程序中以 -81 调用该方法后返回0。\",\"expected_behavior\":\"调用 取绝对平方根整数(-81) 时，对 -81 取绝对值得到 81，求平方根得到 9，四舍五入保留0位得到 9 并转为整数型返回 9；启动子程序调用后返回 0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 540,
+      "completion_tokens": 1981,
+      "total_tokens": 2521,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 253,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1728
+      },
+      "input_tokens": 540,
+      "output_tokens": 1981,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 540,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3697,
+  "attempt_count": 1,
+  "error": null
+}

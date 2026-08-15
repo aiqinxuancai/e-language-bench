@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\n  \"files\": {\n    \"src/程序集1.txt\": \".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 拼接等级, 文本型, 1, \\n.参数 等级, 整数型, \\n.局部变量 拼接等级文本, 文本型, , \\n.局部变量 等级文本, 文本型, , \\n.局部变量 次数, 整数型, , \\n拼接等级文本＝\\\"\\\" \\n.判断开始\\n.判断 等级=1\\n等级文本＝\\\"低\\\"\\n.判断 等级=2\\n等级文本＝\\\"中\\\"\\n.默认\\n等级文本＝\\\"高\\\"\\n.判断结束\\n.变量循环首 次数 从 1 到 3\\n拼接等级文本＝拼接等级文本＋等级文本\\n.变量循环尾\\n返回 拼接等级文本\"\n  },\n  \"explanation\": \"新增公开子程序拼接等级，使用多路判断映射等级并变量循环拼接3次\",\n  \"expected_behavior\": \"拼接等级(1)返回低低低，拼接等级(2)返回中中中\"\n}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\n  \"files\": {\n    \"src/程序集1.txt\": \".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 拼接等级, 文本型, 1, \\n.参数 等级, 整数型, \\n.局部变量 拼接等级文本, 文本型, , \\n.局部变量 等级文本, 文本型, , \\n.局部变量 次数, 整数型, , \\n拼接等级文本＝\\\"\\\" \\n.判断开始\\n.判断 等级=1\\n等级文本＝\\\"低\\\"\\n.判断 等级=2\\n等级文本＝\\\"中\\\"\\n.默认\\n等级文本＝\\\"高\\\"\\n.判断结束\\n.变量循环首 次数 从 1 到 3\\n拼接等级文本＝拼接等级文本＋等级文本\\n.变量循环尾\\n返回 拼接等级文本\"\n  },\n  \"explanation\": \"新增公开子程序拼接等级，使用多路判断映射等级并变量循环拼接3次\",\n  \"expected_behavior\": \"拼接等级(1)返回低低低，拼接等级(2)返回中中中\"\n}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786779080,
+    "id": "7072ec5e-ee53-9f4d-9f30-cfa6d54a210a",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 6948,
+      "completion_tokens_details": {
+        "reasoning_tokens": 6671
+      },
+      "context_details": {
+        "input_tokens": 766,
+        "output_tokens": 6948
+      },
+      "cost_in_usd_ticks": 426440000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 766,
+      "prompt_tokens_details": {
+        "cached_tokens": 384
+      },
+      "total_tokens": 7714
+    }
+  },
+  "elapsed_ms": 70961,
+  "attempt_count": 1,
+  "error": null
+}

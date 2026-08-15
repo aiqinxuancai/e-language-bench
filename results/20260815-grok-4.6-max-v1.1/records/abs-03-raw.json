@@ -1,0 +1,100 @@
+{
+  "task_id": "abs-03",
+  "title": "公开类与生命周期",
+  "category": "abstraction",
+  "track": "raw",
+  "response": {
+    "ok": true,
+    "status": 200,
+    "elapsed_ms": 60985,
+    "attempt_count": 1,
+    "error": null
+  },
+  "state": {
+    "contract_ok": false,
+    "utf8_ok": true,
+    "paths_ok": false,
+    "validate_ok": false,
+    "pack_attempt_count": 0,
+    "pack_failure_count": 0,
+    "pack_ok": false,
+    "reunpack_ok": false,
+    "compare_ok": false,
+    "ide_open_ok": false,
+    "compile_ok": false,
+    "semantic_earned": 0,
+    "semantic_total": 0,
+    "diagnostics": [
+      {
+        "stage": "contract",
+        "code": "json_fields",
+        "message": "expected fields ['expected_behavior', 'explanation', 'files'], got ['expected_behavior', 'explanation', 'files', 'src/程序集1.txt']",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      },
+      {
+        "stage": "score",
+        "code": "contract_invalid",
+        "message": "total score capped at 0.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      }
+    ]
+  },
+  "score": {
+    "scoring_version": "v1.1-pack-failure-count",
+    "format_score": 0.0,
+    "format_components": {
+      "contract_utf8": 0.0,
+      "declarations_syntax": 0.0,
+      "flow_names": 0.0,
+      "pack": 0.0,
+      "pack_failure_attempts": 0.0,
+      "roundtrip": 0.0,
+      "ide_open": 0.0
+    },
+    "pack_failure_count": 0,
+    "pack_failure_deduction": 0.0,
+    "compile_score": 0.0,
+    "semantic_score": 0.0,
+    "uncapped_total": 0.0,
+    "score_cap": 0.0,
+    "cap_reason": "contract_invalid",
+    "total_score": 0.0,
+    "passed": false
+  },
+  "commands": {
+    "prepare": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "unpack",
+        "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+        "D:\\git\\e-language-bench\\results\\20260815-grok-4.6-max-v1.1\\cases\\abs-03-raw\\workspace",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260815-grok-4.6-max-v1.1\\cases\\abs-03-raw\\workspace\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 235,
+      "timed_out": false
+    }
+  },
+  "prepare": {
+    "argv": [
+      "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+      "unpack",
+      "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+      "D:\\git\\e-language-bench\\results\\20260815-grok-4.6-max-v1.1\\cases\\abs-03-raw\\workspace",
+      "--main-only"
+    ],
+    "exit_code": 0,
+    "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260815-grok-4.6-max-v1.1\\cases\\abs-03-raw\\workspace\r\n",
+    "stderr": "e-packager dev\r\n",
+    "elapsed_ms": 235,
+    "timed_out": false
+  }
+}

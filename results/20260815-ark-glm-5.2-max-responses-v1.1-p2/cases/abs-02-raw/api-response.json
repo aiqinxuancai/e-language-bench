@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n.如果 (阶乘 (6) = 720)\\n\\n.否则\\n\\n.如果结束\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n.参数 n, 整数型\\n\\n.如果 (n <= 1)\\n    返回 (1)\\n.否则\\n    返回 (n × 阶乘 (n - 1))\\n.如果结束\\n\"},\"explanation\":\"新增公开递归子程序\\\"阶乘\\\"，参数 n 为整数型，返回长整数型；n<=1 时返回 1，否则返回 n × 阶乘(n-1)。启动子程序以 6 调用该子程序（结果为 720），随后返回 0。\",\"expected_behavior\":\"程序启动时调用 阶乘(6)，递归计算得 720，启动子程序最终返回 0。\"}",
+  "raw": {
+    "created_at": 1786805009,
+    "id": "resp_0217868050083178e05db81a26ab4b44637eb56f02aba9422d4f2",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680500909400000000000000000000ffffac15a87e7cdbf9",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Write E language recursive factorial subprogram. Note \"入口以6调用后返回0\" — the startup subprogram should call 阶乘(6) and return 0. Long integer type is 长整数型."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n.如果 (阶乘 (6) = 720)\\n\\n.否则\\n\\n.如果结束\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n.参数 n, 整数型\\n\\n.如果 (n <= 1)\\n    返回 (1)\\n.否则\\n    返回 (n × 阶乘 (n - 1))\\n.如果结束\\n\"},\"explanation\":\"新增公开递归子程序\\\"阶乘\\\"，参数 n 为整数型，返回长整数型；n<=1 时返回 1，否则返回 n × 阶乘(n-1)。启动子程序以 6 调用该子程序（结果为 720），随后返回 0。\",\"expected_behavior\":\"程序启动时调用 阶乘(6)，递归计算得 720，启动子程序最终返回 0。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680500987800000000000000000000ffffac15a87e35f7b6"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 294,
+      "output_tokens": 315,
+      "total_tokens": 609,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 4474,
+  "attempt_count": 1,
+  "error": null
+}

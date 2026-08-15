@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 最小控制台入口：返回整数型 0\\n返回 (0)\\n\"},\"explanation\":\"重写程序集1，仅保留一个合法的控制台入口 _启动子程序，返回整数型 0，并加一行单引号注释，未添加任何支持库。\",\"expected_behavior\":\"程序启动后最先执行 _启动子程序，直接返回整数型 0 后结束，不产生任何输出或副作用。\"}",
+  "raw": {
+    "created_at": 1786804755,
+    "id": "resp_02178680475382688a480d877f824556f2559e19636edcd6586da",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680475549800000000000000000000ffffac15a82cdf61f2",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Output JSON with the file content."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 最小控制台入口：返回整数型 0\\n返回 (0)\\n\"},\"explanation\":\"重写程序集1，仅保留一个合法的控制台入口 _启动子程序，返回整数型 0，并加一行单引号注释，未添加任何支持库。\",\"expected_behavior\":\"程序启动后最先执行 _启动子程序，直接返回整数型 0 后结束，不产生任何输出或副作用。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680475549800000000000000000000ffffac15a82ce42398"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 276,
+      "output_tokens": 151,
+      "total_tokens": 427,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 3857,
+  "attempt_count": 1,
+  "error": null
+}

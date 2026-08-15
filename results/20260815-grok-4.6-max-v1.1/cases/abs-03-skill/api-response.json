@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/计数器.txt\":\".版本 2\\n.程序集 计数器, , 公开\\n.程序集变量 当前值, 整数型, , \\n.子程序 _初始化, , \\n' 初始化当前值为0\\n当前值 ＝ 0\\n.子程序 _销毁, , \\n' 销毁时无需操作\\n.子程序 增加, 整数型, 公开\\n.参数 增量, 整数型, \\n' 累加当前值\\n当前值 ＝ 当前值 + 增量\\n返回 (当前值)\\n.子程序 取当前值, 整数型, 公开\\n' 返回当前值\\n返回 (当前值)\\n\"},\"explanation\":\"新增公开类计数器，包含初始化销毁及公开增减取值方法\",\"expected_behavior\":\"类计数器编译通过，增加累加当前值，取当前值返回结果，入口仅返回0\"}}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/计数器.txt\":\".版本 2\\n.程序集 计数器, , 公开\\n.程序集变量 当前值, 整数型, , \\n.子程序 _初始化, , \\n' 初始化当前值为0\\n当前值 ＝ 0\\n.子程序 _销毁, , \\n' 销毁时无需操作\\n.子程序 增加, 整数型, 公开\\n.参数 增量, 整数型, \\n' 累加当前值\\n当前值 ＝ 当前值 + 增量\\n返回 (当前值)\\n.子程序 取当前值, 整数型, 公开\\n' 返回当前值\\n返回 (当前值)\\n\"},\"explanation\":\"新增公开类计数器，包含初始化销毁及公开增减取值方法\",\"expected_behavior\":\"类计数器编译通过，增加累加当前值，取当前值返回结果，入口仅返回0\"}}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786779912,
+    "id": "c5efec59-f0b7-92d5-ad16-4ce5ac73b58a",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 9527,
+      "completion_tokens_details": {
+        "reasoning_tokens": 9326
+      },
+      "context_details": {
+        "input_tokens": 895,
+        "output_tokens": 9527
+      },
+      "cost_in_usd_ticks": 585680000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 895,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "total_tokens": 10422
+    }
+  },
+  "elapsed_ms": 170235,
+  "attempt_count": 2,
+  "error": null
+}

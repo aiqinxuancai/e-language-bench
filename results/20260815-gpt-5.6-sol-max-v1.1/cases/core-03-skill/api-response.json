@@ -1,0 +1,113 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 奇数结果, 整数型, , \\\"0\\\"\\n\\n生成奇数 (5, 奇数结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开\\n.参数 数量, 整数型\\n.参数 结果, 整数型, 参考 数组\\n.局部变量 计次, 整数型\\n\\n清除数组 (结果)\\n.计次循环首 (数量, 计次)\\n    加入成员 (结果, 计次 × 2 － 1)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序“生成奇数”，并在启动子程序中声明动态整数数组后调用一次。\",\"expected_behavior\":\"启动时生成包含 1、3、5、7、9 的动态整数数组；生成奇数会先清空传入数组，加入指定数量的连续奇数，并返回实际数组成员数。\"}",
+  "raw": {
+    "id": "resp_0fe63ff61d2d5e40016a80076f9c84819682bc5885117efc78",
+    "object": "response",
+    "created_at": 1786775407,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786775432,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 核心库\n普通中文命令通常来自核心库或支持库，不得臆造。可使用已确认的核心命令：删首尾空、到小写、取文本长度、到文本、取绝对值、求平方根、四舍五入、清除数组、加入成员、取数组成员数、重定义数组。调用允许空参数槽，不能删除中间空参数。数组通常从 1 开始。变量声明后已有类型默认值，不要生成无意义初始化。\n\n## 流程控制\n单分支使用 .如果真 / .如果真结束。双分支使用 .如果 / .否则 / .如果结束，不能混用闭合方式。多路判断使用 .判断开始(条件)、.判断(条件)、.默认、.判断结束。循环包括 .计次循环首/.计次循环尾、.变量循环首/.变量循环尾、.判断循环首/.判断循环尾、.循环判断首/.循环判断尾。跳出循环() 提前退出，到循环尾() 跳过本轮。所有块必须严格嵌套并完整闭合。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0fe63ff61d2d5e40016a800771d574819680f5b6d257d3c5cd",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgAd7UaoE7SKMSVaSwDbyH63N6Cmh7PT4e6WVfDom1cGOPv0EJ9QLs33xh0fn6hzZugyRZpMGAF59o48zz6s0hNAcKs2g9Ff6j3xXwbdX76jTE7jz1rKbecY4nFqWaV8ZSW74dU7L99bhrTXev0aPaITtlrc_t66I0BDp80Uqn-9xfsEkjGjelcMsm_ZF4PXE3bEIbnidr3KXB-k5LgTWAE3_2YnRRcfZVXJPuqm6o2xuGnGN5vFSOFqthhYpf0lKoyP3YSsp0qABvmvJCi6TsDHj15ZuwPDS0FQb9dHdfUmGYHQvuza4YApnOmmB6oN7z6VCJqNmTQN4LZAOgsl5tGM0hrgv1IRcmL12wEYfRIyspcr026-Fpnuuh-vnhXcdkQEoJ6tHG1KdU7uI_QbLo5NfsvXJzLhNwB7Ngy0KNN8OI127cWSU_COce0XKkOgK9_HsFg7iNHfRuck-m5o1advD8Bw8gcjNOrzLxk3LsdZCVpuIzS0Ud6o4iPywB1-1EzZuughgc0FHAlp8aWiU7bGT09CR48dkpURkczpCvWgTmHa5NeAoxF-VJ8eC2ueLdesSBNUba5Qs_YqgyNtvZcpwMmgRJ76yQe8XpBEnogfx1ab7ttSPGjs5iDSWijN1xwvTCkbdtZKDyTgellrzUxlrXCn1SQgxHu4hulSgAAJMRwRgi2DzUZX67H2ozDdM5ODvml3Z2dNEUpL87tvzeR5RFbMpM1oVyoREeoQ4Oe7NX-RBJ8tYknGWuC5DZ_4LiTb0vwsMgPOp689yGnQnzAflMv6P1BBqIb3D5IvOVCKtL88_OKAxxJrFAgYO60VS2o4yNXoEOmLR3jjFOA9x62gjYzEpFoCla81U5jswqbiNopTXXXf8cwaml1wvVGsVwfJv4ldlqqFtAuO8iwAgASI8umovzQROCMpbMVUmKkH504PnJjkcQgaHi7SlvXXStwW2uiSFYG5WJyvhMoBR2X_Omkmt-Bqv0WEJVaqZC8WFCNNcNGtBrubJxtlWUDJlztdAUQ2JoVQhXBaG7pqmWq9Tni-PJc5b3XAxPEjoZmJ0TCVARJCq3X3c4lMkPiESCIUstAkJOjh7Nv1xpjuIneLz9lQNyJ9P2XcWNR0PJ1w--v9RqHBVliKp9RKQabxBZUFnWnXLLoFF_MkYqgIi6ybvm40Mhs1eIkEAf_laL6f84NyRcfSmOCuQ6iEMFZE4uSJy9fXSSxr_LMzNOgV5-1lMem6mwHjvaqwWzF3Snl0WOGglJsbcKyY489QskW--IJUp0evBjCrrJBWRG_hBAqS9OlScwGZF6toiFOuWs96pCxSvlxySXw5sS6VBCtsAHQIg1MMW0iTUoIivtoGnPcD5neKAKrJdsuZowS2I0QaKF1UEfbe7luEqvFPdvw_awZvwgLjHGXqkTAK7_6ZPIi4q_PWKwaANuufDlV202YEqMAK9cK76YnQbDACVmPcgkhZ-yRCSdbNF61dKPOmt6W6Ih-T1Tmrf20kHNTMxRq80yrb1Q-ejZN5sh9GOnp9O95SnpwT1mqYWd2IKmfGhnEJJsuEF6wNCQuMC4K4P-CogzpSuOy5UNifCFyeYpZlVjrSsP9IuOCVCFj377i8BMS6u6yfNRjQXS-7zM6mxg7qHc_OjIvlAwwZkRJktbcC4kk80dvjg9N3JP3eVaaQt2GbdDwZ7ed_VsCdl_5TPZk7lOIJTW52n9v13DYyANVZE3lfFhuR7BGnJXPU3gL8ZkSt2wN3WQsNwzBHfp82LTqh7UojPLX85DFuoPMFn_f479Sk-5BWMfrT2WyAH6jUtzJySdRif6Ag_r7UgFYS9V91920Di6FYkenwBizokwD0t6vkfgjvmkVfP8uJseglFe-RL7HFBQJwAVCkIQOPYxEcca1MQa201_VvZmUgh3RA6VbTsyYxwm5egkoY-0K5_gnvAa6vPB_ErYDtzHtwM0eTj2HaH53gVyHuvTCx9y5BFfM7tY783J5io54awUXyg7V_gFqJBqNIi9MQxavb-tbaNgtp6BnjLXuOjFyVb5DaET2uzWz0zp1Vx1OEmJpmJqZx8RdohkGpakwK5kN2rkmYjiWvdGKzC6g-4m7rLHrIN5v4PgF2uy_2yaAszCB6leZyPaOE2JlOvWxE-ThWD5vto3LQsbaEzYJlK9XU4fX52_HHr_c3mvhIvyA5qv1tKRH29DBWPZGYHnBklb-E2TEqUQljVhRSs3GxNkrDL6d_uCG3y1gBKyWkmuJNHgEa6FtKjgA6ypNZMfDz5KjhNrMNuVdd9aW3cdY5dXEmH0IohdaeI-QRFv1EJt5Cj73A_X_4vzmIUnzMzpx9IKpDn02ekgNnsp7uan2-BSrH20gj9Nh1_n_ZfAMeq2p1XPVqIifHL3YIemAR9UGEYD4IAM8NSzdZHyY24zbxNn8gGhQHz1RgBWLFmDszq06iBFkQEY4XgJWRnMZMMlU-cNbGsbpVFJAhf7UCN4aHRIS1QxC7WsFo83-aD9G0EctQN7RomXnlF7FfNSJrxbRD-mpJfHikAkPME6liv8yF6axvzmVyJXvhWMrXBfgxz09PDJ0aVSTr2_DzUVGL_CrKLQiXLZGNZUOcEyyXQ8wD8MExBeRvHDkmG6hIYRL_w8bBRejaSyWM5jJkmMyBCMwxX9LbwwCd2GzMnHnrqHxp6vWIVe_7796AEaOhK5YAuKxDrVe4FpDz2rkuk3U1QRD09huG5kGjZLg2Cw3teXfEEGDZqjb3nn0k3IKYM1cF4WgMGkZZnDswiUvxNTL0Df-VMrWWr3vKbPGohSGAdaJ0vN8m-LbMSqWOqH0Fabf2mO_zCNYVy2VH_7O2UNPHP4GknqOM_bJ5H9W_z8qMm5zL7xwF2sHtrmWbdpGd2O83oiHvW4I2JlhmXIdjepHUySYkohOAwpDhDCb0ZIKZxbqG48tWAbEq3JfDmMnFFmr8W50l9X5tkhEwp7fKUfpRQpdTG5NpLnfvIhbjFZmgggmADDPnKrPVGTGME6zk0hEomVHdY27uwMpuWXUbdM75gEqOOQKK_5lD2aTPNy6iONnqJ3MHadwLo3DcIOjD9YrLPE1uF6_cFMPHaNuqgBEkdEv-fW-q8mCYxIhYf71CD_f4qt3pGhQhNcuALfvE6ndNUsXYPyw_7I-zTIGX4bijpg9-hZzy71H4NeSAwpuBgY3Lkz2xCUW00yOyilQriGrAHAj5s6MQcYBOwUNpH-tH1X_-BBn6G1NS3AG6mHnFTqfEJrsQoI7V8s7g3vIh5qJLbcQ7_ZvNOcJ9WwxLYVu68fvWq5XbTwO2u_rgCyzt7eWW7qb_qGN6fDWfrOuMrKbsUxu8jLZVydjbr_sTZ4hbOYPu_cUo_QaafGVJDOvs0Lo-tQjuCSJBduuR4qKUzDL5y2OW7sCNBK2BE9afDDngwqZSu9nkp0X3eTg0TSdepDb9D97lyaArvO5bI9TTCYy_IPaql8QePABTM4aNDAvvBiW3cLnlWC9BsGqa8xo26oVtPKq-dTkp508hHwMwl0--uHL33HbKVfMuxEsxbNoT0mN3vESTG3W-q2-xyEVIAbvR3V8wVIyBrTlAcbC-gSa90vM2sLQKI2lAr5OLfN9LSQHwH3y3bcjwDkaTc4qspsFPbl0R4MWyVFUZMs1qSkaWMghXpcE1HxOB5YjkXjUPZ0xEXUEMDnEkTQNPKX5c5UzFj7UTCsbLv5L5SnN6L9fQDYgP5YBbrXag-LsbH3-l3Luyj73fPoS7FrUPRcxhkvFD-TaJqblqsj7sCZpF_Q_ICtLtiSBOiccBVxXMTV3smfAdP3ctmll4lQoquXIjA55iEhV0BHERvDpocgEWItjOXhDpHBG17Z8H0_WZpZHYktxTNrb4RWyOjaPc=",
+        "summary": []
+      },
+      {
+        "id": "rs_0fe63ff61d2d5e40016a80077b2d6c8196a121e6b8e42e4042",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgAeCXoL9zilt_iVqlBpTAC68BPglWvZhnXZ4IfmJSuTouHwfMOC5cLOJ4nYUKG08Jh5AvfwQKPKCnFzn9Rm-Nm1P-o46yQf87nNTCn2jYuqEkKHdS7ITCA8_PhcT9AwmThkbByZiCoQB6xC0xZCVqL1_97dRXnDZaa_1Prt-2lDxBObNJeY9DZ7IxpZYGd4LLDfQynQmgPbZYlQ1W-_y8zmEsn0a0dYJsQ7jl1sLf9CjtHhF-8yzj0kAUs7uHoj6NQDsQLDzL7OEs_ZEef9PLYLutDTPpoqRCc1wz8ssZUJjHhjt_H4cgqp4kkXkfVnUMtKj_2eYwgQmQOCC3_nkfZrxZPcqlc6vqhAhKJ3r5_jFBQ_05_1ccYPPNymsSPsAs50ETzPH1X0RUeHBHfgCIxABqA0u9bZZiNJIlI6yiKA1jeUAxFFQUrCnUxa_Xq04MoXl2Xw01ahd5b4PIoWFVttzYVCC83z_KOt2KGg1XPmnWwD9K0qEXZQpEKqfj2LwmWdk3WYQJte9bAy0zxpGuSoyQk7cp8y9hgZlNkADc2AWSD14huPumx2-dHxmYZ-Z4ceZqfHtKBgjxt_7yBiQE0cTCoOU2FPs_IgqJuZ6yy2vgcnCXWYXgdo0rc9NDEMOqvuw1yvzuaeL2gS7va1ZEwkc3cEVQ2C_wSJ8hjYAuhyqZmdTU1FMsdUt8U5_lp-q1oMCJtSbBw18ZsRnBllYm3vHNDseWIaMTNY8U87DNU0nyVQ6GKHAFkG2BxH1LKUMNkZK766TeJKfwjw6pdlBdJf-i3iQwgoXorqVpCEzzCqmUQnNR1MLvIM381jwBcWb4JuZ9jJaZxkMlNC826wUoynMNtjc7WxYPZbj8WJO4B3-4ul760fp30jXxNPtLABpYy-ssoUgpEVwD2VmRI0iGPbySNy-eyakTRx-biBctQtDnZS9O1c5ltE7ffve3NDeTPwQjnZkQ6w1p8rcXfxRaevcwoomFT3NVWpKuc_gwWc_pJxqJ-toIhFmwbABaKNikEt3-w5hWh5T0yHSYCVJzp0aeIElbwZXPndFLU68z4cL8lFrMHmVtRuCw2ZZYCkKVnS1vDsODy3hCREnbQCmH9G42Dq7klaps5QCtdLSDGE1dkDbXwibXouiLdKBqdE0kdHvLvmud4Ba5_C0p4ebzZYFzU9B6pTtx6dmotdUFpcF_XMgedavcisFTJ9M32b5Mcz2bNOeHOvaRAPhuxqgen6RZtvYtB7x6-Kb2GAHBWFyihAut9jIPyZSkYlLsgiLoWEusR2R0r8D28SWlQO9tNRO3vdYwjPYymmzz-MydZ3Wu-dspmLxBnmOXe_vB--J_2L31qn0XE8EPuCGDKjVue48NF947TGRWC6f2a0XhH9ihICS09l-yJ5bxFJC0klnlECUg5sz_dbB8F4Taz46aexdcL4u-QPLM60iLop9x_UfYcBm3VIIDb9tn7iJbBtL_OyYl9pu4lkp8-IDVx70IiD7DD3Cg4TO3sRrBz2sTeOOl26Xzc40cOqNpbG6xKeLEyD0YQWOzNm6kjao6H4hfxNZY3MtXF2sHJ2JKnzUhFC_jwTKgb0gwxQA2VLezijwo6Ogo1WkGN4OngMAquqliNFmSgryyyHj2O9mVlrtvzx0H2SkoWOgLRXftlnSj-l3VetD-vEfy3qj31t3jP9UCqolK_xjGlgjrMOWlT_6FvLpa67eVZQ9UVlLZ6um3eFEJPNL8D9pQ2yrnvRgSz4LP46BsnlauxrJWEUBPbjFtODsg-cIASPvEtDURiba8Q7gvq1EHsZrFkvrKhHWpMPUtY-Gjv0tOniV1e3bMmvHfRxYkVDP5jnVETQoufkS40XfcVah9FZZXyrGoceaFPFg8vcOGsRFJV8arUFbuI6UkO0h-8pdnTgxwaKxZWkQq7keq0LlxoaCj97yLL7DSOD5zRg4hP8RqbrtbagWYRbKRT0g2wcHoxXF8JKUYxKBE7axU4Heq7eDzmMteFaFB0j9dmvjY3ccWc6zDNOsOE7Hy7M7aY5v4dGw3gK0gq2q41bmNry666dK9XXTGtxmeOuqYA2MpYqSV2gOKvutiSW_kRmtuJ_3Xq8B1Wx85XSHDuUqgDBF-p8JPlo65x37HPTIdXFSxwjO1TvZKaTFrQEifIVRjvFR1A5jrpQerZ_SF-QWrOESAOQZ2l5dzlcoy_wuoV8-sOCdg0G4gU-FiK8TWB85owxYcW2kpy43wY9gxcwyFIGUWDOb93d_ezTjQ6f-4egxran5sDRrU7hNyAxQl_VA_lIGToZm6UVuNdQxYRXpLktIDC5zVe4ELg0XP_QClb5fbSEfFPSClisQWRRNoIUrNaOvf-apOfcafKNcwHVK8yjah2XsHgTkFNNRrstFVIAZPXrhT6RUukXwoBX7VplI0VVwOPBjisF9RythFQgxgKSBVtnv9yNHeUZR37YLXDxRYY1g0JjGsBubO_PA_WCBvxAk1rZJ-ueujwq529cPIxUs7d9MURzXlEdxjCXR_cDDPnIXKl5yzr8aS7OTz6WnYMfQ46SR2IeKX-NWl9QwuUBbRfwWFbT9XUA4kqrPEAfLS9CmCy6JTG0Npcsdj1kzbhBE5K1WzgheVtwFKw7Jg5dIsARYyPO2jeLox1IaIGOrCxc_Aqkrcpeln0o0HDtBkCmURP3Xje35MCqRMnX8jG3CqUJ0xAfHfSv9JF5ezqFIfOVNN-lH0iTb52RRQVkqHWYgzh4gNy1yNh36DeO6MApGBBwUVuolKIxLwBDuWojUG4CLWJQzaj3U7cUpWo85QqYK_L-9dg0SACwjmYMJqJOP5n6az_NLds_J7NduZfVhggco1b_u-02IQd35k28jVPTETeyxBGgn9saNAFQEKQgMhv6Jv6FNu75YtKydfm2FlJN_46JYrAxl7HAudz626wHpA46BUKMYXPpVR8gZzqy3Tafncl6p2H1g0bg_5MrwhGFtTkMKntUdWIMcPUKUvYS36A1RFpuq9QQN9Agl3ULPo4P0YmMPKqIAFobfsZOhb_kUZVaVKvUNC-1aq9C6AbWrJbk2JxKjSBSqyMkc9Mre9fZwwT8PodImlhG8eixSDVL3f2qK676I6uvunqLkN2GSsrJPylkrzXAiB1hQOxlB-DtV88ULiIq5kZ9rB-XHrfEpfMLU436QlCHMGgoD2dqF9OFaPAkb9mJI8QUsOvz-j9u6PK2p1BML12lgWoSRG0ej-c8ZQgMo2lWa8dl_n9rU6O9ASxmdfOO-ntXyzYwCMw5aRFNTujVNeOrJYQUBi3jjYktexxLIARr1C7HecAXoXiUd1ss2PRv-y6NrBx6dRa82vziIUq6nQMwrwgg0_uE8R6ynoXK8rJ39vx4JsD3xuDQCorGmpWFLWksg81ZY952hPtWe2TfBSUpnXRhrzxtvdsdKjosuuG19BMyfxCheWqAJuk572W0KrAR9yipKzO4xYlm-K52JrWDkbktg1B5ilaf_dl95D58fZcnAuup_SlC4QoVB7klRCz9-BC0e_r-u9CKJOoM0afs0zTYgOm55W3Yyc4V6KoZoxRHfWfbL-rzqSeTYEM55CiacK5LivaFgG7BuoX8XcfF020YBdR50SWiQj7UGfv97qncM9J7t3hMq22grdKdY5GATpax3U_JJgMBG8vXqDSb_6YKugfEyr6T24gm2ssAJbqFExsXqNQ85mlt23UXq8FJbzLj2",
+        "summary": []
+      },
+      {
+        "id": "msg_0fe63ff61d2d5e40016a800782dec88196a549ddbff4feeeee",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 奇数结果, 整数型, , \\\"0\\\"\\n\\n生成奇数 (5, 奇数结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开\\n.参数 数量, 整数型\\n.参数 结果, 整数型, 参考 数组\\n.局部变量 计次, 整数型\\n\\n清除数组 (结果)\\n.计次循环首 (数量, 计次)\\n    加入成员 (结果, 计次 × 2 － 1)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序“生成奇数”，并在启动子程序中声明动态整数数组后调用一次。\",\"expected_behavior\":\"启动时生成包含 1、3、5、7、9 的动态整数数组；生成奇数会先清空传入数组，加入指定数量的连续奇数，并返回实际数组成员数。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "5f5abdef-0919-5083-bdb8-4ba51019371d",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "max",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-DNoVho3rX7C1K813g7I0Lel0",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 726,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1236,
+      "output_tokens_details": {
+        "reasoning_tokens": 944
+      },
+      "total_tokens": 1962
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 26097,
+  "attempt_count": 1,
+  "error": null
+}

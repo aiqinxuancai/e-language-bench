@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n    评级 (85)\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开, 根据分数返回评级文本\\n    .参数 分数, 整数型\\n    .局部变量 评级结果, 文本型\\n    .如果 (分数 >= 90)\\n        评级结果 = “优秀”\\n    .否则\\n        .如果 (分数 >= 60)\\n            评级结果 = “及格”\\n        .否则\\n            评级结果 = “不及格”\\n        .如果结束\\n    .如果结束\\n    返回 (评级结果)\\n\"},\"explanation\":\"新增公开子程序“评级”，参数为整数型“分数”，返回文本型。使用 .如果/.否则/.如果结束 正确嵌套实现三段分级：分数>=90 为“优秀”，否则分数>=60 为“及格”，其余为“不及格”，并通过局部变量在所有分支覆盖后统一返回。启动子程序先调用一次 评级(85)，再返回 0。\",\"expected_behavior\":\"启动子程序调用 评级(85) 一次（内部依次判断 85>=90 为假、85>=60 为真，得到“及格”），随后返回 0，程序正常结束。任何分数传入评级：>=90 返回“优秀”，60~89 返回“及格”，<60 返回“不及格”。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n    评级 (85)\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开, 根据分数返回评级文本\\n    .参数 分数, 整数型\\n    .局部变量 评级结果, 文本型\\n    .如果 (分数 >= 90)\\n        评级结果 = “优秀”\\n    .否则\\n        .如果 (分数 >= 60)\\n            评级结果 = “及格”\\n        .否则\\n            评级结果 = “不及格”\\n        .如果结束\\n    .如果结束\\n    返回 (评级结果)\\n\"},\"explanation\":\"新增公开子程序“评级”，参数为整数型“分数”，返回文本型。使用 .如果/.否则/.如果结束 正确嵌套实现三段分级：分数>=90 为“优秀”，否则分数>=60 为“及格”，其余为“不及格”，并通过局部变量在所有分支覆盖后统一返回。启动子程序先调用一次 评级(85)，再返回 0。\",\"expected_behavior\":\"启动子程序调用 评级(85) 一次（内部依次判断 85>=90 为假、85>=60 为真，得到“及格”），随后返回 0，程序正常结束。任何分数传入评级：>=90 返回“优秀”，60~89 返回“及格”，<60 返回“不及格”。\"}",
+          "reasoning_content": "The user wants me to generate 易语言 (Easy Language) code. The task:\n\n- Add a public subroutine named 评级 (rating), parameter 分数 (score) as 整数型 (integer), returns 文本型 (text).\n- If score >= 90 return \"优秀\", else if score >= 60 return \"及格\", else return \"不及格\".\n- Must use properly nested .如果/.否则/.如果结束 statements.\n- Entry point calls it once then returns 0.\n\nEasy Language syntax:\n\n```\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n    评级 (75)\n    返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 评级, 文本型, 公开, 根据分数评级\n    .参数 分数, 整数型\n    .如果 (分数 >= 90)\n        返回 (“优秀”)\n    .否则\n        .如果 (分数 >= 60)\n            返回 (“及格”)\n        .否则\n            返回 (“不及格”)\n        .如果结束\n    .如果结束\n```\n\nWait, in Easy Language, comments use ' (single quote). Chinese quotes “” are used for strings in 易语言 — actually Easy Language uses “ ” (curly quotes) for string literals. Yes, 易语言 uses “文本” with fullwidth quotes.\n\nThe .如果 structure:\n\n```\n.如果 (条件)\n    ' statements\n.否则\n    ' statements\n.如果结束\n```\n\nFor nested, the inner .如果 must be fully contained. Since we return in each branch, technically after the nested if ends, control flows out. But since each branch returns, we could also write without return after. But to be safe, structure:\n\n```\n.子程序 评级, 文本型, 公开\n    .参数 分数, 整数型\n    .局部变量 结果, 文本型\n    .如果 (分数 >= 90)\n        结果 = “优秀”\n    .否则\n        .如果 (分数 >= 60)\n            结果 = “及格”\n        .否则\n            结果 = “不及格”\n        .如果结束\n    .如果结束\n    返回 (结果)\n```\n\nEither approach works. The task says \"分数大于等于90返回\"优秀\"...\" — using 返回 directly is fine. But with 返回 inside .如果 branches, that's valid Easy Language. Let me use direct returns, which is simpler and matches the spec.\n\nActually, some Easy Language compilers warn about missing return at end of function when returns are inside branches. To be safe, I'll use local variable approach or ensure the structure returns in all paths. Actually with .如果/.否则 covering all paths and returning in each, Easy Language is fine, but the static checker might complain. Using a local variable is safest.\n\nLet me write:\n\n```\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n    评级 (85)\n    返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 评级, 文本型, 公开, 根据分数返回评级结果\n    .参数 分数, 整数型\n    .局部变量 评级结果, 文本型\n    .如果 (分数 >= 90)\n        评级结果 = “优秀”\n    .否则\n        .如果 (分数 >= 60)\n            评级结果 = “及格”\n        .否则\n            评级结果 = “不及格”\n        .如果结束\n\n    .如果结束\n    返回 (评级结果)\n```\n\nThe blank line between .如果结束 and .如果结束 is fine but maybe keep clean.\n\n\"新增公开子程序\" — public subroutine, so need \"公开\" in the declaration. The format: `.子程序 评级, 文本型, 公开, 注释`.\n\nEntry calls once: 评级 (85) — call once. Maybe assign to a variable or just call. Calling a function without using the return value in Easy Language is fine: `评级 (85)`. To be safe, could do `.局部变量 结果, 文本型` then `结果 = 评级 (85)`. Either works. A bare call is valid in 易语言.\n\nOutput JSON with files, explanation, expected_behavior. Only src/程序集1.txt.\n\nFinal JSON:\n\n{\n  \"files\": {\n    \"src/程序集1.txt\": \".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n    评级 (85)\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开, 根据分数返回评级文本\\n    .参数 分数, 整数型\\n    .局部变量 评级结果, 文本型\\n    .如果 (分数 >= 90)\\n        评级结果 = “优秀”\\n    .否则\\n        .如果 (分数 >= 60)\\n            评级结果 = “及格”\\n        .否则\\n            评级结果 = “不及格”\\n        .如果结束\\n    .如果结束\\n    返回 (评级结果)\"\n  },\n  \"explanation\": \"...\",\n  \"expected_behavior\": \"...\"\n}\n\nNote: In 易语言, indentation typically uses spaces. Fine.\n\nMake sure string quotes are Chinese fullwidth “ ”. Yes.\n\nEnsure no markdown fences, single JSON object.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786785409,
+    "id": "02178678539258343b85dfdabac66aff760e23d27beea593da427",
+    "model": "glm-5.3",
+    "service_tier": "default",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 1573,
+      "prompt_tokens": 300,
+      "total_tokens": 1873,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "elapsed_ms": 17007,
+  "attempt_count": 1,
+  "error": null
+}

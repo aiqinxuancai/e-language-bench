@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 计算商品的折扣价格\\n.参数 原价, 整数型, , 商品原价\\n.参数 折扣率, 整数型, , 折扣百分比\\n.局部变量 结果, 整数型, , 计算出来的折扣价格\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"在程序集1中新增公开子程序『计算折扣』，配置整数型返回值及说明，添加『原价』和『折扣率』参数并保留中间属性槽位，声明局部变量『结果』。在入口子程序中调用一次该子程序并返回0。\",\"expected_behavior\":\"程序启动后在入口函数中成功调用『计算折扣』子程序，计算 原价 × 折扣率 ÷ 100 并返回计算出的折扣整数值，入口函数最终正常返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151150391718224508268d9d6JjFFf8oe",
+    "object": "response",
+    "created_at": 1786794642,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151150391718224508268d9d6JjFFf8oe_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 计算商品的折扣价格\\n.参数 原价, 整数型, , 商品原价\\n.参数 折扣率, 整数型, , 折扣百分比\\n.局部变量 结果, 整数型, , 计算出来的折扣价格\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"在程序集1中新增公开子程序『计算折扣』，配置整数型返回值及说明，添加『原价』和『折扣率』参数并保留中间属性槽位，声明局部变量『结果』。在入口子程序中调用一次该子程序并返回0。\",\"expected_behavior\":\"程序启动后在入口函数中成功调用『计算折扣』子程序，计算 原价 × 折扣率 ÷ 100 并返回计算出的折扣整数值，入口函数最终正常返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 574,
+      "completion_tokens": 2047,
+      "total_tokens": 2621,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 289,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1758
+      },
+      "input_tokens": 574,
+      "output_tokens": 2047,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 574,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3806,
+  "attempt_count": 1,
+  "error": null
+}

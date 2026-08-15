@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型\\n\\n返回 (0)  ' 控制台程序入口，返回 0\\n\"},\"explanation\":\"程序集仅保留一个整数型控制台入口子程序，不添加支持库，并使用单引号添加说明注释。\",\"expected_behavior\":\"程序启动后执行_启动子程序并返回整数值0。\"}",
+  "raw": {
+    "id": "resp_076957d8ba74dc63016a805289bf48819aba646f15572fde9a",
+    "object": "response",
+    "created_at": 1786794633,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794638,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_076957d8ba74dc63016a80528a6258819ab8e7a1e13b71671f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFKNmCSSZugjGTGbpBOREAbnJS-BNYvDYVjUj0aWT6qbCOGVdLYgipJvCD7GHGSs2jFvnh82ZnesHEcU4D88QC5S_lp6vqKHe_zSf8uTieiIi1icEIsG12CS8enxq-ZjurP5FlfgK4NzAdPRl9hKMnzKpu4RaOCDage3i6iYFUl9-J767eu0-mvUI5o-on8NiaLQUmhrrVCZn-Ba6duZfqB1z74h_a-FCne_BOWJkygH3dmlYKz3JpSNsfT2X_BnUeCWYPJ_FHnO7zAo2qzdrr7U0JXKglkbuZXYcLn2dBKyZf9u_weyljvbwmY-PzgFqEazzbMpcW5kWb_UftSdToScF6pX5LRSkPf6XgdNeaz_BhC1ZoRLzQkTWitCJM3TcDa5ByhWwkTHvxg2zHBzT3MQrjKLwTPT0dbnk_M9yj4xCGi-60GzrvrrsP0DojUEdQe6g5I65k1x0sfW3Ig-NyUaBvffzPrN-18uOnRfFWofQmlYxg_U-WRRUy2w02Q1egixQQxjuiT7ZkwSNWdPGL14Ul5FYLj2Jk61uKkxyAZqcsOHi9I4VzvBds7HVV3-AQAXBn_Tfw7KQNqFTy_KjwhpXj2dNu7YfvmA-BII1n126uQbh1X1ueL8c9r1q_DFfEe7v66KclsM3pklHt2SlypxeCYgyFp5Y6gmi3F9hHHvr0YLUMb9p_KwFT-1-NfTZAouMjzRZAPorVVWEdB1SQ3jBWS0WTBjH-2vjxSeCgc-endpdeLTY3Pp4ge0EEIacgKbsHI7-49XWoo6_nz8tp7faXMbQSbOt2hC4YrfKvWlmMxOnA7zmGrbEVoaKi6Y_dVqvlxcKHEdgurbHsJZKvVH45XSdyMfBJzzy-Xu1CTh4OlbmsqWjZQBn_3IjpQcEZC-5Xe12iVPmEazrulxi9Ei48Tjzo0vgKBUncUiwTDKYWvH-eCULNgXjzMN2oTFFSoTFqv6JUcr0slEj8__Fx7viVVttqjT_I1AoGVU14dmUVZ2l_yy-8x85ybYc7uttb_GSBE14NXCTIpkKw-1ssTkNzGKXgxzvv4KwX1Xm2-pG8MP9ht95meOahFNLzjWiWVxHJkXgO-0PXj5HOeY4c0c8pxqGn3aRNZA7ES5RacYTzEDFpmGX2FX-QxStK0wuzHf_rRJ0_UtpYWaaDVSVUYTY0JNy7R7y3ISzkBoQ4zVrtWjW2lJFWKr5aVR90ITZJps1grDbOH3VPr98rhi-6zHdz6ViU8pAPhmJ5DZC6b_bjGrnpSp8UihOiDpWZbWgWpCT1-S7ZyVgX5SU0NWZYPapk_cpk2jNHxx8Xhb3iuETzUjTV9HksQYXavkoowzV0Jp7wV_V9G8U_gVP0rypLKrhlOCBUYvMUctWsA77DUUQEq7xx70jNVPwMQ3AkUGuriw-g77WoTiEUmZeFW5mN-knlJT92sMlaM1o_6OUw8ahAp2Lt4DQdK9tKOCLiPuFLN9PGQQRxJTycD9cmYg1Xn4kIpZlVkCWJhzdatSkxrBggvIhqKx6W8aZ4ZwARYrie4N9o5yWT7nsU4q759gD4AGwRT171mQKXgBxJlVYzuhbFgfvly0t4hPdEcggsbgNrHsh1PBuQ0sLzBd_l7MrbSz4en5mZFmt9FnX63kbcd-D3YsIebe1ty4WDmO2VMV0FWx21-Nc0g-jdOzDCR5sfY6lMM4JV0jmtoXKDZrupo2Haet26qtrhQheBFZvqYpO9tqxQWb8Yvh1dQpnHNVSNYHPQe7kCKm8sWVnyJt-_fkz1_kb1VO6e5z3nSLxO0svOWz7Jq80U6ayMYB_lEVrz0q_BQK0ql5pf6IY1EpnVglhVryrvRCYTSf7ygiQz6NHXHd_HOqcHucnwI1OjrLSt2JKst88oCuhtO2fNcn7-1gqj-FJuALOBFMEiolDp9vugvKldaEdUE7lTdacBCn3FJOOKNz82Tc-STPccso0wPz4mz5px0kEkfMshvfCTk-_McsyRpZNgKmfGsJcbraNKGwx8wT3cM5DHWbuNC-bmZ0_5E=",
+        "summary": []
+      },
+      {
+        "id": "msg_076957d8ba74dc63016a80528d0924819a82a61bed3eee8a77",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型\\n\\n返回 (0)  ' 控制台程序入口，返回 0\\n\"},\"explanation\":\"程序集仅保留一个整数型控制台入口子程序，不添加支持库，并使用单引号添加说明注释。\",\"expected_behavior\":\"程序启动后执行_启动子程序并返回整数值0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "b08ab98b-4415-4f5a-a0fa-be4324c45216",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-0MqMYGs0FiE9msWoqGRovMY6",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 568,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 512,
+      "output_tokens_details": {
+        "reasoning_tokens": 292
+      },
+      "total_tokens": 1080
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 6272,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)\\n\\n.子程序 规范用户名, 文本型, 公开\\n.参数 输入, 文本型\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 `规范用户名`，通过调用核心库命令 `删首尾空` 去除输入文本首尾空格，再利用 `到小写` 将文本转换为小写后返回；在 `_启动子程序` 中调用该函数处理测试文本并返回 0。\",\"expected_behavior\":\"调用 `规范用户名 (“  Alice  ”)` 时，首先剔除两端空格得到 `Alice`，再转换为小写字母，最终返回 `alice`；`_启动子程序` 执行该调用后正常返回 0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151150561507751318268d9d6ZSbZI2Cr",
+    "object": "response",
+    "created_at": 1786794660,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151150561507751318268d9d6ZSbZI2Cr_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)\\n\\n.子程序 规范用户名, 文本型, 公开\\n.参数 输入, 文本型\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 `规范用户名`，通过调用核心库命令 `删首尾空` 去除输入文本首尾空格，再利用 `到小写` 将文本转换为小写后返回；在 `_启动子程序` 中调用该函数处理测试文本并返回 0。\",\"expected_behavior\":\"调用 `规范用户名 (“  Alice  ”)` 时，首先剔除两端空格得到 `Alice`，再转换为小写字母，最终返回 `alice`；`_启动子程序` 执行该调用后正常返回 0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 806,
+      "completion_tokens": 2456,
+      "total_tokens": 3262,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 235,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 2221
+      },
+      "input_tokens": 806,
+      "output_tokens": 2456,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 806,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 4674,
+  "attempt_count": 1,
+  "error": null
+}

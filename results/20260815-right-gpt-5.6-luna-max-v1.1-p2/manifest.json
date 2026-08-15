@@ -1,0 +1,42 @@
+{
+  "run_id": "20260815-right-gpt-5.6-luna-max-v1.1-p2",
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.1-pack-failure-count",
+  "created_at": "2026-08-15T11:50:25.149752+00:00",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "max",
+  "protocol": "openai_responses",
+  "wire_protocol": "openai_responses",
+  "base_url": "https://www.rightapi.ai/codex/v1",
+  "parallel_workers": 2,
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.28000-SP0",
+  "tool_paths": {
+    "e_packager": "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+    "autolinker_test": "D:\\git\\AutoLinker\\bin\\fne_release\\AutoLinkerTest.exe",
+    "autolinker_fne": "C:\\Users\\aiqin\\OneDrive\\e5.6\\lib\\AutoLinker.fne",
+    "eide": "C:\\Users\\aiqin\\OneDrive\\e5.6\\e5.95.exe"
+  },
+  "tool_hashes": {
+    "e_packager": "09d7f1e291d2ba190c28fcdc07d2460a6222baf1b7e935c34a9660807aed7785",
+    "autolinker_test": "57cc17e7584f54b0b30b0e55e799c097d68e6bb7c71650654cc58846a5b37358",
+    "autolinker_fne": "cba2e177c86d5bfa60c50b6b19d89e564c1bcaa5b26a5563fcea63308e17aa32",
+    "eide": "368cbbd323d2c5bc00f0c072b116333f75339fc0742e238d3e5e6ff17abe1409"
+  },
+  "template_hashes": {
+    "e-console-exe-for-10000.e": "e7dcab0c1f55ed2d2ae1e9e2cb4df81619c11680751921f4b9e46b06093b5d12",
+    "e-console-exe-full-test.e": "4a75585920dd91f533ac3fd4b8942e703d5ea0d99503bd0a96a0ef5991725667",
+    "e-console-exe-new-proj.e": "e1073bc2b7824065142a0787e64bf8f568b43b47fb6548a82540a6ae974291fe",
+    "e-window-exe-full.e": "62c4756ae84e83786076f3945da3095034b3bfe60335f349d7525e08ca670816",
+    "e-window-exe-new-proj.e": "1e51103e3438b61a4078c1fd74dd02bdd79ed2c02198bd481e9f1403bef6c830"
+  },
+  "dependency_commits": {
+    "e-packager": "71fb217a9b61fc03b14840e6bfa2ec65a9816cfa",
+    "AutoLinker": "d2b4ddf6913e38796f190cc19c81e7d9ecb54eb9",
+    "e-language-skill": "dac05590f2917a3a35dc26825818bd969a293cd1"
+  },
+  "dataset_sha256": "18804373822c00c0e93d1f904ee8f820ebbe5ef6cbf87a95d653c19b1e98ac83",
+  "credential_persisted": false
+}

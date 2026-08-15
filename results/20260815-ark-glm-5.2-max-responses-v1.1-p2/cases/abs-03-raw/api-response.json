@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\",\"src/计数器.txt\":\".版本 2\\n\\n.程序集 计数器\\n\\n.程序集变量 当前值, 整数型, , 计数器当前累计值\\n\\n.子程序 _初始化, , , 对象创建时被调用，完成初始工作\\n当前值 = 0\\n\\n.子程序 _销毁, , , 对象销毁时被调用，完成回收清理工作\\n\\n.子程序 增加, , 公开, 累加当前值\\n.参数 增量, 整数型\\n当前值 = 当前值 + 增量\\n\\n.子程序 取当前值, 整数型, 公开, 返回当前累计值\\n返回 (当前值)\\n\"},\"explanation\":\"新建公开类程序集 计数器，含程序集变量 当前值(整数型)、生命周期子程序 _初始化 与 _销毁、公开方法 增加(整数型参数 增量) 和 取当前值(返回整数型)；程序集1保持原样，入口仅返回0。\",\"expected_behavior\":\"类 计数器 可被实例化：_初始化 将 当前值 置 0；调用 增加(n) 后 当前值 累加 n；取当前值 返回累计后的整数；对象销毁时执行 _销毁。程序集1入口 _启动子程序 不实例化该类，仅返回 0。\"}",
+  "raw": {
+    "created_at": 1786805030,
+    "id": "resp_021786805026959e8209c4b0895c6ffd686f64f49324767f850e1",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680503021500000000000000000000ffffac15a82ca47bde",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Need to produce E language code for a new class assembly \"计数器\" with assembly variable 当前值 (整数型), lifecycle subroutines _初始化 and _销毁, public methods 增加 (整数型 param 增量) and 取当前值 (returns 整数型). Program assembly 1 entry unchanged.\n\nFormat: class assembly file. In 易语言, class assemblies are declared with \".程序集 计数器\" and class methods with \".子程序 ..., , , , 公开\" — public methods marked with 公开 in the fifth field. Lifecycle: \"_初始化\" and \"_销毁\" subroutines.\n\nStandard format:\n\n.版本 2\n\n.程序集 计数器\n\n.程序集变量 当前值, 整数型\n\n.子程序 _初始化\n' ...\n\n.子程序 _销毁\n\n.子程序 增加, , 公开\n.参数 增量, 整数型\n当前值 = 当前值 + 增量\n\n.子程序 取当前值, 整数型, 公开\n返回 (当前值)\n\nThe 子程序 line format: .子程序 name, return type, public/static, comment. Actually format: .子程序 子程序名, 返回类型, 公开/私有, 备注. So \"公开\" goes in third field."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\",\"src/计数器.txt\":\".版本 2\\n\\n.程序集 计数器\\n\\n.程序集变量 当前值, 整数型, , 计数器当前累计值\\n\\n.子程序 _初始化, , , 对象创建时被调用，完成初始工作\\n当前值 = 0\\n\\n.子程序 _销毁, , , 对象销毁时被调用，完成回收清理工作\\n\\n.子程序 增加, , 公开, 累加当前值\\n.参数 增量, 整数型\\n当前值 = 当前值 + 增量\\n\\n.子程序 取当前值, 整数型, 公开, 返回当前累计值\\n返回 (当前值)\\n\"},\"explanation\":\"新建公开类程序集 计数器，含程序集变量 当前值(整数型)、生命周期子程序 _初始化 与 _销毁、公开方法 增加(整数型参数 增量) 和 取当前值(返回整数型)；程序集1保持原样，入口仅返回0。\",\"expected_behavior\":\"类 计数器 可被实例化：_初始化 将 当前值 置 0；调用 增加(n) 后 当前值 累加 n；取当前值 返回累计后的整数；对象销毁时执行 _销毁。程序集1入口 _启动子程序 不实例化该类，仅返回 0。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680503408500000000000000000000ffffac15a82ce4016f"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 342,
+      "output_tokens": 651,
+      "total_tokens": 993,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 11350,
+  "attempt_count": 1,
+  "error": null
+}

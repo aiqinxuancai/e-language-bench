@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n    规范用户名 (“  Alice  ”)\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转为小写\\n    .参数 输入, 文本型\\n\\n    返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 规范用户名，先用核心库命令 删首尾空 去掉两端空格，再用 到小写 转为小写后返回；入口 _启动子程序 调用 规范用户名（“  Alice  ”）后返回 0。\",\"expected_behavior\":\"程序启动后调用 规范用户名（“  Alice  ”），得到结果 “alice”（去空格并转小写），随后 _启动子程序 返回 0。\"}",
+  "raw": {
+    "created_at": 1786804794,
+    "id": "resp_021786804793629c0506cecb44d3a1cbfe6034fdc2fcfd8c3ba6c",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680479484200000000000000000000ffffac150c707f6db6",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Generate E language code with 规范用户名 subroutine using 删首尾空 and 到小写. Entry calls it and returns 0."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n    规范用户名 (“  Alice  ”)\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转为小写\\n    .参数 输入, 文本型\\n\\n    返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 规范用户名，先用核心库命令 删首尾空 去掉两端空格，再用 到小写 转为小写后返回；入口 _启动子程序 调用 规范用户名（“  Alice  ”）后返回 0。\",\"expected_behavior\":\"程序启动后调用 规范用户名（“  Alice  ”），得到结果 “alice”（去空格并转小写），随后 _启动子程序 返回 0。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680479528600000000000000000000ffffac150c70796362"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 310,
+      "output_tokens": 285,
+      "total_tokens": 595,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 3881,
+  "attempt_count": 1,
+  "error": null
+}

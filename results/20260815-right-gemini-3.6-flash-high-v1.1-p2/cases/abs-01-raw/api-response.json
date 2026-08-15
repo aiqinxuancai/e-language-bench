@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 a, 整数型\\n.局部变量 b, 整数型\\n\\na ＝ 10\\nb ＝ 20\\n交换整数 (a, b)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序`交换整数`，接收两个整数型参考参数`甲`与`乙`，通过局部变量`临时值`实现两者值的交换。在`_启动子程序`中声明两个整数变量并赋值，随后调用`交换整数`进行交换，最后返回0。\",\"expected_behavior\":\"运行启动子程序后，声明的两个整数变量值将被成功交换，子程序正常返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151151341383100448268d9d6wNqpX0sx",
+    "object": "response",
+    "created_at": 1786794696,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151151341383100448268d9d6wNqpX0sx_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 a, 整数型\\n.局部变量 b, 整数型\\n\\na ＝ 10\\nb ＝ 20\\n交换整数 (a, b)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序`交换整数`，接收两个整数型参考参数`甲`与`乙`，通过局部变量`临时值`实现两者值的交换。在`_启动子程序`中声明两个整数变量并赋值，随后调用`交换整数`进行交换，最后返回0。\",\"expected_behavior\":\"运行启动子程序后，声明的两个整数变量值将被成功交换，子程序正常返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 529,
+      "completion_tokens": 1605,
+      "total_tokens": 2134,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 281,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1324
+      },
+      "input_tokens": 529,
+      "output_tokens": 1605,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 529,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 2837,
+  "attempt_count": 1,
+  "error": null
+}

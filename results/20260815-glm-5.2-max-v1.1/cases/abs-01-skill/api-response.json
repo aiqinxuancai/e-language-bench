@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\\r\\n.参数 甲, 整数型, 参考\\r\\n.参数 乙, 整数型, 参考\\r\\n.局部变量 临时值, 整数型\\r\\n\\r\\n临时值 ＝ 甲\\r\\n甲 ＝ 乙\\r\\n乙 ＝ 临时值\\r\\n\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n.局部变量 数值甲, 整数型\\r\\n.局部变量 数值乙, 整数型\\r\\n\\r\\n数值甲 ＝ 10\\r\\n数值乙 ＝ 20\\r\\n交换整数 (数值甲, 数值乙)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\"},\"explanation\":\"新增公开子程序交换整数，甲、乙均为整数型参考参数，通过局部变量临时值完成交换；_启动子程序中声明两个整数局部变量并赋值后调用交换整数，最后返回0。\",\"expected_behavior\":\"程序启动后，数值甲与数值乙分别被赋为10和20，调用交换整数后因参考参数传递，数值甲变为20、数值乙变为10，_启动子程序最终返回0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\\r\\n.参数 甲, 整数型, 参考\\r\\n.参数 乙, 整数型, 参考\\r\\n.局部变量 临时值, 整数型\\r\\n\\r\\n临时值 ＝ 甲\\r\\n甲 ＝ 乙\\r\\n乙 ＝ 临时值\\r\\n\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n.局部变量 数值甲, 整数型\\r\\n.局部变量 数值乙, 整数型\\r\\n\\r\\n数值甲 ＝ 10\\r\\n数值乙 ＝ 20\\r\\n交换整数 (数值甲, 数值乙)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\"},\"explanation\":\"新增公开子程序交换整数，甲、乙均为整数型参考参数，通过局部变量临时值完成交换；_启动子程序中声明两个整数局部变量并赋值后调用交换整数，最后返回0。\",\"expected_behavior\":\"程序启动后，数值甲与数值乙分别被赋为10和20，调用交换整数后因参考参数传递，数值甲变为20、数值乙变为10，_启动子程序最终返回0。\"}",
+          "reasoning_content": "The task is to modify the 易语言 (Easy Language) source file. I need to:\n\n1. Add a public subroutine 交换整数 with no return value, parameters 甲 and 乙 both integer reference parameters.\n2. Use a local integer 临时值 to complete the swap.\n3. In the entry (_启动子程序), declare two integers, assign values, call 交换整数, and finally return 0.\n\nLet me format according to the spec:\n\n- .子程序 fields: name, return type, public attribute, description\n- .参数 fields: name, type, parameter attribute, description\n- .局部变量 fields: name, type, static attribute, array dimensions, description\n- Assignment uses full-width ＝\n- Comments use single quote '\n- Return value uses 返回 (值)\n\nLet me write the code:\n\n```\n.版本 2\n\n.程序集 程序集1\n\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\n.参数 甲, 整数型, 参考\n.参数 乙, 整数型, 参考\n.局部变量 临时值, 整数型, , ,\n\n临时值 ＝ 甲\n甲 ＝ 乙\n乙 ＝ 临时值\n\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 数一, 整数型, , ,\n.局部变量 数二, 整数型, , ,\n\n数一 ＝ 1\n数二 ＝ 2\n交换整数 (数一, 数二)\n返回 (0)  ' 可以根据您的需要返回任意数值\n```\n\nWait, the spec says \"声明的中间空槽必须保留，只有尾部空槽可省略\" - middle empty slots must be preserved, only trailing empty slots can be omitted.\n\nFor .局部变量 fields: name, type, static attribute, array dimensions, description. If I just write name and type, the trailing slots (static, array dims, description) can be omitted. So `.局部变量 临时值, 整数型` is fine.\n\nFor .参数: name, type, attribute, description. Reference parameter: `.参数 甲, 整数型, 参考` - trailing description omitted is fine.\n\nFor .子程序: name, return type, public, description. `交换整数, , 公开` - no return type (empty middle slot preserved with \", ,\").\n\nNow for the entry: \"入口声明两个整数，赋值后调用交换整数，最后返回0\" - declare two integers in the entry, assign values, call 交换整数, finally return 0.\n\nThe original has:\n```\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n\n\n返回 (0)  ' 可以根据您的需要返回任意数值\n```\n\nI'll add local variables 数值甲 and 数值乙 (or 数一, 数二), assign values, call the swap, then return 0.\n\nOrder: parameters first, then local variables, then statements.\n\nLet me write the final file:\n\n```\n.版本 2\n\n.程序集 程序集1\n\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\n.参数 甲, 整数型, 参考\n.参数 乙, 整数型, 参考\n.局部变量 临时值, 整数型\n\n临时值 ＝ 甲\n甲 ＝ 乙\n乙 ＝ 临时值\n\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 数值甲, 整数型\n.局部变量 数值乙, 整数型\n\n数值甲 ＝ 10\n数值乙 ＝ 20\n交换整数 (数值甲, 数值乙)\n返回 (0)  ' 可以根据您的需要返回任意数值\n```\n\nHmm, the description fields — for the 公开 subroutine, the description is optional (trailing slot). Should I keep it? I'll add a brief description or leave it. Let me keep it simple: `.子程序 交换整数, , 公开` — the trailing description can be omitted. Actually let me include a short description to be safe? The spec says trailing empty slots can be omitted. Either is fine. I'll include a brief description for clarity.\n\nActually, keeping it minimal might be safer. Let me use `.子程序 交换整数, , 公开, 交换两个整数参考参数的值`.\n\nOutput JSON with the file content. Need to be careful with newlines in JSON string — they'll be literal \\n in the JSON encoding. The output should be a single JSON object.\n\nLet me also make sure the assignment uses full-width ＝ as specified.\n\nFinal answer JSON:\n\n{\"files\":{\"src/程序集1.txt\":\"...\"},\"explanation\":\"...\",\"expected_behavior\":\"...\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786785601,
+    "id": "021786785586493bde03ea0489c8e302d576098c64d404edf2b51",
+    "model": "glm-5.3",
+    "service_tier": "default",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 1355,
+      "prompt_tokens": 549,
+      "total_tokens": 1904,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "elapsed_ms": 14859,
+  "attempt_count": 1,
+  "error": null
+}

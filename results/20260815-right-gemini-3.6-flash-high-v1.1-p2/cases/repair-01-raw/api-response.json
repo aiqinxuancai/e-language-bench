@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a ＞ b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\"},\"explanation\":\"使用易语言的『.如果...返回(...).否则...返回(...)』替换了C/JS等语言的条件语法与关键字，移除了花括号、if、else、return以及半角赋值符号，并声明为公开子程序。\",\"expected_behavior\":\"调用『取较大值』时比较传入的参数a和b，返回两者中的最大值；启动子程序正常执行并返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151151530811921148268d9d6O24GAXHJ",
+    "object": "response",
+    "created_at": 1786794716,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151151530811921148268d9d6O24GAXHJ_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a ＞ b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\"},\"explanation\":\"使用易语言的『.如果...返回(...).否则...返回(...)』替换了C/JS等语言的条件语法与关键字，移除了花括号、if、else、return以及半角赋值符号，并声明为公开子程序。\",\"expected_behavior\":\"调用『取较大值』时比较传入的参数a和b，返回两者中的最大值；启动子程序正常执行并返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 549,
+      "completion_tokens": 2051,
+      "total_tokens": 2600,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 230,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1821
+      },
+      "input_tokens": 549,
+      "output_tokens": 2051,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 549,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 4088,
+  "attempt_count": 1,
+  "error": null
+}

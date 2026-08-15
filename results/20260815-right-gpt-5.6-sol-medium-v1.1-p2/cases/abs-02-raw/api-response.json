@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n阶乘 (6)\\n返回 (0)\\n\\n.子程序 阶乘, 长整数型, 公开\\n.参数 n, 整数型\\n\\n.如果 (n <= 1)\\n    返回 (1)\\n.否则\\n    返回 (n * 阶乘 (n - 1))\\n.如果结束\\n\"},\"explanation\":\"新增公开递归子程序“阶乘”，在入口中以 6 调用，随后返回 0。\",\"expected_behavior\":\"程序启动时计算阶乘(6)，递归得到 720，入口最终返回 0。\"}",
+  "raw": {
+    "id": "resp_0d3cfa5aea4f192a016a805356d4d08198b10c64f8828fe992",
+    "object": "response",
+    "created_at": 1786794838,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794851,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0d3cfa5aea4f192a016a80535942508198ab05fee46452e128",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFNg4Lfx7AmEmeD0coPOJvKkKTdWh5DRLdHQcu864NK80GWF6P530NHXxTfFKc2ugF6zQhrp-qmTiAmJFdxjEPrDzYgwvFOG0i2SXMTs9PSiEOkTxpd0Ay_JZPQ9fIur32Ue3jg9AEB1Ks-u7Bu7uhw9WmfgSWWZhd9199KPF2S8TiSHcDwzZZyHwqYP9Wg721cMWkSvpq-n_xE5tggB6UhWkmEdIu2mXYBj2F0kltBbmNatBirI_7peRLd0jhJrKwPNSP1xrms88-DtvGf7xfICN0CjCFPeCNyUL8mqDwLzOz97hnyQm7O6MbK_L3wnAiWY7UUXAg52F946qCV6QpbOA-p936FUqyDavA2w8OSUobhChsE7ZMsfv7xjqM2AD30Km_kiFCuNyHTRFDVZde4YcNgOhyxayPL__OABr5GH04HnrxTxVl5BCiBPtgeq4oGJi94RA86l29G6jAceOE7PCvgicLQLp82GteBCjztQ--tPm2PM1WcnMeaI19NuSzjMIy4umLcYPwogoZJyee9KQWxkv5m6h9vIRfygSOzYDivo4dYS_B1kQcuKiMdoMyr_ZwEGceKJk8HNBy0I28xvX7uLk3oQBvItFC8qAFxxCFkk69oKxkpja8gqV5YP7OoQq07OD5VEIJISsngfAVnMXy3DFW_RuXKsQw0skEfP0r7aJZsyEagPKO_arZhItedhUWsK53gEqwvh1LWkg4o83dBB_Ac-ETX7tP1qm3WEH3vCnDAYtInmEal2lHN8GCbRAnmgYxdI7Itqd8JuO6NnjtQsfZcYjOIV0_8BizoQv4Kl9L7arR0MABeG-jfEKNHOrym1NvUnbxero5-9onu07j3VYemcXCFAaiHldZKayeWqZdJ167wwRtn3zi0b3FDAJYrCxgFBPYnG-q8tYxGL-hkFFZWnopXr3B6BRUONnH0ukwG2JhLNpMI1B8NAWahcJAUon42eqdTL_v6EBuO3l1dyhE57RckaDFb77CthXzdGYZzRtockDpGNRpS57T0N1M6EFsiwpxY9KF11jzhMa1oKexI0CuKrbkTxUDX1pk0RiHuoeNiIYBpgXtCBfp2oNm_qCkJOdCs5PoSHqEr5Izm7UyVeMw3MRj4RN2pXdowUksZlHlGRJekeT8AzzVf44zVf1TEV1ZDpNZyy2gLjwaI-lYirg6m9xvTlSdAr7bCZNHzTATodJnMUsveGWgiO22-XTq2_XkiDFdPSjQVUMLfUP__E3_MogcAQCt-EV-AHzBtyaEG7xugHl09dzadUniu4jxEjEARXfr1BGzBsSWJxQQ36oT7AuEwmow9sl9C9tP2eBqglTLoNapkA3Qxy7HR2qmcRFaVHdhQhGvDMYri1KgDLOGdhw-RgoCvUiM-vAKow2iDbn2ONoVoXi8JV8xsZk6A0RGuOGxuVTMJjsZZhk8GTkhl8vjX0Z6tc1aSWXU73ANWKMlsFGLa1Lhe1tM1LHxQm_ex9TGFFOBE96ZWQ0MriAP0aJS10UN79ccCfsDMvZLllMTLuQ3wTKb5ma5uXjiMtYdhXtxUlNvqa0mK1TyVExuqU7JECAlCrW6EM5We-Qe4sKfnmvRTnB_PLFNLcTyZdauAYPgVd2UUIWy60jg9vIVc3trFDBRpgiAVzElQ1nSKihO3QNs55fzGUqkhn4Mc4NV_dE9D0LIGlDTLSt1oE-FiadZpStqZu03siDfldtlwT0MMNSX9fLi1oac7CgggCSsOnBwLR1r-xQCVdkXJS-5Q3QxCN6tcrm0zSO8cPOFtZErZwePe1PBCEuhf12tpgAKDh6TuTwUYI4Vz55fr5uSU4zzd2hvN-xNQC6LWRyQy5uB8DM1OEh9a9AWm9mM6-oihxGVLs4vgLqoacsmUKNRQ66LDdAstICtF1DBEZ0_ua-jNrn2i5C_AuBUwjwO75T_tNvL1fJRYJx6WcYgo96rPQnwVt-fxPXtQBs6p5V_3ks7Y7F2B6UtG7a56sbgtZTxcLnuVRYkywnl5YRmP5ifgK-8IkZwXMXqDtluaLCHuHhmqXLArcXu3a4bc4xwlR-Qr5SD9VCBMtQAEH6-n90iabEx6mvlstoj8AX3B_WHuFwnRTzYo7gYUNu37LIYK_pfYZYVKjNyga44KeWOx2e0utuV504w8QwkZyY882WJBJOzriukqtN0OtIzFgXMCrerzQDuvd3YIACJ7S5njbmti1z9llBGJvYprDpDy4UKcNJ61rFl7AqvZlGMLSKAltCBlHOGfZUsdsvezhSiZiXjzMYXaWu2iWUOXPfEtwCgOkRjXTaTi-ISCkzMizOp4NRnXQcmlCq2JHIgFY2W-wsL8eieW7YkW7zamW7fOgEwHMWrN5wDc3zSJj4rxuzaX3Scz_Sv4H_42N3fzMApsa7THwAN1bqTUeoXXvqEv9xTYHie8mzaIS31OdYd_dlZTFZFtbcVDuWz0xDqGrMBWIm7oxEJvNK6EXMsM_Bf-K9_b5d63PzOl9Lu-LMzOMI9WrwxPgfgnpIKx6yKgkriCQMIGpq22oH2zUVgODjE8XuqEr4YtIW5WfWDJpiisbRM2zXQxDvH_p3dYWf8lWiryK53RR-Bi_dbzlzW-OE1_Ks7AX9UCY7-RwAgTVgfg9RUTj9m2X2bhg6Ngw_l_apEMaH80l9IZCn7kq7oD1U7pdegUtBZUOePnAbYeFg9yLLL266i9p3KEGO4xeDML_3KfIuavOLhuR5XnABvQQl2c1qmV3oq5vH_KQsOyVk6wvWjkQNxLQpWTkO8KTY-0E0C2GmrTR6VJ0Tup72krdg5PDi66Fh_rqZes9pIOCGeuPNyiRIB2CkaYkZVqaCyA9Ldwdt5PSjdqwfj3gq0Vy-tB86IUSGQmr4PmdewrpZSsMBxCZOGhYyiGNCYMehAHZ9ROgP1MIdQHW7ZfUVmJeHpBeCwDgZbxFnrkkEGwgXGIPsRz3hLVDyL7XnXR7HpgcYtOSznqMq87HqqLT_MVA2lprhX63eUNiIkQaDnkuo1p9fbd7jQEgRyqEDnWsRAotQF9x3NcjMpgFy2Ar8GZzfDg4s6csHu1RwsGl_LADt9fRrwWG4uhO5ydmmQPbJDSnpIzTPJsxb5YxQk6FRU6TNmg7_lPbrYrOggKUpTvC58hHvYpFfTqcLkV2r-HnR5WypwjRA-4hEvewB0R_oBU=",
+        "summary": []
+      },
+      {
+        "id": "msg_0d3cfa5aea4f192a016a805360136481988a687a7631ea9994",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n阶乘 (6)\\n返回 (0)\\n\\n.子程序 阶乘, 长整数型, 公开\\n.参数 n, 整数型\\n\\n.如果 (n <= 1)\\n    返回 (1)\\n.否则\\n    返回 (n * 阶乘 (n - 1))\\n.如果结束\\n\"},\"explanation\":\"新增公开递归子程序“阶乘”，在入口中以 6 调用，随后返回 0。\",\"expected_behavior\":\"程序启动时计算阶乘(6)，递归得到 720，入口最终返回 0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "89e1d70c-c55e-4a6f-b690-8b991d1d41a3",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-Dc41vOXXd5Urj7X1A7cmMMon",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 602,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1128,
+      "output_tokens_details": {
+        "reasoning_tokens": 758
+      },
+      "total_tokens": 1730
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 13827,
+  "attempt_count": 1,
+  "error": null
+}

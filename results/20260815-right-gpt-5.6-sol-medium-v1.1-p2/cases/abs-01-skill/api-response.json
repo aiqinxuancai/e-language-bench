@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开, 交换两个整数型变量的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过整数型参考参数和局部变量“临时值”交换两个整数；入口声明并赋值两个整数后调用该子程序。\",\"expected_behavior\":\"启动时甲初值为1、乙初值为2；调用后甲为2、乙为1，最后返回0。\"}",
+  "raw": {
+    "id": "resp_054f00548d58256f016a805356097c8198b92ef8b77af55d25",
+    "object": "response",
+    "created_at": 1786794838,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794846,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 子程序与类型\n返回值使用 返回 (值)，不要写 return。普通参数可使用 参考、可空、数组属性；输出数组使用 参考 数组。自定义数据类型用 .数据类型，成员用 .成员，成员顺序决定布局。类程序集可写 .程序集 类名, , 公开，并保留 _初始化、_销毁；对外方法在 .子程序第三字段填写 公开。普通程序集和窗口程序集的子程序名按全工程解析，新增前避免重名。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_054f00548d58256f016a805356a5488198bcf7f8798af5b3c1",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFNYcNRO_yx_UkPFDxolKh5ax9Uv2YHq2Sf1TgzExuXdvz-ugA5WcCqs5t9wu6O6kOhNRfSq1aQf6pkDbVP6cvgoSxsAnRbzV1TxRyC8QkOANYpGHCroWmPvPmo2aFrQLBgIQiC8_OHwl2foyGALcF85eaPTYMpdM1ZELI3xZ0riRY-Yp8Or0I5_Gn3VhIjIO_Rb3SvsJAzkdqyC8NihMWQaUaqKN2wo92YNuc05zlwgV_gz-ugjGCSu_DtdcIDjdg4AZ9tucJpWomSKmV76glq_LsYEdZrytHzCK7FVjyf29toCEk1MAjZPjUKhUU1KtKSEzQa8DbvhiwCzp7qvpxrhLtSZ3lxI_qXcgbMcUN_IZdldT-EjwbuofpOzooZ7h2Sp-l1gcCtys8QBTkFZkv9hXXLD4CU5O33rg2RgufuNpZCVThmZWrx-CSXs_Dj_84oCzoejL3JnTVrUKfEaf_NVvtPNxvocYkVWPnOe-kVEdz6Oc5CCaJF5KAzuRZqHzXC7UiiFmzBAMQtK0Gw3NihAWlakXggD94KrK9JZRFSbwkidmaAa3UfZ1nCNDHhHOQVF4jY6pM-p8RzXO7IWFy9Vy1IGUrHviAy_WMEBPHydVQb5BKDuvK82SY3jhgnDwL7d0Wr1-everLEf-291PA6-GFE3oP3nh_lrwDSUjriGCkPkwbn3wpoFNfTYLd_g68yw0IT6Qo-Q67f-EYR1SS-BKIP31NO2QmxDnruZCIWeq-V_-ruwW0X3DMPMEVZlrTKKNe5im2OeEzOD_pDp1rhsd73nPkwyDLgyz_Hd1tXBzmJG89GqTWQMilTw1RnwaVdM_MxQAZVYzKEJv7pUqLz_g7nU60B1dI5Q6KTMGc7xHQD7pYnTEkDyA6u5OxtSm2KuFmdPwFiPx0Z7_CqF8Y6Me0zor-zVEbmwewMfbDJyb8K4l2MlQKMhxqz9oj9kiZuoKyMm0pguZ1CSR6BW1yOUokvnN390gMFPTll5hFI5SXCY9V73mGY5qJRCHcSDIg_AA1AkAEEVGBuPv_6tZsJAU1W5D75MYN0O6SmxsJk9-FB1v_p1qeDdp0gpWcYsVNrTcyLXFW_uyzLzHekhhhGcDAws_OETIIP2U8QF0qZ8TiaChk0szwzCyBuwuKp3dtVrZHjWB9EUbf_sYXsbh_RZNRQYlg_ulIwa8qRugOehiAvIsEvody9s2P5u25xOgHXrQIrV2T72RxCAVXX0HKsAKn_XHLFv2PVDHUuN_4hqqoUKS0Nhtz1tD0206Km3iXrPxqP9jmEW_i2XoGk-oDgFcgG8wSTyERFvrybH-_DpsgwQRhTb3gGH_FjAR6uckVzrvjZSBCO5kA9SGVFi-mYi8UYi1GUHNiMrrWs_0bfyuw7al9Zug5QTzrpy_3kOf5CY6Sj9N6IPFtJhu4ANhcoNfavKBmwcoR1cYVv2IRQz4GiuMqpcltcuCB38xqwBO8xBLslHGanBQSNB-2WL8DiOxjzivt0ekt-wVkMpcc-qlRGYwYdn-ub9TY_hodea7AAUGhBYH9qXh-gRT8vLXSAsZC4-FqkiKeVWXbDxIOFNo5ZM46uodlYh8kdXeIvH6CTdcz99vTb4WvkHYk4KhUjz5JNDDqkshdFP-y5ljcBeZGMVm8RvLEMqrOBh1SO9fyblFza4MknZulX2kORsQHnsnj6ZPpBclpNDcrPvK6vm_jfD4L8hskI_bG9nF1n4Rw8jfjb-F_SejaLRe7xHivEcyv-REE1eITuYg8uqr_-z460=",
+        "summary": []
+      },
+      {
+        "id": "msg_054f00548d58256f016a805358782c8198b255f94c21d296f3",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开, 交换两个整数型变量的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过整数型参考参数和局部变量“临时值”交换两个整数；入口声明并赋值两个整数后调用该子程序。\",\"expected_behavior\":\"启动时甲初值为1、乙初值为2；调用后甲为2、乙为1，最后返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "792d7115-59a8-40bf-aa5f-5ff0bd2a402b",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-YXuof1UgAsgyxJSWJRWoVarO",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 852,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 540,
+      "output_tokens_details": {
+        "reasoning_tokens": 142
+      },
+      "total_tokens": 1392
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 8781,
+  "attempt_count": 1,
+  "error": null
+}

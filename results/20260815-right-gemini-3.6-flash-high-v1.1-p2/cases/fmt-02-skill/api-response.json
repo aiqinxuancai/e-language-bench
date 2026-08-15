@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 计算折扣\\n.参数 原价, 整数型, , 原价\\n.参数 折扣率, 整数型, , 折扣率\\n.局部变量 结果, 整数型, , , 结果\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"在程序集1中新增公开子程序『计算折扣』，并正确处理参数与局部变量的中间空槽声明，计算折扣结果后返回。启动子程序中调用一次该子程序并返回0。\",\"expected_behavior\":\"启动子程序成功调用『计算折扣』子程序并返回0；计算折扣子程序按公式计算并返回整数结果。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151150397244183898268d9d6XSF1HZIp",
+    "object": "response",
+    "created_at": 1786794645,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151150397244183898268d9d6XSF1HZIp_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 计算折扣\\n.参数 原价, 整数型, , 原价\\n.参数 折扣率, 整数型, , 折扣率\\n.局部变量 结果, 整数型, , , 结果\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"在程序集1中新增公开子程序『计算折扣』，并正确处理参数与局部变量的中间空槽声明，计算折扣结果后返回。启动子程序中调用一次该子程序并返回0。\",\"expected_behavior\":\"启动子程序成功调用『计算折扣』子程序并返回0；计算折扣子程序按公式计算并返回整数结果。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 831,
+      "completion_tokens": 3686,
+      "total_tokens": 4517,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 254,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 3432
+      },
+      "input_tokens": 831,
+      "output_tokens": 3686,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 831,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 6329,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 动态数组, 整数型, , 数组\\n.局部变量 成员数, 整数型\\n\\n成员数 = 生成奇数 (10, 动态数组)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开, 返回结果数组成员数\\n.参数 数量, 整数型, , 要生成的奇数个数\\n.参数 结果, 整数型, 参考, , 存放奇数的动态数组\\n.局部变量 i, 整数型\\n\\n清除数组 (结果)\\n.计次循环首 (数量, i)\\n    加入成员 (结果, i × 2 - 1)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序 生成奇数：先用 清除数组 清空参考数组 结果，再用计次循环通过 加入成员 依次写入 1、3、5……共 数量 个奇数（第 i 个为 i×2-1），最后返回 取数组成员数(结果)。启动子程序中声明动态整数数组并调用一次。\",\"expected_behavior\":\"调用 生成奇数(10, 动态数组) 后，动态数组包含 10 个成员，值依次为 1、3、5、7、9、11、13、15、17、19，返回值等于 10；若 数量 为 0，则数组被清空且返回 0。\"}",
+  "raw": {
+    "created_at": 1786804835,
+    "id": "resp_0217868048290203b1efaefedc80320ce9d044f8a4375a97be509",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178680483527000000000000000000000ffffac174ebba182d0",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "Need to produce E language code with subprogram 生成奇数, parameters 数量 integer, 结果 integer reference array, returns member count. Use 计次循环, 加入成员, 取数组成员数.\n\nReference array: \"整数型参考数组\" — in 易语言 parameter type would be 整数型, , 数组 with 传址? Actually reference array: 参数 marked as 数组 (by reference). In text format: .参数 结果, 整数型, 参考 数组. The attribute \"参考\" means by reference. Format: .参数 结果, 整数型, 参考, , 数组? The syntax: .参数 名称, 类型, 属性, 备注, 数组... Actually array indicator is after: .参数 结果, 整数型, 参考, , 数组? Standard: .参数 参数名, 类型, , , 数组 for array param. With 参考 attribute: .参数 结果, 整数型, 参考, , 数组.\n\nCode:\n\n.子程序 生成奇数, 整数型, 公开\n.参数 数量, 整数型\n.参数 结果, 整数型, 参考, , 数组\n.局部变量 i\n\n结果清空: 重定义数组(结果, 假, 0) or \"清除数组(结果)\". There is 核心库 command 清除数组? Yes, 清除数组() exists in 系统核心支持库. Use 清除数组 (结果).\n\n.计次循环首 (数量, i)\n    加入成员 (结果, i × 2 - 1)\n.计次循环尾 ()\n返回 (取数组成员数 (结果))\n\nStartup:\n\n.子程序 _启动子程序, 整数型\n.局部变量 arr, 整数型, , 数组\n.局部变量 n, 整数型\nn = 生成奇数 (10, arr)\n返回 (0)"
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 动态数组, 整数型, , 数组\\n.局部变量 成员数, 整数型\\n\\n成员数 = 生成奇数 (10, 动态数组)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开, 返回结果数组成员数\\n.参数 数量, 整数型, , 要生成的奇数个数\\n.参数 结果, 整数型, 参考, , 存放奇数的动态数组\\n.局部变量 i, 整数型\\n\\n清除数组 (结果)\\n.计次循环首 (数量, i)\\n    加入成员 (结果, i × 2 - 1)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序 生成奇数：先用 清除数组 清空参考数组 结果，再用计次循环通过 加入成员 依次写入 1、3、5……共 数量 个奇数（第 i 个为 i×2-1），最后返回 取数组成员数(结果)。启动子程序中声明动态整数数组并调用一次。\",\"expected_behavior\":\"调用 生成奇数(10, 动态数组) 后，动态数组包含 10 个成员，值依次为 1、3、5、7、9、11、13、15、17、19，返回值等于 10；若 数量 为 0，则数组被清空且返回 0。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178680484037600000000000000000000ffffac174ebbf1386a"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 307,
+      "output_tokens": 789,
+      "total_tokens": 1096,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "medium"
+    }
+  },
+  "elapsed_ms": 15718,
+  "attempt_count": 1,
+  "error": null
+}

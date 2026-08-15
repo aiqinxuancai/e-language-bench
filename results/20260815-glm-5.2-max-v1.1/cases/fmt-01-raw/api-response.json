@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 本程序为最小控制台入口，仅返回整数 0\\n返回 (0)\\n\"},\"explanation\":\"重写后的程序集1只保留唯一的控制台入口 _启动子程序，声明为整数型返回值，用单引号注释说明用途，并直接返回 0，未引用任何支持库。\",\"expected_behavior\":\"程序启动后最先执行 _启动子程序，立即返回整数型 0 并正常结束，不产生任何输出或附加行为。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 本程序为最小控制台入口，仅返回整数 0\\n返回 (0)\\n\"},\"explanation\":\"重写后的程序集1只保留唯一的控制台入口 _启动子程序，声明为整数型返回值，用单引号注释说明用途，并直接返回 0，未引用任何支持库。\",\"expected_behavior\":\"程序启动后最先执行 _启动子程序，立即返回整数型 0 并正常结束，不产生任何输出或附加行为。\"}",
+          "reasoning_content": "The user wants me to rewrite 程序集1.txt to contain only a legal console entry point `_启动子程序` that returns 整数型 0, with a single-quote comment line. No support libraries.\n\nThe original file already looks almost like that. I need to make sure:\n- `.版本 2`\n- `.程序集 程序集1`\n- `.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行`\n- `返回 (0)` with a single-quote comment\n\nThe task says: \"用单引号写一行说明注释\" - use single quote to write one explanatory comment line. The original has `返回 (0)  ' 可以根据您的需要返回任意数值` which is a comment on the same line. That should be fine. Maybe I should add a standalone comment line too. Let me produce clean code:\n\n```\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n' 这是程序的最小控制台入口，仅返回整数 0\n返回 (0)\n```\n\nThat satisfies: single comment line with single quote, entry returns integer 0, no support library references.\n\nOutput JSON: {\"files\":{\"src/程序集1.txt\":\"...\"},\"explanation\":\"...\",\"expected_behavior\":\"...\"}\n\nNeed to escape newlines in JSON string with \\n.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786784781,
+    "id": "0217867847751385758257d42a91c1c96a520305082a02dd6feaf",
+    "model": "glm-5.3",
+    "service_tier": "default",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 462,
+      "prompt_tokens": 276,
+      "total_tokens": 738,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "elapsed_ms": 6167,
+  "attempt_count": 1,
+  "error": null
+}

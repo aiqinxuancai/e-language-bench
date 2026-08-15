@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 最小控制台入口\\n返回 (0)\\n\"},\"explanation\":\"程序集1仅保留一个合法的控制台入口子程序，并返回整数型 0；未添加任何支持库。\",\"expected_behavior\":\"程序启动后执行_启动子程序，返回整数型数值 0。\"}",
+  "raw": {
+    "id": "resp_06f708d394c94777016a805289dd4c81988ccc48908c84f200",
+    "object": "response",
+    "created_at": 1786794633,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794641,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 排错与验证\n优先修复最早的根因：声明槽位、声明顺序、控制块配对、未知命令、参数签名、名称冲突。禁止混入 if、for、while、switch、return、花括号、new、this 等其他语言语法。标准入口是普通程序集中的 _启动子程序；控制台验证通常以 返回 (0) 结束。源码看起来合理不代表正确，必须经过 e-packager 预检、回包和真实编译。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_06f708d394c94777016a80528a70f4819885af3343b6f97c9b",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFKPigedR2J6wta4W-fDoJ8y0CEz2QRREj090zL07DARKJJoN-6tA6VaE07698MurP84fjuShmb2r_N4vP7WWEdHYxzeSUpr8Gr5eRqYlvfLd6CArz2Q_dBKuQ8MkeIxs7GfZPYo9hxMNfOALgPQcc9lKD2E6b2nZtWRDPHbJCM_ElnZ0cq9exZ7wcyQ9M7WjN3zIzA73sSSOwO-8uQi0n_QVbotTy2pNEVD_jzlGwuv_BH7-5kL_iqjZcHV1tJNjzdF7fQkYqqgw9b5DraKUIHyoj8VjjLhI0mbLkZJD7eshQEY-TMDfu3mxsQhEENbdMWNt4Pzr7ipbESh5Zrw5TWhVDAkZDaFzT_VzRARJkeRjK8JmcONG9YPojqSMgF5dXNt1t4ieVY53L1fneNzPl07PGpnwrivu2nj8XJXgZmZezmeIbyNilyqdh7_6SFb6Xgn-eJILrfxZy2me3lMPYY8kd6Y18PxUSyVu777H8ryUdDLN2E0vTRI1KV_0nDsPa-t8HqTUxDp-nrnPuK9AGPGgd-qfW3PT-UF3EW23HDZp6wzU18LrkWBziR9EIERGbCbAya5vh058TInCoURsTL96bT01siv5NWxA1Kri3QhB8LZAlFhYnBqVDbmZNpCwGAzmlN4lmIZD61V9L4x4HmT-jfKzTjyMdzuhDXZiIoiaT8cj47lo7OLagAbyRs9TsDm8jOaYEiYFwYUvfHLvrSnlWUnugk_VfrC5PNd7j6PlpiYfWiCN3sJyH40ORBNv4jBn7QEPEkqLD3unLcU0nCoyGI_iJt1BS9AaWPqwVowghif0gVuqHHon_sER8jqLRn8lW7hEh-vbKGKHDb-YTf5UOUmHHf3kgWuxmiJ4cuq5NqEOVc8V4_zw2jAnMYEVx9mWaXYIFZIGqKpc1ta17GR-0ig0U9k_nc6yYYJDqsZ-31dC3yPrRpQmWNXroLAnNHwAVguvrQE3F3clBtsxXTp3g8CGj0wB70bxPS-4oykvDufkEprENAmwQR-AOFovhMu2CTwHDsFLkTKCvuzOsvuZIkVsQHVdV2wsahTZ8F7lKSAmGU1NOeISP6MLFfQc5zUIHo3O5OF5om6dpLko__eu1imSpCo-m3W244YOMUbYdyF6gStoqEMPrnjmzaZR44YgZfmGjsYTwWFmAJjp6OvJAYW9Osys7fEaNPdgOjPKo7-wvwHu1cmlg5S6-ysddTLubwYkvOtvrW2jqRbSlIEM0Bl2qmnvizQqvUE9AfaQT-C16DBx57WYIuMaD-2cMDuHL8kBZ1g0IAr4IFo1tlUXUt7gsOsWDaDkxFLO6T2L50_xoxc_V2IvjrsE1jPY8b4DRtRAIQ7A0OyM_q_J3k4xQDvgrdfpmELAe7bnrkm9DNsP2uREBxpNdVTXGGp4RHvF3v_FhZOXfLgmLJlvq9wXmLQWqOtjcOJvrE33ZS9afdzxmq44s4pJGasJ87dHa1vhRjhxHwawfe8jeJiwJS3mupPzdYIF19vQ6L-N2Qv2iowTl4J_CulrBoNjgFp3NEoewLD7p1lT9fpr6hR_Vdj2IgRdZOjf4ibc5zIPIM_0FMJnAYx6MRN6i0xzGup_NY2nUf4wmz630LSXp1fxCLqxlYmGV89DD4cwL0294zyOtedEOywLNge2Lo0twVa39UI8i77K0wArVCH4IDR--VMDrw2wQuDxYcPP0e96vS8CDcQquz_2jU5oOf1e9SJNxSr5IzhaBajZcTGByX1bMHCzyPV0Xmyob6RRtwX4HcdVOM1vYkRH06whLU4-0NtKFkfVvfx216pF5eS6sD3ccet2o5Qr4XcpAByqr8yG9y43H9sOuhmfc_ObHimYWB8yMUbfj1ASkwmVJeQX7VW0NN1201oKtPohm2IqbiDVzcsPkiEvgBAb0E3LyMux_sWWD_iMFzNyrqbzuaa3xQ25Kmoodq2wrUTxXTa5vragxet3Ut0qrn5sgiv_1WIJOJ2GXGMl1h81pDP3hO3eOkjtgnUT4T0W9Y-4kjXmgpZRYi5UXgT50fwaURaMOxxoUHWnSg8zRCLlt0r8J7i7dUdF-LWaR3GTpBRRW8f0BMagOc2OMHq1XZDxZwsA0_ymw14cFpSdyuENZQ0uSGRbSrKSETVRl-2qQraWgaIMzWSIUCaZoHYNX4KMecNUfsEzTpCQE7aTgrm7b5piXDih0dSbU-qD52Xc4yIDL0fuMf-BUm4Gkk7a4L_roY0ranRgNM5huYpKI3t2jX1vXvIjfbTJrNASmoZ_UZEYNmvBhuesdlkSifstzQdx3jACE6FZhCBspYSh_GHIhIyP33PRgKn7utAXlCnLUVw_3S1uk696r-evkf5yhY132U27d9QyhQ1p3pStGy5Vu0rAmFgPeUpJKEO5QtMQ_1pBA-CKXMsmHO6fw5RtR4u3rZ-CrPRjznhFDx2C4L4aIDUap5olnIMa71A9Bsip3MZbPtRQTJsa7EOHLm3SqQTA0M9XWheom3YDKHMjlOc-U_KeHHB84LztqCOgITX6djyiNBz9JmUuSuIEUfVcBkUKcEhDiYmYjNsNWzgQiY9PFotLLFwp1un_-CIs8lHEuLegux9v13YyPJkitnoKJ_OXsVgBk83e0lxGF1UMnaqau0I6bhtrCwO6Ioi8J9EuB_rhXErKMgMKO9VcfE7Jvix1rq2ULo1OZF4YJ7_vTZ9-JQtsfGR04C9sivk40_P7wqtZ-a5nF0Bolk-D2w=",
+        "summary": []
+      },
+      {
+        "id": "msg_06f708d394c94777016a80528f028c8198816fc57685fbc742",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 最小控制台入口\\n返回 (0)\\n\"},\"explanation\":\"程序集1仅保留一个合法的控制台入口子程序，并返回整数型 0；未添加任何支持库。\",\"expected_behavior\":\"程序启动后执行_启动子程序，返回整数型数值 0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "b08ab98b-4415-4f5a-a0fa-be4324c45216",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-0MqMYGs0FiE9msWoqGRovMY6",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 843,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 562,
+      "output_tokens_details": {
+        "reasoning_tokens": 381
+      },
+      "total_tokens": 1406
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 8400,
+  "attempt_count": 1,
+  "error": null
+}

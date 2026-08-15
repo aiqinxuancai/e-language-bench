@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n拼接等级 (1)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 拼接等级, 文本型, 公开\\n.参数 等级, 整数型\\n.局部变量 映射文本, 文本型\\n.局部变量 结果文本, 文本型\\n.局部变量 i, 整数型\\n\\n.判断开始 (等级 ＝ 1)\\n    映射文本 ＝ “低”\\n.判断 (等级 ＝ 2)\\n    映射文本 ＝ “中”\\n.默认\\n    映射文本 ＝ “高”\\n.判断结束\\n\\n.变量循环首 (1, 3, 1, i)\\n    结果文本 ＝ 结果文本 ＋ 映射文本\\n.变量循环尾 ()\\n返回 (结果文本)\\n\"},\"explanation\":\"新增公开子程序拼接等级，使用.判断开始/.判断/.默认将等级映射为对应的文本，再利用变量循环首从1到3重复拼接文本3次并返回。同时在启动子程序中完成了一次调用。\",\"expected_behavior\":\"传入等级1返回“低低低”，传入等级2返回“中中中”，传入其他整数返回“高高高”。入口子程序成功调用该函数。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151151318153440438268d9d6BQyJSnsm",
+    "object": "response",
+    "created_at": 1786794694,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151151318153440438268d9d6BQyJSnsm_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n拼接等级 (1)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 拼接等级, 文本型, 公开\\n.参数 等级, 整数型\\n.局部变量 映射文本, 文本型\\n.局部变量 结果文本, 文本型\\n.局部变量 i, 整数型\\n\\n.判断开始 (等级 ＝ 1)\\n    映射文本 ＝ “低”\\n.判断 (等级 ＝ 2)\\n    映射文本 ＝ “中”\\n.默认\\n    映射文本 ＝ “高”\\n.判断结束\\n\\n.变量循环首 (1, 3, 1, i)\\n    结果文本 ＝ 结果文本 ＋ 映射文本\\n.变量循环尾 ()\\n返回 (结果文本)\\n\"},\"explanation\":\"新增公开子程序拼接等级，使用.判断开始/.判断/.默认将等级映射为对应的文本，再利用变量循环首从1到3重复拼接文本3次并返回。同时在启动子程序中完成了一次调用。\",\"expected_behavior\":\"传入等级1返回“低低低”，传入等级2返回“中中中”，传入其他整数返回“高高高”。入口子程序成功调用该函数。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 830,
+      "completion_tokens": 1978,
+      "total_tokens": 2808,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 341,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1637
+      },
+      "input_tokens": 830,
+      "output_tokens": 1978,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 830,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3237,
+  "attempt_count": 1,
+  "error": null
+}

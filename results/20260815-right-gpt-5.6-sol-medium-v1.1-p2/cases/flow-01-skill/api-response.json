@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 文本型\\n\\n结果 ＝ 评级 (90)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开\\n.参数 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (\\\"优秀\\\")\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (\\\"及格\\\")\\n    .否则\\n        返回 (\\\"不及格\\\")\\n    .如果结束\\n.如果结束\\n\"},\"explanation\":\"新增公开子程序“评级”，使用正确嵌套的双分支条件根据分数返回评级；启动子程序调用一次后返回0。\",\"expected_behavior\":\"启动时调用评级(90)，评级返回“优秀”，随后入口返回0。\"}",
+  "raw": {
+    "id": "resp_0517eaa22e263f1a016a805316017087d0bbed378bd29e30ea",
+    "object": "response",
+    "created_at": 1786794774,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794788,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 流程控制\n单分支使用 .如果真 / .如果真结束。双分支使用 .如果 / .否则 / .如果结束，不能混用闭合方式。多路判断使用 .判断开始(条件)、.判断(条件)、.默认、.判断结束。循环包括 .计次循环首/.计次循环尾、.变量循环首/.变量循环尾、.判断循环首/.判断循环尾、.循环判断首/.循环判断尾。跳出循环() 提前退出，到循环尾() 跳过本轮。所有块必须严格嵌套并完整闭合。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0517eaa22e263f1a016a805316867087d0badf2616dcc8ecda",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFMfHsnAa4zpxt_lyXrZPcVLCvmjQCfVzP0fdr69s2E1RFyPvRq4nEF85P7Z4zlLYItnluKiVPWlAh3qil_bH15akh_1Qtp3ytTcsgtKUbBNOPTiX_8dEeIaP95o3cotgjw2DT_1Bf6RI-A7KA7Gu0eXIEtYCdUTfQp0kwCEasrP8FOKt2nDZraSvsdt6i02ntW8uBsS8Q5kzKM32sbBmtq9KbJvxRn4ZdhvbmnZBDs1kYI-eQRUnhvEqnnGRVH3Dq5RIHMbegwzNgQuvPKJgPYqgN1fwI9oHky4zmoGNi_Op49mOg7eOWyRPkYVfgH2sSqM-5RWqVixsKO77fz55QOP52owYKkwaJYtSMLATcKMOVG4TxNkUCpN_PMjtB7KLZcXcVLyMieb9oCHQO8dpOf-f6rBWVyLH8LEDj5covwP-rgIdtkP51tt13h0qTDpfRxbDCvZ6gYUEVIWyDp_eMnfN1PtYxhk9iMIsW2ymaGiCyMd5SN--dTuqycGq414gRbh4NKks5DKOvqwqiVZa9oXqc-rzyvnh0Okw2aFYRcknUQn3qGkBMRveafwxUoXG4fx8F8xwQGEy4sQZTwYSXwJJOUUQxDquEPKCxccB9vCBpmGfTkjIDFt6wFehqbVyD-0OrwyxD444Rv8OQbral3af5gwQKRFMHaG3aIqcH9VLL11JktMe8AV2qiVG1cSRIs4_4XeTjyBOR4Pv1TEADYONXfL-_EkCyigGJVUXaHSxdSNrF-1jYo5btVDLgwHacPAS-tuxus06LjO5Mjl0MPWVdTSZTswFgipdcb-xGMKSI--eYCdzDZp3y0iIrUDummJmOWEMp7PXhHLfNpD5FXihzBDTDdMte3_VNwGoU6pGjGzyB6xjK8lPs6BXRmeEwMG-MHNGpxsUzTnuYDttXxW8n-D-GguT_QvBraW3ZfSISgTckTJEuMbsa1zHVi_hblaGGsWCdU8FYzzyZWFVgdYlKfAKwB4q5zDt_uswbCrW0WF8QKTzLFAMFq9QdV0dPVmRN1wqHIXQGqky8f8PB7IBxeIGhyhxs-UprZLBWf2UDYg1iMtGmctw-C9hrLs9-eN3O18PfppkoOtyBkgV_ipG4RFUjjQDxffGdpsfYhWJOvY2yKQYLidzw8Qc0NzuPSnwBeD6GF75etazMTX6UMgT2a8-dW2dey2EsrmOjxOnqsYeCWuj9gpP7u0v6_jo-6kEt8rjEGlZJ9PpFGdDDMuTE3GIIKZnUOcRqMpcGv6P4kthZFLL8vzE-0v2wYxlKDeKOQx8W_J4n3QS_Q-zcVdV_XpkAiMLqmiuSFW_1-ImdbO6xbfA85miRX8H3QiZ7fiDrGm_LDDmb3LJKWAGgCJDpVK2IVcjr2SNydH3ozK9mALaA2dFQURAhT2Y-l_I0qWVx3fhGvM1wWrj0FqbBwG67-uZd8NsAgqH4eUsWneewloIqAe5mpdNUx7jmH96W7Oe-lYYieDTrfQ-34Tq989_UKNGftnyNo_QGqcqofQpVpP-oCj6g6znBNcuJvtxgQEjJcRZUglZyC5hbb9xJ2jYZNxUIZbYsJxqMlMD9Y-uuO7tHgjvLw9wb8zkD3pdYXikpKy6-CY8MH2amuyKbAiJo1vnq6a-0bT1Fg_yeUlQUQDIDUMHa2DD-eoQH718nMZ2ARnY1rVkdmlZjcRb9rYOYldBg-stzdAeAhBcLdKgJl5iEP7g6UEBUb-V2mJLFTmwTIrVO3FpsurvRd29Kt6XyEW-kLW3E1pZo481MfSKYBBxm_EaFoVIZjnYFbRc5r-nz_uZ_YBKZwX13aAu2IVNI1PGdfZK11FNtO7VzwMS_wJshgeZEamaIgUtSHzsRzE2YxIjQMu84Cidn0FriTP7q1a7hAR2YFE49QIqOU2hsiLwN-PPSPNXIBbwslys3N3nPva-3NalQ0e1Z7k1P_F48QxhzW4ClsWY-wfg3KQ6X0C90IeKoi5JNXXJAjKenSkiZhggQowzfu65B42IapoNp5eJ7PR_uRGB7zvHY0yMC4l1Waj9Y4gn4KKr_YAs6fJ1bi17SLpOgepPOXU8zXXIbgaK9NpAvkNYZx2gt-3L7oIi8wKMGUCEMw_iCwNBejkN_r6g7yf7sxbjucGskCfLmKjF1OTjZa1h3NtEGgeCIYBP2dXtp1KSkvhMhQCDGj09248yEc3Fp9FZ7-0lBGVgs9FXEfRc87z_638NIzttFhYc7gPDt2UzmZjABpMg4DVPWZVJHSEtzBDs0VP47y0TNsX3vehZxiGpdZWdrEZcI2MXVyAj-jMVKicO7UB0KICiJ5_qFj7N9gy0zgL2iYQkT54z2ih62kUgva7qjx7LkCL-aJbHB9sfVPYYqSQfj45N3T5uCesNrdTFy_bCFlzWBAyi1ztjePsY8TqihXBSnqYbvVtsEYMZ8pciQ3FizYwsd9FC2eU_W3HJdZrjxIOO-OyNaIKGKukbd0t-8lzGxATSEXpIuAy955VFf_CzydhY3-d448RuD3hbbTrJtH4WZZI8uNj4o53fvBJUVFj15Z0tA3eXDSMVn0w8CmmqcXkVpMKX8T50XzakUH5GSdxRq1FAKvz3Qp7RCQ8C104HNYj3MTd3j_7sR8Tthw8xl5eIEqB8Cy0xa_XUdxkBrO5l1Cwhq6BqZrmcjV0-xX_edaBJYLuxggA-AbjC94B_Hf4TlGPqy5PHJfguniTNDstvCeE0MiTquLp6esgsu1d4bKA9ohI-_ET-AwQCcyWhtPVX15YHCXE4dDewVuB_NcNlwuyDidtJH9G90ALS8KW5l7pBr1TVlKSIzPJhIX7_cXC72aXjiOc6Yfv3PmLAJQRx-oi01rlUCWeR8rZztKfaBTBO5fSAy1_PJLZT4n23GGgBvA57HqqxOMc9OTG2mOGnDR953fKd89MNCXEs-SMfLoVGYgXD8qikgI8J-2B7sLm9KHjDagOVIFwpwga6pHZpaH-IkTRvZ9KLS1p5l8pXCc6Pg0ka6mJFWLgXCMIX3ZQGL44Lr-xoVsdtDiYTb9Sjw_avC6MZuvKi7rVx4TpsYX97HYxY2KwF9tXkAvojEjuzI8aiW59B9BTNJCtvc-HB9wpLh5QAD-LAJ49_WJg1-6yn2cEDUVTH2SBd9jYUi1lWPIo0CzFR2K_3cvQVMdW0vg5nV51nY2h_KsywP0xfK3oEm_2xtUSMfxM7-w_JvpYFpX_5OaJJPGkmhYcwzMnFcz3t6pJch82om8Zj4GLn-9ej934wxLIPNl_uhchy7TkzsokxYHgvGg-wziRFgUobxNzcFmsFMixYr6oyfynSXSGkzxYHx__NHCrMJzbfNnpgNFA9pj7iFzpqdskngItYI34oELA0S0Z8P3hEs1AtBf485aLig6m9OyeYBEgD4l9N6kshk0E-kTHk_EIJ7CCw4NGH3jvjuxgC55HhBuuta4FfDMLNQkvJjumP5ZqCorDd270XwzLOxghw7bGoxcIirj76T5DlMKO5o5PpXmQli4wJoEoYWDQYb0doBXE3omvp23foHGiArPtUXaKBUEm7sRLUacZ5OA2V_y7BXL-zdZHX93VZV2hbpwKfG-Soz46JdG7FWFjHmiq9DC2Q05Mq4iQxdYzGwYAsa3Csg_p4C-lqrq99D3h0rHc3n-s1f1as-xdRZlGpjoQfUTUTS-K3B01yGVSvZ3rry4_0-rfBgXxVcB6UGiGW9zIzvJDcI1MkiKsa_4uRBFbWmPuVBGV-BrOUDWf0bG4TLToNr3Kk_Dp2nIXXEr9g5GFACyQpkKkV72M06qBwMhI61h1Gux2E_DeyieyS7aCkMsEUTXIXG8JJYebnQTzTw4Xy9IgOUEngUCZZAuD_xG2_sZY_XVhB966NmebA4ehJH-72BB8iluRoalL7F0ldFH8JzdoPY2l-_UjqWIzVBjDUQIxo3n3-tPSiIbwAo0B0mXwiYsBOUtFSwqGGTAhKceS5g-HSjk3WbPHFzbrGHY0qniU23wd2ZGUvHwyzwGAerlZOUuH_pYPvQhIIgUUg61pIw9VU5xjEQlThMqsNCIXFg0OJU2VdQMhLsMLO8upANz-d5SQjhWq7oywtxDCeqHlKwVqSc5a9sWv8JQwGLXpUdP5OX9fHn2hLrYiTcsRPk5rK7ksZRXgM4in6vbsbtcTPbp9tM_4Ff2IWIruVxXP-0JBxQgczJ23BQAKw9Gkrd3ak_Izry0=",
+        "summary": []
+      },
+      {
+        "id": "msg_0517eaa22e263f1a016a80531fd8c487d0a8fd331712e10f55",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 文本型\\n\\n结果 ＝ 评级 (90)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开\\n.参数 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (\\\"优秀\\\")\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (\\\"及格\\\")\\n    .否则\\n        返回 (\\\"不及格\\\")\\n    .如果结束\\n.如果结束\\n\"},\"explanation\":\"新增公开子程序“评级”，使用正确嵌套的双分支条件根据分数返回评级；启动子程序调用一次后返回0。\",\"expected_behavior\":\"启动时调用评级(90)，评级返回“优秀”，随后入口返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "6a13d2b2-b8c4-4a66-8b28-022db4038e35",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-nFCwKNBLah6m2ChXrq8cRT9p",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 921,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 1136,
+      "output_tokens_details": {
+        "reasoning_tokens": 774
+      },
+      "total_tokens": 2056
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 14938,
+  "attempt_count": 1,
+  "error": null
+}

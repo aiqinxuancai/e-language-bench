@@ -1,0 +1,310 @@
+{
+  "task_id": "flow-01",
+  "title": "双分支与嵌套条件",
+  "category": "flow",
+  "track": "raw",
+  "response": {
+    "ok": true,
+    "status": 200,
+    "elapsed_ms": 60683,
+    "attempt_count": 1,
+    "error": null,
+    "model": "grok-4.6"
+  },
+  "state": {
+    "contract_ok": true,
+    "utf8_ok": true,
+    "paths_ok": true,
+    "validate_ok": false,
+    "pack_attempt_count": 1,
+    "pack_failure_count": 1,
+    "pack_ok": false,
+    "reunpack_ok": false,
+    "compare_ok": false,
+    "ide_open_ok": false,
+    "compile_ok": false,
+    "semantic_earned": 15,
+    "semantic_total": 20,
+    "diagnostics": [
+      {
+        "stage": "validate",
+        "code": "subprogram_public_attribute_invalid",
+        "message": "declaration attribute is in the wrong slot or has an unsupported value",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 6,
+        "deduction": 2.5
+      },
+      {
+        "stage": "validate",
+        "code": "unknown_body_directive",
+        "message": "unknown dot directive would otherwise be packed as raw code",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 15,
+        "deduction": 9.0
+      },
+      {
+        "stage": "validate",
+        "code": "unknown_body_directive",
+        "message": "unknown dot directive would otherwise be packed as raw code",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 17,
+        "deduction": 9.0
+      },
+      {
+        "stage": "validate",
+        "code": "call_signature_mismatch",
+        "message": "subprogram call has 1 argument(s), but none of 1 known signature(s) accepts their count, type, array shape, and reference attributes",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 4,
+        "deduction": 4.0
+      },
+      {
+        "stage": "validate",
+        "code": "flow_expression_syntax_invalid",
+        "message": "flow directive arguments are malformed",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 7,
+        "deduction": 9.0
+      },
+      {
+        "stage": "validate",
+        "code": "expression_syntax_invalid",
+        "message": "expression cannot be parsed; unexpected_token",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 8,
+        "deduction": 9.0
+      },
+      {
+        "stage": "validate",
+        "code": "flow_expression_syntax_invalid",
+        "message": "flow directive arguments are malformed",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 10,
+        "deduction": 9.0
+      },
+      {
+        "stage": "validate",
+        "code": "expression_syntax_invalid",
+        "message": "expression cannot be parsed; unexpected_token",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 11,
+        "deduction": 9.0
+      },
+      {
+        "stage": "validate",
+        "code": "expression_syntax_invalid",
+        "message": "expression cannot be parsed; unexpected_token",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 13,
+        "deduction": 9.0
+      },
+      {
+        "stage": "pack",
+        "code": "subprogram_public_attribute_invalid",
+        "message": "declaration attribute is in the wrong slot or has an unsupported value",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 6,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "unknown_body_directive",
+        "message": "unknown dot directive would otherwise be packed as raw code",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 15,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "unknown_body_directive",
+        "message": "unknown dot directive would otherwise be packed as raw code",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 17,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "call_signature_mismatch",
+        "message": "subprogram call has 1 argument(s), but none of 1 known signature(s) accepts their count, type, array shape, and reference attributes",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 4,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "flow_expression_syntax_invalid",
+        "message": "flow directive arguments are malformed",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 7,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "expression_syntax_invalid",
+        "message": "expression cannot be parsed; unexpected_token",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 8,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "flow_expression_syntax_invalid",
+        "message": "flow directive arguments are malformed",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 10,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "expression_syntax_invalid",
+        "message": "expression cannot be parsed; unexpected_token",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 11,
+        "deduction": 0.0
+      },
+      {
+        "stage": "pack",
+        "code": "expression_syntax_invalid",
+        "message": "expression cannot be parsed; unexpected_token",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 13,
+        "deduction": 0.0
+      },
+      {
+        "stage": "score",
+        "code": "pack_failure_attempts",
+        "message": "1 e-packager pack attempts failed; format deduction is 15.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 15.0
+      },
+      {
+        "stage": "score",
+        "code": "validation_failed",
+        "message": "total score capped at 39.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      }
+    ]
+  },
+  "score": {
+    "scoring_version": "v1.1-pack-failure-count",
+    "format_score": 10.0,
+    "format_components": {
+      "contract_utf8": 10.0,
+      "declarations_syntax": 0.0,
+      "flow_names": 0.0,
+      "pack": 0.0,
+      "pack_failure_attempts": -0.0,
+      "roundtrip": 0.0,
+      "ide_open": 0.0
+    },
+    "pack_failure_count": 1,
+    "pack_failure_deduction": 15.0,
+    "compile_score": 0.0,
+    "semantic_score": 75.0,
+    "uncapped_total": 19.5,
+    "score_cap": 39.0,
+    "cap_reason": "validation_failed",
+    "total_score": 19.5,
+    "passed": false
+  },
+  "commands": {
+    "prepare": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "unpack",
+        "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+        "D:\\git\\e-language-bench\\results\\20260815-right-grok-4.6-max-responses-v1.1-p2\\cases\\flow-01-raw\\workspace",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260815-right-grok-4.6-max-responses-v1.1-p2\\cases\\flow-01-raw\\workspace\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 282,
+      "timed_out": false
+    },
+    "validate": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "validate",
+        "D:\\git\\e-language-bench\\results\\20260815-right-grok-4.6-max-responses-v1.1-p2\\cases\\flow-01-raw\\workspace"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\nvalidate failed: files=5, lines=21, errors=9, warnings=0\r\nsource_preflight_error: file=src/程序集1.txt, line=6, code=subprogram_public_attribute_invalid, detail=declaration attribute is in the wrong slot or has an unsupported value\r\nsource_preflight_error: file=src/程序集1.txt, line=15, code=unknown_body_directive, detail=unknown dot directive would otherwise be packed as raw code\r\nsource_preflight_error: file=src/程序集1.txt, line=17, code=unknown_body_directive, detail=unknown dot directive would otherwise be packed as raw code\r\nsource_preflight_error: file=src/程序集1.txt, line=4, code=call_signature_mismatch, detail=subprogram call has 1 argument(s), but none of 1 known signature(s) accepts their count, type, array shape, and reference attributes\r\nsource_preflight_error: file=src/程序集1.txt, line=7, code=flow_expression_syntax_invalid, detail=flow directive arguments are malformed\r\nsource_preflight_error: file=src/程序集1.txt, line=8, code=expression_syntax_invalid, detail=expression cannot be parsed; unexpected_token\r\nsource_preflight_error: file=src/程序集1.txt, line=10, code=flow_expression_syntax_invalid, detail=flow directive arguments are malformed\r\nsource_preflight_error: file=src/程序集1.txt, line=11, code=expression_syntax_invalid, detail=expression cannot be parsed; unexpected_token\r\nsource_preflight_error: file=src/程序集1.txt, line=13, code=expression_syntax_invalid, detail=expression cannot be parsed; unexpected_token\r\n",
+      "elapsed_ms": 300,
+      "timed_out": false
+    },
+    "pack": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "pack",
+        "D:\\git\\e-language-bench\\results\\20260815-right-grok-4.6-max-responses-v1.1-p2\\cases\\flow-01-raw\\workspace",
+        "D:\\git\\e-language-bench\\results\\20260815-right-grok-4.6-max-responses-v1.1-p2\\cases\\flow-01-raw\\candidate.e"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\npack failed: source_preflight_failed: files=5, lines=21, errors=9, warnings=0\r\nsource_preflight_error: file=src/程序集1.txt, line=6, code=subprogram_public_attribute_invalid, detail=declaration attribute is in the wrong slot or has an unsupported value\r\nsource_preflight_error: file=src/程序集1.txt, line=15, code=unknown_body_directive, detail=unknown dot directive would otherwise be packed as raw code\r\nsource_preflight_error: file=src/程序集1.txt, line=17, code=unknown_body_directive, detail=unknown dot directive would otherwise be packed as raw code\r\nsource_preflight_error: file=src/程序集1.txt, line=4, code=call_signature_mismatch, detail=subprogram call has 1 argument(s), but none of 1 known signature(s) accepts their count, type, array shape, and reference attributes\r\nsource_preflight_error: file=src/程序集1.txt, line=7, code=flow_expression_syntax_invalid, detail=flow directive arguments are malformed\r\nsource_preflight_error: file=src/程序集1.txt, line=8, code=expression_syntax_invalid, detail=expression cannot be parsed; unexpected_token\r\nsource_preflight_error: file=src/程序集1.txt, line=10, code=flow_expression_syntax_invalid, detail=flow directive arguments are malformed\r\nsource_preflight_error: file=src/程序集1.txt, line=11, code=expression_syntax_invalid, detail=expression cannot be parsed; unexpected_token\r\nsource_preflight_error: file=src/程序集1.txt, line=13, code=expression_syntax_invalid, detail=expression cannot be parsed; unexpected_token\r\n",
+      "elapsed_ms": 239,
+      "timed_out": false
+    },
+    "semantic_checks": [
+      {
+        "name": "双分支",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "两个如果",
+        "passed": false,
+        "points": 5
+      },
+      {
+        "name": "两个闭合",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "三种结果",
+        "passed": true,
+        "points": 5
+      }
+    ]
+  },
+  "prepare": {
+    "argv": [
+      "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+      "unpack",
+      "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+      "D:\\git\\e-language-bench\\results\\20260815-right-grok-4.6-max-responses-v1.1-p2\\cases\\flow-01-raw\\workspace",
+      "--main-only"
+    ],
+    "exit_code": 0,
+    "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260815-right-grok-4.6-max-responses-v1.1-p2\\cases\\flow-01-raw\\workspace\r\n",
+    "stderr": "e-packager dev\r\n",
+    "elapsed_ms": 282,
+    "timed_out": false
+  }
+}

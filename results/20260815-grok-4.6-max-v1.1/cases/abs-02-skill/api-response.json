@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n阶乘(6)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n参数 n, 整数型, , \\n.如果 n <= 1\\n返回 (1)\\n.否则\\n返回 (n * 阶乘(n-1))\\n.如果结束\"},\"explanation\":\"新增递归子程序阶乘并修改入口调用\",\"expected_behavior\":\"调用阶乘(6)后返回0\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n阶乘(6)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n参数 n, 整数型, , \\n.如果 n <= 1\\n返回 (1)\\n.否则\\n返回 (n * 阶乘(n-1))\\n.如果结束\"},\"explanation\":\"新增递归子程序阶乘并修改入口调用\",\"expected_behavior\":\"调用阶乘(6)后返回0\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786779679,
+    "id": "83853a3b-7c69-9726-8efb-fe68053dd1dd",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 4249,
+      "completion_tokens_details": {
+        "reasoning_tokens": 4094
+      },
+      "context_details": {
+        "input_tokens": 866,
+        "output_tokens": 4249
+      },
+      "cost_in_usd_ticks": 269380000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 866,
+      "prompt_tokens_details": {
+        "cached_tokens": 192
+      },
+      "total_tokens": 5115
+    }
+  },
+  "elapsed_ms": 58189,
+  "attempt_count": 1,
+  "error": null
+}

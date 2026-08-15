@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 评级, 整数型, 文本型, \\n.如果 分数 >= 90 .那么\\n返回 \\\"优秀\\\"\\n.否则\\n.如果 分数 >= 60 .那么\\n返回 \\\"及格\\\"\\n.否则\\n返回 \\\"不及格\\\"\\n.如果结束\\n.如果结束\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n评级 (85)\\n返回 (0)  ' 可以根据您的需要返回任意数值\"},\"explanation\":\"新增评级子程序，使用嵌套if结构判断分数并返回等级文本，在启动子程序中调用一次后返回0\",\"expected_behavior\":\"程序启动后调用评级(85)返回及格，入口返回0\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n.程序集 程序集1\\n.子程序 评级, 整数型, 文本型, \\n.如果 分数 >= 90 .那么\\n返回 \\\"优秀\\\"\\n.否则\\n.如果 分数 >= 60 .那么\\n返回 \\\"及格\\\"\\n.否则\\n返回 \\\"不及格\\\"\\n.如果结束\\n.如果结束\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n评级 (85)\\n返回 (0)  ' 可以根据您的需要返回任意数值\"},\"explanation\":\"新增评级子程序，使用嵌套if结构判断分数并返回等级文本，在启动子程序中调用一次后返回0\",\"expected_behavior\":\"程序启动后调用评级(85)返回及格，入口返回0\"}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786778815,
+    "id": "effc47ea-825e-9db1-a970-ac0314d304fb",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 4066,
+      "completion_tokens_details": {
+        "reasoning_tokens": 3881
+      },
+      "context_details": {
+        "input_tokens": 492,
+        "output_tokens": 4066
+      },
+      "cost_in_usd_ticks": 249960000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 492,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "total_tokens": 4558
+    }
+  },
+  "elapsed_ms": 31005,
+  "attempt_count": 1,
+  "error": null
+}

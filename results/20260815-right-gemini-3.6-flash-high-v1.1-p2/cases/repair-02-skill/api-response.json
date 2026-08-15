@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 局_结果, 整数型\\n\\n安全除法 (10, 2, 局_结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 安全除法, 逻辑型, 公开\\n.参数 被除数, 整数型\\n.参数 除数, 整数型\\n.参数 结果, 整数型, 参考\\n\\n.如果 (除数 ＝ 0)\\n    结果 ＝ 0\\n    返回 (假)\\n.否则\\n    结果 ＝ 被除数 ＼ 除数\\n    返回 (真)\\n.如果结束\\n\"},\"explanation\":\"实现了公开子程序“安全除法”，正确配置了参数（包含参考属性），采用双分支 .如果/.否则/.如果结束 判断除数是否为零，并在 _启动子程序 中进行了调用测试。\",\"expected_behavior\":\"调用“安全除法”时，若除数为0则将结果置零并返回假；若除数不为0则计算整数除法并将结果赋值给参考参数，返回真。\"}",
+  "raw": {
+    "id": "chatcmpl-202608151152054563130298268d9d6JWv51oVN",
+    "object": "response",
+    "created_at": 1786794730,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608151152054563130298268d9d6JWv51oVN_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 局_结果, 整数型\\n\\n安全除法 (10, 2, 局_结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 安全除法, 逻辑型, 公开\\n.参数 被除数, 整数型\\n.参数 除数, 整数型\\n.参数 结果, 整数型, 参考\\n\\n.如果 (除数 ＝ 0)\\n    结果 ＝ 0\\n    返回 (假)\\n.否则\\n    结果 ＝ 被除数 ＼ 除数\\n    返回 (真)\\n.如果结束\\n\"},\"explanation\":\"实现了公开子程序“安全除法”，正确配置了参数（包含参考属性），采用双分支 .如果/.否则/.如果结束 判断除数是否为零，并在 _启动子程序 中进行了调用测试。\",\"expected_behavior\":\"调用“安全除法”时，若除数为0则将结果置零并返回假；若除数不为0则计算整数除法并将结果赋值给参考参数，返回真。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 1055,
+      "completion_tokens": 3223,
+      "total_tokens": 4278,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 302,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 2921
+      },
+      "input_tokens": 1055,
+      "output_tokens": 3223,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 1055,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 5797,
+  "attempt_count": 1,
+  "error": null
+}

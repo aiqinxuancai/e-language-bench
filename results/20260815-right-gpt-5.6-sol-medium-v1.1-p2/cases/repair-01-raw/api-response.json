@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a > b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)\"},\"explanation\":\"使用易语言公开子程序和条件分支比较两个整数，返回其中较大值；启动子程序返回 0。\",\"expected_behavior\":\"调用取较大值(a,b)时返回 a 与 b 中较大的整数；程序入口调用后返回 0。\"}",
+  "raw": {
+    "id": "resp_0a870c9851466df4016a80537be3148198a165cbf0922d5ac1",
+    "object": "response",
+    "created_at": 1786794875,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786794884,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0a870c9851466df4016a80537c6514819889168f1cde1915cc",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgFOADpAThaN7cnpACxGXin7hUyuRylormXOatcxAZ7GqnDeBB0xL_FU2KSuccI3vHr5sGp_b33eiNdulgDGPzzh3xrUsGk-lT-Ui4bzIJFPLqOvnb83i8WQIeEpjPmJJFfWlYwgudtmFMLYlko58FWLJD8KpaNebYioTnXCs6heXztb_HMBWDsSMsQQwB8g9sFmXs_EePRFDfZsarn0d1c_4foMzoedY0QpU0yO-8FjlvVfrfFqp_5hhY0ZulNPV4Dcc0d-z1pO6EZIxpenjuCQB8cxkbPczEJEdJ5a9U51XJ52j6ILcmVL53WFrrq8lAfXCIsf6g9F7B3q6uUyAEKt4sQ8nJYU9w_DwmF1wLnKrL-c5Y3NLX5wa5gE4wsKK_FsN4d9wn81Nl_DDZVwp3mcDMuYUCGWuWbqW4VYDqMkRWUjUWDFCyx85UCxXU1e4Hpr1_nbiwizxgld4MJznLW-aOC8IIwkQFRmv7fkaYs4D2mEoZ_oFJenvZ56_lOPyOYnnjSCaSxMFh-411uf3GUGiRefdRKYPT4qdR8_keZmuCFDN0yJ6ZR8-Ou5GQ9bLd9zjUN8PpE-g2szSiNumk0Kp5QIGbLdU4R7hlYe1j7JwL1Kuz88eEi4M_wX_LnakeL_tg7kfDrH-lQeyKKdEM8ISltP_UZHoNRB4078nDijiB1kAt2ilyJkuMOm67Go-ObIN9iu5S2-ZhdSWUgz67cSctzZfMQ2tJg9bNuD1bQqsb-vG1TYEFn9kQcDgZt3QGtHhPWybFs8QohO-tCoi3PVY3dYo9iRfFz7i3fsISgqWzmvg7mSZMI0rDjiz6mmc9rch5ygYh1gXK9v_2jBXNJj1tUMeRnUoe9HTuwQfMnyZAmKje-VxIgf45FTdQi6uZtY0YyWGgoXaApYiPVB1jVe5CtzCeZ-BdKVRhuubLNYBl38ewBrUp1H1dxuODN9xEfBf4JNFVBpYWCzOnvYkdc4ONaUQcio-Lc4LtNM-AQeQA-0y-9tZs9GzAZAakmQy8C_I5hP8_Px9y81qsot_uRqNYfCPx300Jw2-1jgXQ7w5r6RfH8GPlg8HtiXcavIZSdOkno3jmeATEc6NSyPFqBH_8ON_7JLLPQQlEYr32tekyfpa1QrpcMfbl1Uq3WDqehzlqt0q_EEvE1PBNiDk-fz8bPPSejKm6Rgnisb-AeW1zEKYgw8w3qhKQNKQtQ5jGTjR4CvhS1LEtmuUnsUMDJIfO71SQX3CUhBheNeSZsD0Xm3IzZyUDKIT1Xy9a55lIDLYsR3QuTouqneCHq9tzBNZCjcShJJ6H6f3Ezb_W7AmFOm-UtkFEz4HSz4EP9eQvjTm3foppJuLvgMuutM1q3TkvhREtPABtIZe0LaC01nRB6Nv_-RrZegITxTyOpezsTZsV-PrD6xAdhLrnHxw7VXSr5juDk2zU8IcdbeoAzAfUxDzZVeh_Fk2LqS_mZKGD6W1hnfMdqvu1pFeMuCvsGCaCWCRXgUZX0MrClUM4PIaAKRdIZdXiZ7DDRC_OKhzVE6yLdosIMucMAHUjN8OLZUMRKjUSufHgwLt5NY11KLGvq5r-YNlwlTzgVKCKSYFDhfvNOGowBzpI5AD7nnJSC4Z_d8NfhZpuDf_wGWw8aK-2q15udYWU0B060tXAnu0T_JpwwriCssg8Tn6RQXf5l8tHIsl5KsIeWtfL5kRM3DV33lw_B-SEFAUPSSGtJFMQ-JX_LHPjYnFBdkT90gFpi5gpOIXJUFb2pNOqd6DYN2Fu87U6LY8qEVYFWAMVLetLSy4VCTBhj0MNvLf334mhbNc8AWSOKDX9vTtvBkVaJQ9iKPNC7xdkHPJfEI1NIfughw2YumeisZ6c7gIttZj-Q00cOXwsBhiyvn7xjB8Nf1xSnK2T5dD_igYMFkB1RunPFQC8kBuI2VAPQd6e41hldwmOD0c-temDeyhg-i9veSkQ4NKDpZGaq4Y7moWS93FhVvBKudPKpkM1M-QNPiDBnEJ3jV9oJIsigMwMzAX5ZvGfDo6ADFxMwNtpo5bTjaQM6gG09Jqlchnmy0jyaZ9L_KL5XhWNbnISQhHxtKnCtKLMLD--eowNVEgLOwwtuvf248DGt2dnqFRIk2HVFyU5w1P93-GrG_JN5p9CcLsm1S-rBIHTVwb__E0B2MuY2WYB_bCEhq5bKQZ8ylHoQqgseHDjmlY2x1pzJepr3gi5bl6Dj3mrHVtURKefCCYwjyakWOr2lq9ZY7hVBojr5XGEXx-Mbf97NDOcSsyDWYPjyU3uTwl7gYyVS78eNRf-It7TuLtXvHuSMtzkt-hqcNM7SLGXV1IdDeDk8wYS4XJwpYAVVrtg9sg67Ps3RYo9_DuHrSNVjC7JYVpkxirUGrctifsNr_7dUHY8tsRMdF1t7yF5uj2RRtuvx9mU73OZFJNUcOsglLcBgR9RdQb7o4XtVDV2xEDYgn83MQiuduPXWMlaaD0WvyTbSkUZ_OpQUwhtc1i",
+        "summary": []
+      },
+      {
+        "id": "msg_0a870c9851466df4016a805380b96881989c30d9080163a07b",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a > b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)\"},\"explanation\":\"使用易语言公开子程序和条件分支比较两个整数，返回其中较大值；启动子程序返回 0。\",\"expected_behavior\":\"调用取较大值(a,b)时返回 a 与 b 中较大的整数；程序入口调用后返回 0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "c872ccf4-9b19-4c43-a5d6-5b1ca9208b1f",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "medium",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-KeHowpcMh2C8nt9tNNDWUXa6",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 626,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 850,
+      "output_tokens_details": {
+        "reasoning_tokens": 476
+      },
+      "total_tokens": 1476
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 9144,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\n  \"files\": {\n    \"src/程序集1.txt\": \".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n.参数 值, 整数型, , \\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开, 取绝对平方根整数\\n\\n.参数 值, 整数型, , \\n\\n返回 四舍五入(求平方根(取绝对值(值)), 0)\"\n  },\n  \"explanation\": \"新增公开子程序取绝对平方根整数（使用取绝对值、求平方根、四舍五入实现），并修改启动子程序以支持参数调用返回0\",\n  \"expected_behavior\": \"入口子程序以-81为参数调用时返回0，新增子程序按描述对值取绝对值后开平方根、四舍五入到0位整数\"\n}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\n  \"files\": {\n    \"src/程序集1.txt\": \".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n.参数 值, 整数型, , \\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开, 取绝对平方根整数\\n\\n.参数 值, 整数型, , \\n\\n返回 四舍五入(求平方根(取绝对值(值)), 0)\"\n  },\n  \"explanation\": \"新增公开子程序取绝对平方根整数（使用取绝对值、求平方根、四舍五入实现），并修改启动子程序以支持参数调用返回0\",\n  \"expected_behavior\": \"入口子程序以-81为参数调用时返回0，新增子程序按描述对值取绝对值后开平方根、四舍五入到0位整数\"\n}",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1786778692,
+    "id": "f2e279a5-f0ed-977e-8737-96297a6f22b3",
+    "model": "grok-4.6",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 10478,
+      "completion_tokens_details": {
+        "reasoning_tokens": 10253
+      },
+      "context_details": {
+        "input_tokens": 729,
+        "output_tokens": 10478
+      },
+      "cost_in_usd_ticks": 639420000,
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "prompt_tokens": 729,
+      "prompt_tokens_details": {
+        "cached_tokens": 256
+      },
+      "total_tokens": 11207
+    }
+  },
+  "elapsed_ms": 69762,
+  "attempt_count": 1,
+  "error": null
+}

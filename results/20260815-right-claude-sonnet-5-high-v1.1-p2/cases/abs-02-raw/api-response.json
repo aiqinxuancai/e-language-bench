@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n阶乘 (6)\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算n的阶乘\\n.参数 n, 整数型\\n\\n.如果真 (n ≤ 1)\\n    返回 (1)\\n.如果真结束\\n\\n返回 (n × 阶乘 (n － 1))\\n\"},\"explanation\":\"新增公开递归子程序“阶乘”，使用条件判断和返回语法实现n<=1时返回1，否则递归相乘；入口子程序以6调用该子程序后仍返回0。\",\"expected_behavior\":\"程序启动后调用 阶乘(6) 计算得720（结果未输出），_启动子程序 最终返回0。\"}",
+  "raw": {
+    "id": "msg_1786795029444",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n阶乘 (6)\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算n的阶乘\\n.参数 n, 整数型\\n\\n.如果真 (n ≤ 1)\\n    返回 (1)\\n.如果真结束\\n\\n返回 (n × 阶乘 (n － 1))\\n\"},\"explanation\":\"新增公开递归子程序“阶乘”，使用条件判断和返回语法实现n<=1时返回1，否则递归相乘；入口子程序以6调用该子程序后仍返回0。\",\"expected_behavior\":\"程序启动后调用 阶乘(6) 计算得720（结果未输出），_启动子程序 最终返回0。\"}",
+        "type": "text"
+      }
+    ],
+    "model": "claude-sonnet-5",
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 487,
+      "output_tokens": 316,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  },
+  "elapsed_ms": 8414,
+  "attempt_count": 2,
+  "error": null
+}

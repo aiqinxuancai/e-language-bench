@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过整数型参考参数和局部变量完成交换，并在入口中赋值后调用。\",\"expected_behavior\":\"入口中的甲、乙初始值分别为1和2；调用后变为2和1，程序最终返回0。\"}",
+  "raw": {
+    "id": "resp_0d69cca8ffbf32f0016a80094aa108819a8e107e37184048db",
+    "object": "response",
+    "created_at": 1786775882,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786775898,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0d69cca8ffbf32f0016a80094c78dc819a9bd78fb95ae7b84f",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgAlW73bWmvouT9Z7tPyr5lF3nuQQ7QZAUg29QtZLSHL_Q_7WLxe61u_oo1N2K2Pz-Bnm3Hp1e_pnjf189l7DtFRiWszxERvc_0X_PdowJ8oMXXh0AqRAOhadvjOjkPitd7rr-Bw6eqZyveN1ODZkxt2MKG0nars8dDI0k8OoKmejDtxgMzzZ4zDYH4SZUH2CeZXMOTqdgF9CfnhUMQTAm4pKsnyDe2N4kfcUnXbgtLlZbw3dgZwSRHIc-iDwmePvzg9tgh-fivOYsJPNYbnzm_KxXaAMeL-pGQLVQ6cYGjYNLUDg9XwOfR-G5nDBZYEgPf5m8vRuoLGdIiPFRElkjcGbPL3dm0IYUGkp4rmKCG90X87MwtoPE9Dg5oHdIESYOAP8GOtQAi3usTlb54Yehop6YXMeMhTXYys4onTkisPJclu2kqgpuTbq6b6bMsRpqs2kZV80sz4R7mMnWcFmeh8ryjDUUFcvvxftNR2f_L_TPCWFOhnERipEJM-dQLYI_V7gU3qVKaIUuZPKDNzPNnLaf_8mqQXKRWp2zH3ROACVRGr6S_orAqAH6f7eUFi_b0asFqVdd51oMsGwWQjjP7NYGX_Y92KxiPlzJWvCbbwen4nN7TqMnn20bveeTv7uUOz0Gx9_R2WzQEIWrZgxmpE8AbQ-mmZw7dFsUsNob_GxEJCxe-PQwfcR9a1qUkgofaeD48HHQPG95_0P0ZN46qMupC1OvJaJDd1hDtB7hLiTGVyYhPD6ETAFpqzvgCNG0PV2nvTRx236hwcuCfSr6ZdGsSu_wZ_RTuN10cvEHBhX15IDUaK9TdjHZGs24DfdLYC5Jo7r7Yt63OpCxuysf9UNu5YQN5wAD6tkTcXT08-whkA0c2gSzVztay4_jqJ8gX7EA_uxyflzokkFzEuZ3ycfQyNSsf7XT57AgYdCzmdjW_I1EPNUp3uMOa6nHaT8SWzMFEISOHqngw9X1JmSV45V3ZIab0OvNPGSCGs0mK2LVZaozQOTjdKwWFspm8IPaSm8r8Fnc-gEqes4ZBcXEALElNXdyB6SZfOy30OIH5LlpHvUGdrTzP_lT2rHLvhwn_hcNMm4NAxYdTIknLakYOL1dqFxYDduo4XdjsiieOsFIN8bpfDa4N1TXCBBeTnMFE6Kunwv-q0A6z5mKQEiW3q94x9BS1njM6Dp1c9R8bkhRITHuSgHuMK7V4D82xLB-EtliJ418M4vOFVHT-9wqLIV7k-zmm-C8a1OzFn0fG5zlY3ywORtfhHV5eiWdMrx024QIUfXjGENizKBALti68wzKog9i5JuKFARopZ660r6U_WTCb6copwBQYAae6ceWD36ESh09pRETA0XbCzVLLRgtapVH0Rqmo9LU0BPtGD50Pq7PPl90DsmPwmvdTR5nPeEKpfQUazTXayPWyBpypz3Bc69sOmrvGO4m-y5YIkxfKuv5lQ3W8vlQuFzoAE6jtEeE_fkeyZS6C8C1klj6bDMchAur9iACl3wtOSZwDE4WosnD9y3hSnmKA_wo_p4kXaDGXnBrUyY3ol8UabKhmcb49-Tu3usxbMUBIwOhwNcDN7NzAM_TJg4o-CZ6fujPBnbWfBUniuKJuGx5RFOoxx7IjipRhCAZQGtv_koaSuCqBku4O9574IoPRG-HFnuJ6ym-aF6YE62SNfjisyGHO6Bq4bhS_8RMdw8I_lFCEpPRANoSszMi2RTn2bdIsrFDsZ_Uht_JjAuwAtoSfWCCfQKMusJ7pgbFou1SUcfdPmxWpsBrDih29OGtAs1Eslwk89kLdT7ylxt6cxskK98oOV_fJx4nPG8YGmj48XnFfc30AfDBqRQScEqCfDIz2iJP-MWgxW6vP3ERxAVfz9z0ntMfPNbkflfJ8xndJVYR7GDY-4O6Yz5VStY4dexE6tAG9tw1bU9zZbSsVzDYVnTeJtvJoJbj1hHeyx75l8e7b3b4-NJ3-_7FaxCrAIfAEqEr0bHnQ0lv934sMHsCRB1AZxNSEMzUEr9UH8zafohs4cjpETzQJuq4JRNbICmVYndaMekjZ9yABpsgrMeLRJDpxmE_oyoaehS1huNdUjoY1D7rwHBab9robvZ7pKiUaUfjAbdP6TLIzeDlgY8DUGsUF496NTBsWwSpB26KyUK4sZlZJ9kZB5w3g4YUDN8cta4KieShgIvctxEvRgJRE3WOx_fIWJzgeSltgYJolnGrmShCQ3rCXtlim8ZMN1JA-60KTn6Iq5P3GwMZSbp6dpnR4Isiz5o8c38HBahAzfUStZgp6Zrq5PftKhjdZhXjzvGysk-3WGubYVkm_OYt998TQeKX9CQ93wRA9nSX0Vq0Iwfar9xaLDXzWwF19MtFPx-KOIxAeGK-dnHT3BzBT9tk9FkADQipqM6qpPrN0NyMv5cJpmHg9EenPsFOt84vHT7LHf6hs-w7R3PpSdE8tC0CIRKxlN-u1fk4V4SYhNZ1-2_WuqA0uTXxH7NZYKoA2XZb_Zo5nOIXeLEdMJpbR2Ck8Kh6TSb4CPUC9crO9CVVgDEsnCwBJRx0jrPisVgJNZjSyJ2HScQFlmKtDERWTG3OJ6Uq8AMaZN6CRmcNd5nTQ3r4nK0RQbYwgNawOncKG203tVakzpvSyt8YpK_seRrednj_F0slpvMIMZtmsWdVxx5k2sintxXHwa288gpoP_9QnElFOj1RaPqueM7Xseys1rDIhIzqKCprvXtd6LpdhqnCiQ0zYT9y7gWZz8mngFkEyBzmR_SbilsIhPt3Wq7kwkbfx3HO-MS0k-volFqvhhIPIR1W5Bc2PsETy-1JgHgpNws6-W4Pqr9Me1PNphy04wIpJsM0C560gM4mxXIF0zzapgOaQoCCjoOPj-IW_3wuGxmZuSwhNtXp8aiGsgLpOBxZ9rX3NIlDTBmtsh7ZNHlZ3-GZ-45hLOWyqWtz9qaPdcHlwe-V5AMzCGd5z8_CmkexnrdyyLJgPbWKXjOBfUbIlU61vOe-t-3JqFvGZIDvsXd2ZPSCs-ipXjuc1PevfrQHEUEoLAtz5dAUG6XRFpBMFdJzoQhohFs8Uo4502aAIPjyDB1DyrXwy0nJiTMMC8SBPX9T7dzCPck4FARicURmGgLUeuHUaYBBS97ORVCD69_3C-SWA9nBp910oq4eLrtt6-A0ieKHez8yd3CD6Xizelqo6MRtdMHn95Itcjw3BD61_r085-C6mOIOXdUUyjst0XbvuRC4DXNalhfzW2JkyrNR7qb-pjjcw0g19wTjvYiw-bwjcn3pBdZirdWDrJXKHaFNfZnHL3Hopffy_43kosO0PUjSgNyWrmmkZXSehOHrGs0xD8XwrikQI22iwrD-s8ONwScFZfyUOgUzScDtsaT4O7OUrOfeH5e4WDk6XQ1Oz5gL-fQnNcmuoswJ-5yLD-dHnRWVVp6O1ABsLRrKerj9XWfyHqrXuKwlUS-eM9POCPPy5CAUYCp_TmRO9Mz3B3attbj014gCkGAjlgBwqy9rfXPpU-8BhGr5gEqbq1nNLdVRlD89vNhUcSt4r75LPiNHqy8GsVcP3H5gZGAmssSrtIinbI97_1-j_8areVIgyCxZYHwvEEmB_qGTg7Uq1PMvkJMQUXyp6QU3qVS0MSehSYQYG7IYpKqatITWvwbm0XBvt-Kd1jcizZpLSPpGtvtB0NyP0OuqhOhkOm2BGKvs__JZGGdZU9jy-z_Bp2Ihpbi-oMOlLfjguZ8qdO2pC6t9nHcBysNAx8p72cDDLvtXwm6MesnHLMYMb3TBuadpHVUKI6HtrDmta3OfU3vKWoRzqj7JvxxNRvgll89jeGoiDjvnlOaQT-_rMz1Ilaj59vnj5PEARu67KfZY8Ljvg==",
+        "summary": []
+      },
+      {
+        "id": "msg_0d69cca8ffbf32f0016a8009566aa8819aa547271fce29a8fd",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过整数型参考参数和局部变量完成交换，并在入口中赋值后调用。\",\"expected_behavior\":\"入口中的甲、乙初始值分别为1和2；调用后变为2和1，程序最终返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "dd3b6b09-d646-51b7-a232-ebe9f4894bf0",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "max",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-BGmm44zu93AwQh6ikbDGT0VE",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 291,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 760,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1051
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 18450,
+  "attempt_count": 1,
+  "error": null
+}

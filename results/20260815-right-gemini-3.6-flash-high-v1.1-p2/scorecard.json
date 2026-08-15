@@ -1,0 +1,84 @@
+{
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.1-pack-failure-count",
+  "run_id": "20260815-right-gemini-3.6-flash-high-v1.1-p2",
+  "model": "gemini-3.6-flash",
+  "reasoning_effort": "high",
+  "protocol": "openai_responses",
+  "wire_protocol": "openai_responses",
+  "observed_models": [
+    "gemini-3.6-flash"
+  ],
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "run_status": "complete",
+  "total_score": 65.78,
+  "track_scores": {
+    "raw": {
+      "score": 61.14,
+      "format_score": 76.6,
+      "compile_rate": 0.2667,
+      "pass_at_1": 0.2,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 6,
+      "count": 15
+    },
+    "skill": {
+      "score": 70.42,
+      "format_score": 91.8,
+      "compile_rate": 0.3333,
+      "pass_at_1": 0.2667,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 2,
+      "count": 15
+    }
+  },
+  "skill_gain": 9.28,
+  "category_scores": {
+    "abstraction": {
+      "label": "子程序与数据结构",
+      "score": 70.12,
+      "format_score": 91.0,
+      "pass_at_1": 0.3333
+    },
+    "core": {
+      "label": "核心库指令",
+      "score": 75.83,
+      "format_score": 100.0,
+      "pass_at_1": 0.3333
+    },
+    "flow": {
+      "label": "流程控制",
+      "score": 52.73,
+      "format_score": 71.5,
+      "pass_at_1": 0.0
+    },
+    "format": {
+      "label": "格式与工程",
+      "score": 81.94,
+      "format_score": 89.5,
+      "pass_at_1": 0.5
+    },
+    "repair": {
+      "label": "修复与综合",
+      "score": 48.27,
+      "format_score": 69.0,
+      "pass_at_1": 0.0
+    }
+  },
+  "cap_reason_counts": {
+    "compile_failed": 12,
+    "none": 9,
+    "validation_failed": 8,
+    "packed_project_unusable": 1
+  },
+  "pack_failure_reason_counts": {
+    "source_preflight_failed": 8
+  },
+  "pack_attempt_count": 30,
+  "pack_failure_count": 8,
+  "pack_failure_format_deduction": 120.0,
+  "completed_records": 30,
+  "expected_records": 30,
+  "infrastructure_failures": []
+}
