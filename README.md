@@ -90,18 +90,16 @@
 **评分规则版本**：`v1.1-pack-failure-count`  
 **样本数**：30（每组），并发数：2
 
-模型接口统一配置为 OpenAI Responses 语义；"实际传输"列记录供应商端真正接受的 wire protocol。
-
-| 请求模型 | 服务端模型标识 | 思考等级 | 统一协议 / 实际传输 | 总分 | Raw | Skill | 综合格式分 | 编译率 | pass@1 | 回包失败/尝试 | Skill 增益 | 结果 |
-|----------|---------------|---------|---------------------|-----:|----:|------:|----------:|-------:|-------:|-------------:|----------:|------|
-| gemini-3.6-flash | gemini-3.6-flash | `high`（最大） | Responses / Responses | **65.78** | 61.14 | 70.42 | 84.20 | 30.0% | 23.3% | 8/30 | +9.28 | [报告](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md) / [JSON](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json) |
-| gpt-5.6-sol | gpt-5.6-sol | `medium` | Responses / Responses | **58.67** | 53.67 | 63.67 | 81.60 | 23.3% | 13.3% | 8/29 | +10.00 | [报告](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json) |
-| deepseek-v4-pro | deepseek-v4-pro | `max`（最大） | Responses / Responses | **57.03** | 50.37 | 63.70 | 74.93 | 23.3% | 13.3% | 13/30 | +13.33 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
-| glm-5.2 | glm-5.3 | `max` | Responses / Responses | **52.41** | 46.10 | 58.73 | 74.30 | 16.7% | 6.7% | 13/30 | +12.63 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
-| gpt-5.6-luna | gpt-5.6-terra | `max` | Responses / Responses | **49.45** | 47.52 | 51.37 | 65.73 | 20.0% | 16.7% | 16/28 | +3.85 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
-| deepseek-v4-flash | deepseek-v4-flash | `max`（最大） | Responses / Responses | **46.76** | 42.42 | 51.09 | 68.25 | 10.0% | 6.7% | 16/30 | +8.67 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
-| claude-sonnet-5 | claude-sonnet-5 | `high` | Responses / Anthropic Messages bridge | **41.17** | 37.64 | 44.70 | 54.87 | 10.0% | 3.3% | 20/29 | +7.06 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
-| grok-4.6 | grok-4.6 | `max` | Responses / Responses | **18.42** | 15.27 | 21.58 | 21.32 | 6.7% | 6.7% | 25/27 | +6.31 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
+| 模型 | 思考等级 | 总分 | Raw | Skill | 综合格式分 | 编译率 | pass@1 | 回包失败/尝试 | Skill 增益 | 结果 |
+|------|---------|-----:|----:|------:|----------:|-------:|-------:|-------------:|----------:|------|
+| gemini-3.6-flash | `high`（最大） | **65.78** | 61.14 | 70.42 | 84.20 | 30.0% | 23.3% | 8/30 | +9.28 | [报告](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md) / [JSON](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json) |
+| gpt-5.6-sol | `medium` | **58.67** | 53.67 | 63.67 | 81.60 | 23.3% | 13.3% | 8/29 | +10.00 | [报告](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json) |
+| deepseek-v4-pro | `max`（最大） | **57.03** | 50.37 | 63.70 | 74.93 | 23.3% | 13.3% | 13/30 | +13.33 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
+| glm-5.2 | `max` | **52.41** | 46.10 | 58.73 | 74.30 | 16.7% | 6.7% | 13/30 | +12.63 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
+| gpt-5.6-luna | `max` | **49.45** | 47.52 | 51.37 | 65.73 | 20.0% | 16.7% | 16/28 | +3.85 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
+| deepseek-v4-flash | `max`（最大） | **46.76** | 42.42 | 51.09 | 68.25 | 10.0% | 6.7% | 16/30 | +8.67 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
+| claude-sonnet-5 | `high` | **41.17** | 37.64 | 44.70 | 54.87 | 10.0% | 3.3% | 20/29 | +7.06 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
+| grok-4.6 | `max` | **18.42** | 15.27 | 21.58 | 21.32 | 6.7% | 6.7% | 25/27 | +6.31 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
 
 ### 评分列说明
 
