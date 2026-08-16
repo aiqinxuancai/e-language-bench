@@ -110,8 +110,10 @@
 | claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
 | glm-5.3 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 70.47 | 6.7% | 6.7% | 15/30 | +0.00 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
 | grok-4.6 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 21.32 | 6.7% | 6.7% | 25/27 | +0.00 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
+| mimo-v2.5 | `high (enabled)` | **6.67** | 13.33 | 0.00 | 6.67 | 46.12 | 6.7% | 6.7% | 27/30 | -13.33 | [报告](results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/report.md) / [JSON](results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json) |
 | doubao-seed-2.0-lite | `enabled` | **3.33** | 6.67 | 0.00 | 3.33 | 80.18 | 3.3% | 3.3% | 11/30 | -6.67 | [报告](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json) |
 | doubao-seed-2.1-turbo | `enabled` | **3.33** | 0.00 | 6.67 | 3.33 | 72.63 | 3.3% | 3.3% | 16/30 | +6.67 | [报告](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json) |
+| mimo-v2.5-pro | `high (enabled)` | **3.17** | 0.00 | 6.33 | 3.33 | 46.45 | 3.3% | 0.0% | 23/29 | +6.33 | [报告](results/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/report.md) / [JSON](results/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/scorecard.json) |
 
 ### 评分列说明
 
@@ -128,6 +130,8 @@
 
 - `gpt-5.6-sol` 的 `max` 成绩通过 `https://api.0elog.com/` 完成，服务端模型标识为 `gpt-5.6-sol`
 - `claude-opus-5` 通过 RightAPI Claude AWS 路径完成，按官方最高档发送 `output_config.effort=max` 并配置 65536 个最大输出 token；30 次响应的服务端模型标识均为 `claude-opus-5`
+- `mimo-v2.5-pro` 和 `mimo-v2.5` 通过小米官方 Responses 端点完成，显式发送最高枚举值 `reasoning.effort=high`；小米当前不支持调节实际思考强度，`low`、`medium`、`high` 均映射为启用思考，因此榜单标记为 `high (enabled)`
+- 两组 MiMo 响应均包含 reasoning 输出块和 reasoning token 计数，且 30 次响应的服务端模型标识分别与请求模型一致
 - `glm-5.3` 成绩通过火山引擎 `https://ark.cn-beijing.volces.com/api/coding/v3` 完成，服务端模型标识为 `glm-5.3`
 - `doubao-seed-2.0-lite`、`doubao-seed-2.1-turbo` 和 `minimax-m3` 通过同一火山 Coding Responses 端点完成；三者按官方开关式配置发送 `thinking.type=enabled`，不宣称存在 `max` 强度档位
 - 请求 `doubao-seed-2.1-turbo` 时，服务端在全部响应中标识模型为版本化的 `doubao-seed-2-1-turbo-260628`
@@ -137,7 +141,7 @@
 
 这些差异均在 manifest、scorecard 和报告中保留，避免把请求名或适配层协议误当成服务端实际行为。
 
-思考配置依据：[Claude effort 官方文档](https://platform.claude.com/docs/en/build-with-claude/effort)、[火山方舟 Responses API](https://www.volcengine.com/docs/82379/1795150)、[火山方舟深度思考](https://www.volcengine.com/docs/82379/1956279)和 [MiniMax M3 官方说明](https://www.minimax.io/blog/minimax-m3)。
+思考配置依据：[Claude effort 官方文档](https://platform.claude.com/docs/en/build-with-claude/effort)、[小米 MiMo Responses API](https://mimo.mi.com/docs/en-US/api/chat/responses)、[火山方舟 Responses API](https://www.volcengine.com/docs/82379/1795150)、[火山方舟深度思考](https://www.volcengine.com/docs/82379/1956279)和 [MiniMax M3 官方说明](https://www.minimax.io/blog/minimax-m3)。
 
 ### 特殊情况
 

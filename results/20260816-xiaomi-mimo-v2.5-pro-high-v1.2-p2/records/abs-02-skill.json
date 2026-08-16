@@ -1,0 +1,159 @@
+{
+  "task_id": "abs-02",
+  "title": "递归子程序",
+  "category": "abstraction",
+  "track": "skill",
+  "response": {
+    "ok": true,
+    "status": 200,
+    "elapsed_ms": 40056,
+    "attempt_count": 1,
+    "error": null,
+    "model": "mimo-v2.5-pro"
+  },
+  "state": {
+    "contract_ok": true,
+    "utf8_ok": true,
+    "paths_ok": true,
+    "validate_ok": true,
+    "pack_attempt_count": 1,
+    "pack_failure_count": 1,
+    "pack_ok": false,
+    "reunpack_ok": false,
+    "compare_ok": false,
+    "ide_open_ok": false,
+    "compile_ok": false,
+    "semantic_earned": 10,
+    "semantic_total": 20,
+    "diagnostics": [
+      {
+        "stage": "pack",
+        "code": "pack_failed",
+        "message": "e-packager dev\r\npack failed: semantic_method_rebuild_failed: 程序集1._启动子程序 (src/程序集1.txt:6) => function_call_parse_failed: 阶乘 (6)  ' 调用阶乘子程序计算6的阶乘 | reusable_line_rebuild_failed: function_call_parse_failed: 阶乘 (6)  ' 调用阶乘子程序计算6的阶乘",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      },
+      {
+        "stage": "score",
+        "code": "pack_failure_attempts",
+        "message": "1 e-packager pack attempts failed; precompile structure deduction is 15.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 15.0
+      },
+      {
+        "stage": "score",
+        "code": "pack_failed",
+        "message": "total score capped at 0.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      }
+    ]
+  },
+  "score": {
+    "scoring_version": "v1.2-compile-gated",
+    "format_score": 0.0,
+    "precompile_format_score": 55.0,
+    "format_components": {
+      "contract_utf8": 10.0,
+      "declarations_syntax": 25.0,
+      "flow_names": 20.0,
+      "pack": 0.0,
+      "pack_failure_attempts": -0.0,
+      "roundtrip": 0.0,
+      "ide_open": 0.0
+    },
+    "pack_failure_count": 1,
+    "pack_failure_deduction": 15.0,
+    "compile_score": 0.0,
+    "semantic_score": 0.0,
+    "precompile_semantic_score": 50.0,
+    "uncapped_total": 0.0,
+    "score_cap": 0.0,
+    "cap_reason": "pack_failed",
+    "total_score": 0.0,
+    "passed": false
+  },
+  "commands": {
+    "prepare": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "unpack",
+        "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+        "D:\\git\\e-language-bench\\results\\20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2\\cases\\abs-02-skill\\workspace",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2\\cases\\abs-02-skill\\workspace\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 245,
+      "timed_out": false
+    },
+    "validate": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "validate",
+        "D:\\git\\e-language-bench\\results\\20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2\\cases\\abs-02-skill\\workspace"
+      ],
+      "exit_code": 0,
+      "stdout": "validate: files=5, lines=23, errors=0, warnings=0\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 236,
+      "timed_out": false
+    },
+    "pack": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "pack",
+        "D:\\git\\e-language-bench\\results\\20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2\\cases\\abs-02-skill\\workspace",
+        "D:\\git\\e-language-bench\\results\\20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2\\cases\\abs-02-skill\\candidate.e"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\npack failed: semantic_method_rebuild_failed: 程序集1._启动子程序 (src/程序集1.txt:6) => function_call_parse_failed: 阶乘 (6)  ' 调用阶乘子程序计算6的阶乘 | reusable_line_rebuild_failed: function_call_parse_failed: 阶乘 (6)  ' 调用阶乘子程序计算6的阶乘\r\n",
+      "elapsed_ms": 259,
+      "timed_out": false
+    },
+    "semantic_checks": [
+      {
+        "name": "长整数返回",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "终止条件",
+        "passed": false,
+        "points": 5
+      },
+      {
+        "name": "返回一",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "递归调用",
+        "passed": false,
+        "points": 5
+      }
+    ]
+  },
+  "prepare": {
+    "argv": [
+      "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+      "unpack",
+      "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+      "D:\\git\\e-language-bench\\results\\20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2\\cases\\abs-02-skill\\workspace",
+      "--main-only"
+    ],
+    "exit_code": 0,
+    "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2\\cases\\abs-02-skill\\workspace\r\n",
+    "stderr": "e-packager dev\r\n",
+    "elapsed_ms": 245,
+    "timed_out": false
+  }
+}

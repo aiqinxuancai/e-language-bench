@@ -1,0 +1,94 @@
+{
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.2-compile-gated",
+  "run_id": "20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2",
+  "model": "mimo-v2.5-pro",
+  "reasoning_effort": "high",
+  "protocol": "openai_responses",
+  "wire_protocol": "openai_responses",
+  "observed_models": [
+    "mimo-v2.5-pro"
+  ],
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "run_status": "complete",
+  "total_score": 3.17,
+  "track_scores": {
+    "raw": {
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 28.23,
+      "compile_rate": 0.0,
+      "pass_at_1": 0.0,
+      "pack_attempt_count": 14,
+      "pack_failure_count": 13,
+      "count": 15
+    },
+    "skill": {
+      "score": 6.33,
+      "format_score": 6.67,
+      "precompile_format_score": 64.67,
+      "compile_rate": 0.0667,
+      "pass_at_1": 0.0,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 10,
+      "count": 15
+    }
+  },
+  "skill_gain": 6.33,
+  "category_scores": {
+    "abstraction": {
+      "label": "子程序与数据结构",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 44.5,
+      "pass_at_1": 0.0
+    },
+    "core": {
+      "label": "核心库指令",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 61.83,
+      "pass_at_1": 0.0
+    },
+    "flow": {
+      "label": "流程控制",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 27.83,
+      "pass_at_1": 0.0
+    },
+    "format": {
+      "label": "格式与工程",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 53.25,
+      "pass_at_1": 0.0
+    },
+    "repair": {
+      "label": "修复与综合",
+      "score": 15.83,
+      "format_score": 16.67,
+      "precompile_format_score": 44.83,
+      "pass_at_1": 0.0
+    }
+  },
+  "cap_reason_counts": {
+    "validation_failed": 18,
+    "pack_failed": 5,
+    "compile_failed": 5,
+    "contract_invalid": 1,
+    "none": 1
+  },
+  "pack_failure_reason_counts": {
+    "source_preflight_failed": 18,
+    "other": 3,
+    "semantic_method_rebuild_failed": 3
+  },
+  "pack_attempt_count": 29,
+  "pack_failure_count": 23,
+  "pack_failure_precompile_deduction": 345.0,
+  "completed_records": 30,
+  "expected_records": 30,
+  "infrastructure_failures": []
+}
