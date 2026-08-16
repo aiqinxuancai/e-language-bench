@@ -1,6 +1,15 @@
+import contextlib
+import dataclasses
+import io
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
+from elang_bench.cli import command_report
+from elang_bench.models import StageState
 from elang_bench.report import summarize
+from elang_bench.scoring import SCORING_VERSION
 
 
 class ReportTests(unittest.TestCase):
@@ -57,7 +66,57 @@ class ReportTests(unittest.TestCase):
         result = summarize(records, manifest)
         self.assertEqual(result["pack_attempt_count"], 2)
         self.assertEqual(result["pack_failure_count"], 2)
-        self.assertEqual(result["pack_failure_format_deduction"], 30.0)
+        self.assertEqual(result["pack_failure_precompile_deduction"], 30.0)
+
+    def test_report_rescore_persists_current_scoring_version(self):
+        state = StageState(
+            contract_ok=True,
+            paths_ok=True,
+            validate_ok=True,
+            pack_attempt_count=1,
+            pack_ok=True,
+            reunpack_ok=True,
+            compare_ok=True,
+            ide_open_ok=True,
+            compile_ok=False,
+            semantic_earned=20,
+            semantic_total=20,
+        )
+        manifest = {
+            "benchmark_version": "v1-compile",
+            "scoring_version": "v1.1-pack-failure-count",
+            "run_id": "rescore-test",
+            "model": "model",
+            "reasoning_effort": "max",
+        }
+        record = {
+            "task_id": "fmt-01",
+            "title": "test",
+            "track": "raw",
+            "category": "format",
+            "response": {"ok": True, "status": 200},
+            "state": dataclasses.asdict(state),
+            "score": {"total_score": 65.0, "format_score": 100.0, "passed": False},
+            "commands": {},
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            run_root = root / "results" / "rescore-test"
+            records_root = run_root / "records"
+            records_root.mkdir(parents=True)
+            (run_root / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            record_path = records_root / "fmt-01-raw.json"
+            record_path.write_text(json.dumps(record), encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(command_report(root, "rescore-test", rescore=True), 0)
+            persisted_manifest = json.loads(
+                (run_root / "manifest.json").read_text(encoding="utf-8")
+            )
+            persisted_record = json.loads(record_path.read_text(encoding="utf-8"))
+        self.assertEqual(persisted_manifest["scoring_version"], SCORING_VERSION)
+        self.assertEqual(persisted_record["score"]["precompile_format_score"], 100.0)
+        self.assertEqual(persisted_record["score"]["format_score"], 0.0)
+        self.assertEqual(persisted_record["score"]["total_score"], 0.0)
 
 
 if __name__ == "__main__":

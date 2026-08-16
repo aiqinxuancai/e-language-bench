@@ -1,7 +1,7 @@
 {
   "run_id": "20260815-deepseek-v4-pro-max-v1.1-p2",
   "benchmark_version": "v1-compile",
-  "scoring_version": "v1.1-pack-failure-count",
+  "scoring_version": "v1.2-compile-gated",
   "created_at": "2026-08-15T11:50:25.209521+00:00",
   "model": "deepseek-v4-pro",
   "reasoning_effort": "max",

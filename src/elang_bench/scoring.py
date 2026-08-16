@@ -1,12 +1,14 @@
 from __future__ import annotations
 
+import copy
+import dataclasses
 import re
 from typing import Any
 
 from .models import Diagnostic, StageState
 
 
-SCORING_VERSION = "v1.1-pack-failure-count"
+SCORING_VERSION = "v1.2-compile-gated"
 PACK_FAILURE_DEDUCTION = 15.0
 
 
@@ -78,14 +80,19 @@ def _format_components(state: StageState) -> dict[str, float]:
 
 def score_state(state: StageState) -> dict[str, Any]:
     components = _format_components(state)
-    format_score = round(max(0.0, sum(components.values())), 2)
+    precompile_format_score = round(max(0.0, sum(components.values())), 2)
     pack_failure_count = _pack_failure_count(state)
     compile_score = 100.0 if state.compile_ok else 0.0
-    semantic_score = (
+    precompile_semantic_score = (
         round(100.0 * state.semantic_earned / state.semantic_total, 2)
         if state.semantic_total
         else 0.0
     )
+    # Compiler rejection is definitive evidence that the Easy Language source is
+    # unusable. Preserve structural diagnostics, but do not award effective format
+    # or semantic credit to a sample that cannot compile.
+    format_score = precompile_format_score if state.compile_ok else 0.0
+    semantic_score = precompile_semantic_score if state.compile_ok else 0.0
     uncapped = 0.45 * format_score + 0.35 * compile_score + 0.20 * semantic_score
 
     cap = 100.0
@@ -93,13 +100,13 @@ def score_state(state: StageState) -> dict[str, Any]:
     if not state.contract_ok:
         cap, cap_reason = 0.0, "contract_invalid"
     elif not state.validate_ok:
-        cap, cap_reason = 39.0, "validation_failed"
+        cap, cap_reason = 0.0, "validation_failed"
     elif not state.pack_ok:
-        cap, cap_reason = 29.0, "pack_failed"
+        cap, cap_reason = 0.0, "pack_failed"
     elif not state.reunpack_ok or not state.compare_ok or not state.ide_open_ok:
-        cap, cap_reason = 49.0, "packed_project_unusable"
+        cap, cap_reason = 0.0, "packed_project_unusable"
     elif not state.compile_ok:
-        cap, cap_reason = 69.0, "compile_failed"
+        cap, cap_reason = 0.0, "compile_failed"
     total = round(min(uncapped, cap), 2)
     passed = (
         state.contract_ok
@@ -116,17 +123,46 @@ def score_state(state: StageState) -> dict[str, Any]:
     return {
         "scoring_version": SCORING_VERSION,
         "format_score": format_score,
+        "precompile_format_score": precompile_format_score,
         "format_components": components,
         "pack_failure_count": pack_failure_count,
         "pack_failure_deduction": PACK_FAILURE_DEDUCTION * pack_failure_count,
         "compile_score": compile_score,
         "semantic_score": semantic_score,
+        "precompile_semantic_score": precompile_semantic_score,
         "uncapped_total": round(uncapped, 2),
         "score_cap": cap,
         "cap_reason": cap_reason,
         "total_score": total,
         "passed": passed,
     }
+
+
+def rescore_record(record: dict[str, Any]) -> dict[str, Any]:
+    updated = copy.deepcopy(record)
+    raw_state = updated.get("state") or {}
+    diagnostics = []
+    diagnostic_fields = {field.name for field in dataclasses.fields(Diagnostic)}
+    for item in raw_state.get("diagnostics", []):
+        if not isinstance(item, dict) or item.get("stage") == "score":
+            continue
+        values = {key: value for key, value in item.items() if key in diagnostic_fields}
+        values["deduction"] = 0.0
+        diagnostics.append(Diagnostic(**values))
+    state_fields = {
+        field.name
+        for field in dataclasses.fields(StageState)
+        if field.name != "diagnostics"
+    }
+    state = StageState(
+        **{key: value for key, value in raw_state.items() if key in state_fields},
+        diagnostics=diagnostics,
+    )
+    score = score_state(state)
+    assign_deductions(state, score)
+    updated["state"] = dataclasses.asdict(state)
+    updated["score"] = score
+    return updated
 
 
 def assign_deductions(state: StageState, scoring: dict[str, Any]) -> None:
@@ -156,7 +192,8 @@ def assign_deductions(state: StageState, scoring: dict[str, Any]) -> None:
                 code="pack_failure_attempts",
                 message=(
                     f"{scoring['pack_failure_count']} e-packager pack attempts failed; "
-                    f"format deduction is {scoring['pack_failure_deduction']}"
+                    "precompile structure deduction is "
+                    f"{scoring['pack_failure_deduction']}"
                 ),
                 deduction=scoring["pack_failure_deduction"],
             )

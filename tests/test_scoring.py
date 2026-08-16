@@ -1,7 +1,7 @@
 import unittest
 
 from elang_bench.models import Diagnostic, StageState
-from elang_bench.scoring import assign_deductions, score_state
+from elang_bench.scoring import SCORING_VERSION, assign_deductions, rescore_record, score_state
 
 
 class ScoringTests(unittest.TestCase):
@@ -23,9 +23,10 @@ class ScoringTests(unittest.TestCase):
     def test_perfect_score(self):
         result = score_state(self.valid_state())
         self.assertEqual(result["total_score"], 100.0)
+        self.assertEqual(result["precompile_format_score"], 100.0)
         self.assertTrue(result["passed"])
 
-    def test_validation_failure_retains_partial_format_score_and_caps_total(self):
+    def test_validation_failure_retains_only_precompile_diagnostics(self):
         state = self.valid_state()
         state.validate_ok = False
         state.pack_ok = False
@@ -38,8 +39,10 @@ class ScoringTests(unittest.TestCase):
         )
         result = score_state(state)
         assign_deductions(state, result)
-        self.assertGreater(result["format_score"], 0)
-        self.assertLessEqual(result["total_score"], 39)
+        self.assertGreater(result["precompile_format_score"], 0)
+        self.assertEqual(result["format_score"], 0)
+        self.assertEqual(result["semantic_score"], 0)
+        self.assertEqual(result["total_score"], 0)
         self.assertGreater(state.diagnostics[0].deduction, 0)
 
     def test_pack_failure_has_stricter_cap(self):
@@ -52,7 +55,7 @@ class ScoringTests(unittest.TestCase):
         state.ide_open_ok = False
         state.compile_ok = False
         result = score_state(state)
-        self.assertEqual(result["score_cap"], 29.0)
+        self.assertEqual(result["score_cap"], 0.0)
         self.assertEqual(result["cap_reason"], "pack_failed")
         self.assertEqual(result["pack_failure_count"], 1)
         self.assertEqual(result["pack_failure_deduction"], 15.0)
@@ -78,7 +81,13 @@ class ScoringTests(unittest.TestCase):
 
         once_score = score_state(once)
         twice_score = score_state(twice)
-        self.assertEqual(once_score["format_score"] - twice_score["format_score"], 15.0)
+        self.assertEqual(
+            once_score["precompile_format_score"]
+            - twice_score["precompile_format_score"],
+            15.0,
+        )
+        self.assertEqual(once_score["format_score"], 0.0)
+        self.assertEqual(twice_score["format_score"], 0.0)
         self.assertEqual(twice_score["pack_failure_deduction"], 30.0)
 
     def test_failed_pack_before_success_still_costs_format_points_and_pass_at_1(self):
@@ -89,6 +98,45 @@ class ScoringTests(unittest.TestCase):
         self.assertEqual(result["format_score"], 85.0)
         self.assertEqual(result["format_components"]["pack_failure_attempts"], -15.0)
         self.assertFalse(result["passed"])
+
+    def test_compile_failure_zeroes_effective_format_semantic_and_total(self):
+        state = self.valid_state()
+        state.compile_ok = False
+        result = score_state(state)
+        self.assertEqual(result["scoring_version"], SCORING_VERSION)
+        self.assertEqual(result["precompile_format_score"], 100.0)
+        self.assertEqual(result["precompile_semantic_score"], 100.0)
+        self.assertEqual(result["format_score"], 0.0)
+        self.assertEqual(result["semantic_score"], 0.0)
+        self.assertEqual(result["total_score"], 0.0)
+        self.assertEqual(result["cap_reason"], "compile_failed")
+
+    def test_rescore_record_replaces_old_score_diagnostics(self):
+        state = self.valid_state()
+        state.compile_ok = False
+        record = {
+            "state": {
+                **state.__dict__,
+                "diagnostics": [
+                    {
+                        "stage": "score",
+                        "code": "compile_failed",
+                        "message": "old score",
+                        "severity": "error",
+                        "file": None,
+                        "line": None,
+                        "deduction": 4.0,
+                    }
+                ],
+            },
+            "score": {"total_score": 65.0},
+        }
+        updated = rescore_record(record)
+        self.assertEqual(updated["score"]["total_score"], 0.0)
+        score_diagnostics = [
+            item for item in updated["state"]["diagnostics"] if item["stage"] == "score"
+        ]
+        self.assertEqual(len(score_diagnostics), 1)
 
     def test_pack_diagnostic_deduction_is_per_attempt_not_per_error_message(self):
         state = self.valid_state()

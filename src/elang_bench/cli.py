@@ -6,7 +6,8 @@ import sys
 from pathlib import Path
 
 from .report import write_report
-from .runner import BenchmarkRunner, load_json
+from .runner import BenchmarkRunner, load_json, write_json
+from .scoring import SCORING_VERSION, rescore_record
 from .workspace import WorkspaceEvaluator, sha256_file
 
 
@@ -32,10 +33,18 @@ def command_check(config: dict) -> int:
     return 0
 
 
-def command_report(root: Path, run_id: str) -> int:
+def command_report(root: Path, run_id: str, *, rescore: bool = False) -> int:
     run_root = root / "results" / run_id
-    manifest = load_json(run_root / "manifest.json")
-    records = [load_json(path) for path in sorted((run_root / "records").glob("*.json"))]
+    manifest_path = run_root / "manifest.json"
+    manifest = load_json(manifest_path)
+    record_paths = sorted((run_root / "records").glob("*.json"))
+    records = [load_json(path) for path in record_paths]
+    if rescore:
+        records = [rescore_record(record) for record in records]
+        for path, record in zip(record_paths, records, strict=True):
+            write_json(path, record)
+        manifest["scoring_version"] = SCORING_VERSION
+        write_json(manifest_path, manifest)
     scorecard = write_report(run_root, manifest, records)
     print(json.dumps(scorecard, ensure_ascii=False, indent=2))
     return 0
@@ -53,12 +62,13 @@ def main(argv: list[str] | None = None) -> int:
     run_parser.add_argument("--workers", type=int)
     report_parser = subparsers.add_parser("report", help="重新生成报告")
     report_parser.add_argument("run_id")
+    report_parser.add_argument("--rescore", action="store_true", help="按当前评分规则重算记录")
     args = parser.parse_args(argv)
     config = load_config(args.config)
     if args.command == "check":
         return command_check(config)
     if args.command == "report":
-        return command_report(root, args.run_id)
+        return command_report(root, args.run_id, rescore=args.rescore)
     if args.command == "run":
         tracks = tuple(item.strip() for item in args.tracks.split(",") if item.strip())
         runner = BenchmarkRunner(root, config)

@@ -1,7 +1,7 @@
 {
   "run_id": "20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2",
   "benchmark_version": "v1-compile",
-  "scoring_version": "v1.1-pack-failure-count",
+  "scoring_version": "v1.2-compile-gated",
   "created_at": "2026-08-16T02:29:54.859800+00:00",
   "model": "doubao-seed-2.0-lite",
   "reasoning_effort": "enabled",

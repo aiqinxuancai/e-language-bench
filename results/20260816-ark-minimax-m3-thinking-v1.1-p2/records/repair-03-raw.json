@@ -47,7 +47,7 @@
       {
         "stage": "score",
         "code": "packed_project_unusable",
-        "message": "total score capped at 49.0",
+        "message": "total score capped at 0.0",
         "severity": "error",
         "file": null,
         "line": null,
@@ -56,8 +56,9 @@
     ]
   },
   "score": {
-    "scoring_version": "v1.1-pack-failure-count",
-    "format_score": 85.0,
+    "scoring_version": "v1.2-compile-gated",
+    "format_score": 0.0,
+    "precompile_format_score": 85.0,
     "format_components": {
       "contract_utf8": 10.0,
       "declarations_syntax": 25.0,
@@ -71,10 +72,11 @@
     "pack_failure_deduction": 0.0,
     "compile_score": 0.0,
     "semantic_score": 0.0,
-    "uncapped_total": 38.25,
-    "score_cap": 49.0,
+    "precompile_semantic_score": 0.0,
+    "uncapped_total": 0.0,
+    "score_cap": 0.0,
     "cap_reason": "packed_project_unusable",
-    "total_score": 38.25,
+    "total_score": 0.0,
     "passed": false
   },
   "commands": {

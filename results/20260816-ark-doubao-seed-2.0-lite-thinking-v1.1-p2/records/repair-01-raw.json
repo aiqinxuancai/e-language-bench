@@ -38,7 +38,7 @@
       {
         "stage": "score",
         "code": "compile_failed",
-        "message": "total score capped at 69.0",
+        "message": "total score capped at 0.0",
         "severity": "error",
         "file": null,
         "line": null,
@@ -47,8 +47,9 @@
     ]
   },
   "score": {
-    "scoring_version": "v1.1-pack-failure-count",
-    "format_score": 100.0,
+    "scoring_version": "v1.2-compile-gated",
+    "format_score": 0.0,
+    "precompile_format_score": 100.0,
     "format_components": {
       "contract_utf8": 10.0,
       "declarations_syntax": 25.0,
@@ -61,11 +62,12 @@
     "pack_failure_count": 0,
     "pack_failure_deduction": 0.0,
     "compile_score": 0.0,
-    "semantic_score": 25.0,
-    "uncapped_total": 50.0,
-    "score_cap": 69.0,
+    "semantic_score": 0.0,
+    "precompile_semantic_score": 25.0,
+    "uncapped_total": 0.0,
+    "score_cap": 0.0,
     "cap_reason": "compile_failed",
-    "total_score": 50.0,
+    "total_score": 0.0,
     "passed": false
   },
   "commands": {

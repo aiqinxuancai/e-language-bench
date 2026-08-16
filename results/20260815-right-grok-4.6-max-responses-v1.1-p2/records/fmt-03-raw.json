@@ -245,7 +245,7 @@
       {
         "stage": "score",
         "code": "pack_failure_attempts",
-        "message": "1 e-packager pack attempts failed; format deduction is 15.0",
+        "message": "1 e-packager pack attempts failed; precompile structure deduction is 15.0",
         "severity": "error",
         "file": null,
         "line": null,
@@ -254,7 +254,7 @@
       {
         "stage": "score",
         "code": "validation_failed",
-        "message": "total score capped at 39.0",
+        "message": "total score capped at 0.0",
         "severity": "error",
         "file": null,
         "line": null,
@@ -263,8 +263,9 @@
     ]
   },
   "score": {
-    "scoring_version": "v1.1-pack-failure-count",
-    "format_score": 22.0,
+    "scoring_version": "v1.2-compile-gated",
+    "format_score": 0.0,
+    "precompile_format_score": 22.0,
     "format_components": {
       "contract_utf8": 10.0,
       "declarations_syntax": 0.0,
@@ -278,10 +279,11 @@
     "pack_failure_deduction": 15.0,
     "compile_score": 0.0,
     "semantic_score": 0.0,
-    "uncapped_total": 9.9,
-    "score_cap": 39.0,
+    "precompile_semantic_score": 0.0,
+    "uncapped_total": 0.0,
+    "score_cap": 0.0,
     "cap_reason": "validation_failed",
-    "total_score": 9.9,
+    "total_score": 0.0,
     "passed": false
   },
   "commands": {

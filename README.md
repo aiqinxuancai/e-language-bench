@@ -50,9 +50,11 @@
 - **真实无头编译**：35%
 - **隐藏静态语义断言**：20%
 
-### 格式分细则
+上述权重仅对通过真实无头编译的源码生效。任何未能编译的样本，其有效格式分、语义分和总分均为 0。
 
-格式分按 100 分制展示，细分如下：
+### 预编译结构分细则
+
+预编译结构分按 100 分制展示，细分如下：
 
 | 格式项目 | 分值 |
 |----------|-----:|
@@ -72,12 +74,14 @@
 - **重新解包与 compare-bundle 一致**：回包后重新解包的内容与原始输入一致性检查
 - **AutoLinker 成功打开工程**：易语言 IDE 能否正常加载生成的工程文件
 
+预编译结构分用于定位 JSON、源码文本、回包和工程打开问题，不直接代表源码可用性。只有 AutoLinker 真实编译成功后，该分数才成为计入总分的有效格式分。
+
 ### 扣分规则
 
 - 格式错误按 e-packager 的文件、行号和错误代码逐项扣分，同一位置的同一错误去重
-- 每次实际执行 e-packager 回包失败扣 15 分，格式分最低为 0
+- 每次实际执行 e-packager 回包失败扣 15 分，预编译结构分最低为 0
 - HTTP、限流和网络重试不计入回包尝试，不参与格式扣分
-- 验证失败、无法回包、回包后损坏、IDE 无法打开和编译失败分别设置总分上限，确保不可用源码无法通过文本匹配取得高分
+- 验证失败、无法回包、回包后损坏、IDE 无法打开或编译失败均触发编译硬门槛，不可用源码不能通过文本匹配取得任何总分
 
 > **运行时说明**：本机 Defender 会阻止新编译的易语言 EXE 启动，因此 `v1-compile` 不执行产物，报告固定标记 `runtime_unavailable_defender_blocked`。未来启用运行断言时应发布新基准版本，不可与本版混榜。
 
@@ -86,31 +90,34 @@
 ## 🏆 当前跑分
 
 **测试日期**：2026-08-15 至 2026-08-16<br>
-**数据集版本**：`v1-compile`  
-**评分规则版本**：`v1.1-pack-failure-count`  
+**数据集版本**：`v1-compile`<br>
+**评分规则版本**：`v1.2-compile-gated`<br>
 **样本数**：30（每组），并发数：2
 
-| 模型 | 思考等级 | 总分 | Raw | Skill | 综合格式分 | 编译率 | pass@1 | 回包失败/尝试 | Skill 增益 | 结果 |
-|------|---------|-----:|----:|------:|----------:|-------:|-------:|-------------:|----------:|------|
-| gemini-3.6-flash | `high`（最大） | **65.78** | 61.14 | 70.42 | 84.20 | 30.0% | 23.3% | 8/30 | +9.28 | [报告](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md) / [JSON](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json) |
-| gpt-5.6-sol | `max` | **64.53** | 61.58 | 67.49 | 88.60 | 23.3% | 23.3% | 5/30 | +5.91 | [报告](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/report.md) / [JSON](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/scorecard.json) |
-| gpt-5.6-sol | `medium` | **58.67** | 53.67 | 63.67 | 81.60 | 23.3% | 13.3% | 8/29 | +10.00 | [报告](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json) |
-| deepseek-v4-pro | `max`（最大） | **57.03** | 50.37 | 63.70 | 74.93 | 23.3% | 13.3% | 13/30 | +13.33 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
-| glm-5.2 | `max` | **52.41** | 46.10 | 58.73 | 74.30 | 16.7% | 6.7% | 13/30 | +12.63 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
-| doubao-seed-2.0-lite | `enabled`（深度思考） | **51.02** | 50.91 | 51.14 | 80.18 | 3.3% | 3.3% | 11/30 | +0.23 | [报告](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json) |
-| gpt-5.6-luna | `max` | **49.45** | 47.52 | 51.37 | 65.73 | 20.0% | 16.7% | 16/28 | +3.85 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
-| minimax-m3 | `enabled`（深度思考） | **49.16** | 49.57 | 48.76 | 70.33 | 16.7% | 10.0% | 16/30 | -0.81 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
-| glm-5.3 | `max` | **48.97** | 42.04 | 55.89 | 70.47 | 6.7% | 6.7% | 15/30 | +13.85 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
-| doubao-seed-2.1-turbo | `enabled`（深度思考） | **46.81** | 42.79 | 50.84 | 72.63 | 3.3% | 3.3% | 16/30 | +8.05 | [报告](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json) |
-| deepseek-v4-flash | `max`（最大） | **46.76** | 42.42 | 51.09 | 68.25 | 10.0% | 6.7% | 16/30 | +8.67 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
-| claude-sonnet-5 | `high` | **41.17** | 37.64 | 44.70 | 54.87 | 10.0% | 3.3% | 20/29 | +7.06 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
-| grok-4.6 | `max` | **18.42** | 15.27 | 21.58 | 21.32 | 6.7% | 6.7% | 25/27 | +6.31 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
+结果目录沿用模型生成时的 run-id，其中部分名称包含 `v1.1`；重算后的权威评分版本以各目录 manifest 和 scorecard 中的 `v1.2-compile-gated` 为准。
+
+| 模型 | 思考等级 | 总分 | Raw | Skill | 有效格式 | 预编译结构 | 编译率 | pass@1 | 回包失败/尝试 | Skill 增益 | 结果 |
+|------|---------|-----:|----:|------:|---------:|-----------:|-------:|-------:|-------------:|----------:|------|
+| gemini-3.6-flash | `high`（最大） | **29.50** | 26.33 | 32.67 | 30.00 | 84.20 | 30.0% | 23.3% | 8/30 | +6.34 | [报告](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md) / [JSON](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json) |
+| gpt-5.6-sol | `max` | **23.34** | 20.00 | 26.67 | 23.33 | 88.60 | 23.3% | 23.3% | 5/30 | +6.67 | [报告](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/report.md) / [JSON](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/scorecard.json) |
+| gpt-5.6-sol | `medium` | **22.66** | 19.00 | 26.33 | 23.33 | 81.60 | 23.3% | 13.3% | 8/29 | +7.33 | [报告](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json) |
+| deepseek-v4-pro | `max`（最大） | **22.66** | 19.33 | 26.00 | 23.33 | 74.93 | 23.3% | 13.3% | 13/30 | +6.67 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
+| gpt-5.6-luna | `max` | **19.84** | 6.67 | 33.00 | 20.00 | 65.73 | 20.0% | 16.7% | 16/28 | +26.33 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
+| minimax-m3 | `enabled`（深度思考） | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
+| glm-5.2 | `max` | **16.00** | 19.00 | 13.00 | 16.67 | 74.30 | 16.7% | 6.7% | 13/30 | -6.00 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
+| deepseek-v4-flash | `max`（最大） | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
+| claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
+| glm-5.3 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 70.47 | 6.7% | 6.7% | 15/30 | +0.00 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
+| grok-4.6 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 21.32 | 6.7% | 6.7% | 25/27 | +0.00 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
+| doubao-seed-2.0-lite | `enabled`（深度思考） | **3.33** | 6.67 | 0.00 | 3.33 | 80.18 | 3.3% | 3.3% | 11/30 | -6.67 | [报告](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json) |
+| doubao-seed-2.1-turbo | `enabled`（深度思考） | **3.33** | 0.00 | 6.67 | 3.33 | 72.63 | 3.3% | 3.3% | 16/30 | +6.67 | [报告](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json) |
 
 ### 评分列说明
 
-- **总分**：综合评分（满分 100），包含格式、编译和语义三部分
+- **总分**：综合评分（满分 100）；未通过真实编译的样本记 0 分
 - **Raw / Skill**：两个轨道的独立得分
-- **综合格式分**：所有样本的格式分平均值（满分 100）
+- **有效格式**：仅编译成功样本能够获得的格式分，按全部样本平均（满分 100）
+- **预编译结构**：JSON、声明、流程、回包、重解包和 IDE 打开的诊断分，不计入未编译样本总分
 - **编译率**：成功通过 AutoLinker 无头编译的样本比例
 - **pass@1**：完全通过所有检查的样本比例
 - **回包失败/尝试**：e-packager 回包失败次数 / 总尝试次数
@@ -188,6 +195,13 @@ python -m elang_bench --config bench.right-luna-max.json run --run-id 20260815-r
 - case 之间无上下文继承，可通过 `--workers` 并发执行，默认值来自配置的 `parallel_workers`
 - 429、5xx、524 和连接中断属于 API 基础设施失败，不生成模型成绩，不计入格式或回包失败次数
 - 批次继续处理其他 case，使用相同 `--run-id` 时只重试失败项，避免重复计费
+
+已有结果可在不重新请求模型的情况下按当前规则重算：
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m elang_bench report <run-id> --rescore
+```
 
 ### 续跑校验
 

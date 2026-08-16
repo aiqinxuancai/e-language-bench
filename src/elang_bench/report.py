@@ -56,6 +56,15 @@ def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[s
         track_scores[track] = {
             "score": round(mean(item["score"]["total_score"] for item in items), 2),
             "format_score": round(mean(item["score"]["format_score"] for item in items), 2),
+            "precompile_format_score": round(
+                mean(
+                    item["score"].get(
+                        "precompile_format_score", item["score"]["format_score"]
+                    )
+                    for item in items
+                ),
+                2,
+            ),
             "compile_rate": round(sum(item["state"]["compile_ok"] for item in items) / len(items), 4),
             "pass_at_1": round(sum(item["score"]["passed"] for item in items) / len(items), 4),
             "pack_attempt_count": pack_attempts,
@@ -72,6 +81,15 @@ def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[s
             "label": CATEGORY_LABELS.get(category, category),
             "score": round(mean(item["score"]["total_score"] for item in items), 2),
             "format_score": round(mean(item["score"]["format_score"] for item in items), 2),
+            "precompile_format_score": round(
+                mean(
+                    item["score"].get(
+                        "precompile_format_score", item["score"]["format_score"]
+                    )
+                    for item in items
+                ),
+                2,
+            ),
             "pass_at_1": round(sum(item["score"]["passed"] for item in items) / len(items), 4),
         }
         for category, items in categories.items()
@@ -125,7 +143,7 @@ def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[s
         "pack_failure_reason_counts": dict(pack_failure_reasons),
         "pack_attempt_count": pack_attempt_count,
         "pack_failure_count": pack_failure_count,
-        "pack_failure_format_deduction": 15.0 * pack_failure_count,
+        "pack_failure_precompile_deduction": 15.0 * pack_failure_count,
         "completed_records": len(valid),
         "expected_records": 30,
         "infrastructure_failures": infrastructure_failures,
@@ -159,19 +177,20 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
         "",
         "## 轨道成绩",
         "",
-        "| 轨道 | 得分 | 格式分 | 回包失败/尝试 | 编译率 | pass@1 |",
-        "| --- | ---: | ---: | ---: | ---: | ---: |",
+        "| 轨道 | 得分 | 有效格式 | 预编译结构 | 回包失败/尝试 | 编译率 | pass@1 |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for track in ("raw", "skill"):
         data = scorecard["track_scores"].get(track, {})
         if data:
             lines.append(
                 f"| {track} | {data['score']:.2f} | {data['format_score']:.2f} | "
+                f"{data['precompile_format_score']:.2f} | "
                 f"{data['pack_failure_count']}/{data['pack_attempt_count']} | "
                 f"{data['compile_rate'] * 100:.1f}% | {data['pass_at_1'] * 100:.1f}% |"
             )
         else:
-            lines.append(f"| {track} | N/A | N/A | N/A | N/A | N/A |")
+            lines.append(f"| {track} | N/A | N/A | N/A | N/A | N/A | N/A |")
     skill_gain = (
         f"{scorecard['skill_gain']:+.2f}" if scorecard["skill_gain"] is not None else "N/A"
     )
@@ -182,8 +201,8 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
             "",
             "## 能力分项",
             "",
-            "| 能力 | 得分 | 格式分 | pass@1 |",
-            "| --- | ---: | ---: | ---: |",
+            "| 能力 | 得分 | 有效格式 | 预编译结构 | pass@1 |",
+            "| --- | ---: | ---: | ---: | ---: |",
         ]
     )
     for category in ("format", "core", "flow", "abstraction", "repair"):
@@ -191,10 +210,11 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
         if data:
             lines.append(
                 f"| {data['label']} | {data['score']:.2f} | "
-                f"{data['format_score']:.2f} | {data['pass_at_1'] * 100:.1f}% |"
+                f"{data['format_score']:.2f} | {data['precompile_format_score']:.2f} | "
+                f"{data['pass_at_1'] * 100:.1f}% |"
             )
         else:
-            lines.append(f"| {CATEGORY_LABELS[category]} | N/A | N/A | N/A |")
+            lines.append(f"| {CATEGORY_LABELS[category]} | N/A | N/A | N/A | N/A |")
     if scorecard["infrastructure_failures"]:
         lines.extend(["", "## 基础设施失败", ""])
         for failure in scorecard["infrastructure_failures"]:
@@ -205,11 +225,11 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
         lines.extend(["", "## 失败分布", ""])
         lines.append(
             f"- 回包尝试：`{scorecard['pack_attempt_count']}` 次，失败 "
-            f"`{scorecard['pack_failure_count']}` 次，累计格式原始分扣除 "
-            f"`{scorecard['pack_failure_format_deduction']:.0f}` 分。"
+            f"`{scorecard['pack_failure_count']}` 次，累计预编译结构分扣除 "
+            f"`{scorecard['pack_failure_precompile_deduction']:.0f}` 分。"
         )
         lines.append(
-            "- 总分上限原因："
+            "- 编译硬门槛/失败原因："
             + "，".join(f"`{key}` {value}" for key, value in scorecard["cap_reason_counts"].items())
         )
         if scorecard["pack_failure_reason_counts"]:
@@ -225,8 +245,8 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
             "",
             "## 逐题结果",
             "",
-            "| 题目 | 轨道 | 类别 | 总分 | 格式 | 编译 | 语义 | 状态 |",
-            "| --- | --- | --- | ---: | ---: | ---: | ---: | --- |",
+            "| 题目 | 轨道 | 类别 | 总分 | 有效格式 | 预编译结构 | 编译 | 语义 | 状态 |",
+            "| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |",
         ]
     )
     valid_records = [item for item in records if (item.get("response") or {}).get("ok")]
@@ -235,7 +255,9 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
         status = "PASS" if score["passed"] else (score["cap_reason"] or "FAIL")
         lines.append(
             f"| {item['task_id']} {item['title']} | {item['track']} | {CATEGORY_LABELS.get(item['category'], item['category'])} | "
-            f"{score['total_score']:.2f} | {score['format_score']:.2f} | {score['compile_score']:.0f} | "
+            f"{score['total_score']:.2f} | {score['format_score']:.2f} | "
+            f"{score.get('precompile_format_score', score['format_score']):.2f} | "
+            f"{score['compile_score']:.0f} | "
             f"{score['semantic_score']:.2f} | {status} |"
         )
     lines.extend(
@@ -244,7 +266,8 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
             "## 说明",
             "",
             "本机 Defender 阻止新编译的易语言 EXE 启动，因此本报告不包含运行断言。"
-            "格式分已经覆盖严格响应、声明与流程格式、回包、再次解包、一致性比较和 IDE 打开。",
+            "预编译结构分覆盖严格响应、声明与流程格式、回包、再次解包、一致性比较和 IDE 打开。"
+            "源码只有通过真实编译后才能获得有效格式分、语义分和总分。",
             "",
         ]
     )

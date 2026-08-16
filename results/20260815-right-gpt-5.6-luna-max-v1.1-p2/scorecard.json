@@ -1,6 +1,6 @@
 {
   "benchmark_version": "v1-compile",
-  "scoring_version": "v1.1-pack-failure-count",
+  "scoring_version": "v1.2-compile-gated",
   "run_id": "20260815-right-gpt-5.6-luna-max-v1.1-p2",
   "model": "gpt-5.6-luna",
   "reasoning_effort": "max",
@@ -12,11 +12,12 @@
   "runtime_available": false,
   "runtime_status": "runtime_unavailable_defender_blocked",
   "run_status": "complete",
-  "total_score": 49.45,
+  "total_score": 19.84,
   "track_scores": {
     "raw": {
-      "score": 47.52,
-      "format_score": 69.53,
+      "score": 6.67,
+      "format_score": 6.67,
+      "precompile_format_score": 69.53,
       "compile_rate": 0.0667,
       "pass_at_1": 0.0667,
       "pack_attempt_count": 15,
@@ -24,8 +25,9 @@
       "count": 15
     },
     "skill": {
-      "score": 51.37,
-      "format_score": 61.93,
+      "score": 33.0,
+      "format_score": 33.33,
+      "precompile_format_score": 61.93,
       "compile_rate": 0.3333,
       "pass_at_1": 0.2667,
       "pack_attempt_count": 13,
@@ -33,36 +35,41 @@
       "count": 15
     }
   },
-  "skill_gain": 3.85,
+  "skill_gain": 26.33,
   "category_scores": {
     "abstraction": {
       "label": "子程序与数据结构",
-      "score": 72.33,
-      "format_score": 91.0,
+      "score": 33.33,
+      "format_score": 33.33,
+      "precompile_format_score": 91.0,
       "pass_at_1": 0.3333
     },
     "core": {
       "label": "核心库指令",
-      "score": 55.25,
-      "format_score": 67.5,
+      "score": 33.33,
+      "format_score": 33.33,
+      "precompile_format_score": 67.5,
       "pass_at_1": 0.3333
     },
     "flow": {
       "label": "流程控制",
-      "score": 25.3,
-      "format_score": 37.83,
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 37.83,
       "pass_at_1": 0.0
     },
     "format": {
       "label": "格式与工程",
-      "score": 52.27,
-      "format_score": 72.0,
+      "score": 16.67,
+      "format_score": 16.67,
+      "precompile_format_score": 72.0,
       "pass_at_1": 0.1667
     },
     "repair": {
       "label": "修复与综合",
-      "score": 42.08,
-      "format_score": 60.33,
+      "score": 15.83,
+      "format_score": 16.67,
+      "precompile_format_score": 60.33,
       "pass_at_1": 0.0
     }
   },
@@ -80,7 +87,7 @@
   },
   "pack_attempt_count": 28,
   "pack_failure_count": 16,
-  "pack_failure_format_deduction": 240.0,
+  "pack_failure_precompile_deduction": 240.0,
   "completed_records": 30,
   "expected_records": 30,
   "infrastructure_failures": []

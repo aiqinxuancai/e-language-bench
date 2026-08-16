@@ -28,8 +28,9 @@
     "diagnostics": []
   },
   "score": {
-    "scoring_version": "v1.1-pack-failure-count",
+    "scoring_version": "v1.2-compile-gated",
     "format_score": 100.0,
+    "precompile_format_score": 100.0,
     "format_components": {
       "contract_utf8": 10.0,
       "declarations_syntax": 25.0,
@@ -43,6 +44,7 @@
     "pack_failure_deduction": 0.0,
     "compile_score": 100.0,
     "semantic_score": 50.0,
+    "precompile_semantic_score": 50.0,
     "uncapped_total": 90.0,
     "score_cap": 100.0,
     "cap_reason": null,
