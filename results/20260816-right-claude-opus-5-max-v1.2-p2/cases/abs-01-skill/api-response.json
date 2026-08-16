@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 数一, 整数型\\n.局部变量 数二, 整数型\\n\\n数一 ＝ 10\\n数二 ＝ 20\\n交换整数 (数一, 数二)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开, 交换两个整数变量的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，两个参数均为整数型参考参数，借助局部变量 临时值 完成三步交换。入口子程序声明 数一、数二 两个整数，赋值 10 与 20 后调用 交换整数，最后返回 0。\",\"expected_behavior\":\"程序启动后 数一 变为 20，数二 变为 10，交换在调用方生效（参考参数按地址传递），入口子程序返回 0。\"}",
+  "raw": {
+    "id": "msg_1786879128023",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "thinking": "I'm setting up the file structure with version and assembly declarations, then defining the startup subroutine with local integer variables and a call that returns 0, followed by an integer swap subroutine that takes reference parameters.",
+        "type": "thinking"
+      },
+      {
+        "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 数一, 整数型\\n.局部变量 数二, 整数型\\n\\n数一 ＝ 10\\n数二 ＝ 20\\n交换整数 (数一, 数二)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开, 交换两个整数变量的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，两个参数均为整数型参考参数，借助局部变量 临时值 完成三步交换。入口子程序声明 数一、数二 两个整数，赋值 10 与 20 后调用 交换整数，最后返回 0。\",\"expected_behavior\":\"程序启动后 数一 变为 20，数二 变为 10，交换在调用方生效（参考参数按地址传递），入口子程序返回 0。\"}",
+        "type": "text"
+      }
+    ],
+    "model": "claude-opus-5",
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 697,
+      "output_tokens": 448,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  },
+  "elapsed_ms": 7275,
+  "attempt_count": 1,
+  "error": null
+}

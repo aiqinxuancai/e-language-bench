@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型\\n\\n结果 = 取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开, 对值先取绝对值再求平方根，四舍五入保留0位后转为整数型返回\\n.参数 值, 整数型\\n.局部变量 平方根值, 双精度小数型\\n\\n平方根值 = 求平方根 (取绝对值 (值))\\n返回 (到整数 (四舍五入 (平方根值, 0)))\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数，内部依次调用 取绝对值、求平方根，再用 四舍五入 保留0位并经 到整数 转换后返回；启动子程序以 -81 调用该子程序并返回 0。\",\"expected_behavior\":\"取绝对平方根整数 (-81) 先取绝对值得 81，求平方根得 9，四舍五入保留0位后转整数返回 9；_启动子程序 调用后返回 0。\"}",
+  "raw": {
+    "id": "msg_1786879070883",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "thinking": "I need to write a 易语言 subroutine that takes an integer, applies absolute value, calculates the square root, rounds it, and converts to integer—with a test case showing -81 should return 0.",
+        "type": "thinking"
+      },
+      {
+        "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型\\n\\n结果 = 取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开, 对值先取绝对值再求平方根，四舍五入保留0位后转为整数型返回\\n.参数 值, 整数型\\n.局部变量 平方根值, 双精度小数型\\n\\n平方根值 = 求平方根 (取绝对值 (值))\\n返回 (到整数 (四舍五入 (平方根值, 0)))\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数，内部依次调用 取绝对值、求平方根，再用 四舍五入 保留0位并经 到整数 转换后返回；启动子程序以 -81 调用该子程序并返回 0。\",\"expected_behavior\":\"取绝对平方根整数 (-81) 先取绝对值得 81，求平方根得 9，四舍五入保留0位后转整数返回 9；_启动子程序 调用后返回 0。\"}",
+        "type": "text"
+      }
+    ],
+    "model": "claude-opus-5",
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 362,
+      "output_tokens": 488,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  },
+  "elapsed_ms": 9678,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 控制台程序入口，直接返回 0 表示正常退出\\n返回 (0)\\n\"},\"explanation\":\"保留最小控制台入口 _启动子程序（返回整数型），在返回语句前用单引号写了一行说明注释，未引入任何支持库。\",\"expected_behavior\":\"程序启动后立即执行 _启动子程序，不产生任何输出，返回 0 后正常退出。\"}",
+  "raw": {
+    "id": "msg_1786879005152",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 控制台程序入口，直接返回 0 表示正常退出\\n返回 (0)\\n\"},\"explanation\":\"保留最小控制台入口 _启动子程序（返回整数型），在返回语句前用单引号写了一行说明注释，未引入任何支持库。\",\"expected_behavior\":\"程序启动后立即执行 _启动子程序，不产生任何输出，返回 0 后正常退出。\"}",
+        "type": "text"
+      }
+    ],
+    "model": "claude-opus-5",
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 357,
+      "output_tokens": 181,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  },
+  "elapsed_ms": 4126,
+  "attempt_count": 1,
+  "error": null
+}

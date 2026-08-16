@@ -211,6 +211,7 @@ class AnthropicMessagesClient(OpenAIChatClient):
         api_key: str,
         model: str,
         reasoning_effort: str,
+        max_output_tokens: int = 32768,
         timeout_seconds: int,
         retry_count: int,
     ) -> None:
@@ -223,15 +224,19 @@ class AnthropicMessagesClient(OpenAIChatClient):
             retry_count=retry_count,
         )
         self.endpoint = anthropic_messages_endpoint(base_url)
+        self.max_output_tokens = max_output_tokens
 
-    def complete(self, system: str, user: str) -> ApiResponse:
-        body = {
+    def _request_body(self, system: str, user: str) -> dict[str, Any]:
+        return {
             "model": self.model,
-            "max_tokens": 32768,
+            "max_tokens": self.max_output_tokens,
             "system": system,
             "messages": [{"role": "user", "content": user}],
             "output_config": {"effort": self.reasoning_effort},
         }
+
+    def complete(self, system: str, user: str) -> ApiResponse:
+        body = self._request_body(system, user)
         encoded = json.dumps(body, ensure_ascii=False).encode("utf-8")
         started = time.monotonic()
         last_status: int | None = None

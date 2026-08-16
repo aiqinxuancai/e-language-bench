@@ -23,6 +23,7 @@ class RunnerTests(unittest.TestCase):
             "scoring_version": "v1.1-pack-failure-count",
             "model": "model",
             "reasoning_effort": "max",
+            "max_output_tokens": 32768,
             "protocol": "openai_responses",
             "wire_protocol": "openai_responses",
             "base_url": "https://api.example.com/v1",
@@ -38,6 +39,25 @@ class RunnerTests(unittest.TestCase):
             manifest_mismatches(base, current),
             ["parallel_workers", "tool_hashes"],
         )
+
+    def test_manifest_identity_detects_output_budget_changes(self):
+        base = {
+            "benchmark_version": "v1-compile",
+            "scoring_version": "v1.2-compile-gated",
+            "model": "claude-opus-5",
+            "reasoning_effort": "max",
+            "max_output_tokens": 32768,
+            "protocol": "openai_responses",
+            "wire_protocol": "anthropic_messages",
+            "base_url": "https://api.example.com/claude-aws",
+            "parallel_workers": 2,
+            "tool_hashes": {},
+            "template_hashes": {},
+            "dataset_sha256": "same",
+        }
+        current = dict(base)
+        current["max_output_tokens"] = 65536
+        self.assertEqual(manifest_mismatches(base, current), ["max_output_tokens"])
 
     def test_responses_transport_can_bridge_to_anthropic(self):
         self.assertEqual(

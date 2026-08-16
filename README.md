@@ -103,6 +103,7 @@
 | gpt-5.6-sol | `medium` | **22.66** | 19.00 | 26.33 | 23.33 | 81.60 | 23.3% | 13.3% | 8/29 | +7.33 | [报告](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json) |
 | deepseek-v4-pro | `max` | **22.66** | 19.33 | 26.00 | 23.33 | 74.93 | 23.3% | 13.3% | 13/30 | +6.67 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
 | gpt-5.6-luna | `max` | **19.84** | 6.67 | 33.00 | 20.00 | 65.73 | 20.0% | 16.7% | 16/28 | +26.33 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
+| claude-opus-5 | `max` | **19.83** | 13.33 | 26.33 | 20.00 | 65.40 | 20.0% | 16.7% | 7/24 | +13.00 | [报告](results/20260816-right-claude-opus-5-max-v1.2-p2/report.md) / [JSON](results/20260816-right-claude-opus-5-max-v1.2-p2/scorecard.json) |
 | minimax-m3 | `enabled` | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
 | glm-5.2 | `max` | **16.00** | 19.00 | 13.00 | 16.67 | 74.30 | 16.7% | 6.7% | 13/30 | -6.00 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
 | deepseek-v4-flash | `max` | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
@@ -126,6 +127,7 @@
 ### 供应商行为说明
 
 - `gpt-5.6-sol` 的 `max` 成绩通过 `https://api.0elog.com/` 完成，服务端模型标识为 `gpt-5.6-sol`
+- `claude-opus-5` 通过 RightAPI Claude AWS 路径完成，按官方最高档发送 `output_config.effort=max` 并配置 65536 个最大输出 token；30 次响应的服务端模型标识均为 `claude-opus-5`
 - `glm-5.3` 成绩通过火山引擎 `https://ark.cn-beijing.volces.com/api/coding/v3` 完成，服务端模型标识为 `glm-5.3`
 - `doubao-seed-2.0-lite`、`doubao-seed-2.1-turbo` 和 `minimax-m3` 通过同一火山 Coding Responses 端点完成；三者按官方开关式配置发送 `thinking.type=enabled`，不宣称存在 `max` 强度档位
 - 请求 `doubao-seed-2.1-turbo` 时，服务端在全部响应中标识模型为版本化的 `doubao-seed-2-1-turbo-260628`
@@ -135,7 +137,7 @@
 
 这些差异均在 manifest、scorecard 和报告中保留，避免把请求名或适配层协议误当成服务端实际行为。
 
-思考配置依据：[火山方舟 Responses API](https://www.volcengine.com/docs/82379/1795150)、[火山方舟深度思考](https://www.volcengine.com/docs/82379/1956279)和 [MiniMax M3 官方说明](https://www.minimax.io/blog/minimax-m3)。
+思考配置依据：[Claude effort 官方文档](https://platform.claude.com/docs/en/build-with-claude/effort)、[火山方舟 Responses API](https://www.volcengine.com/docs/82379/1795150)、[火山方舟深度思考](https://www.volcengine.com/docs/82379/1956279)和 [MiniMax M3 官方说明](https://www.minimax.io/blog/minimax-m3)。
 
 ### 特殊情况
 

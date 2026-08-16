@@ -1,0 +1,95 @@
+{
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.2-compile-gated",
+  "run_id": "20260816-right-claude-opus-5-max-v1.2-p2",
+  "model": "claude-opus-5",
+  "reasoning_effort": "max",
+  "protocol": "openai_responses",
+  "wire_protocol": "anthropic_messages",
+  "observed_models": [
+    "claude-opus-5"
+  ],
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "run_status": "complete",
+  "total_score": 19.83,
+  "track_scores": {
+    "raw": {
+      "score": 13.33,
+      "format_score": 13.33,
+      "precompile_format_score": 48.13,
+      "compile_rate": 0.1333,
+      "pass_at_1": 0.1333,
+      "pack_attempt_count": 11,
+      "pack_failure_count": 6,
+      "count": 15
+    },
+    "skill": {
+      "score": 26.33,
+      "format_score": 26.67,
+      "precompile_format_score": 82.67,
+      "compile_rate": 0.2667,
+      "pass_at_1": 0.2,
+      "pack_attempt_count": 13,
+      "pack_failure_count": 1,
+      "count": 15
+    }
+  },
+  "skill_gain": 13.0,
+  "category_scores": {
+    "abstraction": {
+      "label": "子程序与数据结构",
+      "score": 16.67,
+      "format_score": 16.67,
+      "precompile_format_score": 71.33,
+      "pass_at_1": 0.1667
+    },
+    "core": {
+      "label": "核心库指令",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 56.17,
+      "pass_at_1": 0.0
+    },
+    "flow": {
+      "label": "流程控制",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 50.17,
+      "pass_at_1": 0.0
+    },
+    "format": {
+      "label": "格式与工程",
+      "score": 66.67,
+      "format_score": 66.67,
+      "precompile_format_score": 91.0,
+      "pass_at_1": 0.6667
+    },
+    "repair": {
+      "label": "修复与综合",
+      "score": 15.83,
+      "format_score": 16.67,
+      "precompile_format_score": 58.33,
+      "pass_at_1": 0.0
+    }
+  },
+  "cap_reason_counts": {
+    "contract_invalid": 6,
+    "compile_failed": 10,
+    "validation_failed": 5,
+    "none": 6,
+    "pack_failed": 2,
+    "packed_project_unusable": 1
+  },
+  "pack_failure_reason_counts": {
+    "other": 6,
+    "source_preflight_failed": 5,
+    "function_not_found": 2
+  },
+  "pack_attempt_count": 24,
+  "pack_failure_count": 7,
+  "pack_failure_precompile_deduction": 105.0,
+  "completed_records": 30,
+  "expected_records": 30,
+  "infrastructure_failures": []
+}

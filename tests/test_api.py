@@ -118,6 +118,20 @@ class EndpointTests(unittest.TestCase):
         self.assertTrue(anthropic_response_has_content(raw))
         self.assertEqual(AnthropicMessagesClient._extract_anthropic_content(raw), "visible")
 
+    def test_anthropic_request_uses_configured_effort_and_output_budget(self):
+        client = AnthropicMessagesClient(
+            base_url="https://api.example.com/claude-aws",
+            api_key="secret",
+            model="claude-opus-5",
+            reasoning_effort="max",
+            max_output_tokens=65536,
+            timeout_seconds=30,
+            retry_count=0,
+        )
+        body = client._request_body("system", "user")
+        self.assertEqual(body["output_config"], {"effort": "max"})
+        self.assertEqual(body["max_tokens"], 65536)
+
     def test_gemini_endpoint_and_non_thought_text_extraction(self):
         self.assertEqual(
             gemini_generate_content_endpoint("https://api.example.com/gemini", "gemini-3.6-flash"),

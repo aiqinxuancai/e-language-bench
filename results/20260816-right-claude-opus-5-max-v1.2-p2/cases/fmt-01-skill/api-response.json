@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 控制台入口，直接返回 0 表示正常结束\\n返回 (0)\\n\"},\"explanation\":\"保留 .版本 2 与 .程序集 程序集1 指令，程序集内只留一个 _启动子程序，返回类型为整数型，公开属性槽位留空并保留说明文字。子程序内无参数和局部变量，先写一行单引号注释，再以 返回 (0) 结束，未引入任何支持库命令。\",\"expected_behavior\":\"e-packager 预检与回包通过，编译生成控制台程序；运行后不产生输出，进程退出码为 0。\"}",
+  "raw": {
+    "id": "msg_1786879006088",
+    "type": "message",
+    "role": "assistant",
+    "content": [
+      {
+        "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n' 控制台入口，直接返回 0 表示正常结束\\n返回 (0)\\n\"},\"explanation\":\"保留 .版本 2 与 .程序集 程序集1 指令，程序集内只留一个 _启动子程序，返回类型为整数型，公开属性槽位留空并保留说明文字。子程序内无参数和局部变量，先写一行单引号注释，再以 返回 (0) 结束，未引入任何支持库命令。\",\"expected_behavior\":\"e-packager 预检与回包通过，编译生成控制台程序；运行后不产生输出，进程退出码为 0。\"}",
+        "type": "text"
+      }
+    ],
+    "model": "claude-opus-5",
+    "stop_reason": "end_turn",
+    "stop_sequence": null,
+    "usage": {
+      "input_tokens": 714,
+      "output_tokens": 244,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    }
+  },
+  "elapsed_ms": 5051,
+  "attempt_count": 1,
+  "error": null
+}

@@ -105,6 +105,7 @@ def build_manifest(
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "model": config["model"],
         "reasoning_effort": config["reasoning_effort"],
+        "max_output_tokens": config.get("max_output_tokens"),
         "responses_thinking_type": config.get("responses_thinking_type"),
         "protocol": config["protocol"],
         "wire_protocol": transport_protocol(config),
@@ -132,6 +133,7 @@ MANIFEST_IDENTITY_FIELDS = (
     "scoring_version",
     "model",
     "reasoning_effort",
+    "max_output_tokens",
     "responses_thinking_type",
     "protocol",
     "wire_protocol",
@@ -240,6 +242,10 @@ class BenchmarkRunner:
             if client_type is OpenAIResponsesClient:
                 client_args["responses_thinking_type"] = self.config.get(
                     "responses_thinking_type"
+                )
+            if client_type is AnthropicMessagesClient:
+                client_args["max_output_tokens"] = int(
+                    self.config.get("max_output_tokens", 32768)
                 )
             client = client_type(
                 **client_args
