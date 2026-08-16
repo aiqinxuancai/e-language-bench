@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"新增公开子程序“取绝对平方根整数”，并在启动入口中以 -81 调用。\",\"expected_behavior\":\"调用取绝对平方根整数(-81)时先得到绝对值81，再求平方根并四舍五入到0位，转换为整数后返回9；启动子程序最终返回0。\"}",
+  "raw": {
+    "id": "resp_0638b6182d2f807e016a811a4e494887d0be2d33e94fbbb599",
+    "object": "response",
+    "created_at": 1786845774,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786845787,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0638b6182d2f807e016a811a4ec4ac87d091f66284372a844a",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgRpYxsjY09tW2e2wcakpCUzxqUfIIuJ7Lz6TsTbsKZqJ7FBHqR5dUhTUpkFGxY7ByWRr7joH-NP6xXcsDkqmLOs9XPJ-uOfIoYev5kXrksuHqQnsBZEWWlHHzT4UDFTHs3MpUMj8aZsEUvGJp_D6tSFxQoFN4Zy8Y_fR8H_PvQ1G8qfXjN5gbZ6Y-JFRZD8FoqzuGVKXSLl7MSsUsZjTal62nppwReYGqKygFvpYgHsh6cgMkRKHYBPpM2U6wqiCuu_Ib4jyY_7vYOlh-lr86Cr1WSATFG-bcfMpmBd2yJRVlOu3nthLkNIRtJnzPPVhaF7pjAy-vMWfW-1V39fVznnV7Zc6yaKQr8BTFAxPYTx-3RAGojknGk7LxN9hvxg7SHz7LZEH984uM3HOZ8M_bghJmLCQlwAr3sLT_D30tpPKNNgbpD_Zd6t27cAsq2Rwq9zFgM_RXesNBQlHWokkORTA30U2MxCzUX0ntODWmFY2vDLN73hXesl5MeWFM_-fP5G5pkAdz0wss1te4Y_9SyQ-b1V-TINqWv8Sg7nxi2LGGh8ExAE8PnNrJ5y6tSLGSL-qqD_U2XmInLOHemLy4EvI3XzCxG7hE5UcuZQOpdsvTpcno8zo2J5p6W32FiAUAG0QQrXtcv2Hcabjf26Fk_w5z8apxsOv2vJpC_ywtQwzIRylC3y3XxLXUh5XXFBopSlBO0f2wz0Mg55MSpdn6hbUjCB3L99x4jzh_NqIX5AdLXgavhyIYskxy-oeScY0m8OSDsXuG5hd8LW3btuTqwyyGzx0VDm3ciOmUFqKpIrVyXUOb9_QRlpCqWEfHWY-HHRkj9uosxHOUDyyhIAI3ks7C56d4ZOQzmBCMmRaXgMuf3-xU8C1B4qIbavBx4GfkVTOD5IWBroRwDx-wVlXg49Qwfd8WXWQ3ziqTD2zprkFV8Iqm51g9tsZNp_EdPT6ifFI5PaoXzAvwrQtzHWeUJjjeJtAsJKZ37L9vaIBOz-VnXmWS-jqF_Z8EZ8NeEZdJilsOXCSqPYPP4RX8p-b3ARe3r40TGfbr8GjUHJ2UhDrsCg3IBpKESKM3cLbDdG-ca8-_PBobS5lJbG2YpcyW5dc5auwT1ADTKxMxRQFvyoh4z_yOGrITs3BdUIMnN2x0iQFvxrV8Vyab5McFn8aKfdjx1f2l6QOkHjuhDjBLeTyNnMocjIMLkvvPVVPMxB1q-gCp7RUdWG6WfsIeHbkkQ3DO0-G3ZvwByEnflgLwFnitIZb_XCg0TI5Kt-SoOM1CoCV9tH_5sK03AEjuURhg3DJBMWC1gMmmIkUSS85FX1todCrQrUvq9lV0Iya8-kmWotvj5Xqzm1FL1-468eyy7HZFfZNXzQbUu6UCQqIEA-enF78nWpDl6AgJIfZQI7IGLkq9A8DjHp9TzUkle2dPaJ9p3jd_cPn_TD5ZZNbP9qTrDkYQL1oN5vQeN0Mcq--Jl21hpQvv-MwHQo5KL38UVjJBakJbSUg6fy5Rv8ndA0TARFWcL-BdAISoENcu21LlXDvUdtmCk71WO6JA7e5x80lQhZ4UXNzOkc9J69hFqc8rLPo3rLsthRU-a228Cn5LQPvFk7j7XozZiPSqex4OmfmEt-hEVrskS4_oR7BHAdwE11Gh1fQnjg1pcdalBBa6IWhIKcrZ20y9v6CiBhmTxwz-mXYrDzMhxcvbLaotkUTkuXpQlASqNqDBgyYvciIijy5ZM8uL0N1BHgKzub5aU1_lfDHyf0Da-SK3Kefgj_1h8Otzb_JnUAFT-QR7HaoQjN0-0u3HcyeKhVNu7wbMPq3HYS6PwYpSIAUfbtI6dlOAWjuqqTwBwn_9pef0mCNRmcb_jF31ikeVHr0KtKO8Yte2vBVrSAm2-AO-9N6foFCgXijadGMfPLgNPwI18Q4H8-js0Gb8ATXYaLYuScCexeMSC1RQoxJVK2Tl-usU6sA_7wk_Mt8mawcBYhYbcf7NLAaWLFtZcIj9rIidrN6fUWsQhG2MjKqY95ftGRURfCFy2nzokSiHI84H-G8XWiytxeVU5VROlFmuFm_w8TQZaSdWeT_5peZ7VzatysFny7x9F-iuLvA8YN79zAODteeIe2d7yhDvCQHKjfqugEy-gj9JhNHV2ttdA3oe8WgiF1UQ3jk-Hm0UVsB3elaKeMFSHNhSNxTN2_jgOs_A4pK0PdhfYQInd8_bjTsfKSeXJ3buSTaoErBm0MVCUqDOq-GDFXJwFpkKzqzbkTFcb5W5xc3ERd1n32CIgOpXOJMOanpPCRM8Gp7lBDYojM9Aerfrxrwr2JndTqwLHbeRuIWRrySyiU7C4O8jc9dXyqQs2ut2LPcfFyleAQyXQCHnqL6ZOiHz4n-Wui8oZIF3Mo-ttyVii6pImg0h4MsiAZeBjhEonVrCSp5fBqEsodwfbouG7o_IAohNtvexaTQF1K_ZXcqtw5GPma_ESSdvJxi2Z_K14WQU0laITfU4YIcMja9ct-FKWbrIWUD9DebXraREcT5DoF8L0y9h7ff6tpuMgzeq3IBtQBFVe91YgMTMAHOFmX9FQ6Y9oh_B2EgPkTNgFXBzDn4_JgqpiToDE3f91o82fJ6OH3v6a0nCEyI46ves9gn5mOcMFmeEoNpUBcUwgiqcfkhNHiCmTNA8un4xtnuaPuNNnMGxn_ScSe_EiO5HrPHv58bRd9RRCIsaGVvjgc5ZIXpsQ9WGSUUy5OmA4AFkcFHKXboQ6tcH7GIEbyCSx3RBMzLc15G2lUWqb2Y4w1n2k67PhSNAuLD6m8n9gPpnPxF_X3ZE6jQyT86AAvMSguT8JvUi5vlknlsR7x05UPj8kDhQZk4PIKJ1yJsGduFN4w6hncuL_mT7aq1lMHKJFgXp45SsKEL63lXjYT3dfvaaz0NJbdJUD3KAAQjFww-aGiIjofXhP9dJ1JcHt2HcArhuBvS5_MInj4h1dll0s5u81ORlCX6_NyKq2rDCH18AsQAPxuu9jS_dwYMfkwY62m9LlIAV7t43pKiuV9Pt2EeswIrIuxUs3QUmVybIB5H84FfOsC6NB3ifHJc59kucSIE8fHdugP5oT_LP1PzFaGafDTRE1jLbA1DKTBR5AL1eB0PwhtNijjpibp17pquCa_w1JsYENsG5-z9NPjsWSHtQvAf-a23GVJLDjNtziYwjw3pBZ_mvBALCsPnl2pbBxyaYF5tSf0Lv3ww19oQwa1I9-cXmWoE7HrsY4ZniShDqcEXAqWqcb_RNDP6dn3TBgrIxrXHUcFGmkXYvc2bSvUV5VFS8tj-zc1Kqi7YimbbE6brFav7-TmDXgsYlgWYuPi5JEOJW1AEvD3h4NlsLZenlh-hpsF5ewvxGmxiSFOaldogBoQY87_TctC4Sq5Qw3P3CcZiQkvt_4I2MDzIYsek7Sb-Q-D-5xI6jZakUCjJk3tvgS98J0COiFufMaXeaiVIDq4d5ZGJlqxIaejOFhi7nF5I2L37kDsjQvqtvN61P1BquptHO5BO4b58YXQVIO2FR8IKtuIpV74jYfJCQe6SGVMQtLGc4b3VWTzWiB5JkhvNJIErRCtQ10tTr4D3QlkoeaTRW6-1Bl6COqxK8ZlLB3eyiwNJlt6uRDaQQeBJTGKvbrCUfMvp0fXtx65AjnY5a5cKH1CwDUL9cB76WiKgNuXafqz4JIKN7twdw_A7yFdwGsJJtmwofO7go45SteMmQJxToIzNQmK7HV8NbA8nP05KgwPkr-PZoP9lCHf5uxS4_8HK5HIUyKqGHk7N-i-RZ7t_xg5zKdC0mBw1v4DzAW5que0bt2pBDyfZcTZLf8fd1Rx0fHR38jRQ46KnOz82mf-I4UNMreD1Fga6961XLw==",
+        "summary": []
+      },
+      {
+        "id": "msg_0638b6182d2f807e016a811a58189487d0a505e14a5bd8e0f7",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"新增公开子程序“取绝对平方根整数”，并在启动入口中以 -81 调用。\",\"expected_behavior\":\"调用取绝对平方根整数(-81)时先得到绝对值81，再求平方根并四舍五入到0位，转换为整数后返回9；启动子程序最终返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "71caceeb-e804-588f-a0c4-e40ab5fee89d",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "max",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-XSSfn6UsWD929wPayUo8MgOe",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 304,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 732,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 1036
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 14737,
+  "attempt_count": 1,
+  "error": null
+}

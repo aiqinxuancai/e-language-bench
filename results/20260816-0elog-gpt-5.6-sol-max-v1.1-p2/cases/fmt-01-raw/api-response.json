@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型\\n\\n' 最小控制台入口，返回 0 表示程序正常结束\\n返回 (0)\\n\"},\"explanation\":\"程序集仅保留一个控制台入口，并添加一行单引号说明注释。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，并返回整数 0 正常结束。\"}",
+  "raw": {
+    "id": "resp_0fde61af7a0f9c62016a8119455c888193ab1f164f2212ed68",
+    "object": "response",
+    "created_at": 1786845509,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786845521,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0fde61af7a0f9c62016a811945dfc481938c738e2839b1baa1",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgRlPyOTk22jV1TuE0JljUvktMB6Tf-7YnztY8Q2nrkImLsWGAT_9Cjiw9wzxkVGq0MB5Q5R1AHFs46OwXIc_lbtiW0d9S6NkAHVAcoVlIO_gsbCCzs_PpKuLRanUCw2E8vR8PxdUgpFlJ1F__MqmhzFA2DnsiBy73qOCCgI8WcYqPfS2tJ6l-xGpBQlkmVb7h1h4cO2oKoNQeLdnHSJZR87O17pdM1RPby-6t001TbMHCa34XTDNloRrmHTS2YEb8QvrUDR3iSlHZkUr4Zi48-w4Llg0vP5UPVDcgSHZIGSnsgmEKN9m5hpAB0lsdSLzK1pjfnaFK1BsqXbVr1fG1oqHod7ilmyEz2PAy_9aZppXjPUCzrOQGaAKOlo_smBKvIR3Gm1okU-cxSaJMFSB3H7x4GL36iZN7VjSblfd5ze09lnN9ab4EDKB--tZz1HipZAwBk3_Vnhcvo6OWy7cFppoOGTJkd0oCWORwPV7mhPN5hqgRSlEnQbsP2km60kociqKsyGGWEgPjx8WITfY2jAsG5QsC7QgM7oGynaJW28vSnsTeW8H-auFXO3zz9jd8zga82zJ1_MN7_1jQ17OO-FzdJcmt4rwJSdgSjwhfDRZLgKJ1bSnQ-r7ETAgYNChKqIC9FJqWD3iQgiVYD73G4WLSemFxLesi-OAggZXkX1uKPG57IN1eS8Gb3gYqLzZEdWA6VrfT-PIrmxAFHOS8hG72GHwcIbiy8PWKP4ehZtln92I3FOfT6Egz8TEFER0baHkWyyjMRjQGy78uD6iAUvu_gByLldEwBVkicQtiJF1wTmX9evqRtwSkmocJCkYw7v-Akf0zC1XEMGtJAD_-JjUddL7JfhC2dNbBciX8PqmABVOQNuLpd4AlAJR0AAaU2gwA_Tnd_nndb9drzhB-CGXZNk03fm3e5AvdevOKlJmO8-l45SLbnzZcpnRl-L7xO3abGDY_rNtwCnVx-raBWKjjt02StPVl5UcTQ8ErqHr8W-ckvY8OfSyxrPBp_qJqH94ZMhq-DSw0S-hL75Ho646Cd1-V4pyeFOVQjCio3lp4nNwgyfvHLAADtGTS159M8bbGmQqgz4LiMiVnhKhepljGNYqjUvzpPEVbQW8Tr6BQGc6Bb7Qcqr6IPX6HbcDyiSJXFFuXCo_TEiO9_-idi8t7rhNlxhsztW_RPUDAW11olLFNFO6CSYnYvEGG46XBYMScXxKPPsPTmUfXTxkBOJnq_RVrQsL0w_cbgyomc58rudTrsrQdphtwAVSESNZJIWG154ums11xr0dd7QHJ-Gt1RL6wugRxP3wT7kWFSmAsm92T2STBkJIqriv9hXYlGT6nwAHIMW-_wqKCHv9ER1GnMBi85MYhVObnOchmi2-tnMTHfj13jxBmYC7XZTXR7UWIqhKIktaqFTNLFsNhD6FKkhAwHnenkgR6kyswpdeP2UW2OVmirM1Mhe4msqaNicp7oRGIoaST_A_kmRjdNaPYWLuxfooD7VIr5hjv7iva--S8-k6jDnG9KhJwuYLyKO9Me5ciQQ5Puh3_GM5lmufAW7q79ElZv2m0JJqfwNPFe50EtLFMDdTwshD04VGaCwJdDtJUfMbZ60aTz3N1fBnYwiBPzLwTVf15X71S1qVbqHHsPj9SbR7A5eIjf_Yl7z6ykLNCwQB4oafPc01NU0IP7emeI8EUH3NExtDqc-YUlCiV1ysLjaTbyb4UGsdoZyidnAo5Hj0f0ZF9Ic6Q9qceHjA_9x_Ku8m0QdtKKYo1SBXj9KXLbPkN1U5ufV54aikwiZMh2nVanN0xvYNQ1JgxBvIv4pACRQeMNb3-OT5xRMHPK23o5rEbX0gXI2NimLX6TVpPl9ygalMVfnS3YKzfW6zLhDlUui4bWkP6sdmsuLK0gyJEGiuUfRYBhhJLNrpxr5PhUk5qHCfnlv-x_tkx3L9B2fRjO6OLO3XbvuVKpLQEVhhRvsPv6rEWLJiNcEkWhRVzcjhVFb4x28Qu8QXQve07CCHHm80EEy1jdXHfH0kuWMYoyOdD2sLsVz_lo6Ym761eL06r8AgVvtvxlZnldrBCwhmtzNFXmdPwAer31ptaJxHLWVQlLXtcOXchl2CJDmyvr0QebNJ3j-7Sy_EHlzjU-fPGkHpKMvvz_Mdv0KNnL4_qruqhjEpFx9FRB0p13pe2XQ-4JP78zgj6YCzN1e6Q2pICfH-IbqCClmlmoao4tZNCVP2VvUcuv8PMbBRcvnypPVMK48dpyl2qaxN2knWnkELucenGvJ3WDKFh6hl5jXHccZquqPzK_UG38Usz8xWCbpi30iRPsVxGcAsNn27O6-01jQQ8Bpk1tvz-rPUFhLKrMuIuxjrAS9U2OLjOhaXfx0qIVhkYZ4ubuXPEs-e4ZVI0BvyRZFPw3oqyY1gK-EtiDi0ZtnvKrHtskn0qpgBn9g1JzQdJ_pO8s6-3N9sQBTDLjT86aAPlu5_DGs_xGnunlxJVUqQzspnhQ3TJzPCROGiVIzpXXIX1xgsz36FF6JWUqLgM3nNs9NYF2bXxajsEby7_8Xe6_GGZRHihWp6ROnBV8FkFQ0DIp-uByfjKL-bMkiVTd_3021MNyvOL0aAcUVZv7Z1vZKkrvjzwR_2njIKq4JulTc6XB5Iol9UJNqtNYAEf8SrC4S1RlDg6H81tPb-k6B12-VtrgwYkgy_VNlCxJNM4KmFrK1S6uxhyDMqBoxfXmmYR5Ck5m3RqjDl6iw3SKVm-tG-GOVGe00ZNbbKbPW7-H8Mf_Oi99XuhdLPFO3gTBqddLGs6dTue0dzqrsiMq0MZwkyqlJp7U-pm8txaj6ZwmxFwx-78nFEqz5Z99H-rWWOgmb2QQvzLvWaLC6OIP3-He9ftEs6FN9q7pUf2zvrqVCoob-pVouVeQW8MqWlxxlLy1JkHw2bg_3E2ZZOCxKK0nC8nhG6Kpka51N_Piw5ivSJgUFJzMLLCPI4GwNXxgOsG0TaXZfcjkOeDV1Tu3z40kqaVWHraBqv7t8Xm--aN93a68ANZY6smufyECBUubc5WRhVRz_N6ywBWqwjz1Jlhpw5RW0Jfd6q7f_p9N1cGZ6b5mrgjVA-k7WvzvAGXhwVE77dvt9QqpbCe97lEdXHUNbk9T5e4r1s_lGUT3FQA5beiK25yCLiCOmLTBooa29v99bN_kTj35yHMcxYTh0lUpeKHR7wMyBHsBkBNkPgKPi8dRSUlGMq-1n3AFzx68AFMPIf3m8g3nUveztBfW_mmJBvOrg3ZOB4JUjt2tHsNbJOFmfVSRdSApIQMcygcueJ6iYRGzpv1HNJegkrU5xuBQ_M8UzSKUI2RtSl89I9RJ0Lgqn4yYZq87sCWThR1vmU0lCvYR2corfc_kjgIblrK6PjDcv3ZjN-AARg9Kf7-eZhiQFwRh-gHu3obml4wRiBaYgsxFP2rp8om72_wNo2NNGYBmSXwIPb6XGfDnB1m7-K82J0eXArO-XNDFLaeAOY2m_qcG-J2eKSAvjUxJ1d0gG82Tou5tAd_J36NelpKX3iCfoxg7w_hJi5EyLRCzTid9rbU6PnYYA4xMGUAeDAYRKs8MW9nsCqKy9dGBOPUfCnNmAUuudVHkU2rasRDAfujfWNHYIBV8HUAMqtZ2kxyhhRE1x7OevORn4O_6J71lMtL1hYK85cjo3o09qAnWdsw4LjtPxxhhEXmcwblf89J3WYp5yTdfTNiDGeh9JPO1F7MHE2ar33--_MO8MWkbDJlTWsZquWVeEgFWhhyJiUBVovfYvnrG3o_Vl3GFQsHE_kQXcAvgE88KPZHqagBe5ePZtSwOf4fpjCs4_vVecdyDWPPLC6KhLyk-x9RDFUVH6-x0SbkgLNCUV9yGyQerkY7t-vj04uJMHNyuRfvkrko7O-7MhMDRpGWmTXMdc9gU6Q3cxWuonGEY5QpLVQUNJV8VLkprr6JidQkydsoNUzDqCAynFlFEEgI4IXeNJy0bH6qkZ22hqzLqvHeviD2ncXTf7jQdTv-rRCXZotISuwTxMa2-cbfRQ0t84DKcZeMjI1-CGmpSGLa8y1OoXaFxPBZg1FcPXovKZsnH39kpo-2xxeYeH2",
+        "summary": []
+      },
+      {
+        "id": "msg_0fde61af7a0f9c62016a81194f31cc8193b0232e0b061861c4",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型\\n\\n' 最小控制台入口，返回 0 表示程序正常结束\\n返回 (0)\\n\"},\"explanation\":\"程序集仅保留一个控制台入口，并添加一行单引号说明注释。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，并返回整数 0 正常结束。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "7e6fd414-9e3f-5d6a-ab08-878bb6b75f98",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "max",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-IQUQ5EYhj8vH7W9IgxsH2zwE",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 284,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 627,
+      "output_tokens_details": {
+        "reasoning_tokens": 516
+      },
+      "total_tokens": 911
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 13826,
+  "attempt_count": 1,
+  "error": null
+}

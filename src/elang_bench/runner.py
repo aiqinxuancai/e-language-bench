@@ -105,6 +105,7 @@ def build_manifest(
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "model": config["model"],
         "reasoning_effort": config["reasoning_effort"],
+        "responses_thinking_type": config.get("responses_thinking_type"),
         "protocol": config["protocol"],
         "wire_protocol": transport_protocol(config),
         "base_url": config["base_url"],
@@ -131,6 +132,7 @@ MANIFEST_IDENTITY_FIELDS = (
     "scoring_version",
     "model",
     "reasoning_effort",
+    "responses_thinking_type",
     "protocol",
     "wire_protocol",
     "base_url",
@@ -227,13 +229,20 @@ class BenchmarkRunner:
                 raise ValueError(
                     f"unsupported API transport: {transport_protocol(self.config)}"
                 ) from exc
+            client_args: dict[str, Any] = {
+                "base_url": self.config["base_url"],
+                "api_key": api_key,
+                "model": self.config["model"],
+                "reasoning_effort": self.config["reasoning_effort"],
+                "timeout_seconds": int(self.config["request_timeout_seconds"]),
+                "retry_count": int(self.config["retry_count"]),
+            }
+            if client_type is OpenAIResponsesClient:
+                client_args["responses_thinking_type"] = self.config.get(
+                    "responses_thinking_type"
+                )
             client = client_type(
-                base_url=self.config["base_url"],
-                api_key=api_key,
-                model=self.config["model"],
-                reasoning_effort=self.config["reasoning_effort"],
-                timeout_seconds=int(self.config["request_timeout_seconds"]),
-                retry_count=int(self.config["retry_count"]),
+                **client_args
             )
             response_provider = lambda system, user, _task, _track: client.complete(system, user)
 

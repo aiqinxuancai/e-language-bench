@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n.局部变量 结果, 文本型\\r\\n结果 ＝ 规范用户名 (“  Alice  ”)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 规范用户名, 文本型, 公开, 去掉首尾空格并转为小写\\r\\n.参数 输入, 文本型\\r\\n\\r\\n返回 (到小写 (删首尾空 (输入)))\\r\\n\"},\"explanation\":\"新增公开子程序 规范用户名，先用核心库命令 删首尾空 去除两端空格，再用 到小写 转为小写并返回；入口子程序调用 规范用户名（“  Alice  ”）将结果存入局部变量后返回 0。\",\"expected_behavior\":\"程序启动时执行 _启动子程序，调用 规范用户名（“  Alice  ”）得到 “alice”（首尾空格被删除且转为小写），随后入口子程序返回 0。\"}",
+  "raw": {
+    "created_at": 1786846053,
+    "id": "resp_0217868460524721023f1f6cf081335b7e69d5fdf9a93682c34a1",
+    "max_output_tokens": 32768,
+    "model": "glm-5.3",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_02178684605374100000000000000000000ffffac15f13d6f97f1",
+        "type": "reasoning",
+        "summary": [
+          {
+            "type": "summary_text",
+            "text": "serve this task: generate E language (易语言) code. Need to output JSON with files mapping.\n\nThe task: add public subroutine 规范用户名 with parameter 输入 of type 文本型, returns 文本型. First use 删首尾空 to trim spaces, then 到小写 to lowercase, return. Entry calls 规范用户名(\"  Alice  \") then returns 0.\n\nNeed proper 易语言 syntax:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 结果, 文本型\n结果 ＝ 规范用户名 (“  Alice  ”)\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 规范用户名, 文本型, 公开, 去掉首尾空格并转小写\n.参数 输入, 文本型\n\n返回 (到小写 (删首尾空 (输入)))\n\nNote: In 易语言, string literals use Chinese quotes “ ”. Assignment uses ＝ (full-width). Actually in 易语言, the assignment operator is = typically... In 易语言 code, statements like 变量 ＝ 值 use the full-width equals sign ＝. Actually 易语言 uses ＝ for assignment and comparison both. The editor uses full-width characters. Common representations: 变量 = 值 with full width ＝. To be safe, use ＝.\n\nPublic subroutine declared as: .子程序 规范用户名, 文本型, 公开 — the third field after comma is 公开 flag (公开/私有). Format: .子程序 名称, 返回类型, 公开性, 备注. So `.子程序 规范用户名, 文本型, 公开, 去除首尾空并转小写`.\n\nParameter: `.参数 输入, 文本型`\n\nReturn: 返回 (到小写 (删首尾空 (输入)))\n\nIn entry, call 规范用户名 (“  Alice  ”). To avoid unused result maybe assign to local variable. Then 返回 (0).\n\nAlso _启动子程序 has no explicit 返回 type? It's 整数型 per given file. Keep it.\n\nSpacing: In 易语言 source, parentheses can be full width （） or half width? Typically code written with full-width parentheses in published code? Actually 易语言 uses half-width parentheses for function calls in code: e.g., 返回 (0). The given file uses 返回 (0) with half-width parens. Keep consistent.\n\nString quotes: Chinese full-width quotes “ ”. The given task shows 规范用户名（“  Alice  ”）with full-width parens but that's just description. In actual code use 规范用户名 (“  Alice  ”).\n\nFinal output JSON:\n\n{\"files\":{\"src/程序集1.txt\":\"...\"},\"explanation\":\"...\",\"expected_behavior\":\"...\"}\n\nNeed newlines inside the string; JSON escaped \\n.\n\nLet me write the source:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n.局部变量 结果, 文本型\n结果 ＝ 规范用户名 (“  Alice  ”)\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 规范用户名, 文本型, 公开, 先删首尾空再去空格转小写\n.参数 输入, 文本型\n返回 (到小写 (删首尾空 (输入)))\n\nNote: 局部变量 declaration must appear right after 子程序 line before statements. Yes.\n\nExplanation short. Expected behavior: returns \"alice\" from 规范用户名, entry returns 0."
+          }
+        ],
+        "status": "completed"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n.局部变量 结果, 文本型\\r\\n结果 ＝ 规范用户名 (“  Alice  ”)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 规范用户名, 文本型, 公开, 去掉首尾空格并转为小写\\r\\n.参数 输入, 文本型\\r\\n\\r\\n返回 (到小写 (删首尾空 (输入)))\\r\\n\"},\"explanation\":\"新增公开子程序 规范用户名，先用核心库命令 删首尾空 去除两端空格，再用 到小写 转为小写并返回；入口子程序调用 规范用户名（“  Alice  ”）将结果存入局部变量后返回 0。\",\"expected_behavior\":\"程序启动时执行 _启动子程序，调用 规范用户名（“  Alice  ”）得到 “alice”（首尾空格被删除且转为小写），随后入口子程序返回 0。\"}"
+          }
+        ],
+        "status": "completed",
+        "id": "msg_02178684606407000000000000000000000ffffac15f13d80660f"
+      }
+    ],
+    "service_tier": "default",
+    "status": "completed",
+    "usage": {
+      "input_tokens": 310,
+      "output_tokens": 1098,
+      "total_tokens": 1408,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "caching": {
+      "type": "disabled"
+    },
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "store": false,
+    "reasoning": {
+      "effort": "max"
+    }
+  },
+  "elapsed_ms": 14760,
+  "attempt_count": 1,
+  "error": null
+}

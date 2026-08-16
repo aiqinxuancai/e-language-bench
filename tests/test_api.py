@@ -3,6 +3,7 @@ import unittest
 from elang_bench.api import (
     AnthropicMessagesClient,
     GeminiGenerateContentClient,
+    OpenAIResponsesClient,
     anthropic_messages_endpoint,
     anthropic_response_has_content,
     chat_completions_endpoint,
@@ -75,6 +76,33 @@ class EndpointTests(unittest.TestCase):
     def test_empty_responses_output_is_a_model_response(self):
         self.assertTrue(responses_response_has_output({"output": []}))
         self.assertFalse(responses_response_has_output({}))
+
+    def test_responses_thinking_type_replaces_reasoning_effort(self):
+        client = OpenAIResponsesClient(
+            base_url="https://api.example.com/v1",
+            api_key="secret",
+            model="switch-thinking-model",
+            reasoning_effort="enabled",
+            responses_thinking_type="enabled",
+            timeout_seconds=30,
+            retry_count=0,
+        )
+        body = client._request_body("system", "user")
+        self.assertEqual(body["thinking"], {"type": "enabled"})
+        self.assertNotIn("reasoning", body)
+
+    def test_responses_reasoning_effort_remains_the_default(self):
+        client = OpenAIResponsesClient(
+            base_url="https://api.example.com/v1",
+            api_key="secret",
+            model="effort-model",
+            reasoning_effort="max",
+            timeout_seconds=30,
+            retry_count=0,
+        )
+        body = client._request_body("system", "user")
+        self.assertEqual(body["reasoning"], {"effort": "max"})
+        self.assertNotIn("thinking", body)
 
     def test_anthropic_messages_endpoint_and_text_extraction(self):
         self.assertEqual(

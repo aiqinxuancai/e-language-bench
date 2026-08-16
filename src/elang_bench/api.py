@@ -408,6 +408,7 @@ class OpenAIResponsesClient(OpenAIChatClient):
         api_key: str,
         model: str,
         reasoning_effort: str,
+        responses_thinking_type: str | None = None,
         timeout_seconds: int,
         retry_count: int,
     ) -> None:
@@ -420,8 +421,9 @@ class OpenAIResponsesClient(OpenAIChatClient):
             retry_count=retry_count,
         )
         self.endpoint = responses_endpoint(base_url)
+        self.responses_thinking_type = responses_thinking_type
 
-    def complete(self, system: str, user: str) -> ApiResponse:
+    def _request_body(self, system: str, user: str) -> dict[str, Any]:
         body = {
             "model": self.model,
             "instructions": system,
@@ -432,10 +434,17 @@ class OpenAIResponsesClient(OpenAIChatClient):
                     "content": [{"type": "input_text", "text": user}],
                 }
             ],
-            "reasoning": {"effort": self.reasoning_effort},
             "stream": False,
             "store": False,
         }
+        if self.responses_thinking_type is not None:
+            body["thinking"] = {"type": self.responses_thinking_type}
+        else:
+            body["reasoning"] = {"effort": self.reasoning_effort}
+        return body
+
+    def complete(self, system: str, user: str) -> ApiResponse:
+        body = self._request_body(system, user)
         encoded = json.dumps(body, ensure_ascii=False).encode("utf-8")
         started = time.monotonic()
         last_status: int | None = None

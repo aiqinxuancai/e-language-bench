@@ -50,6 +50,28 @@ class RunnerTests(unittest.TestCase):
             "anthropic_messages",
         )
 
+    def test_manifest_identity_detects_responses_thinking_changes(self):
+        base = {
+            "benchmark_version": "v1-compile",
+            "scoring_version": "v1.1-pack-failure-count",
+            "model": "model",
+            "reasoning_effort": "enabled",
+            "responses_thinking_type": "enabled",
+            "protocol": "openai_responses",
+            "wire_protocol": "openai_responses",
+            "base_url": "https://api.example.com/v1",
+            "parallel_workers": 2,
+            "tool_hashes": {},
+            "template_hashes": {},
+            "dataset_sha256": "same",
+        }
+        current = dict(base)
+        current["responses_thinking_type"] = "disabled"
+        self.assertEqual(
+            manifest_mismatches(base, current),
+            ["responses_thinking_type"],
+        )
+
     def test_cases_execute_concurrently_and_reports_remain_complete(self):
         active = 0
         max_active = 0

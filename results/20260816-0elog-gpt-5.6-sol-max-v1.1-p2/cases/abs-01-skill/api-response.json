@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过局部变量“临时值”交换两个整数型参考参数；入口中初始化两个整数并调用该子程序。\",\"expected_behavior\":\"启动后甲由1变为2，乙由2变为1，随后入口返回0。\"}",
+  "raw": {
+    "id": "resp_0db97ac3b30dcfcc016a811b3ee0cc819bb9425a7b323b45a3",
+    "object": "response",
+    "created_at": 1786846015,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1786846026,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。\n\n以下是本题可使用的易语言实现规范：\n\n## 格式与声明\n易语言 .e 是结构化二进制工程，src/*.txt 是 e-packager 的文本表示。保留以点开头的系统指令。声明的中间空槽必须保留，只有尾部空槽可省略。.子程序字段为名称、返回类型、公开属性、说明；.参数字段为名称、类型、参数属性、说明；.局部变量字段为名称、类型、静态属性、数组维数、说明；.程序集变量第三槽必须为空。每个子程序先连续写全部参数，再写全部局部变量，之后才是执行语句。注释使用单引号，赋值使用全角 ＝。\n\n## 子程序与类型\n返回值使用 返回 (值)，不要写 return。普通参数可使用 参考、可空、数组属性；输出数组使用 参考 数组。自定义数据类型用 .数据类型，成员用 .成员，成员顺序决定布局。类程序集可写 .程序集 类名, , 公开，并保留 _初始化、_销毁；对外方法在 .子程序第三字段填写 公开。普通程序集和窗口程序集的子程序名按全工程解析，新增前避免重名。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "gpt-5.6-sol",
+    "moderation": null,
+    "output": [
+      {
+        "id": "rs_0db97ac3b30dcfcc016a811b4aafec819bb4f6de74c358f8ba",
+        "type": "reasoning",
+        "content": [],
+        "encrypted_content": "gAAAAABqgRtKaTiRRQWdPPaVoGcnqmZBACYPcuktXtL_n41S6HcbP33QH4EEBHMfYj5ArN2adZ1fHt0R2KkbE_Z4joBPP1_fFToE2EXG_QcEkGM_I6331l5Zx-P6ZiH-uXiNaj9O8W8HHs2K04EjaHYEEXvhSJQNUf8ghK_UW85Q7lTnrsxxJ_LT3HNquce8zHankjTMD7s7JbWrybomN31yEL4weGPQPPdnXnOo0rMcof7u74cm6lO5dPiulVhAY55pzRb24Gs4rVp7D6wfI-5MmLJHIcS7fdOk6t9_szaUEfq0wG10uUSKPAIJ9ClAPeXoox2zZoWLxkw5Er5I39RxFcz6YWTqqH9NkTccVHMEhm_yLvDM7dmDmyo9eVU5hjkMNVjHZIpU0xeVKQ01zenMoSsqiNTIcYjsey_sFa8RkJQBKTb8f3Tf9Gy88D_fkyZrUkn_JyvOHHkLIm4k_Dwyj5DudWfomf2GI5RI-s3fanyLNaNE9La-PkvmzZ2EJrr_DF8ps9VMnIuQqrPYlFqJumCJmW_LQh2nxSq9v5O_UJuCPmyusiyzksEeYttVaD6zubvDnru8s8YW8m1Zj9hNs0KPrVdVHALlYRQVlZmIepCP_9m6xQVylKht58FCLtYFubezUTrH0svjngHQxvrBQ4RD0_RxH4jN3C1YmAKW-eTIv3xpAK_U6ut0XSQIf0Tz9ueWSSpwh1FIY4ABS7ri0S-5f5j1LUjUKLviUha63tekzSzcz73PrxkReoRAeFfUuD9DYe8zaOGzMCPB8oIPaHT83R1b55dQQgbXhza00lJWSYCPpKJcC28mLjpShVpFpTZLUsv4LPdwzlc4ky-mbM2KVnkBn1aBSZ6SV47jBwYZcQ9pjBjkyYDJW4bRuZAW-nwLsGob7XpsvIwTOv731I7q0sxyStLrDu9jqiX3FYhaA_kmGg3gZsFSu0Xp25GnYZb21bmIvfG1by6hEV4jiEn3v3uLPhN7x9hRY1MmKHdY5Ngq2mz_QjthoNEf3w9C_AhFdZPVAqPXfyZT5KODdfhewJhAkosDI9xxk-NpMzx2qggNDS2nVe3ZxwgNA37_Mdsxl1zo0RlUUUY_KjDpLyILTJLP7FchdfCLpmQWq5C0RewFdKkCvJnfpY-bVaTNutZpiYZvozodLpKrGjNxvd23nH7owy_z93U7MdEbjDA5eT1hStJbJaztEi0lasTaF7f7wL4FwRvguurATHnNhum8YKdTs2rKr_cjxY00t4BcBA1GF_XBX3xfoSpXfaf4xT2VBoOvFQt8Ak1bFyajDzuWyG9i1xMRVfn18sH_DmeopxYqWrlKfOXR5GKNcUMOx83u1dOMU4JeJhH3wuY6pOmEZI9E_hja7qHZ4DUADAM7_1FNFlbXSX_z1cllWECEvoQO-z_NUvYHhdHSVT2tF17i-zHjI00MG5J1XyN1DpCYFjaEXcBShMWTyOuis5Ley0E-yv6k5Fn8lQYHOr7OnMKcXALAX6sooBjmLEVMcwDAnz8OsAk-nlAvtSCCbTmu2U8FUdVwTNNDNeBCIen-a_0lv3Fc8Zp4oEa94aHUdCAuxW5UOIDasalhxdReNi-v-2a_vEWxlKFzDNRbBx00Dc55MV7V-X5jLUL8zvndHUKNjvGqC0fKJ4xoSsPGwI_kC7x5ZgJP3T7-iQndjo-q27COrhI6qTU5spdqPwCgwiSfjNmadbICYm2VqVVmrbGPMCkJ3JjKmRooiY_zdhjCWaEhREHc0BAXkj5Mvm6kog-K97mF87MK_jdvLPgoRQc6B182o3pV1AeqlNPlwZGj4WSw1P7um3ARk8zKFOYonToSrBEl7LEAgf5icAuy7BiCvMy6R6Z4ZZbZgYEgchhIf1Wno9z045sqhcqzX44Zd-lS1lOY0xAt9T61cnGxUVMmmhPVXNw6LiwbZ80f8l6r7XUdGivFjCOcLzdV5lujwKVnrjSOx-ipf339Swx1ZSpU30O41xwQJR5xY0GprELP7nSqRyyEcoAaePP9Gec5Efutz-5xNwCJhjJ7Z_TMSb7AIZrqR73jd2RzcIgEvfJxXP5YInJL1loctahVmjTfaGdWNdICSau8lDodzQmhcqek311tuTt-XpiYBRuAhX1ihyuoJVH2q1OBtdXn-wOxl2qmf3nAzGQXfLw_CmFHJlB8vzZSqmqp0f3ua4NnMRUcPfb0qlrafEjpocwB8o73NzI-ob2_K7tTCkNP55OVqAckivnHtX3l3H_atdq8rD0dvlMz8J6VL9y6i81dJdq6FNLrMl_bz2V0Y-9WctXxDtwe2JHOOp-GcUGnksKpKTwzBKYSI8dfhPGNdQC235WDE1WkIQ_oOfa5BSiNL8lQrGnA0Noi9TH8EzKv_T6z9J9cyE0XqLa2S9V8-0l_aarCA896rEs7jt_jrr4aMKtyXRw6oAPuxSFyIquuhqnb_bVIEeQ_TuYsdXZW5PPdEu1vv8P63iGZfzf5_AMijsM7NbZFS3HX9r-5x8SiihWGzZQMgSCXF_qGyxtmko4Tow9RsJu34Zd26a7SqRXWYcR_CUNgUr9HtNfwxHIAPDBZc_xYHI__Cuo5Wq9U42oW8t2mX42mBjK9TswxETPDQaYuva9qeK616Dg5AK29rCdbbU30bSq-TRAbeMVGxqq7BNGL8OURDKKKEjPWTQgNIa71G8PmUPADcq18vF1C2KrthGt2z3nZyr7LvwcceteJi9WnY3r-NhxiI4pwdOc2gPNNemaBdL-WAkX_ESb6ELKy6A4F5evOsC0rIL_lDsTHsyRzBPRicjjLT7A07VFB6jpzScFuoDDJU0DR423dsOt4AifbbmxaqdS3TQ==",
+        "summary": []
+      },
+      {
+        "id": "msg_0db97ac3b30dcfcc016a811b4ab108819bb4a82715e01c56db",
+        "type": "message",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 ＝ 1\\n乙 ＝ 2\\n交换整数 (甲, 乙)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序“交换整数”，通过局部变量“临时值”交换两个整数型参考参数；入口中初始化两个整数并调用该子程序。\",\"expected_behavior\":\"启动后甲由1变为2，乙由2变为1，随后入口返回0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": "fd6ca011-0e45-5695-90a7-ffe5c94a189f",
+    "prompt_cache_retention": "24h",
+    "reasoning": {
+      "context": "all_turns",
+      "effort": "max",
+      "mode": "standard",
+      "summary": null
+    },
+    "safety_identifier": "user-i4VEpo178oOr4MgobnkZww09",
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": "medium"
+    },
+    "tool_choice": "auto",
+    "tool_usage": {
+      "image_gen": {
+        "input_tokens": 0,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "output_tokens": 0,
+        "output_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 0
+        },
+        "total_tokens": 0
+      },
+      "web_search": {
+        "num_requests": 0
+      }
+    },
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.98,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 568,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 575,
+      "output_tokens_details": {
+        "reasoning_tokens": 319
+      },
+      "total_tokens": 1143
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 14229,
+  "attempt_count": 1,
+  "error": null
+}

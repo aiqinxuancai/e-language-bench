@@ -1,0 +1,87 @@
+{
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.1-pack-failure-count",
+  "run_id": "20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2",
+  "model": "doubao-seed-2.1-turbo",
+  "reasoning_effort": "enabled",
+  "protocol": "openai_responses",
+  "wire_protocol": "openai_responses",
+  "observed_models": [
+    "doubao-seed-2-1-turbo-260628"
+  ],
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "run_status": "complete",
+  "total_score": 46.81,
+  "track_scores": {
+    "raw": {
+      "score": 42.79,
+      "format_score": 68.13,
+      "compile_rate": 0.0,
+      "pass_at_1": 0.0,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 9,
+      "count": 15
+    },
+    "skill": {
+      "score": 50.84,
+      "format_score": 77.13,
+      "compile_rate": 0.0667,
+      "pass_at_1": 0.0667,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 7,
+      "count": 15
+    }
+  },
+  "skill_gain": 8.05,
+  "category_scores": {
+    "abstraction": {
+      "label": "子程序与数据结构",
+      "score": 50.94,
+      "format_score": 82.0,
+      "pass_at_1": 0.0
+    },
+    "core": {
+      "label": "核心库指令",
+      "score": 53.49,
+      "format_score": 81.83,
+      "pass_at_1": 0.0
+    },
+    "flow": {
+      "label": "流程控制",
+      "score": 33.77,
+      "format_score": 59.5,
+      "pass_at_1": 0.0
+    },
+    "format": {
+      "label": "格式与工程",
+      "score": 53.86,
+      "format_score": 73.67,
+      "pass_at_1": 0.1667
+    },
+    "repair": {
+      "label": "修复与综合",
+      "score": 42.02,
+      "format_score": 66.17,
+      "pass_at_1": 0.0
+    }
+  },
+  "cap_reason_counts": {
+    "compile_failed": 13,
+    "validation_failed": 8,
+    "pack_failed": 8,
+    "none": 1
+  },
+  "pack_failure_reason_counts": {
+    "source_preflight_failed": 8,
+    "other": 4,
+    "semantic_method_rebuild_failed": 3,
+    "function_not_found": 1
+  },
+  "pack_attempt_count": 30,
+  "pack_failure_count": 16,
+  "pack_failure_format_deduction": 240.0,
+  "completed_records": 30,
+  "expected_records": 30,
+  "infrastructure_failures": []
+}
