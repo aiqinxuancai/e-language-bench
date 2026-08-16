@@ -98,19 +98,19 @@
 
 | 模型 | 思考等级 | 总分 | Raw | Skill | 有效格式 | 预编译结构 | 编译率 | pass@1 | 回包失败/尝试 | Skill 增益 | 结果 |
 |------|---------|-----:|----:|------:|---------:|-----------:|-------:|-------:|-------------:|----------:|------|
-| gemini-3.6-flash | `high`（最大） | **29.50** | 26.33 | 32.67 | 30.00 | 84.20 | 30.0% | 23.3% | 8/30 | +6.34 | [报告](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md) / [JSON](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json) |
+| gemini-3.6-flash | `high` | **29.50** | 26.33 | 32.67 | 30.00 | 84.20 | 30.0% | 23.3% | 8/30 | +6.34 | [报告](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md) / [JSON](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json) |
 | gpt-5.6-sol | `max` | **23.34** | 20.00 | 26.67 | 23.33 | 88.60 | 23.3% | 23.3% | 5/30 | +6.67 | [报告](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/report.md) / [JSON](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/scorecard.json) |
 | gpt-5.6-sol | `medium` | **22.66** | 19.00 | 26.33 | 23.33 | 81.60 | 23.3% | 13.3% | 8/29 | +7.33 | [报告](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json) |
-| deepseek-v4-pro | `max`（最大） | **22.66** | 19.33 | 26.00 | 23.33 | 74.93 | 23.3% | 13.3% | 13/30 | +6.67 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
+| deepseek-v4-pro | `max` | **22.66** | 19.33 | 26.00 | 23.33 | 74.93 | 23.3% | 13.3% | 13/30 | +6.67 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
 | gpt-5.6-luna | `max` | **19.84** | 6.67 | 33.00 | 20.00 | 65.73 | 20.0% | 16.7% | 16/28 | +26.33 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
-| minimax-m3 | `enabled`（深度思考） | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
+| minimax-m3 | `enabled` | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
 | glm-5.2 | `max` | **16.00** | 19.00 | 13.00 | 16.67 | 74.30 | 16.7% | 6.7% | 13/30 | -6.00 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
-| deepseek-v4-flash | `max`（最大） | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
+| deepseek-v4-flash | `max` | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
 | claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
 | glm-5.3 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 70.47 | 6.7% | 6.7% | 15/30 | +0.00 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
 | grok-4.6 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 21.32 | 6.7% | 6.7% | 25/27 | +0.00 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
-| doubao-seed-2.0-lite | `enabled`（深度思考） | **3.33** | 6.67 | 0.00 | 3.33 | 80.18 | 3.3% | 3.3% | 11/30 | -6.67 | [报告](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json) |
-| doubao-seed-2.1-turbo | `enabled`（深度思考） | **3.33** | 0.00 | 6.67 | 3.33 | 72.63 | 3.3% | 3.3% | 16/30 | +6.67 | [报告](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json) |
+| doubao-seed-2.0-lite | `enabled` | **3.33** | 6.67 | 0.00 | 3.33 | 80.18 | 3.3% | 3.3% | 11/30 | -6.67 | [报告](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json) |
+| doubao-seed-2.1-turbo | `enabled` | **3.33** | 0.00 | 6.67 | 3.33 | 72.63 | 3.3% | 3.3% | 16/30 | +6.67 | [报告](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json) |
 
 ### 评分列说明
 
