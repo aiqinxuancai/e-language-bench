@@ -6,6 +6,30 @@
 
 ---
 
+## Web 评分页
+
+- 线上地址：[e-language-bench.apptest.dev](https://e-language-bench.apptest.dev)
+- Worker 回退地址：[e-language-bench.aiqinxuancai8668.workers.dev](https://e-language-bench.aiqinxuancai8668.workers.dev)
+
+Web 页面以评分为主视图，包含编译验证总榜、编译硬门槛影响、评分规则、五类能力矩阵和逐模型失败诊断。发布数据由 README 当前主榜及对应 `scorecard.json` 构建，不包含 API 原始响应或模型生成源码。
+
+```powershell
+npm install
+npm run web:dev       # 本地开发
+npm run web:build     # 校验并构建发布数据
+npm run web:smoke     # 桌面与移动端浏览器检查
+npm run web:deploy    # 部署 Cloudflare Worker
+```
+
+`.github/workflows/deploy-worker.yml` 会在 `main` 分支每次 push 后重新构建并部署。需要在 GitHub Actions 仓库 Secrets 中配置：
+
+- `CLOUDFLARE_API_TOKEN`：限定到本账户和 `apptest.dev` 区域的 Workers 编辑令牌
+- `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 账户 ID
+
+本地 Wrangler OAuth 登录只用于人工部署，凭据不会写入仓库。CI 配置依据 [Cloudflare GitHub Actions 官方文档](https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/)。
+
+---
+
 ## 📋 基准设计
 
 ### 测试集组成
@@ -89,7 +113,7 @@
 
 ## 🏆 当前跑分
 
-**测试日期**：2026-08-15 至 2026-08-16<br>
+**测试日期**：2026-08-15 至 2026-08-17<br>
 **数据集版本**：`v1-compile`<br>
 **评分规则版本**：`v1.2-compile-gated`<br>
 **样本数**：30（每组），并发数：2
@@ -107,6 +131,7 @@
 | minimax-m3 | `enabled` | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
 | glm-5.2 | `max` | **16.00** | 19.00 | 13.00 | 16.67 | 74.30 | 16.7% | 6.7% | 13/30 | -6.00 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
 | deepseek-v4-flash | `max` | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
+| hy3 | `high` | **9.66** | 6.00 | 13.33 | 10.00 | 68.20 | 10.0% | 6.7% | 18/30 | +7.33 | [报告](results/20260817-tokenhub-hy3-high-v1.2-p2/report.md) / [JSON](results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json) |
 | claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
 | glm-5.3 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 70.47 | 6.7% | 6.7% | 15/30 | +0.00 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
 | grok-4.6 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 21.32 | 6.7% | 6.7% | 25/27 | +0.00 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
@@ -133,6 +158,7 @@
 - `mimo-v2.5-pro` 和 `mimo-v2.5` 通过小米官方 Responses 端点完成，显式发送最高枚举值 `reasoning.effort=high`；小米当前不支持调节实际思考强度，`low`、`medium`、`high` 均映射为启用思考，因此榜单标记为 `high (enabled)`
 - 两组 MiMo 响应均包含 reasoning 输出块和 reasoning token 计数，且 30 次响应的服务端模型标识分别与请求模型一致
 - `glm-5.3` 成绩通过火山引擎 `https://ark.cn-beijing.volces.com/api/coding/v3` 完成，服务端模型标识为 `glm-5.3`
+- `hy3` 成绩通过 TokenHub `https://tokenhub.tencentmaas.com/` 的 OpenAI Responses 端点完成，服务端模型标识为 `hy3`；该端点的 `reasoning.effort` 仅接受 `no_think`、`low`、`high`，本次按最高档 `high` 运行
 - `doubao-seed-2.0-lite`、`doubao-seed-2.1-turbo` 和 `minimax-m3` 通过同一火山 Coding Responses 端点完成；三者按官方开关式配置发送 `thinking.type=enabled`，不宣称存在 `max` 强度档位
 - 请求 `doubao-seed-2.1-turbo` 时，服务端在全部响应中标识模型为版本化的 `doubao-seed-2-1-turbo-260628`
 - 请求 `gpt-5.6-luna` 时，服务端在全部响应中标识模型为 `gpt-5.6-terra`

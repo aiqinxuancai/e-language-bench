@@ -1,0 +1,1371 @@
+{
+  "meta": {
+    "title": "易语言模型基准",
+    "benchmarkVersion": "v1-compile",
+    "scoringVersion": "v1.2-compile-gated",
+    "modelCount": 17,
+    "samplesPerModel": 30,
+    "taskCount": 15,
+    "tracks": [
+      "Raw",
+      "Skill"
+    ],
+    "latestResultAt": "2026-08-17T01:55:58.610001+00:00",
+    "repositoryUrl": "https://github.com/aiqinxuancai/e-language-bench"
+  },
+  "summary": {
+    "leader": "gemini-3.6-flash",
+    "leaderScore": 29.5,
+    "compileLeader": "gemini-3.6-flash",
+    "compileLeaderRate": 30,
+    "skillLeader": "gpt-5.6-luna",
+    "skillLeaderGain": 26.33,
+    "averageScore": 13.47,
+    "averageCompileRate": 13.72,
+    "averageEffectiveFormat": 13.73,
+    "averagePrecompileFormat": 66.68
+  },
+  "scoring": {
+    "weights": [
+      {
+        "key": "format",
+        "label": "格式与工程可靠性",
+        "value": 45
+      },
+      {
+        "key": "compile",
+        "label": "真实无头编译",
+        "value": 35
+      },
+      {
+        "key": "semantic",
+        "label": "隐藏静态语义",
+        "value": 20
+      }
+    ],
+    "formatBreakdown": [
+      {
+        "label": "严格 JSON、UTF-8 与授权路径",
+        "value": 10
+      },
+      {
+        "label": "声明字段、顺序与文本语法",
+        "value": 25
+      },
+      {
+        "label": "流程闭合、名称与类型链接",
+        "value": 20
+      },
+      {
+        "label": "e-packager 成功回包",
+        "value": 15
+      },
+      {
+        "label": "重新解包与一致性比较",
+        "value": 15
+      },
+      {
+        "label": "AutoLinker 成功打开工程",
+        "value": 15
+      }
+    ]
+  },
+  "models": [
+    {
+      "rank": 1,
+      "model": "gemini-3.6-flash",
+      "effort": "high",
+      "total": 29.5,
+      "raw": 26.33,
+      "skill": 32.67,
+      "effectiveFormat": 30,
+      "precompileFormat": 84.2,
+      "compileRate": 30,
+      "passAt1": 23.3,
+      "packFailures": 8,
+      "packAttempts": 30,
+      "skillGain": 6.34,
+      "runId": "20260815-right-gemini-3.6-flash-high-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "gemini-3.6-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 65.83,
+          "effectiveFormat": 66.67,
+          "precompileFormat": 89.5,
+          "passAt1": 50
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 100,
+          "passAt1": 33.3
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 15,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 71.5,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 91,
+          "passAt1": 33.3
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 69,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 12,
+        "none": 9,
+        "validation_failed": 8,
+        "packed_project_unusable": 1
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 8
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 2,
+      "model": "gpt-5.6-sol",
+      "effort": "max",
+      "total": 23.34,
+      "raw": 20,
+      "skill": 26.67,
+      "effectiveFormat": 23.33,
+      "precompileFormat": 88.6,
+      "compileRate": 23.3,
+      "passAt1": 23.3,
+      "packFailures": 5,
+      "packAttempts": 30,
+      "skillGain": 6.67,
+      "runId": "20260816-0elog-gpt-5.6-sol-max-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "gpt-5.6-sol"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 81,
+          "passAt1": 33.3
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 100,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 82,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 85,
+          "passAt1": 33.3
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 50,
+          "effectiveFormat": 50,
+          "precompileFormat": 95,
+          "passAt1": 50
+        }
+      ],
+      "capReasons": {
+        "validation_failed": 5,
+        "compile_failed": 16,
+        "none": 7,
+        "packed_project_unusable": 2
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 5
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 3,
+      "model": "gpt-5.6-sol",
+      "effort": "medium",
+      "total": 22.66,
+      "raw": 19,
+      "skill": 26.33,
+      "effectiveFormat": 23.33,
+      "precompileFormat": 81.6,
+      "compileRate": 23.3,
+      "passAt1": 13.3,
+      "packFailures": 8,
+      "packAttempts": 29,
+      "skillGain": 7.33,
+      "runId": "20260815-right-gpt-5.6-sol-medium-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "gpt-5.6-sol"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 75.17,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 100,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 46.17,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 65,
+          "effectiveFormat": 66.67,
+          "precompileFormat": 100,
+          "passAt1": 50
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 31.67,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 86.67,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 12,
+        "none": 7,
+        "validation_failed": 6,
+        "pack_failed": 2,
+        "contract_invalid": 1,
+        "packed_project_unusable": 2
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 6,
+        "other": 2,
+        "semantic_method_rebuild_failed": 1
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 4,
+      "model": "deepseek-v4-pro",
+      "effort": "max",
+      "total": 22.66,
+      "raw": 19.33,
+      "skill": 26,
+      "effectiveFormat": 23.33,
+      "precompileFormat": 74.93,
+      "compileRate": 23.3,
+      "passAt1": 13.3,
+      "packFailures": 13,
+      "packAttempts": 30,
+      "skillGain": 6.67,
+      "runId": "20260815-deepseek-v4-pro-max-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "deepseek-v4-pro"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 70.67,
+          "passAt1": 33.3
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 32.5,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 91.67,
+          "passAt1": 16.7
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 15,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 59.5,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 72.33,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 15.83,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 80.5,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "validation_failed": 11,
+        "compile_failed": 10,
+        "none": 7,
+        "pack_failed": 2
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 11,
+        "semantic_method_rebuild_failed": 1,
+        "other": 1
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 5,
+      "model": "gpt-5.6-luna",
+      "effort": "max",
+      "total": 19.84,
+      "raw": 6.67,
+      "skill": 33,
+      "effectiveFormat": 20,
+      "precompileFormat": 65.73,
+      "compileRate": 20,
+      "passAt1": 16.7,
+      "packFailures": 16,
+      "packAttempts": 28,
+      "skillGain": 26.33,
+      "runId": "20260815-right-gpt-5.6-luna-max-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "gpt-5.6-terra"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 72,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 67.5,
+          "passAt1": 33.3
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 37.83,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 91,
+          "passAt1": 33.3
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 15.83,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 60.33,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 6,
+        "none": 6,
+        "validation_failed": 12,
+        "contract_invalid": 2,
+        "pack_failed": 4
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 12,
+        "other": 4,
+        "semantic_method_rebuild_failed": 2
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 6,
+      "model": "claude-opus-5",
+      "effort": "max",
+      "total": 19.83,
+      "raw": 13.33,
+      "skill": 26.33,
+      "effectiveFormat": 20,
+      "precompileFormat": 65.4,
+      "compileRate": 20,
+      "passAt1": 16.7,
+      "packFailures": 7,
+      "packAttempts": 24,
+      "skillGain": 13,
+      "runId": "20260816-right-claude-opus-5-max-v1.2-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "anthropic_messages",
+      "observedModels": [
+        "claude-opus-5"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 66.67,
+          "effectiveFormat": 66.67,
+          "precompileFormat": 91,
+          "passAt1": 66.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 56.17,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 50.17,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 71.33,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 15.83,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 58.33,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "contract_invalid": 6,
+        "compile_failed": 10,
+        "validation_failed": 5,
+        "none": 6,
+        "pack_failed": 2,
+        "packed_project_unusable": 1
+      },
+      "packFailureReasons": {
+        "other": 6,
+        "source_preflight_failed": 5,
+        "function_not_found": 2
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-right-claude-opus-5-max-v1.2-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-right-claude-opus-5-max-v1.2-p2/scorecard.json"
+    },
+    {
+      "rank": 7,
+      "model": "minimax-m3",
+      "effort": "enabled",
+      "total": 16.33,
+      "raw": 19.33,
+      "skill": 13.33,
+      "effectiveFormat": 16.67,
+      "precompileFormat": 70.33,
+      "compileRate": 16.7,
+      "passAt1": 10,
+      "packFailures": 16,
+      "packAttempts": 30,
+      "skillGain": -6,
+      "runId": "20260816-ark-minimax-m3-thinking-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "minimax-m3"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 60.17,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 64.33,
+          "passAt1": 16.7
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 53,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 32.5,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 100,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 15.83,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 74.17,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 8,
+        "none": 5,
+        "validation_failed": 10,
+        "pack_failed": 6,
+        "packed_project_unusable": 1
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 10,
+        "semantic_method_rebuild_failed": 3,
+        "function_not_found": 1,
+        "other": 2
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 8,
+      "model": "glm-5.2",
+      "effort": "max",
+      "total": 16,
+      "raw": 19,
+      "skill": 13,
+      "effectiveFormat": 16.67,
+      "precompileFormat": 74.3,
+      "compileRate": 16.7,
+      "passAt1": 6.7,
+      "packFailures": 13,
+      "packAttempts": 30,
+      "skillGain": -6,
+      "runId": "20260815-ark-glm-5.2-max-responses-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "glm-5.3"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 31.67,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 82,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 73,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 71.5,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 80.5,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 31.67,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 64.5,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 11,
+        "pack_failed": 4,
+        "validation_failed": 9,
+        "none": 5,
+        "packed_project_unusable": 1
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 4,
+        "source_preflight_failed": 9
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 9,
+      "model": "deepseek-v4-flash",
+      "effort": "max",
+      "total": 9.84,
+      "raw": 13,
+      "skill": 6.67,
+      "effectiveFormat": 10,
+      "precompileFormat": 68.25,
+      "compileRate": 10,
+      "passAt1": 6.7,
+      "packFailures": 16,
+      "packAttempts": 30,
+      "skillGain": -6.33,
+      "runId": "20260815-deepseek-v4-flash-max-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "deepseek-v4-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 32.5,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 73.67,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 75.33,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 47,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 74.5,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 70.75,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "validation_failed": 11,
+        "compile_failed": 11,
+        "none": 3,
+        "pack_failed": 5
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 11,
+        "function_not_found": 1,
+        "semantic_method_rebuild_failed": 4
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 10,
+      "model": "hy3",
+      "effort": "high",
+      "total": 9.66,
+      "raw": 6,
+      "skill": 13.33,
+      "effectiveFormat": 10,
+      "precompileFormat": 68.2,
+      "compileRate": 10,
+      "passAt1": 6.7,
+      "packFailures": 18,
+      "packAttempts": 30,
+      "skillGain": 7.33,
+      "runId": "20260817-tokenhub-hy3-high-v1.2-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "hy3"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 56.33,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 84.17,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 54.33,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 80,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 15,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 66.17,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 9,
+        "validation_failed": 13,
+        "none": 3,
+        "pack_failed": 5
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 13,
+        "function_not_found": 1,
+        "semantic_method_rebuild_failed": 4
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260817-tokenhub-hy3-high-v1.2-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json"
+    },
+    {
+      "rank": 11,
+      "model": "claude-sonnet-5",
+      "effort": "high",
+      "total": 9.5,
+      "raw": 6,
+      "skill": 13,
+      "effectiveFormat": 10,
+      "precompileFormat": 54.87,
+      "compileRate": 10,
+      "passAt1": 3.3,
+      "packFailures": 20,
+      "packAttempts": 29,
+      "skillGain": 7,
+      "runId": "20260815-right-claude-sonnet-5-high-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "anthropic_messages",
+      "observedModels": [
+        "claude-sonnet-5"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 62.83,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 15.83,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 51.83,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 43,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 15,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 64.83,
+          "passAt1": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 51.83,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "validation_failed": 17,
+        "compile_failed": 6,
+        "none": 3,
+        "pack_failed": 3,
+        "contract_invalid": 1
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 17,
+        "semantic_method_rebuild_failed": 3,
+        "other": 1
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 12,
+      "model": "glm-5.3",
+      "effort": "max",
+      "total": 6.67,
+      "raw": 6.67,
+      "skill": 6.67,
+      "effectiveFormat": 6.67,
+      "precompileFormat": 70.47,
+      "compileRate": 6.7,
+      "passAt1": 6.7,
+      "packFailures": 15,
+      "packAttempts": 30,
+      "skillGain": 0,
+      "runId": "20260816-ark-glm-5.3-max-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "glm-5.3"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 80.5,
+          "passAt1": 33.3
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 91,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 68.5,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 58,
+          "passAt1": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 54.33,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "validation_failed": 12,
+        "compile_failed": 13,
+        "pack_failed": 3,
+        "none": 2
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 12,
+        "semantic_method_rebuild_failed": 1,
+        "other": 2
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-glm-5.3-max-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 13,
+      "model": "grok-4.6",
+      "effort": "max",
+      "total": 6.67,
+      "raw": 6.67,
+      "skill": 6.67,
+      "effectiveFormat": 6.67,
+      "precompileFormat": 21.32,
+      "compileRate": 6.7,
+      "passAt1": 6.7,
+      "packFailures": 25,
+      "packAttempts": 27,
+      "skillGain": 0,
+      "runId": "20260815-right-grok-4.6-max-responses-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "grok-4.6"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 41.75,
+          "passAt1": 33.3
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 13.75,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 11.33,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 23.17,
+          "passAt1": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 16.58,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "validation_failed": 25,
+        "contract_invalid": 3,
+        "none": 2
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 25,
+        "other": 3
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 14,
+      "model": "mimo-v2.5",
+      "effort": "high (enabled)",
+      "total": 6.67,
+      "raw": 13.33,
+      "skill": 0,
+      "effectiveFormat": 6.67,
+      "precompileFormat": 46.12,
+      "compileRate": 6.7,
+      "passAt1": 6.7,
+      "packFailures": 27,
+      "packAttempts": 30,
+      "skillGain": -13.33,
+      "runId": "20260816-xiaomi-mimo-v2.5-high-v1.2-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "mimo-v2.5"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 47.67,
+          "passAt1": 0
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 52.42,
+          "passAt1": 16.7
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 28.33,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 53.17,
+          "passAt1": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 49,
+          "passAt1": 16.7
+        }
+      ],
+      "capReasons": {
+        "pack_failed": 9,
+        "validation_failed": 18,
+        "compile_failed": 1,
+        "none": 2
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 6,
+        "other": 3,
+        "source_preflight_failed": 18
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json"
+    },
+    {
+      "rank": 15,
+      "model": "doubao-seed-2.0-lite",
+      "effort": "enabled",
+      "total": 3.33,
+      "raw": 6.67,
+      "skill": 0,
+      "effectiveFormat": 3.33,
+      "precompileFormat": 80.18,
+      "compileRate": 3.3,
+      "passAt1": 3.3,
+      "packFailures": 11,
+      "packAttempts": 30,
+      "skillGain": -6.67,
+      "runId": "20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "doubao-seed-2.0-lite"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 65.42,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 75.83,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 81.5,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 100,
+          "passAt1": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 78.17,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 18,
+        "pack_failed": 4,
+        "validation_failed": 7,
+        "none": 1
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 3,
+        "source_preflight_failed": 7,
+        "function_not_found": 1
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 16,
+      "model": "doubao-seed-2.1-turbo",
+      "effort": "enabled",
+      "total": 3.33,
+      "raw": 0,
+      "skill": 6.67,
+      "effectiveFormat": 3.33,
+      "precompileFormat": 72.63,
+      "compileRate": 3.3,
+      "passAt1": 3.3,
+      "packFailures": 16,
+      "packAttempts": 30,
+      "skillGain": 6.67,
+      "runId": "20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "doubao-seed-2-1-turbo-260628"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 73.67,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 81.83,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 59.5,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 82,
+          "passAt1": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 66.17,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 13,
+        "validation_failed": 8,
+        "pack_failed": 8,
+        "none": 1
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 8,
+        "other": 4,
+        "semantic_method_rebuild_failed": 3,
+        "function_not_found": 1
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json"
+    },
+    {
+      "rank": 17,
+      "model": "mimo-v2.5-pro",
+      "effort": "high (enabled)",
+      "total": 3.17,
+      "raw": 0,
+      "skill": 6.33,
+      "effectiveFormat": 3.33,
+      "precompileFormat": 46.45,
+      "compileRate": 3.3,
+      "passAt1": 0,
+      "packFailures": 23,
+      "packAttempts": 29,
+      "skillGain": 6.33,
+      "runId": "20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "mimo-v2.5-pro"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 53.25,
+          "passAt1": 0
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 61.83,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 27.83,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 44.5,
+          "passAt1": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 15.83,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 44.83,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "validation_failed": 18,
+        "pack_failed": 5,
+        "compile_failed": 5,
+        "contract_invalid": 1,
+        "none": 1
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 18,
+        "other": 3,
+        "semantic_method_rebuild_failed": 3
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/scorecard.json"
+    }
+  ]
+}

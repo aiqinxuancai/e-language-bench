@@ -1,0 +1,24 @@
+{
+  "benchmark_version": "v1-compile",
+  "dataset": "benchmarks/v1/tasks.json",
+  "base_url": "https://tokenhub.tencentmaas.com/",
+  "protocol": "openai_responses",
+  "model": "hy3",
+  "reasoning_effort": "high",
+  "parallel_workers": 2,
+  "request_timeout_seconds": 900,
+  "retry_count": 2,
+  "tools": {
+    "e_packager": "D:/git/e-packager/bin/Win32/Release/e-packager.exe",
+    "autolinker_test": "D:/git/AutoLinker/bin/fne_release/AutoLinkerTest.exe",
+    "eide": "C:/Users/aiqin/OneDrive/e5.6/e5.95.exe",
+    "template_root": "D:/git/e-packager/eproj",
+    "skill_root": "D:/git/e-language-skill"
+  },
+  "compile_timeout_seconds": 120,
+  "weights": {
+    "format": 45,
+    "compile": 35,
+    "semantic": 20
+  }
+}

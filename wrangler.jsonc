@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "e-language-bench",
+  "compatibility_date": "2026-08-17",
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "e-language-bench.apptest.dev",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./web/dist",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

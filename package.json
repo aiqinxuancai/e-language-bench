@@ -1,0 +1,22 @@
+{
+  "name": "e-language-bench-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "web:data": "node web/scripts/build-data.mjs",
+    "web:dev": "npm run web:data && vite --config web/vite.config.js --host 127.0.0.1",
+    "web:build": "npm run web:data && vite build --config web/vite.config.js",
+    "web:preview": "vite preview --config web/vite.config.js --host 127.0.0.1",
+    "web:smoke": "node web/scripts/smoke-test.mjs",
+    "web:deploy": "npm run web:build && wrangler deploy"
+  },
+  "dependencies": {
+    "lucide": "1.31.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "vite": "8.2.1",
+    "wrangler": "4.123.0"
+  }
+}

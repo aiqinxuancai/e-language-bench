@@ -11,6 +11,10 @@ htmlcov/
 venv/
 build/
 dist/
+node_modules/
+.wrangler/
+web/dist/
+web/test-artifacts/
 
 # Editors and operating-system metadata
 .idea/

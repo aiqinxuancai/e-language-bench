@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="由真实 e-packager 与 AutoLinker 编译验证的易语言代码生成模型评分榜。" />
+    <meta name="theme-color" content="#f5f7f8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>易语言模型基准 · 编译验证评分</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#leaderboard" aria-label="易语言模型基准首页">
+          <span class="brand-mark" aria-hidden="true">E</span>
+          <span>
+            <strong>e-language-bench</strong>
+            <small>Compiler-backed evaluation</small>
+          </span>
+        </a>
+        <div class="topbar-meta">
+          <span id="version-label" class="version-label">正在加载版本</span>
+          <a class="repo-link" href="https://github.com/aiqinxuancai/e-language-bench" target="_blank" rel="noreferrer">
+            <span data-lucide="git-fork" aria-hidden="true"></span>
+            <span>GitHub</span>
+            <span data-lucide="external-link" aria-hidden="true"></span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro-band" aria-labelledby="page-title">
+          <div class="intro-copy">
+            <p class="eyebrow">易语言代码生成 · pass@1</p>
+            <h1 id="page-title">易语言模型基准</h1>
+            <p>每个分数都经过源码回包、工程重开与 AutoLinker 真实编译。编译失败的样本，总分归零。</p>
+          </div>
+          <div class="leader-callout" aria-live="polite">
+            <span class="callout-label">当前最高分</span>
+            <strong id="leader-score">--</strong>
+            <span id="leader-name">正在载入结果</span>
+          </div>
+        </section>
+
+        <section id="summary-strip" class="summary-strip" aria-label="基准摘要">
+          <div class="summary-item">
+            <span class="summary-label">编译率最高</span>
+            <strong id="compile-leader-rate">--</strong>
+            <small id="compile-leader-name">--</small>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">参评配置</span>
+            <strong id="model-count">--</strong>
+            <small>每组 30 个独立样本</small>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">平均总分</span>
+            <strong id="average-score">--</strong>
+            <small>满分 100</small>
+          </div>
+          <div class="summary-item gate-summary">
+            <span data-lucide="shield-check" aria-hidden="true"></span>
+            <span>
+              <span class="summary-label">编译硬门槛</span>
+              <strong>Compile or zero</strong>
+            </span>
+          </div>
+        </section>
+
+        <nav class="view-tabs" aria-label="基准视图">
+          <button class="tab-button is-active" type="button" data-tab="leaderboard" aria-selected="true">
+            <span data-lucide="list-ordered" aria-hidden="true"></span>
+            总榜
+          </button>
+          <button class="tab-button" type="button" data-tab="scoring" aria-selected="false">
+            <span data-lucide="scale" aria-hidden="true"></span>
+            评分规则
+          </button>
+          <button class="tab-button" type="button" data-tab="matrix" aria-selected="false">
+            <span data-lucide="grid-3x3" aria-hidden="true"></span>
+            能力矩阵
+          </button>
+        </nav>
+
+        <section class="view-panel is-active" data-view="leaderboard" id="leaderboard" aria-labelledby="leaderboard-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Published results</p>
+              <h2 id="leaderboard-title">编译验证总榜</h2>
+            </div>
+            <p id="result-date" class="section-meta">结果加载中</p>
+          </div>
+
+          <div class="leaderboard-tools">
+            <div class="segmented-control" role="group" aria-label="排行榜排序">
+              <button class="segment is-active" type="button" data-sort="total">总分</button>
+              <button class="segment" type="button" data-sort="compileRate">编译率</button>
+              <button class="segment" type="button" data-sort="skillGain">Skill 增益</button>
+            </div>
+            <label class="search-field">
+              <span data-lucide="search" aria-hidden="true"></span>
+              <span class="sr-only">筛选模型</span>
+              <input id="model-search" type="search" placeholder="筛选模型" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="table-shell">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="rank-column">#</th>
+                  <th scope="col">模型与思考等级</th>
+                  <th scope="col" class="number-column">总分</th>
+                  <th scope="col" class="number-column optional-column">Raw</th>
+                  <th scope="col" class="number-column optional-column">Skill</th>
+                  <th scope="col" class="number-column">有效格式</th>
+                  <th scope="col" class="number-column optional-column mobile-keep">编译率</th>
+                  <th scope="col" class="number-column optional-column">pass@1</th>
+                  <th scope="col" class="open-column"><span class="sr-only">详情</span></th>
+                </tr>
+              </thead>
+              <tbody id="leaderboard-body">
+                <tr class="loading-row"><td colspan="9">正在读取评分数据…</td></tr>
+              </tbody>
+            </table>
+            <div id="empty-state" class="empty-state" hidden>
+              <span data-lucide="search-x" aria-hidden="true"></span>
+              <strong>没有匹配的模型</strong>
+            </div>
+          </div>
+
+          <section class="format-gap-section" aria-labelledby="format-gap-title">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="section-kicker">Compile gate impact</p>
+                <h2 id="format-gap-title">结构正确，不等于可以编译</h2>
+              </div>
+              <p class="section-meta"><span class="legend-swatch precompile"></span>预编译结构 <span class="legend-swatch effective"></span>有效格式</p>
+            </div>
+            <div class="gap-summary" id="gap-summary"></div>
+            <div id="format-gap-chart" class="format-gap-chart" aria-label="各模型预编译结构分与有效格式分对照"></div>
+          </section>
+        </section>
+
+        <section class="view-panel" data-view="scoring" id="scoring" aria-labelledby="scoring-title" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">v1.2 compile-gated</p>
+              <h2 id="scoring-title">评分规则</h2>
+            </div>
+            <p class="section-meta">每题 100 分 · 仅编译成功后生效</p>
+          </div>
+
+          <div id="score-equation" class="score-equation"></div>
+
+          <div class="gate-flow" aria-label="评分验证流程">
+            <div><span>01</span><strong>严格响应</strong><small>JSON 与授权路径</small></div>
+            <span data-lucide="arrow-right" aria-hidden="true"></span>
+            <div><span>02</span><strong>工程回包</strong><small>e-packager</small></div>
+            <span data-lucide="arrow-right" aria-hidden="true"></span>
+            <div><span>03</span><strong>重开比对</strong><small>一致性与 IDE 打开</small></div>
+            <span data-lucide="arrow-right" aria-hidden="true"></span>
+            <div class="gate-node"><span>04</span><strong>真实编译</strong><small>失败则总分归零</small></div>
+            <span data-lucide="arrow-right" aria-hidden="true"></span>
+            <div><span>05</span><strong>隐藏语义</strong><small>静态断言</small></div>
+          </div>
+
+          <section class="format-breakdown" aria-labelledby="format-breakdown-title">
+            <div class="subsection-heading">
+              <h3 id="format-breakdown-title">预编译结构分 · 100</h3>
+              <p>用于定位格式问题；只有通过真实编译后才成为有效格式分。</p>
+            </div>
+            <div id="breakdown-bar" class="breakdown-bar" aria-hidden="true"></div>
+            <div id="breakdown-list" class="breakdown-list"></div>
+          </section>
+
+          <section class="rule-notes" aria-label="关键扣分规则">
+            <div>
+              <span data-lucide="package-x" aria-hidden="true"></span>
+              <strong>每次回包失败扣 15 分</strong>
+              <p>按实际 e-packager 回包失败次数累计，预编译结构分最低为 0。</p>
+            </div>
+            <div>
+              <span data-lucide="ban" aria-hidden="true"></span>
+              <strong>不能编译，总分为 0</strong>
+              <p>验证、回包、重开、IDE 打开或真实编译失败，均触发编译硬门槛。</p>
+            </div>
+            <div>
+              <span data-lucide="cloud-off" aria-hidden="true"></span>
+              <strong>API 故障不计模型失败</strong>
+              <p>HTTP、限流与网络重试不参与格式扣分，也不会生成模型成绩。</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="view-panel" data-view="matrix" id="matrix" aria-labelledby="matrix-title" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Category scores</p>
+              <h2 id="matrix-title">五类能力矩阵</h2>
+            </div>
+            <p class="section-meta">单元格为编译门槛后的实际得分</p>
+          </div>
+          <div class="matrix-shell">
+            <table class="matrix-table">
+              <thead id="matrix-head"></thead>
+              <tbody id="matrix-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>e-language-bench</span>
+        <span>e-packager · AutoLinker · pass@1</span>
+        <a href="https://github.com/aiqinxuancai/e-language-bench" target="_blank" rel="noreferrer">审计源码与结果 <span data-lucide="arrow-up-right" aria-hidden="true"></span></a>
+      </footer>
+    </div>
+
+    <dialog id="model-dialog" class="model-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-header">
+        <div>
+          <p id="dialog-rank" class="section-kicker"></p>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-effort" class="dialog-effort"></p>
+        </div>
+        <button class="icon-button" type="button" id="dialog-close" aria-label="关闭模型详情" title="关闭">
+          <span data-lucide="x" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div id="dialog-body" class="dialog-body"></div>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
