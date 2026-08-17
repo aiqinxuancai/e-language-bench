@@ -34,8 +34,10 @@ jobs:
         run: npm run web:build
 
       - name: Deploy Cloudflare Worker
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: npm
+          wranglerVersion: "4.123.0"
           command: deploy
