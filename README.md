@@ -6,27 +6,11 @@
 
 ---
 
-## Web 评分页
+## 📊 评分页面
 
-- 线上地址：[e-language-bench.apptest.dev](https://e-language-bench.apptest.dev)
-- Worker 回退地址：[e-language-bench.aiqinxuancai8668.workers.dev](https://e-language-bench.aiqinxuancai8668.workers.dev)
+在线查看完整评分报告：[e-language-bench.apptest.dev](https://e-language-bench.apptest.dev)
 
-Web 页面以评分为主视图，包含编译验证总榜、编译硬门槛影响、评分规则、五类能力矩阵和逐模型失败诊断。发布数据由 README 当前主榜及对应 `scorecard.json` 构建，不包含 API 原始响应或模型生成源码。
-
-```powershell
-npm install
-npm run web:dev       # 本地开发
-npm run web:build     # 校验并构建发布数据
-npm run web:smoke     # 桌面与移动端浏览器检查
-npm run web:deploy    # 部署 Cloudflare Worker
-```
-
-`.github/workflows/deploy-worker.yml` 会在 `main` 分支每次 push 后重新构建并部署。需要在 GitHub Actions 仓库 Secrets 中配置：
-
-- `CLOUDFLARE_API_TOKEN`：限定到本账户和 `apptest.dev` 区域的 Workers 编辑令牌
-- `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 账户 ID
-
-本地 Wrangler OAuth 登录只用于人工部署，凭据不会写入仓库。CI 配置依据 [Cloudflare GitHub Actions 官方文档](https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/)。
+页面包含编译验证总榜、编译硬门槛影响、评分规则、五类能力矩阵和逐模型失败诊断。
 
 ---
 

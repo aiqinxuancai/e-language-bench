@@ -21,6 +21,23 @@ async function preparePage(viewport) {
   await page.goto(baseUrl, { waitUntil: "networkidle" });
   await expect(page.locator("#leaderboard-body tr")).toHaveCount(17);
   await expect(page.locator("#leader-score")).toHaveText("29.50");
+  const leaderLayout = await page.locator(".leader-callout").evaluate((element) => {
+    const scoreBox = element.querySelector("#leader-score").getBoundingClientRect();
+    const name = element.querySelector("#leader-name");
+    const nameBox = name.getBoundingClientRect();
+    return {
+      nameBelowScore: nameBox.top >= scoreBox.bottom,
+      nameUnclipped: name.scrollWidth <= name.clientWidth && name.scrollHeight <= name.clientHeight,
+    };
+  });
+  if (!leaderLayout.nameBelowScore || !leaderLayout.nameUnclipped) {
+    throw new Error("leader model name must render below the score without clipping");
+  }
+  await expect(page.getByText("编译率最高", { exact: true })).toHaveCount(0);
+  await expect(page.locator(".toolchain-item")).toHaveCount(3);
+  for (const project of ["e-packager", "AutoLinker", "e-language-skill"]) {
+    await expect(page.locator(`.toolchain-item:has-text("${project}")`)).toBeVisible();
+  }
   return page;
 }
 

@@ -2,17 +2,19 @@ import {
   ArrowRight,
   ArrowUpRight,
   Ban,
+  BookOpenCheck,
   ChevronRight,
   CloudOff,
   ExternalLink,
   GitFork,
   Grid3X3,
   ListOrdered,
+  PackageOpen,
   PackageX,
   Scale,
   Search,
   SearchX,
-  ShieldCheck,
+  SquareTerminal,
   X,
   createIcons,
 } from "lucide";
@@ -22,17 +24,19 @@ const iconSet = {
   ArrowRight,
   ArrowUpRight,
   Ban,
+  BookOpenCheck,
   ChevronRight,
   CloudOff,
   ExternalLink,
   GitFork,
   Grid3X3,
   ListOrdered,
+  PackageOpen,
   PackageX,
   Scale,
   Search,
   SearchX,
-  ShieldCheck,
+  SquareTerminal,
   X,
 };
 
@@ -47,10 +51,6 @@ const elements = {
   versionLabel: document.querySelector("#version-label"),
   leaderScore: document.querySelector("#leader-score"),
   leaderName: document.querySelector("#leader-name"),
-  compileLeaderRate: document.querySelector("#compile-leader-rate"),
-  compileLeaderName: document.querySelector("#compile-leader-name"),
-  modelCount: document.querySelector("#model-count"),
-  averageScore: document.querySelector("#average-score"),
   resultDate: document.querySelector("#result-date"),
   leaderboardBody: document.querySelector("#leaderboard-body"),
   emptyState: document.querySelector("#empty-state"),
@@ -107,10 +107,6 @@ function renderSummary() {
   elements.versionLabel.textContent = `${meta.benchmarkVersion} · ${meta.scoringVersion}`;
   elements.leaderScore.textContent = score(summary.leaderScore);
   elements.leaderName.textContent = summary.leader;
-  elements.compileLeaderRate.textContent = percentage(summary.compileLeaderRate);
-  elements.compileLeaderName.textContent = summary.compileLeader;
-  elements.modelCount.textContent = meta.modelCount;
-  elements.averageScore.textContent = score(summary.averageScore);
   elements.resultDate.textContent = `最近结果 ${new Intl.DateTimeFormat("zh-CN", {
     year: "numeric",
     month: "2-digit",
