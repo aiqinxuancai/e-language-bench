@@ -92,6 +92,18 @@ class RunnerTests(unittest.TestCase):
             ["responses_thinking_type"],
         )
 
+    def test_manifest_identity_detects_responses_streaming_changes(self):
+        base = {
+            "responses_streaming": False,
+        }
+        current = {
+            "responses_streaming": True,
+        }
+        self.assertEqual(
+            manifest_mismatches(base, current),
+            ["responses_streaming"],
+        )
+
     def test_cases_execute_concurrently_and_reports_remain_complete(self):
         active = 0
         max_active = 0
