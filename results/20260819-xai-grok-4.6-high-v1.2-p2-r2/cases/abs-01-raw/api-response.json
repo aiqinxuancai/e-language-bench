@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 整数甲, 整数型\\n.局部变量 整数乙, 整数型\\n\\n整数甲 ＝ 1\\n整数乙 ＝ 2\\n交换整数 (整数甲, 整数乙)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序交换整数，甲乙为整数参考参数，用局部整数临时值完成交换；入口声明并赋值两个整数后调用该子程序，最后返回0。\",\"expected_behavior\":\"程序启动后将两个整数通过参考参数交换数值，入口子程序返回0。\"}",
+  "raw": {
+    "created_at": 1787131183,
+    "completed_at": 1787131236,
+    "id": "8eae3998-0a23-979c-aac4-2e2423504ac0",
+    "max_output_tokens": null,
+    "model": "grok-4.6",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_8eae3998-0a23-979c-aac4-2e2423504ac0",
+        "summary": [
+          {
+            "text": "The user wants me to complete a task for an Easy Language (易语言) code generation benchmark. I need to output a JSON object with the modified files.\n{\"files\":{\"src/程序集1.txt\":\".版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n\n.子程序 交换整数, , 公开\n.参数 甲,  整数型, 参考\n.参数 乙,   整数型, 参考\n.局部变量 临时值, 整数型\n\n临时值 ＝ 甲\n甲 ＝ 乙\n乙 ＝ 临时值\n\n.子程序 _启动子程序, 整数型, , 入口声明两个整数，赋值后调用交换整数，最后返回0\n.局部变量 甲, 整数型\n.",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning",
+        "status": "completed"
+      },
+      {
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 整数甲, 整数型\\n.局部变量 整数乙, 整数型\\n\\n整数甲 ＝ 1\\n整数乙 ＝ 2\\n交换整数 (整数甲, 整数乙)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序交换整数，甲乙为整数参考参数，用局部整数临时值完成交换；入口声明并赋值两个整数后调用该子程序，最后返回0。\",\"expected_behavior\":\"程序启动后将两个整数通过参考参数交换数值，入口子程序返回0。\"}",
+            "logprobs": [],
+            "annotations": []
+          }
+        ],
+        "id": "msg_8eae3998-0a23-979c-aac4-2e2423504ac0",
+        "role": "assistant",
+        "type": "message",
+        "status": "completed"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": "high",
+      "summary": "detailed"
+    },
+    "temperature": 0.699999988079071,
+    "text": {
+      "format": {
+        "type": "text"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.949999988079071,
+    "usage": {
+      "input_tokens": 495,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "output_tokens": 3153,
+      "output_tokens_details": {
+        "reasoning_tokens": 2896
+      },
+      "total_tokens": 3648,
+      "num_sources_used": 0,
+      "num_server_side_tools_used": 0,
+      "cost_in_usd_ticks": 197160000,
+      "context_details": {
+        "input_tokens": 495,
+        "output_tokens": 3153
+      }
+    },
+    "user": null,
+    "incomplete_details": null,
+    "status": "completed",
+    "store": false,
+    "metadata": {
+      "system_fingerprint": "fp_a7b4933f4a93564d"
+    },
+    "background": false,
+    "service_tier": "default",
+    "truncation": "disabled",
+    "top_logprobs": 0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "prompt_cache_key": null,
+    "max_tool_calls": null,
+    "safety_identifier": null,
+    "error": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。"
+  },
+  "elapsed_ms": 58391,
+  "attempt_count": 1,
+  "error": null
+}

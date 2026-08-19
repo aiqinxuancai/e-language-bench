@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"新增公开子程序取绝对平方根整数：先取绝对值再求平方根，四舍五入保留0位后转为整数返回；启动入口以-81调用该子程序后仍返回0。\",\"expected_behavior\":\"取绝对平方根整数(-81)得到9；程序入口调用该子程序后返回0。\"}",
+  "raw": {
+    "created_at": 1787130723,
+    "completed_at": 1787130798,
+    "id": "adefeee5-8c64-9b18-b188-ccaa87ea5bc8",
+    "max_output_tokens": null,
+    "model": "grok-4.6",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_adefeee5-8c64-9b18-b188-ccaa87ea5bc8",
+        "summary": [
+          {
+            "text": "The user wants me to complete a task for an Easy Language (易语言) code generation benchmark.\n{\"files\":{\"src/程序集1.txt\":\".版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n\n\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 取绝对平方根整数, 整数型, 公开\n.",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning",
+        "status": "completed"
+      },
+      {
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"新增公开子程序取绝对平方根整数：先取绝对值再求平方根，四舍五入保留0位后转为整数返回；启动入口以-81调用该子程序后仍返回0。\",\"expected_behavior\":\"取绝对平方根整数(-81)得到9；程序入口调用该子程序后返回0。\"}",
+            "logprobs": [],
+            "annotations": []
+          }
+        ],
+        "id": "msg_adefeee5-8c64-9b18-b188-ccaa87ea5bc8",
+        "role": "assistant",
+        "type": "message",
+        "status": "completed"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": "high",
+      "summary": "detailed"
+    },
+    "temperature": 0.699999988079071,
+    "text": {
+      "format": {
+        "type": "text"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.949999988079071,
+    "usage": {
+      "input_tokens": 504,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "output_tokens": 4022,
+      "output_tokens_details": {
+        "reasoning_tokens": 3810
+      },
+      "total_tokens": 4526,
+      "num_sources_used": 0,
+      "num_server_side_tools_used": 0,
+      "cost_in_usd_ticks": 249480000,
+      "context_details": {
+        "input_tokens": 504,
+        "output_tokens": 4022
+      }
+    },
+    "user": null,
+    "incomplete_details": null,
+    "status": "completed",
+    "store": false,
+    "metadata": {
+      "system_fingerprint": "fp_a7b4933f4a93564d"
+    },
+    "background": false,
+    "service_tier": "default",
+    "truncation": "disabled",
+    "top_logprobs": 0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "prompt_cache_key": null,
+    "max_tool_calls": null,
+    "safety_identifier": null,
+    "error": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。"
+  },
+  "elapsed_ms": 80302,
+  "attempt_count": 1,
+  "error": null
+}

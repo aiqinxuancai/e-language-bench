@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\n  \"files\": {\n    \"src/程序集1.txt\": \".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 根据原价和折扣率计算最终价格\\n.参数 原价, 整数型, , 商品的原始价格\\n.参数 折扣率, 整数型, , 商品的折扣率数值\\n.局部变量 结果, 整数型, , , 存储计算出的折扣后价格\\n\\n结果 ＝ 原价 * 折扣率 / 100\\n返回 (结果)\\n\"\n  },\n  \"explanation\": \"新增了“计算折扣”公开子程序，并严格按照易语言文本格式要求，依次声明了子程序、参数及局部变量，并使用正确的空槽占位（如局部变量保留了静态属性和数组维数的两个空槽）。在启动子程序中增加了对该子程序的调用，最后返回结果0。\",\n  \"expected_behavior\": \"代码应能顺利通过 e-packager 预检并成功编译。程序启动后会调用一次“计算折扣”完成折扣逻辑后退出。\"\n}",
+  "raw": {
+    "id": "chatcmpl-202608190757295065903538268d9d6zsjsKDw9",
+    "object": "response",
+    "created_at": 1787126277,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.1-pro",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190757295065903538268d9d6zsjsKDw9_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\n  \"files\": {\n    \"src/程序集1.txt\": \".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 80)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 计算折扣, 整数型, 公开, 根据原价和折扣率计算最终价格\\n.参数 原价, 整数型, , 商品的原始价格\\n.参数 折扣率, 整数型, , 商品的折扣率数值\\n.局部变量 结果, 整数型, , , 存储计算出的折扣后价格\\n\\n结果 ＝ 原价 * 折扣率 / 100\\n返回 (结果)\\n\"\n  },\n  \"explanation\": \"新增了“计算折扣”公开子程序，并严格按照易语言文本格式要求，依次声明了子程序、参数及局部变量，并使用正确的空槽占位（如局部变量保留了静态属性和数组维数的两个空槽）。在启动子程序中增加了对该子程序的调用，最后返回结果0。\",\n  \"expected_behavior\": \"代码应能顺利通过 e-packager 预检并成功编译。程序启动后会调用一次“计算折扣”完成折扣逻辑后退出。\"\n}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 831,
+      "completion_tokens": 3608,
+      "total_tokens": 4439,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 831,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 316,
+          "totalTokenCount": 4439,
+          "thoughtsTokenCount": 3292,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 831
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 316
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 316,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 3292
+      },
+      "input_tokens": 831,
+      "output_tokens": 3608,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 831,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 28744,
+  "attempt_count": 1,
+  "error": null
+}

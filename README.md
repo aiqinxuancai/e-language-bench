@@ -106,21 +106,23 @@
 
 | 模型 | 思考等级 | 总分 | Raw | Skill | 有效格式 | 预编译结构 | 编译率 | pass@1 | 回包失败/尝试 | Skill 增益 | 结果 |
 |------|---------|-----:|----:|------:|---------:|-----------:|-------:|-------:|-------------:|----------:|------|
-| gemini-3.6-flash | `high` | **29.50** | 26.33 | 32.67 | 30.00 | 84.20 | 30.0% | 23.3% | 8/30 | +6.34 | [报告](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/report.md) / [JSON](results/20260815-right-gemini-3.6-flash-high-v1.1-p2/scorecard.json) |
+| gemini-3.6-flash | `high` | **36.16** | 39.33 | 33.00 | 36.67 | 82.24 | 36.7% | 30.0% | 9/30 | -6.33 | [报告](results/20260819-right-gemini-3.6-flash-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-right-gemini-3.6-flash-high-v1.2-p2-r2/scorecard.json) |
 | gpt-5.6-sol | `max` | **23.34** | 20.00 | 26.67 | 23.33 | 88.60 | 23.3% | 23.3% | 5/30 | +6.67 | [报告](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/report.md) / [JSON](results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/scorecard.json) |
 | gpt-5.6-sol | `medium` | **22.66** | 19.00 | 26.33 | 23.33 | 81.60 | 23.3% | 13.3% | 8/29 | +7.33 | [报告](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json) |
 | deepseek-v4-pro | `max` | **22.66** | 19.33 | 26.00 | 23.33 | 74.93 | 23.3% | 13.3% | 13/30 | +6.67 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
 | gpt-5.6-luna | `max` | **19.84** | 6.67 | 33.00 | 20.00 | 65.73 | 20.0% | 16.7% | 16/28 | +26.33 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
 | claude-opus-5 | `max` | **19.83** | 13.33 | 26.33 | 20.00 | 65.40 | 20.0% | 16.7% | 7/24 | +13.00 | [报告](results/20260816-right-claude-opus-5-max-v1.2-p2/report.md) / [JSON](results/20260816-right-claude-opus-5-max-v1.2-p2/scorecard.json) |
+| gemini-3.1-pro | `high` | **16.50** | 19.67 | 13.33 | 16.67 | 92.20 | 16.7% | 13.3% | 2/29 | -6.34 | [报告](results/20260819-right-gemini-3.1-pro-high-v1.2-p2/report.md) / [JSON](results/20260819-right-gemini-3.1-pro-high-v1.2-p2/scorecard.json) |
 | minimax-m3 | `enabled` | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
 | glm-5.2 | `max` | **16.00** | 19.00 | 13.00 | 16.67 | 74.30 | 16.7% | 6.7% | 13/30 | -6.00 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
 | gemini-3.5-flash | `high` | **16.00** | 18.67 | 13.33 | 16.67 | 84.87 | 16.7% | 10.0% | 8/30 | -5.34 | [报告](results/20260819-right-gemini-3.5-flash-high-v1.2-p2/report.md) / [JSON](results/20260819-right-gemini-3.5-flash-high-v1.2-p2/scorecard.json) |
+| grok-4.6 | `high` | **13.34** | 6.67 | 20.00 | 13.34 | 72.74 | 13.3% | 13.3% | 14/30 | +13.33 | [报告](results/20260819-xai-grok-4.6-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-xai-grok-4.6-high-v1.2-p2-r2/scorecard.json) |
 | gemini-3.7-flash | `high` | **10.00** | 6.67 | 13.33 | 10.00 | 84.20 | 10.0% | 10.0% | 8/30 | +6.66 | [报告](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json) |
 | deepseek-v4-flash | `max` | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
 | hy3 | `high` | **9.66** | 6.00 | 13.33 | 10.00 | 68.20 | 10.0% | 6.7% | 18/30 | +7.33 | [报告](results/20260817-tokenhub-hy3-high-v1.2-p2/report.md) / [JSON](results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json) |
 | claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
 | glm-5.3 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 70.47 | 6.7% | 6.7% | 15/30 | +0.00 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
-| grok-4.6 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 21.32 | 6.7% | 6.7% | 25/27 | +0.00 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
+| grok-4.6（降智） | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 21.32 | 6.7% | 6.7% | 25/27 | +0.00 | [报告](results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json) |
 | mimo-v2.5 | `high (enabled)` | **6.67** | 13.33 | 0.00 | 6.67 | 46.12 | 6.7% | 6.7% | 27/30 | -13.33 | [报告](results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/report.md) / [JSON](results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json) |
 | doubao-seed-2.0-lite | `enabled` | **3.33** | 6.67 | 0.00 | 3.33 | 80.18 | 3.3% | 3.3% | 11/30 | -6.67 | [报告](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json) |
 | doubao-seed-2.1-turbo | `enabled` | **3.33** | 0.00 | 6.67 | 3.33 | 72.63 | 3.3% | 3.3% | 16/30 | +6.67 | [报告](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json) |
@@ -139,7 +141,9 @@
 
 ### 供应商行为说明
 
-- `gemini-3.5-flash` 和 `gemini-3.7-flash` 通过 RightAPI `https://www.rightapi.ai/gemini/v1/responses` 完成，按 `reasoning.effort=high` 运行；两组各 30 次响应的服务端模型标识均与请求模型一致
+- `gemini-3.1-pro`、`gemini-3.5-flash`、`gemini-3.6-flash` 和 `gemini-3.7-flash` 通过 RightAPI `https://www.rightapi.ai/gemini/v1/responses` 完成，按 `reasoning.effort=high` 运行；四组各 30 次响应的服务端模型标识均与请求模型一致，且每次响应均报告非零 reasoning token
+- `grok-4.6` 官方成绩通过 xAI 官方 `https://api.x.ai/v1/responses` 完成，使用 `reasoning.effort=high` 和 SSE 流式传输；30 次响应的服务端模型标识均为 `grok-4.6`，每次均报告非零 reasoning token。该批次平均响应耗时约 81.82 秒，reasoning token 平均 4,166.9
+- 旧的 `grok-4.6（降智）` 成绩来自 RightAPI 中转站，不代表 xAI 官方模型能力；旧批次保留用于历史对照，manifest、scorecard、报告和 Web 均标记为“降智”
 - `gpt-5.6-sol` 的 `max` 成绩通过 `https://api.0elog.com/` 完成，服务端模型标识为 `gpt-5.6-sol`
 - `claude-opus-5` 通过 RightAPI Claude AWS 路径完成，按官方最高档发送 `output_config.effort=max` 并配置 65536 个最大输出 token；30 次响应的服务端模型标识均为 `claude-opus-5`
 - `mimo-v2.5-pro` 和 `mimo-v2.5` 通过小米官方 Responses 端点完成，显式发送最高枚举值 `reasoning.effort=high`；小米当前不支持调节实际思考强度，`low`、`medium`、`high` 均映射为启用思考，因此榜单标记为 `high (enabled)`
@@ -167,7 +171,7 @@ Grok 的 `repair-03/skill` 首轮请求经历 3 次 HTTP 504；按供应商 `ret
 | 批次 | e-packager | AutoLinkerTest | AutoLinker.fne |
 |------|------------|----------------|----------------|
 | 2026-08-15 至 2026-08-17 | `09d7f1e291d2…` | `57cc17e7584f…` | `cba2e177c86d…` |
-| 2026-08-19 Gemini 3.5/3.7 Flash | `09d7f1e291d2…` | `309534632abe…` | `309824c0714e…` |
+| 2026-08-19 Gemini 3.1 Pro、3.5/3.6/3.7 Flash | `09d7f1e291d2…` | `309534632abe…` | `309824c0714e…` |
 
 2026-08-19 Gemini 批次使用了更新后的 AutoLinker 工具链和依赖仓库版本，因此与此前结果并非严格的模型单变量对照；榜单保留结果，但跨批次比较时应同时核对 manifest。
 

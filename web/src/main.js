@@ -117,7 +117,7 @@ function renderSummary() {
 function sortedModels() {
   const query = state.query.toLocaleLowerCase("zh-CN");
   const filtered = state.data.models.filter((model) =>
-    `${model.model} ${model.effort}`.toLocaleLowerCase("zh-CN").includes(query),
+    `${model.model} ${model.effort} ${model.provider ?? ""} ${model.degraded ? "降智" : ""}`.toLocaleLowerCase("zh-CN").includes(query),
   );
   return filtered.sort((a, b) => {
     if (state.sort === "skillGain") {
@@ -141,7 +141,7 @@ function renderLeaderboard() {
           <td class="model-cell">
             <button class="model-button" type="button" data-open-model="${escapeHtml(model.runId)}">
               <span class="model-identity">
-                <strong>${escapeHtml(model.model)}</strong>
+                <strong>${escapeHtml(model.model)}${model.degraded ? '<span class="quality-badge">降智</span>' : ""}</strong>
                 <small>${escapeHtml(model.effort)}</small>
               </span>
             </button>
@@ -182,7 +182,7 @@ function renderFormatGap() {
     .map(
       (model) => `
         <button class="gap-row" type="button" data-open-model="${escapeHtml(model.runId)}">
-          <span class="gap-model">${escapeHtml(model.model)}</span>
+          <span class="gap-model">${escapeHtml(model.model)}${model.degraded ? "（降智）" : ""}</span>
           <span class="gap-bars">
             <i class="precompile-bar" style="width:${clamp(model.precompileFormat)}%"></i>
             <i class="effective-bar" style="width:${clamp(model.effectiveFormat)}%"></i>
@@ -238,7 +238,7 @@ function renderMatrix() {
       (model) => `
         <tr>
           <th scope="row">
-            <button type="button" class="matrix-model" data-open-model="${escapeHtml(model.runId)}">${escapeHtml(model.model)}</button>
+            <button type="button" class="matrix-model" data-open-model="${escapeHtml(model.runId)}">${escapeHtml(model.model)}${model.degraded ? "（降智）" : ""}</button>
           </th>
           <td class="matrix-total">${score(model.total)}</td>
           ${model.categories
@@ -271,8 +271,8 @@ function openModel(runId) {
   if (!model) return;
 
   elements.dialogRank.textContent = `总分排名 #${model.rank} · ${state.data.meta.scoringVersion}`;
-  elements.dialogTitle.textContent = model.model;
-  elements.dialogEffort.textContent = `思考等级 ${model.effort} · ${model.protocol}${model.wireProtocol !== model.protocol ? ` → ${model.wireProtocol}` : ""}`;
+  elements.dialogTitle.textContent = `${model.model}${model.degraded ? "（降智）" : ""}`;
+  elements.dialogEffort.textContent = `${model.provider ? `${model.provider} · ` : ""}思考等级 ${model.effort} · ${model.protocol}${model.wireProtocol !== model.protocol ? ` → ${model.wireProtocol}` : ""}${model.degradationNote ? ` · ${model.degradationNote}` : ""}`;
   elements.dialogBody.innerHTML = `
     <section class="detail-score-band">
       <div class="detail-primary-score"><span>总分</span><strong>${score(model.total)}</strong><small>/ 100</small></div>
@@ -363,7 +363,7 @@ function bindEvents() {
 
 async function initialize() {
   try {
-    const response = await fetch("/data.json", { cache: "no-cache" });
+    const response = await fetch(`/data.json?ts=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.data = await response.json();
     renderSummary();

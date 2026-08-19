@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 控制台程序入口\\n\\n' 本程序为最小控制台入口子程序\\n返回 (0)\\n\"},\"explanation\":\"已重写程序集1，包含标准控制台入口 _启动子程序，返回整数型 0 并包含一行单引号注释。\",\"expected_behavior\":\"编译并运行控制台程序，正常返回 0 退出。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190748243602384138268d9d6DFMPChEo",
+    "object": "response",
+    "created_at": 1787125707,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190748243602384138268d9d6DFMPChEo_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 控制台程序入口\\n\\n' 本程序为最小控制台入口子程序\\n返回 (0)\\n\"},\"explanation\":\"已重写程序集1，包含标准控制台入口 _启动子程序，返回整数型 0 并包含一行单引号注释。\",\"expected_behavior\":\"编译并运行控制台程序，正常返回 0 退出。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 782,
+      "completion_tokens": 1212,
+      "total_tokens": 1994,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 782,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 120,
+          "totalTokenCount": 1994,
+          "thoughtsTokenCount": 1092,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 782
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 120
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 120,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1092
+      },
+      "input_tokens": 782,
+      "output_tokens": 1212,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 782,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3275,
+  "attempt_count": 1,
+  "error": null
+}

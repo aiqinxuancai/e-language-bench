@@ -1,0 +1,285 @@
+{
+  "task_id": "abs-03",
+  "title": "公开类与生命周期",
+  "category": "abstraction",
+  "track": "skill",
+  "response": {
+    "ok": true,
+    "status": 200,
+    "elapsed_ms": 20623,
+    "attempt_count": 1,
+    "error": null,
+    "model": "gemini-3.1-pro"
+  },
+  "state": {
+    "contract_ok": true,
+    "utf8_ok": true,
+    "paths_ok": true,
+    "validate_ok": true,
+    "pack_attempt_count": 1,
+    "pack_failure_count": 0,
+    "pack_ok": true,
+    "reunpack_ok": true,
+    "compare_ok": true,
+    "ide_open_ok": true,
+    "compile_ok": true,
+    "semantic_earned": 20,
+    "semantic_total": 20,
+    "diagnostics": []
+  },
+  "score": {
+    "scoring_version": "v1.2-compile-gated",
+    "format_score": 100.0,
+    "precompile_format_score": 100.0,
+    "format_components": {
+      "contract_utf8": 10.0,
+      "declarations_syntax": 25.0,
+      "flow_names": 20.0,
+      "pack": 15.0,
+      "pack_failure_attempts": -0.0,
+      "roundtrip": 15.0,
+      "ide_open": 15.0
+    },
+    "pack_failure_count": 0,
+    "pack_failure_deduction": 0.0,
+    "compile_score": 100.0,
+    "semantic_score": 100.0,
+    "precompile_semantic_score": 100.0,
+    "uncapped_total": 100.0,
+    "score_cap": 100.0,
+    "cap_reason": null,
+    "total_score": 100.0,
+    "passed": true
+  },
+  "commands": {
+    "prepare": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "unpack",
+        "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\workspace",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\workspace\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 298,
+      "timed_out": false
+    },
+    "validate": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "validate",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\workspace"
+      ],
+      "exit_code": 0,
+      "stdout": "validate: files=6, lines=33, errors=0, warnings=0\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 1364,
+      "timed_out": false
+    },
+    "pack": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "pack",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\workspace",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.e"
+      ],
+      "exit_code": 0,
+      "stdout": "pack: bytes=2276, output=D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.e\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 340,
+      "timed_out": false
+    },
+    "reunpack": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "unpack",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.e",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\reunpacked",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=2, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\reunpacked\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 217,
+      "timed_out": false
+    },
+    "revalidate": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "validate",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\reunpacked"
+      ],
+      "exit_code": 0,
+      "stdout": "validate: files=6, lines=31, errors=0, warnings=0\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 683,
+      "timed_out": false
+    },
+    "compare": {
+      "argv": [
+        "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+        "compare-bundle",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.e",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\workspace"
+      ],
+      "exit_code": 0,
+      "stdout": "compare-bundle: digest_from_e=478A85834C86C98B\r\ndigest_from_dir=478A85834C86C98B\r\nmatch=true\r\n\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 235,
+      "timed_out": false
+    },
+    "compile": {
+      "argv": [
+        "D:\\git\\AutoLinker\\bin\\fne_release\\AutoLinkerTest.exe",
+        "headless-compile",
+        "C:\\Users\\aiqin\\OneDrive\\e5.6\\e5.95.exe",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.e",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe",
+        "--target",
+        "win_console_exe",
+        "--result",
+        "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\compile-result.json",
+        "--timeout",
+        "120"
+      ],
+      "exit_code": 0,
+      "stdout": "[AutoLinkerLauncher] compile success\r\ntarget: win_console_exe\r\noutput: D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe\r\n[IDE output]\r\n正在编译现行程序\r\r\n正在检查重复名称...\r\r\n正在预处理现行程序\r\r\n正在进行名称连接...\r\r\n正在统计需要编译的子程序\r\r\n正在编译...\r\r\n正在生成主程序入口代码\r\r\n程序代码编译成功\r\r\n正在封装易格式目的代码\r\r\n等待用户输入欲编译到的文件名\r\r\n[AutoLinker][SilentCompile] suppressed GetSaveFileNameA path=D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe\r\r\n正在写出可执行文件\r\r\n写出可执行文件\"D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe\"成功\r\r\n★★ 敬告：请使用正版软件，否则将不能确保您编译后的程序能够正确运行！ ★★\r\r\n\r\r\n附： 运行时依赖文件列表：\r\r\n-- 支持库文件（必需）：\r\r\n    C:\\Users\\aiqin\\OneDrive\\e5.6\\lib\\krnln.fnr\r\r\n\r\n[AutoLinkerLauncher] compile output target auto-suppressed\r\ndialog_target: win_console_exe\r\ndialog_output_path: D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe\r\nresult: D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\compile-result.json\r\n",
+      "stderr": "",
+      "elapsed_ms": 2243,
+      "timed_out": false
+    },
+    "compile_result": {
+      "compile_dialogs": [
+        {
+          "kind": "info",
+          "mode": "auto_suppressed",
+          "output_path": "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe",
+          "static_compile": false,
+          "target": "win_console_exe",
+          "trace": "compile_invoked_dialog_suppressed",
+          "type": "compile_output_target"
+        }
+      ],
+      "compile_result": {
+        "artifact_verified": true,
+        "caret_line_text": ".子程序 _初始化, , , 可在此处添加创建本类的初始化代码",
+        "caret_page_name": "计数器",
+        "caret_page_type": "类模块",
+        "caret_row": 5,
+        "compile_output_lock_wait_ms": 0,
+        "dependency_write_dialog_suppressed": true,
+        "ok": true,
+        "output_capture_available": false,
+        "output_capture_source": "output_window_control",
+        "output_capture_truncated": false,
+        "output_file_existed_before_compile": false,
+        "output_file_exists": true,
+        "output_file_modified_after_compile": true,
+        "output_file_size_after_compile": 8192,
+        "output_file_size_before_compile": null,
+        "output_path": "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe",
+        "output_window_text": "正在编译现行程序\r\n正在检查重复名称...\r\n正在预处理现行程序\r\n正在进行名称连接...\r\n正在统计需要编译的子程序\r\n正在编译...\r\n正在生成主程序入口代码\r\n程序代码编译成功\r\n正在封装易格式目的代码\r\n等待用户输入欲编译到的文件名\r\n[AutoLinker][SilentCompile] suppressed GetSaveFileNameA path=D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe\r\n正在写出可执行文件\r\n写出可执行文件\"D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe\"成功\r\n★★ 敬告：请使用正版软件，否则将不能确保您编译后的程序能够正确运行！ ★★\r\n\r\n附： 运行时依赖文件列表：\r\n-- 支持库文件（必需）：\r\n    C:\\Users\\aiqin\\OneDrive\\e5.6\\lib\\krnln.fnr\r\n",
+        "requested_target": "win_console_exe",
+        "static_compile": false,
+        "target": "win_console_exe",
+        "trace": "compile_invoked_dialog_suppressed",
+        "wait_elapsed_ms": 1225,
+        "wait_outcome": "artifact_ready"
+      },
+      "compile_tool_ok": true,
+      "eide_info": {
+        "current_page_name": "计数器",
+        "current_page_type": "类模块",
+        "main_window_title": "易语言-加密狗版 - D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.e [无编译条件] - Windows控制台程序 - [类模块: 计数器]",
+        "mcp_endpoint": "http://127.0.0.1:19208/mcp",
+        "mcp_gateway_endpoint": "http://127.0.0.1:19207/mcp",
+        "mcp_gateway_owner": true,
+        "mcp_instance_id": "pid-12436-22004F77",
+        "mcp_port": 19208,
+        "mcp_running": true,
+        "ok": true,
+        "page_name_ok": true,
+        "page_name_trace": "mdi_active_child_title",
+        "process_id": 12436,
+        "process_name": "e5.95.exe",
+        "process_path": "C:\\Users\\aiqin\\OneDrive\\e5.6\\e5.95.exe",
+        "project_default_compile_target": "win_console_exe",
+        "project_supported_compile_modes": [
+          "compile",
+          "static_compile"
+        ],
+        "project_supported_compile_targets": [
+          "win_console_exe"
+        ],
+        "project_type": "win_console_exe",
+        "project_type_label": "Windows控制台程序",
+        "source_directory": "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill",
+        "source_file_exists": true,
+        "source_file_name": "candidate.e",
+        "source_file_path": "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.e",
+        "source_open": true,
+        "source_state": "source_open"
+      },
+      "exit_code": 0,
+      "invocation_id": "launcher-73172-570445218",
+      "latest_result_file": "C:\\Users\\aiqin\\OneDrive\\e5.6\\AutoLinker\\Log\\headless_compile_last.json",
+      "launcher_process_exit_code": 0,
+      "launcher_project_gate_wait_ms": 0,
+      "launcher_request_transport": "command_line",
+      "launcher_timed_out": false,
+      "mode": "autolinker_headless_compile",
+      "ok": true,
+      "process_id": 12436,
+      "request": {
+        "exit_after_compile": true,
+        "hide_window": true,
+        "invocation_id": "launcher-73172-570445218",
+        "output_path": "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\candidate.exe",
+        "result_path": "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\compile-result.json",
+        "startup_timeout_seconds": 120,
+        "static_compile": false,
+        "target": "win_console_exe"
+      },
+      "resolved_target": "win_console_exe",
+      "result_file": "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\compile-result.json"
+    },
+    "semantic_checks": [
+      {
+        "name": "公开类",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "生命周期",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "公开增加",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "公开取值",
+        "passed": true,
+        "points": 5
+      }
+    ]
+  },
+  "prepare": {
+    "argv": [
+      "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+      "unpack",
+      "D:\\git\\e-packager\\eproj\\e-console-exe-new-proj.e",
+      "D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\workspace",
+      "--main-only"
+    ],
+    "exit_code": 0,
+    "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260819-right-gemini-3.1-pro-high-v1.2-p2\\cases\\abs-03-skill\\workspace\r\n",
+    "stderr": "e-packager dev\r\n",
+    "elapsed_ms": 298,
+    "timed_out": false
+  }
+}

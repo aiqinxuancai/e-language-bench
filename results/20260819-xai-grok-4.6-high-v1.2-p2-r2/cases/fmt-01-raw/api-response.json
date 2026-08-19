@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型\\n\\n返回 (0)  ' 最小控制台入口，返回整数0\\n\"},\"explanation\":\"重写程序集1为仅含合法控制台入口的最小源码，无支持库。\",\"expected_behavior\":\"程序启动后执行_启动子程序，返回整数0并正常结束。\"}",
+  "raw": {
+    "created_at": 1787130428,
+    "completed_at": 1787130458,
+    "id": "d3055675-b1e0-9aac-87e2-e1a0878a1f08",
+    "max_output_tokens": null,
+    "model": "grok-4.6",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_d3055675-b1e0-9aac-87e2-e1a0878a1f08",
+        "summary": [
+          {
+            "text": "The user wants me to complete a task related to Easy Language (易语言) code generation. Let me carefully understand the requirements.\n{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning",
+        "status": "completed"
+      },
+      {
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型\\n\\n返回 (0)  ' 最小控制台入口，返回整数0\\n\"},\"explanation\":\"重写程序集1为仅含合法控制台入口的最小源码，无支持库。\",\"expected_behavior\":\"程序启动后执行_启动子程序，返回整数0并正常结束。\"}",
+            "logprobs": [],
+            "annotations": []
+          }
+        ],
+        "id": "msg_d3055675-b1e0-9aac-87e2-e1a0878a1f08",
+        "role": "assistant",
+        "type": "message",
+        "status": "completed"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": "high",
+      "summary": "detailed"
+    },
+    "temperature": 0.699999988079071,
+    "text": {
+      "format": {
+        "type": "text"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.949999988079071,
+    "usage": {
+      "input_tokens": 486,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "output_tokens": 1678,
+      "output_tokens_details": {
+        "reasoning_tokens": 1569
+      },
+      "total_tokens": 2164,
+      "num_sources_used": 0,
+      "num_server_side_tools_used": 0,
+      "cost_in_usd_ticks": 108480000,
+      "context_details": {
+        "input_tokens": 486,
+        "output_tokens": 1678
+      }
+    },
+    "user": null,
+    "incomplete_details": null,
+    "status": "completed",
+    "store": false,
+    "metadata": {
+      "system_fingerprint": "fp_a7b4933f4a93564d"
+    },
+    "background": false,
+    "service_tier": "default",
+    "truncation": "disabled",
+    "top_logprobs": 0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "prompt_cache_key": null,
+    "max_tool_calls": null,
+    "safety_identifier": null,
+    "error": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。"
+  },
+  "elapsed_ms": 36607,
+  "attempt_count": 1,
+  "error": null
+}

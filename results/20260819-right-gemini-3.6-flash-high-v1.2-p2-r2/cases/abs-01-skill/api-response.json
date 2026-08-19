@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 变量1, 整数型\\n.局部变量 变量2, 整数型\\n\\n变量1 ＝ 10\\n变量2 ＝ 20\\n交换整数 (变量1, 变量2)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序‘交换整数’，接收两个整数型参考参数并使用局部变量‘临时值’完成互换；在‘_启动子程序’中声明并初始化两个局部整数变量后调用‘交换整数’进行验证，最终返回0。\",\"expected_behavior\":\"_启动子程序中声明的变量1和变量2在调用交换整数后数值完成对调，子程序执行完毕返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190750195073711208268d9d6Hg34I7fa",
+    "object": "response",
+    "created_at": 1787125822,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190750195073711208268d9d6Hg34I7fa_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 变量1, 整数型\\n.局部变量 变量2, 整数型\\n\\n变量1 ＝ 10\\n变量2 ＝ 20\\n交换整数 (变量1, 变量2)\\n返回 (0)\\n\\n.子程序 交换整数, , 公开\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序‘交换整数’，接收两个整数型参考参数并使用局部变量‘临时值’完成互换；在‘_启动子程序’中声明并初始化两个局部整数变量后调用‘交换整数’进行验证，最终返回0。\",\"expected_behavior\":\"_启动子程序中声明的变量1和变量2在调用交换整数后数值完成对调，子程序执行完毕返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 791,
+      "completion_tokens": 1611,
+      "total_tokens": 2402,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 791,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 281,
+          "totalTokenCount": 2402,
+          "thoughtsTokenCount": 1330,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 791
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 281
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 281,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1330
+      },
+      "input_tokens": 791,
+      "output_tokens": 1611,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 791,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 2905,
+  "attempt_count": 1,
+  "error": null
+}

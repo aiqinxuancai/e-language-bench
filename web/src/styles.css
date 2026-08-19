@@ -577,12 +577,26 @@ footer {
 }
 
 .model-identity strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   overflow: hidden;
   color: var(--ink);
   font-size: 13px;
   font-weight: 750;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.quality-badge {
+  flex: 0 0 auto;
+  padding: 2px 4px;
+  border: 1px solid #c9685f;
+  border-radius: 3px;
+  color: #9c332c;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .model-identity small {

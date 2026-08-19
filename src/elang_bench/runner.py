@@ -104,9 +104,13 @@ def build_manifest(
         "scoring_version": SCORING_VERSION,
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "model": config["model"],
+        "provider": config.get("provider"),
+        "degraded": bool(config.get("degraded", False)),
+        "degradation_note": config.get("degradation_note"),
         "reasoning_effort": config["reasoning_effort"],
         "max_output_tokens": config.get("max_output_tokens"),
         "responses_thinking_type": config.get("responses_thinking_type"),
+        "responses_streaming": bool(config.get("responses_streaming", False)),
         "protocol": config["protocol"],
         "wire_protocol": transport_protocol(config),
         "base_url": config["base_url"],
@@ -132,9 +136,13 @@ MANIFEST_IDENTITY_FIELDS = (
     "benchmark_version",
     "scoring_version",
     "model",
+    "provider",
+    "degraded",
+    "degradation_note",
     "reasoning_effort",
     "max_output_tokens",
     "responses_thinking_type",
+    "responses_streaming",
     "protocol",
     "wire_protocol",
     "base_url",
@@ -243,6 +251,7 @@ class BenchmarkRunner:
                 client_args["responses_thinking_type"] = self.config.get(
                     "responses_thinking_type"
                 )
+                client_args["streaming"] = bool(self.config.get("responses_streaming", False))
             if client_type is AnthropicMessagesClient:
                 client_args["max_output_tokens"] = int(
                     self.config.get("max_output_tokens", 32768)

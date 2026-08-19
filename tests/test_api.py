@@ -104,6 +104,44 @@ class EndpointTests(unittest.TestCase):
         self.assertEqual(body["reasoning"], {"effort": "max"})
         self.assertNotIn("thinking", body)
 
+    def test_responses_streaming_request_and_completed_event(self):
+        client = OpenAIResponsesClient(
+            base_url="https://api.example.com/v1",
+            api_key="secret",
+            model="streaming-model",
+            reasoning_effort="high",
+            streaming=True,
+            timeout_seconds=30,
+            retry_count=0,
+        )
+        self.assertTrue(client._request_body("system", "user")["stream"])
+
+        class Stream:
+            def __init__(self):
+                self.lines = iter(
+                    [
+                        b'data: {"type":"response.in_progress"}\n',
+                        b'\n',
+                        b'data: {"type":"response.completed","response":{"model":"grok-4.6","output":[]}}\n',
+                    ]
+                )
+
+            def readline(self):
+                return next(self.lines, b"")
+
+        self.assertEqual(
+            client._read_stream(Stream()),
+            {"model": "grok-4.6", "output": []},
+        )
+
+    def test_responses_streaming_requires_completed_event(self):
+        class Stream:
+            def readline(self):
+                return b""
+
+        with self.assertRaisesRegex(OSError, "response.completed"):
+            OpenAIResponsesClient._read_stream(Stream())
+
     def test_anthropic_messages_endpoint_and_text_extraction(self):
         self.assertEqual(
             anthropic_messages_endpoint("https://api.example.com/claude-aws"),

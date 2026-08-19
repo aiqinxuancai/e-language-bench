@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型, , 0\\n\\n生成奇数 (5, 结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开\\n.参数 数量, 整数型\\n.参数 结果, 整数型, 参考 数组\\n\\n清除数组 (结果)\\n.计次循环首 (数量)\\n    加入成员 (结果, 计次循环 () * 2 - 1)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序生成奇数，入口声明动态整数数组并调用一次。\",\"expected_behavior\":\"启动后声明动态整数数组并调用生成奇数(5)，先清除结果再依次加入1、3、5、7、9，最后用取数组成员数返回5。\"}",
+  "raw": {
+    "created_at": 1787130807,
+    "completed_at": 1787130897,
+    "id": "d0b43d2b-a16e-9951-8e03-caa1cf47d3d6",
+    "max_output_tokens": null,
+    "model": "grok-4.6",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_d0b43d2b-a16e-9951-8e03-caa1cf47d3d6",
+        "summary": [
+          {
+            "text": "The user wants me to complete a task for Easy Language (易语言) code generation. I need to follow the JSON contract strictly.\n{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n \\n.子程序 生成奇数, 整数型, 公开\\n  .参数 数量, 整数型\\n  .参数 结果, 整数型, 参考 数组\\n\\n  清除数组 (结果)\\n  计次循环首 (数量, 计次)\\n 加入成员 (结果, 2 * 计次 - 1)\\n  计次循环尾 ()\\n\\n  返回 (取数组成员数 (结果))\\n\\n.",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning",
+        "status": "completed"
+      },
+      {
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 结果, 整数型, , 0\\n\\n生成奇数 (5, 结果)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开\\n.参数 数量, 整数型\\n.参数 结果, 整数型, 参考 数组\\n\\n清除数组 (结果)\\n.计次循环首 (数量)\\n    加入成员 (结果, 计次循环 () * 2 - 1)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序生成奇数，入口声明动态整数数组并调用一次。\",\"expected_behavior\":\"启动后声明动态整数数组并调用生成奇数(5)，先清除结果再依次加入1、3、5、7、9，最后用取数组成员数返回5。\"}",
+            "logprobs": [],
+            "annotations": []
+          }
+        ],
+        "id": "msg_d0b43d2b-a16e-9951-8e03-caa1cf47d3d6",
+        "role": "assistant",
+        "type": "message",
+        "status": "completed"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": "high",
+      "summary": "detailed"
+    },
+    "temperature": 0.699999988079071,
+    "text": {
+      "format": {
+        "type": "text"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.949999988079071,
+    "usage": {
+      "input_tokens": 521,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "output_tokens": 4776,
+      "output_tokens_details": {
+        "reasoning_tokens": 4517
+      },
+      "total_tokens": 5297,
+      "num_sources_used": 0,
+      "num_server_side_tools_used": 0,
+      "cost_in_usd_ticks": 295060000,
+      "context_details": {
+        "input_tokens": 521,
+        "output_tokens": 4776
+      }
+    },
+    "user": null,
+    "incomplete_details": null,
+    "status": "completed",
+    "store": false,
+    "metadata": {
+      "system_fingerprint": "fp_a7b4933f4a93564d"
+    },
+    "background": false,
+    "service_tier": "default",
+    "truncation": "disabled",
+    "top_logprobs": 0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "prompt_cache_key": null,
+    "max_tool_calls": null,
+    "safety_identifier": null,
+    "error": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。"
+  },
+  "elapsed_ms": 96197,
+  "attempt_count": 1,
+  "error": null
+}

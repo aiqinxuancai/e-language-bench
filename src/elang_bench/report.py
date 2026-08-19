@@ -124,6 +124,9 @@ def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[s
         "scoring_version": manifest.get("scoring_version", "v1.0"),
         "run_id": manifest["run_id"],
         "model": manifest["model"],
+        "provider": manifest.get("provider"),
+        "degraded": bool(manifest.get("degraded", False)),
+        "degradation_note": manifest.get("degradation_note"),
         "reasoning_effort": manifest["reasoning_effort"],
         "protocol": manifest.get("protocol"),
         "wire_protocol": manifest.get("wire_protocol", manifest.get("protocol")),
@@ -156,6 +159,13 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
         "",
         f"- 运行编号：`{scorecard['run_id']}`",
         f"- 模型：`{scorecard['model']}`",
+        f"- 服务来源：`{scorecard.get('provider') or '未标注'}`",
+        f"- 质量标志：`{'降智' if scorecard.get('degraded') else '正常'}`",
+        *(
+            [f"- 降智说明：{scorecard['degradation_note']}"]
+            if scorecard.get("degradation_note")
+            else []
+        ),
         f"- 推理等级：`{scorecard['reasoning_effort']}`",
         f"- 统一协议：`{scorecard.get('protocol') or 'unknown'}`",
         f"- 外部传输协议：`{scorecard.get('wire_protocol') or 'unknown'}`",

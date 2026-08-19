@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n\\r\\n取绝对平方根整数 (-81)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 取绝对平方根整数, 整数型, 公开\\r\\n.参数 值, 整数型\\r\\n\\r\\n返回 (四舍五入 (求平方根 (取绝对值 (值)), 0))\\r\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数，结合取绝对值、求平方根和四舍五入核心命令，利用返回值的自动类型转换满足向整数型转换的要求。并在 _启动子程序 中添加对 -81 的调用，保留末尾返回0的操作。\",\"expected_behavior\":\"_启动子程序以 -81 调用 取绝对平方根整数。该子程序将-81取绝对值变为81，求平方根得9，四舍五入保留0位后以整数型9返回，最终程序启动完毕并返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190758499130805028268d9d6swnOdT6Z",
+    "object": "response",
+    "created_at": 1787126357,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.1-pro",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190758499130805028268d9d6swnOdT6Z_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\r\\n\\r\\n.程序集 程序集1\\r\\n\\r\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\r\\n\\r\\n取绝对平方根整数 (-81)\\r\\n返回 (0)  ' 可以根据您的需要返回任意数值\\r\\n\\r\\n.子程序 取绝对平方根整数, 整数型, 公开\\r\\n.参数 值, 整数型\\r\\n\\r\\n返回 (四舍五入 (求平方根 (取绝对值 (值)), 0))\\r\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数，结合取绝对值、求平方根和四舍五入核心命令，利用返回值的自动类型转换满足向整数型转换的要求。并在 _启动子程序 中添加对 -81 的调用，保留末尾返回0的操作。\",\"expected_behavior\":\"_启动子程序以 -81 调用 取绝对平方根整数。该子程序将-81取绝对值变为81，求平方根得9，四舍五入保留0位后以整数型9返回，最终程序启动完毕并返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 797,
+      "completion_tokens": 2925,
+      "total_tokens": 3722,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 797,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 285,
+          "totalTokenCount": 3722,
+          "thoughtsTokenCount": 2640,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 797
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 285
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 285,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 2640
+      },
+      "input_tokens": 797,
+      "output_tokens": 2925,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 797,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 28408,
+  "attempt_count": 1,
+  "error": null
+}

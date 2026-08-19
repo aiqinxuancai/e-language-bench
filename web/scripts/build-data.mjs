@@ -59,7 +59,10 @@ for (const [index, line] of tableRows.entries()) {
   const [packFailures, packAttempts] = cells[9].split("/").map(Number);
   models.push({
     rank: index + 1,
-    model: cells[0],
+    model: scorecard.model ?? cells[0],
+    provider: scorecard.provider ?? manifest.provider ?? null,
+    degraded: scorecard.degraded === true,
+    degradationNote: scorecard.degradation_note ?? manifest.degradation_note ?? null,
     effort: cells[1].replaceAll("`", ""),
     total: publishedScore,
     raw: parseNumber(cells[3]),

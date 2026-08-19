@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取较大值 (1, 2)\\n返回 (0)\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a ＞ b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\"},\"explanation\":\"移除C系语法关键字与符号，使用易语言标准的语法格式实现公开子程序'取较大值'，并在启动子程序中完成调用并返回0。\",\"expected_behavior\":\"正确实现取较大值子程序，符合易语言语法规范，不包含任何禁用关键字与符号，且启动程序调用后正常返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190750525373417888268d9d64vAbikv3",
+    "object": "response",
+    "created_at": 1787125855,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.6-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190750525373417888268d9d64vAbikv3_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取较大值 (1, 2)\\n返回 (0)\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a ＞ b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\"},\"explanation\":\"移除C系语法关键字与符号，使用易语言标准的语法格式实现公开子程序'取较大值'，并在启动子程序中完成调用并返回0。\",\"expected_behavior\":\"正确实现取较大值子程序，符合易语言语法规范，不包含任何禁用关键字与符号，且启动程序调用后正常返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 549,
+      "completion_tokens": 1735,
+      "total_tokens": 2284,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 549,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 214,
+          "totalTokenCount": 2284,
+          "thoughtsTokenCount": 1521,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 549
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 214
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 214,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1521
+      },
+      "input_tokens": 549,
+      "output_tokens": 1735,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 549,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3618,
+  "attempt_count": 1,
+  "error": null
+}

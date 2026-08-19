@@ -2,6 +2,9 @@
 
 - 运行编号：`20260815-right-grok-4.6-max-responses-v1.1-p2`
 - 模型：`grok-4.6`
+- 服务来源：`RightAPI 中转（降智版本）`
+- 质量标志：`降智`
+- 降智说明：非 xAI 官方端点；旧评测使用中转站提供的降智版本，仅保留作历史对照。
 - 推理等级：`max`
 - 统一协议：`openai_responses`
 - 外部传输协议：`openai_responses`

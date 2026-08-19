@@ -414,6 +414,7 @@ class OpenAIResponsesClient(OpenAIChatClient):
         model: str,
         reasoning_effort: str,
         responses_thinking_type: str | None = None,
+        streaming: bool = False,
         timeout_seconds: int,
         retry_count: int,
     ) -> None:
@@ -427,6 +428,7 @@ class OpenAIResponsesClient(OpenAIChatClient):
         )
         self.endpoint = responses_endpoint(base_url)
         self.responses_thinking_type = responses_thinking_type
+        self.streaming = streaming
 
     def _request_body(self, system: str, user: str) -> dict[str, Any]:
         body = {
@@ -439,7 +441,7 @@ class OpenAIResponsesClient(OpenAIChatClient):
                     "content": [{"type": "input_text", "text": user}],
                 }
             ],
-            "stream": False,
+            "stream": self.streaming,
             "store": False,
         }
         if self.responses_thinking_type is not None:
@@ -469,9 +471,12 @@ class OpenAIResponsesClient(OpenAIChatClient):
             )
             try:
                 with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
-                    response_bytes = response.read()
                     last_status = response.status
-                raw = json.loads(response_bytes.decode("utf-8"))
+                    if self.streaming:
+                        raw = self._read_stream(response)
+                    else:
+                        response_bytes = response.read()
+                        raw = json.loads(response_bytes.decode("utf-8"))
                 content = self._extract_responses_content(raw)
                 elapsed = int((time.monotonic() - started) * 1000)
                 if not content and not responses_response_has_output(raw):
@@ -502,6 +507,27 @@ class OpenAIResponsesClient(OpenAIChatClient):
             min(self.retry_count + 1, attempt),
             last_error,
         )
+
+    @staticmethod
+    def _read_stream(response: Any) -> dict[str, Any]:
+        """Read an xAI/OpenResponses SSE stream until its completed event."""
+        for line in iter(response.readline, b""):
+            text = line.decode("utf-8", errors="replace").strip()
+            if not text.startswith("data: "):
+                continue
+            payload = text[6:]
+            if payload == "[DONE]":
+                break
+            event = json.loads(payload)
+            if event.get("type") == "response.completed":
+                raw = event.get("response")
+                if isinstance(raw, dict):
+                    return raw
+                raise ValueError("stream completed without a response object")
+            if event.get("type") in {"response.failed", "response.incomplete"}:
+                error = event.get("response", {}).get("error") or event.get("error")
+                raise ValueError(f"stream response failed: {error}")
+        raise OSError("stream closed before response.completed")
 
     @staticmethod
     def _extract_responses_content(raw: dict[str, Any]) -> str:

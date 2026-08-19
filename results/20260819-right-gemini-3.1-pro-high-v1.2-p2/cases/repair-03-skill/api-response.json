@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n统计非空项 (\\\"甲, ,乙,丙\\\", \\\",\\\")\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 统计非空项, 整数型, 公开\\n.参数 输入, 文本型\\n.参数 分隔符, 文本型\\n.局部变量 数组, 文本型, , \\\"0\\\"\\n.局部变量 i, 整数型\\n.局部变量 计数, 整数型\\n\\n数组 ＝ 分割文本 (输入, 分隔符, )\\n.计次循环首 (取数组成员数 (数组), i)\\n    .如果真 (删首尾空 (数组 [i]) ≠ \\\"\\\")\\n        计数 ＝ 计数 ＋ 1\\n    .如果真结束\\n.计次循环尾 ()\\n返回 (计数)\\n\"},\"explanation\":\"实现了“统计非空项”公开子程序。使用“分割文本”把输入转换为动态数组，利用“取数组成员数”配合计次循环遍历数组，将各元素“删首尾空”后如果不为空则增加计数。入口按要求补充了测试调用。\",\"expected_behavior\":\"程序能够正确以指定分隔符拆分文本，忽略删首尾空后的空白项，统计出实际有效项目的数量。启动子程序调用测试样例后平稳返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190802285834338188268d9d6F8caIxzX",
+    "object": "response",
+    "created_at": 1787126572,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.1-pro",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190802285834338188268d9d6F8caIxzX_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n统计非空项 (\\\"甲, ,乙,丙\\\", \\\",\\\")\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 统计非空项, 整数型, 公开\\n.参数 输入, 文本型\\n.参数 分隔符, 文本型\\n.局部变量 数组, 文本型, , \\\"0\\\"\\n.局部变量 i, 整数型\\n.局部变量 计数, 整数型\\n\\n数组 ＝ 分割文本 (输入, 分隔符, )\\n.计次循环首 (取数组成员数 (数组), i)\\n    .如果真 (删首尾空 (数组 [i]) ≠ \\\"\\\")\\n        计数 ＝ 计数 ＋ 1\\n    .如果真结束\\n.计次循环尾 ()\\n返回 (计数)\\n\"},\"explanation\":\"实现了“统计非空项”公开子程序。使用“分割文本”把输入转换为动态数组，利用“取数组成员数”配合计次循环遍历数组，将各元素“删首尾空”后如果不为空则增加计数。入口按要求补充了测试调用。\",\"expected_behavior\":\"程序能够正确以指定分隔符拆分文本，忽略删首尾空后的空白项，统计出实际有效项目的数量。启动子程序调用测试样例后平稳返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 1057,
+      "completion_tokens": 3034,
+      "total_tokens": 4091,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 1057,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 358,
+          "totalTokenCount": 4091,
+          "thoughtsTokenCount": 2676,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 1057
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 358
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 358,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 2676
+      },
+      "input_tokens": 1057,
+      "output_tokens": 3034,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 1057,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 24275,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开\\n.参数 输入, 文本型\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序规范用户名，先删首尾空再转小写；入口调用后返回0。\",\"expected_behavior\":\"启动后调用规范用户名处理“  Alice  ”得到alice，然后入口返回0。\"}",
+  "raw": {
+    "created_at": 1787130663,
+    "completed_at": 1787130715,
+    "id": "f7536f69-ea58-9894-b18c-aca15cd401b5",
+    "max_output_tokens": null,
+    "model": "grok-4.6",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_f7536f69-ea58-9894-b18c-aca15cd401b5",
+        "summary": [
+          {
+            "text": "The user wants me to complete a task for an Easy Language (易语言) code generation benchmark.\n{\"files\":{\"src/程序集1.txt\":\".版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n\n\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 规范用户名, 文本型, 公开\n.",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning",
+        "status": "completed"
+      },
+      {
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开\\n.参数 输入, 文本型\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序规范用户名，先删首尾空再转小写；入口调用后返回0。\",\"expected_behavior\":\"启动后调用规范用户名处理“  Alice  ”得到alice，然后入口返回0。\"}",
+            "logprobs": [],
+            "annotations": []
+          }
+        ],
+        "id": "msg_f7536f69-ea58-9894-b18c-aca15cd401b5",
+        "role": "assistant",
+        "type": "message",
+        "status": "completed"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": "high",
+      "summary": "detailed"
+    },
+    "temperature": 0.699999988079071,
+    "text": {
+      "format": {
+        "type": "text"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.949999988079071,
+    "usage": {
+      "input_tokens": 518,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "output_tokens": 3240,
+      "output_tokens_details": {
+        "reasoning_tokens": 3057
+      },
+      "total_tokens": 3758,
+      "num_sources_used": 0,
+      "num_server_side_tools_used": 0,
+      "cost_in_usd_ticks": 202840000,
+      "context_details": {
+        "input_tokens": 518,
+        "output_tokens": 3240
+      }
+    },
+    "user": null,
+    "incomplete_details": null,
+    "status": "completed",
+    "store": false,
+    "metadata": {
+      "system_fingerprint": "fp_a7b4933f4a93564d"
+    },
+    "background": false,
+    "service_tier": "default",
+    "truncation": "disabled",
+    "top_logprobs": 0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "prompt_cache_key": null,
+    "max_tool_calls": null,
+    "safety_identifier": null,
+    "error": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。"
+  },
+  "elapsed_ms": 59021,
+  "attempt_count": 1,
+  "error": null
+}

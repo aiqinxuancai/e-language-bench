@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取较大值 (1, 2)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a > b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\"},\"explanation\":\"将C风格条件改写为易语言公开子程序取较大值，入口调用后返回0\",\"expected_behavior\":\"启动后调用取较大值比较a与b并返回较大整数，入口子程序最终返回0\"}",
+  "raw": {
+    "created_at": 1787131409,
+    "completed_at": 1787131467,
+    "id": "4e7c2c14-c007-98b9-9914-3acf4f6ea407",
+    "max_output_tokens": null,
+    "model": "grok-4.6",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_4e7c2c14-c007-98b9-9914-3acf4f6ea407",
+        "summary": [
+          {
+            "text": "The user wants me to repair/implement a function in 易语言 (EPL - Easy Programming Language). Let me understand the requirements carefully.\n{\"files\":{\"src/程序集1.txt\":\".版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n\n\n返回 (0)  ' 可以根据您的需要返回任意数值\n\n.子程序 取较大值, 整数型, 公开\n.参数 a, 整数型\n.参数 b, 整数型\n\n.如果 (a > b)\n    返回 (a)\n.否则\n    返回 (b)\n.",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning",
+        "status": "completed"
+      },
+      {
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取较大值 (1, 2)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a > b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n.如果结束\\n\"},\"explanation\":\"将C风格条件改写为易语言公开子程序取较大值，入口调用后返回0\",\"expected_behavior\":\"启动后调用取较大值比较a与b并返回较大整数，入口子程序最终返回0\"}",
+            "logprobs": [],
+            "annotations": []
+          }
+        ],
+        "id": "msg_4e7c2c14-c007-98b9-9914-3acf4f6ea407",
+        "role": "assistant",
+        "type": "message",
+        "status": "completed"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": "high",
+      "summary": "detailed"
+    },
+    "temperature": 0.699999988079071,
+    "text": {
+      "format": {
+        "type": "text"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.949999988079071,
+    "usage": {
+      "input_tokens": 512,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "output_tokens": 3300,
+      "output_tokens_details": {
+        "reasoning_tokens": 3095
+      },
+      "total_tokens": 3812,
+      "num_sources_used": 0,
+      "num_server_side_tools_used": 0,
+      "cost_in_usd_ticks": 206320000,
+      "context_details": {
+        "input_tokens": 512,
+        "output_tokens": 3300
+      }
+    },
+    "user": null,
+    "incomplete_details": null,
+    "status": "completed",
+    "store": false,
+    "metadata": {
+      "system_fingerprint": "fp_a7b4933f4a93564d"
+    },
+    "background": false,
+    "service_tier": "default",
+    "truncation": "disabled",
+    "top_logprobs": 0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "prompt_cache_key": null,
+    "max_tool_calls": null,
+    "safety_identifier": null,
+    "error": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。"
+  },
+  "elapsed_ms": 64421,
+  "attempt_count": 1,
+  "error": null
+}
