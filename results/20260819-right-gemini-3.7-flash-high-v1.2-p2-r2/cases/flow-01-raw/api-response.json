@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n评级 (85)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开\\n.参数 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (“优秀”)\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (“及格”)\\n    .否则\\n        返回 (“不及格”)\\n    .如果结束\\n\\n.如果结束\\n\"},\"explanation\":\"新增公开子程序评级，使用嵌套的.如果/.否则/.如果结束结构判断分数区间并返回评级文本，并在_启动子程序中调用。\",\"expected_behavior\":\"当分数>=90时返回优秀，60<=分数<90时返回及格，分数<60时返回不及格；启动子程序调用评级后正常返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190739060327357658268d9d6OtauHkiw",
+    "object": "response",
+    "created_at": 1787125148,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.7-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190739060327357658268d9d6OtauHkiw_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n评级 (85)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开\\n.参数 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (“优秀”)\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (“及格”)\\n    .否则\\n        返回 (“不及格”)\\n    .如果结束\\n\\n.如果结束\\n\"},\"explanation\":\"新增公开子程序评级，使用嵌套的.如果/.否则/.如果结束结构判断分数区间并返回评级文本，并在_启动子程序中调用。\",\"expected_behavior\":\"当分数>=90时返回优秀，60<=分数<90时返回及格，分数<60时返回不及格；启动子程序调用评级后正常返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 549,
+      "completion_tokens": 874,
+      "total_tokens": 1423,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 549,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 259,
+          "totalTokenCount": 1423,
+          "thoughtsTokenCount": 615,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 549
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 259
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 259,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 615
+      },
+      "input_tokens": 549,
+      "output_tokens": 874,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 549,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3189,
+  "attempt_count": 1,
+  "error": null
+}

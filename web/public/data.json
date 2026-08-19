@@ -3,14 +3,14 @@
     "title": "易语言模型基准",
     "benchmarkVersion": "v1-compile",
     "scoringVersion": "v1.2-compile-gated",
-    "modelCount": 17,
+    "modelCount": 19,
     "samplesPerModel": 30,
     "taskCount": 15,
     "tracks": [
       "Raw",
       "Skill"
     ],
-    "latestResultAt": "2026-08-17T01:55:58.610001+00:00",
+    "latestResultAt": "2026-08-19T07:40:53.800321+00:00",
     "repositoryUrl": "https://github.com/aiqinxuancai/e-language-bench"
   },
   "summary": {
@@ -20,10 +20,10 @@
     "compileLeaderRate": 30,
     "skillLeader": "gpt-5.6-luna",
     "skillLeaderGain": 26.33,
-    "averageScore": 13.47,
-    "averageCompileRate": 13.72,
-    "averageEffectiveFormat": 13.73,
-    "averagePrecompileFormat": 66.68
+    "averageScore": 13.42,
+    "averageCompileRate": 13.68,
+    "averageEffectiveFormat": 13.68,
+    "averagePrecompileFormat": 68.56
   },
   "scoring": {
     "weights": [
@@ -684,6 +684,158 @@
     },
     {
       "rank": 9,
+      "model": "gemini-3.5-flash",
+      "effort": "high",
+      "total": 16,
+      "raw": 18.67,
+      "skill": 13.33,
+      "effectiveFormat": 16.67,
+      "precompileFormat": 84.87,
+      "compileRate": 16.7,
+      "passAt1": 10,
+      "packFailures": 8,
+      "packAttempts": 30,
+      "skillGain": -5.34,
+      "runId": "20260819-right-gemini-3.5-flash-high-v1.2-p2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "gemini-3.5-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 72.83,
+          "passAt1": 33.3
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 92.5,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 82,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 32.5,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 100,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 14.17,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 77,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 15,
+        "none": 5,
+        "pack_failed": 1,
+        "validation_failed": 7,
+        "packed_project_unusable": 2
+      },
+      "packFailureReasons": {
+        "function_not_found": 1,
+        "source_preflight_failed": 7
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.5-flash-high-v1.2-p2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.5-flash-high-v1.2-p2/scorecard.json"
+    },
+    {
+      "rank": 10,
+      "model": "gemini-3.7-flash",
+      "effort": "high",
+      "total": 10,
+      "raw": 6.67,
+      "skill": 13.33,
+      "effectiveFormat": 10,
+      "precompileFormat": 84.2,
+      "compileRate": 10,
+      "passAt1": 10,
+      "packFailures": 8,
+      "packAttempts": 30,
+      "skillGain": 6.66,
+      "runId": "20260819-right-gemini-3.7-flash-high-v1.2-p2-r2",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "gemini-3.7-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 81.17,
+          "passAt1": 33.3
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 92.5,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 82,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 88.33,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 77,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 17,
+        "validation_failed": 7,
+        "none": 3,
+        "pack_failed": 1,
+        "packed_project_unusable": 2
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 7,
+        "function_not_found": 1
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json"
+    },
+    {
+      "rank": 11,
       "model": "deepseek-v4-flash",
       "effort": "max",
       "total": 9.84,
@@ -759,7 +911,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 10,
+      "rank": 12,
       "model": "hy3",
       "effort": "high",
       "total": 9.66,
@@ -835,7 +987,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 11,
+      "rank": 13,
       "model": "claude-sonnet-5",
       "effort": "high",
       "total": 9.5,
@@ -912,7 +1064,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 12,
+      "rank": 14,
       "model": "glm-5.3",
       "effort": "max",
       "total": 6.67,
@@ -988,7 +1140,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 13,
+      "rank": 15,
       "model": "grok-4.6",
       "effort": "max",
       "total": 6.67,
@@ -1062,7 +1214,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 14,
+      "rank": 16,
       "model": "mimo-v2.5",
       "effort": "high (enabled)",
       "total": 6.67,
@@ -1138,7 +1290,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 15,
+      "rank": 17,
       "model": "doubao-seed-2.0-lite",
       "effort": "enabled",
       "total": 3.33,
@@ -1214,7 +1366,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 16,
+      "rank": 18,
       "model": "doubao-seed-2.1-turbo",
       "effort": "enabled",
       "total": 3.33,
@@ -1291,7 +1443,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 17,
+      "rank": 19,
       "model": "mimo-v2.5-pro",
       "effort": "high (enabled)",
       "total": 3.17,

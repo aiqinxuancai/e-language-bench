@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数，对输入值先使用取绝对值处理，再计算求平方根，通过四舍五入保留0位并使用到整数转换为整数型后返回；在_启动子程序中以-81进行调用并返回0。\",\"expected_behavior\":\"调用 取绝对平方根整数 (-81) 时，先计算绝对值得到81，再求平方根得到9，经四舍五入及到整数转换后返回9；_启动子程序执行调用后返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190738558345978408268d9d60usSL8SE",
+    "object": "response",
+    "created_at": 1787125139,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.7-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190738558345978408268d9d60usSL8SE_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n取绝对平方根整数 (-81)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 取绝对平方根整数, 整数型, 公开\\n.参数 值, 整数型\\n\\n返回 (到整数 (四舍五入 (求平方根 (取绝对值 (值)), 0)))\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数，对输入值先使用取绝对值处理，再计算求平方根，通过四舍五入保留0位并使用到整数转换为整数型后返回；在_启动子程序中以-81进行调用并返回0。\",\"expected_behavior\":\"调用 取绝对平方根整数 (-81) 时，先计算绝对值得到81，再求平方根得到9，经四舍五入及到整数转换后返回9；_启动子程序执行调用后返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 797,
+      "completion_tokens": 835,
+      "total_tokens": 1632,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 797,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 256,
+          "totalTokenCount": 1632,
+          "thoughtsTokenCount": 579,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 797
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 256
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 256,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 579
+      },
+      "input_tokens": 797,
+      "output_tokens": 835,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 797,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3821,
+  "attempt_count": 1,
+  "error": null
+}

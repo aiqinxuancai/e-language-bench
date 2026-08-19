@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, \\n.参数 输入, 文本型, , \\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"在程序集1中新增公开子程序“规范用户名”，该子程序接收文本型参数“输入”，调用核心库命令“删首尾空”去掉两端空格，再通过“到小写”转换为小写返回。同时在“_启动子程序”中调用了此子程序，最后返回0。\",\"expected_behavior\":\"调用 规范用户名 (“  Alice  ”) 会返回 \\\"alice\\\"，启动子程序调用它后返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190741239543032208268d9d6PXcqzKE1",
+    "object": "response",
+    "created_at": 1787125287,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.5-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190741239543032208268d9d6PXcqzKE1_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (“  Alice  ”)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, \\n.参数 输入, 文本型, , \\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"在程序集1中新增公开子程序“规范用户名”，该子程序接收文本型参数“输入”，调用核心库命令“删首尾空”去掉两端空格，再通过“到小写”转换为小写返回。同时在“_启动子程序”中调用了此子程序，最后返回0。\",\"expected_behavior\":\"调用 规范用户名 (“  Alice  ”) 会返回 \\\"alice\\\"，启动子程序调用它后返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 806,
+      "completion_tokens": 1782,
+      "total_tokens": 2588,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 806,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 229,
+          "totalTokenCount": 2588,
+          "thoughtsTokenCount": 1553,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 806
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 229
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 229,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1553
+      },
+      "input_tokens": 806,
+      "output_tokens": 1782,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 806,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3452,
+  "attempt_count": 1,
+  "error": null
+}

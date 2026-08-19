@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , 标签说明\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认坐标说明\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增了公开的数据类型『坐标记录』，其中定义了X、Y整数型成员，以及带说明的『标签』文本型成员。另外，在全局变量文件中定义了『默认坐标』全局变量，其类型为坐标记录，并包含公开属性、数组空槽及说明。_启动子程序只返回0。\",\"expected_behavior\":\"项目能正常编译，成功定义了公开的坐标记录数据类型和默认坐标全局变量，启动子程序正确返回0。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190741142511462108268d9d65oxWtmzi",
+    "object": "response",
+    "created_at": 1787125280,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.5-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190741142511462108268d9d65oxWtmzi_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型\\n    .成员 Y, 整数型\\n    .成员 标签, 文本型, , 标签说明\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认坐标说明\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增了公开的数据类型『坐标记录』，其中定义了X、Y整数型成员，以及带说明的『标签』文本型成员。另外，在全局变量文件中定义了『默认坐标』全局变量，其类型为坐标记录，并包含公开属性、数组空槽及说明。_启动子程序只返回0。\",\"expected_behavior\":\"项目能正常编译，成功定义了公开的坐标记录数据类型和默认坐标全局变量，启动子程序正确返回0。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 594,
+      "completion_tokens": 3346,
+      "total_tokens": 3940,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 594,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 285,
+          "totalTokenCount": 3940,
+          "thoughtsTokenCount": 3061,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 594
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 285
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 285,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 3061
+      },
+      "input_tokens": 594,
+      "output_tokens": 3346,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 594,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 6131,
+  "attempt_count": 1,
+  "error": null
+}

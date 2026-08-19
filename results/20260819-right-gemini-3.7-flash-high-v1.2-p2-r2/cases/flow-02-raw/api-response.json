@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n求范围内奇数和 (10)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 求范围内奇数和, 整数型, 公开\\n.参数 上限, 整数型\\n.局部变量 计次, 整数型\\n.局部变量 和, 整数型\\n\\n.计次循环首 (上限, 计次)\\n    .如果真 (计次 ％ 2 ＝ 0)\\n        到循环尾 ()\\n    .如果真结束\\n    和 ＝ 和 ＋ 计次\\n.计次循环尾 ()\\n返回 (和)\\n\"},\"explanation\":\"新增公开子程序求范围内奇数和，使用计次循环首遍历1到上限，判断若为偶数则调用到循环尾跳过，累加奇数并返回；在_启动子程序中传入10进行调用。\",\"expected_behavior\":\"调用求范围内奇数和(10)时，跳过2、4、6、8、10，累加1+3+5+7+9得到25并返回。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190739160501445428268d9d6ihmAMiva",
+    "object": "response",
+    "created_at": 1787125159,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.7-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190739160501445428268d9d6ihmAMiva_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n求范围内奇数和 (10)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 求范围内奇数和, 整数型, 公开\\n.参数 上限, 整数型\\n.局部变量 计次, 整数型\\n.局部变量 和, 整数型\\n\\n.计次循环首 (上限, 计次)\\n    .如果真 (计次 ％ 2 ＝ 0)\\n        到循环尾 ()\\n    .如果真结束\\n    和 ＝ 和 ＋ 计次\\n.计次循环尾 ()\\n返回 (和)\\n\"},\"explanation\":\"新增公开子程序求范围内奇数和，使用计次循环首遍历1到上限，判断若为偶数则调用到循环尾跳过，累加奇数并返回；在_启动子程序中传入10进行调用。\",\"expected_behavior\":\"调用求范围内奇数和(10)时，跳过2、4、6、8、10，累加1+3+5+7+9得到25并返回。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 545,
+      "completion_tokens": 966,
+      "total_tokens": 1511,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 545,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 307,
+          "totalTokenCount": 1511,
+          "thoughtsTokenCount": 659,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 545
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 307
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 307,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 659
+      },
+      "input_tokens": 545,
+      "output_tokens": 966,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 545,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 4109,
+  "attempt_count": 1,
+  "error": null
+}

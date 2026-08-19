@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n拼接等级 (1)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 拼接等级, 文本型, 公开\\n.参数 等级, 整数型\\n.局部变量 映射文本, 文本型\\n.局部变量 循环变量, 整数型\\n.局部变量 结果文本, 文本型\\n\\n.判断开始 (等级 ＝ 1)\\n    映射文本 ＝ “低”\\n.判断 (等级 ＝ 2)\\n    映射文本 ＝ “中”\\n.默认\\n    映射文本 ＝ “高”\\n.判断结束\\n.变量循环首 (1, 3, 1, 循环变量)\\n    结果文本 ＝ 结果文本 ＋ 映射文本\\n.变量循环尾 ()\\n返回 (结果文本)\"},\"explanation\":\"新增了公开子程序“拼接等级”。使用 .判断开始 结构根据等级参数映射为“低”、“中”或“高”；接着使用 .变量循环首 循环3次，将映射的文本拼接起来并返回。最后在 _启动子程序 中进行了调用测试。\",\"expected_behavior\":\"调用 拼接等级(1) 应返回 “低低低”，调用 拼接等级(2) 应返回 “中中中”，输入其他整数应返回 “高高高”。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190742100530339908268d9d6Poebyv4l",
+    "object": "response",
+    "created_at": 1787125333,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.5-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190742100530339908268d9d6Poebyv4l_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n拼接等级 (1)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 拼接等级, 文本型, 公开\\n.参数 等级, 整数型\\n.局部变量 映射文本, 文本型\\n.局部变量 循环变量, 整数型\\n.局部变量 结果文本, 文本型\\n\\n.判断开始 (等级 ＝ 1)\\n    映射文本 ＝ “低”\\n.判断 (等级 ＝ 2)\\n    映射文本 ＝ “中”\\n.默认\\n    映射文本 ＝ “高”\\n.判断结束\\n.变量循环首 (1, 3, 1, 循环变量)\\n    结果文本 ＝ 结果文本 ＋ 映射文本\\n.变量循环尾 ()\\n返回 (结果文本)\"},\"explanation\":\"新增了公开子程序“拼接等级”。使用 .判断开始 结构根据等级参数映射为“低”、“中”或“高”；接着使用 .变量循环首 循环3次，将映射的文本拼接起来并返回。最后在 _启动子程序 中进行了调用测试。\",\"expected_behavior\":\"调用 拼接等级(1) 应返回 “低低低”，调用 拼接等级(2) 应返回 “中中中”，输入其他整数应返回 “高高高”。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 830,
+      "completion_tokens": 2338,
+      "total_tokens": 3168,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 830,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 355,
+          "totalTokenCount": 3168,
+          "thoughtsTokenCount": 1983,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 830
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 355
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 355,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1983
+      },
+      "input_tokens": 830,
+      "output_tokens": 2338,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 830,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 4030,
+  "attempt_count": 1,
+  "error": null
+}

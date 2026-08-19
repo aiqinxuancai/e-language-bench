@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 这是一个控制台入口说明注释\\n\\n返回 (0)\\n\"},\"explanation\":\"重写程序集1，保留_启动子程序作为控制台入口，添加了一行单引号注释，并返回整数型 0。\",\"expected_behavior\":\"程序能够作为控制台程序正常启动，执行_启动子程序后返回 0 并退出。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190740596027501138268d9d6RA24FDQQ",
+    "object": "response",
+    "created_at": 1787125263,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.5-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190740596027501138268d9d6RA24FDQQ_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 这是一个控制台入口说明注释\\n\\n返回 (0)\\n\"},\"explanation\":\"重写程序集1，保留_启动子程序作为控制台入口，添加了一行单引号注释，并返回整数型 0。\",\"expected_behavior\":\"程序能够作为控制台程序正常启动，执行_启动子程序后返回 0 并退出。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 525,
+      "completion_tokens": 1343,
+      "total_tokens": 1868,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 525,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 132,
+          "totalTokenCount": 1868,
+          "thoughtsTokenCount": 1211,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 525
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 132
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 132,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 1211
+      },
+      "input_tokens": 525,
+      "output_tokens": 1343,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 525,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 4612,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/计数器.txt\":\".版本 2\\n\\n.类模块 计数器, , 公开\\n\\n.程序集变量 当前值, 整数型\\n\\n.子程序 _初始化, , , 当基于本类的对象被创建后，此方法会被最先调用\\n\\n.子程序 _销毁, , , 当基于本类的对象被销毁前，此方法会被最后调用\\n\\n.子程序 增加, , 公开\\n.参数 增量, 整数型\\n\\n当前值 ＝ 当前值 ＋ 增量\\n\\n.子程序 取当前值, 整数型, 公开\\n\\n返回 (当前值)\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"创建了公开类模块计数器，定义了当前值程序集变量、生命周期方法_初始化与_销毁，以及公开方法增加和取当前值；程序集1作为入口返回0。\",\"expected_behavior\":\"计数器类具备公开属性和完整生命周期子程序，调用增加方法可累加当前值，调用取当前值可返回累加结果。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190739525649804368268d9d602vhjpFB",
+    "object": "response",
+    "created_at": 1787125195,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.7-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190739525649804368268d9d602vhjpFB_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/计数器.txt\":\".版本 2\\n\\n.类模块 计数器, , 公开\\n\\n.程序集变量 当前值, 整数型\\n\\n.子程序 _初始化, , , 当基于本类的对象被创建后，此方法会被最先调用\\n\\n.子程序 _销毁, , , 当基于本类的对象被销毁前，此方法会被最后调用\\n\\n.子程序 增加, , 公开\\n.参数 增量, 整数型\\n\\n当前值 ＝ 当前值 ＋ 增量\\n\\n.子程序 取当前值, 整数型, 公开\\n\\n返回 (当前值)\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"创建了公开类模块计数器，定义了当前值程序集变量、生命周期方法_初始化与_销毁，以及公开方法增加和取当前值；程序集1作为入口返回0。\",\"expected_behavior\":\"计数器类具备公开属性和完整生命周期子程序，调用增加方法可累加当前值，调用取当前值可返回累加结果。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 594,
+      "completion_tokens": 726,
+      "total_tokens": 1320,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 594,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 317,
+          "totalTokenCount": 1320,
+          "thoughtsTokenCount": 409,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 594
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 317
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 317,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 409
+      },
+      "input_tokens": 594,
+      "output_tokens": 726,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 594,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 3134,
+  "attempt_count": 1,
+  "error": null
+}

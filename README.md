@@ -97,7 +97,7 @@
 
 ## 🏆 当前跑分
 
-**测试日期**：2026-08-15 至 2026-08-17<br>
+**测试日期**：2026-08-15 至 2026-08-19<br>
 **数据集版本**：`v1-compile`<br>
 **评分规则版本**：`v1.2-compile-gated`<br>
 **样本数**：30（每组），并发数：2
@@ -114,6 +114,8 @@
 | claude-opus-5 | `max` | **19.83** | 13.33 | 26.33 | 20.00 | 65.40 | 20.0% | 16.7% | 7/24 | +13.00 | [报告](results/20260816-right-claude-opus-5-max-v1.2-p2/report.md) / [JSON](results/20260816-right-claude-opus-5-max-v1.2-p2/scorecard.json) |
 | minimax-m3 | `enabled` | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
 | glm-5.2 | `max` | **16.00** | 19.00 | 13.00 | 16.67 | 74.30 | 16.7% | 6.7% | 13/30 | -6.00 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
+| gemini-3.5-flash | `high` | **16.00** | 18.67 | 13.33 | 16.67 | 84.87 | 16.7% | 10.0% | 8/30 | -5.34 | [报告](results/20260819-right-gemini-3.5-flash-high-v1.2-p2/report.md) / [JSON](results/20260819-right-gemini-3.5-flash-high-v1.2-p2/scorecard.json) |
+| gemini-3.7-flash | `high` | **10.00** | 6.67 | 13.33 | 10.00 | 84.20 | 10.0% | 10.0% | 8/30 | +6.66 | [报告](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json) |
 | deepseek-v4-flash | `max` | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
 | hy3 | `high` | **9.66** | 6.00 | 13.33 | 10.00 | 68.20 | 10.0% | 6.7% | 18/30 | +7.33 | [报告](results/20260817-tokenhub-hy3-high-v1.2-p2/report.md) / [JSON](results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json) |
 | claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
@@ -137,6 +139,7 @@
 
 ### 供应商行为说明
 
+- `gemini-3.5-flash` 和 `gemini-3.7-flash` 通过 RightAPI `https://www.rightapi.ai/gemini/v1/responses` 完成，按 `reasoning.effort=high` 运行；两组各 30 次响应的服务端模型标识均与请求模型一致
 - `gpt-5.6-sol` 的 `max` 成绩通过 `https://api.0elog.com/` 完成，服务端模型标识为 `gpt-5.6-sol`
 - `claude-opus-5` 通过 RightAPI Claude AWS 路径完成，按官方最高档发送 `output_config.effort=max` 并配置 65536 个最大输出 token；30 次响应的服务端模型标识均为 `claude-opus-5`
 - `mimo-v2.5-pro` 和 `mimo-v2.5` 通过小米官方 Responses 端点完成，显式发送最高枚举值 `reasoning.effort=high`；小米当前不支持调节实际思考强度，`low`、`medium`、`high` 均映射为启用思考，因此榜单标记为 `high (enabled)`
@@ -159,9 +162,14 @@ Grok 的 `repair-03/skill` 首轮请求经历 3 次 HTTP 504；按供应商 `ret
 
 ### 工具链指纹
 
-- e-packager: `09d7f1e291d2ba190c28fcdc07d2460a6222baf1b7e935c34a9660807aed7785`
-- AutoLinkerTest: `57cc17e7584f54b0b30b0e55e799c097d68e6bb7c71650654cc58846a5b37358`
-- AutoLinker.fne: `cba2e177c86d5bfa60c50b6b19d89e564c1bcaa5b26a5563fcea63308e17aa32`
+各结果的权威工具链指纹和依赖 commit 以对应 `manifest.json` 为准：
+
+| 批次 | e-packager | AutoLinkerTest | AutoLinker.fne |
+|------|------------|----------------|----------------|
+| 2026-08-15 至 2026-08-17 | `09d7f1e291d2…` | `57cc17e7584f…` | `cba2e177c86d…` |
+| 2026-08-19 Gemini 3.5/3.7 Flash | `09d7f1e291d2…` | `309534632abe…` | `309824c0714e…` |
+
+2026-08-19 Gemini 批次使用了更新后的 AutoLinker 工具链和依赖仓库版本，因此与此前结果并非严格的模型单变量对照；榜单保留结果，但跨批次比较时应同时核对 manifest。
 
 不同 `.e` 工程已验证可并发编译，每个 case 使用独立 candidate、EXE、结果 JSON 和编译临时目录。
 

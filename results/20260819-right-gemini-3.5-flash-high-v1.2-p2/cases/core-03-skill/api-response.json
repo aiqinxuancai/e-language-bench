@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 测试数组, 整数型, , \\\"0\\\"\\n.局部变量 数量, 整数型\\n\\n数量 ＝ 生成奇数 (10, 测试数组)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开\\n.参数 数量, 整数型\\n.参数 结果, 整数型, 参考 数组\\n.局部变量 i, 整数型\\n.局部变量 奇数, 整数型\\n\\n清除数组 (结果)\\n.计次循环首 (数量, i)\\n    奇数 ＝ i × 2 － 1\\n    加入成员 (结果, 奇数)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序'生成奇数'，用于生成指定数量的奇数并存入参考数组中。并在启动子程序中声明了动态数组并调用该函数进行测试。\",\"expected_behavior\":\"程序启动后会声明一个动态整数数组，调用'生成奇数'传入数量 10。该函数内部首先清除数组，然后使用计次循环将1, 3, 5...等10个奇数加入数组，最后返回数组成员数10。\"}",
+  "raw": {
+    "id": "chatcmpl-202608190741385016074418268d9d6k1OtKN8R",
+    "object": "response",
+    "created_at": 1787125304,
+    "status": "completed",
+    "instructions": null,
+    "max_output_tokens": 0,
+    "model": "gemini-3.5-flash",
+    "output": [
+      {
+        "type": "message",
+        "id": "chatcmpl-202608190741385016074418268d9d6k1OtKN8R_msg_0",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 测试数组, 整数型, , \\\"0\\\"\\n.局部变量 数量, 整数型\\n\\n数量 ＝ 生成奇数 (10, 测试数组)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 生成奇数, 整数型, 公开\\n.参数 数量, 整数型\\n.参数 结果, 整数型, 参考 数组\\n.局部变量 i, 整数型\\n.局部变量 奇数, 整数型\\n\\n清除数组 (结果)\\n.计次循环首 (数量, i)\\n    奇数 ＝ i × 2 － 1\\n    加入成员 (结果, 奇数)\\n.计次循环尾 ()\\n返回 (取数组成员数 (结果))\\n\"},\"explanation\":\"新增公开子程序'生成奇数'，用于生成指定数量的奇数并存入参考数组中。并在启动子程序中声明了动态数组并调用该函数进行测试。\",\"expected_behavior\":\"程序启动后会声明一个动态整数数组，调用'生成奇数'传入数量 10。该函数内部首先清除数组，然后使用计次循环将1, 3, 5...等10个奇数加入数组，最后返回数组成员数10。\"}",
+            "annotations": []
+          }
+        ],
+        "quality": "",
+        "size": ""
+      }
+    ],
+    "parallel_tool_calls": false,
+    "previous_response_id": null,
+    "reasoning": null,
+    "store": false,
+    "temperature": 0,
+    "tool_choice": null,
+    "tools": null,
+    "top_p": 0,
+    "truncation": null,
+    "usage": {
+      "prompt_tokens": 941,
+      "completion_tokens": 2893,
+      "total_tokens": 3834,
+      "billing_usage": {
+        "source": "gemini_chat",
+        "semantic": "gemini",
+        "gemini_usage_metadata": {
+          "promptTokenCount": 941,
+          "toolUsePromptTokenCount": 0,
+          "candidatesTokenCount": 348,
+          "totalTokenCount": 3834,
+          "thoughtsTokenCount": 2545,
+          "cachedContentTokenCount": 0,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 941
+            }
+          ],
+          "toolUsePromptTokensDetails": [],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 348
+            }
+          ]
+        }
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "completion_tokens_details": {
+        "text_tokens": 348,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "reasoning_tokens": 2545
+      },
+      "input_tokens": 941,
+      "output_tokens": 2893,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "text_tokens": 941,
+        "audio_tokens": 0,
+        "image_tokens": 0
+      },
+      "claude_cache_creation_5_m_tokens": 0,
+      "claude_cache_creation_1_h_tokens": 0
+    },
+    "user": null,
+    "metadata": null
+  },
+  "elapsed_ms": 5904,
+  "attempt_count": 1,
+  "error": null
+}
