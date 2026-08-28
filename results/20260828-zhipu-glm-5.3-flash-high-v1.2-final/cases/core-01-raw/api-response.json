@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (\\\"  Alice  \\\")\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 先去掉两端空格，再转成小写返回\\n.参数 输入, 文本型\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 规范用户名，先使用核心库命令 删首尾空 去掉两端空格，再用 到小写 转为小写并返回；在 _启动子程序 中调用 规范用户名（\\\"  Alice  \\\"）后返回 0。\",\"expected_behavior\":\"调用 规范用户名（\\\"  Alice  \\\"）时，先删除两端空格得到 \\\"Alice\\\"，再转为小写得到 \\\"alice\\\" 并返回；启动子程序最终返回 0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n规范用户名 (\\\"  Alice  \\\")\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 规范用户名, 文本型, 公开, 先去掉两端空格，再转成小写返回\\n.参数 输入, 文本型\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 规范用户名，先使用核心库命令 删首尾空 去掉两端空格，再用 到小写 转为小写并返回；在 _启动子程序 中调用 规范用户名（\\\"  Alice  \\\"）后返回 0。\",\"expected_behavior\":\"调用 规范用户名（\\\"  Alice  \\\"）时，先删除两端空格得到 \\\"Alice\\\"，再转为小写得到 \\\"alice\\\" 并返回；启动子程序最终返回 0。\"}",
+          "reasoning_content": "Write 易语言 code. Note fullwidth quotes in task are Chinese quotes but in code should use regular quotes. Use 删首尾空 and 到小写.\n\n.子程序 规范用户名, 文本型, 公开, ...\nNote: 公开 subroutines in 易语言 use \"公开\" in the attribute position. Format: .子程序 名称, 返回类型, 公开, 备注.\n\nEntry: 输出调试视图 or just call and return 0. The task says 入口调用 规范用户名（“  Alice  ”）后返回0.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893359,
+    "id": "20260828130224a335dbca23b5488c",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130224a335dbca23b5488c",
+    "usage": {
+      "completion_tokens": 376,
+      "completion_tokens_details": {
+        "reasoning_tokens": 122
+      },
+      "prompt_tokens": 310,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 686
+    }
+  },
+  "elapsed_ms": 14976,
+  "attempt_count": 1,
+  "error": null
+}

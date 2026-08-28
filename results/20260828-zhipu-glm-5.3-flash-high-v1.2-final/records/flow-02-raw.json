@@ -1,0 +1,159 @@
+{
+  "task_id": "flow-02",
+  "title": "循环与跳过本轮",
+  "category": "flow",
+  "track": "raw",
+  "response": {
+    "ok": true,
+    "status": 200,
+    "elapsed_ms": 13331,
+    "attempt_count": 1,
+    "error": null,
+    "model": "glm-5.3-flash"
+  },
+  "state": {
+    "contract_ok": true,
+    "utf8_ok": true,
+    "paths_ok": true,
+    "validate_ok": true,
+    "pack_attempt_count": 1,
+    "pack_failure_count": 1,
+    "pack_ok": false,
+    "reunpack_ok": false,
+    "compare_ok": false,
+    "ide_open_ok": false,
+    "compile_ok": false,
+    "semantic_earned": 10,
+    "semantic_total": 20,
+    "diagnostics": [
+      {
+        "stage": "pack",
+        "code": "pack_failed",
+        "message": "e-packager dev\r\npack failed: semantic_method_rebuild_failed: 程序集1.求范围内奇数和 (src/程序集1.txt:9) => unsupported_expression: 循环变量 ％ 2 == 0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      },
+      {
+        "stage": "score",
+        "code": "pack_failure_attempts",
+        "message": "1 e-packager pack attempts failed; precompile structure deduction is 15.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 15.0
+      },
+      {
+        "stage": "score",
+        "code": "pack_failed",
+        "message": "total score capped at 0.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      }
+    ]
+  },
+  "score": {
+    "scoring_version": "v1.2-compile-gated",
+    "format_score": 0.0,
+    "precompile_format_score": 55.0,
+    "format_components": {
+      "contract_utf8": 10.0,
+      "declarations_syntax": 25.0,
+      "flow_names": 20.0,
+      "pack": 0.0,
+      "pack_failure_attempts": -0.0,
+      "roundtrip": 0.0,
+      "ide_open": 0.0
+    },
+    "pack_failure_count": 1,
+    "pack_failure_deduction": 15.0,
+    "compile_score": 0.0,
+    "semantic_score": 0.0,
+    "precompile_semantic_score": 50.0,
+    "uncapped_total": 0.0,
+    "score_cap": 0.0,
+    "cap_reason": "pack_failed",
+    "total_score": 0.0,
+    "passed": false
+  },
+  "commands": {
+    "prepare": {
+      "argv": [
+        "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+        "unpack",
+        "work\\glm-5.3-flash-toolchain\\eproj\\e-console-exe-new-proj.e",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-02-raw\\workspace",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-02-raw\\workspace\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 640,
+      "timed_out": false
+    },
+    "validate": {
+      "argv": [
+        "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+        "validate",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-02-raw\\workspace"
+      ],
+      "exit_code": 0,
+      "stdout": "validate: files=5, lines=29, errors=0, warnings=0\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 805,
+      "timed_out": false
+    },
+    "pack": {
+      "argv": [
+        "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+        "pack",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-02-raw\\workspace",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-02-raw\\candidate.e"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\npack failed: semantic_method_rebuild_failed: 程序集1.求范围内奇数和 (src/程序集1.txt:9) => unsupported_expression: 循环变量 ％ 2 == 0\r\n",
+      "elapsed_ms": 742,
+      "timed_out": false
+    },
+    "semantic_checks": [
+      {
+        "name": "计次循环",
+        "passed": false,
+        "points": 5
+      },
+      {
+        "name": "偶数判断",
+        "passed": false,
+        "points": 5
+      },
+      {
+        "name": "到循环尾",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "循环闭合",
+        "passed": true,
+        "points": 5
+      }
+    ]
+  },
+  "prepare": {
+    "argv": [
+      "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+      "unpack",
+      "work\\glm-5.3-flash-toolchain\\eproj\\e-console-exe-new-proj.e",
+      "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-02-raw\\workspace",
+      "--main-only"
+    ],
+    "exit_code": 0,
+    "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-02-raw\\workspace\r\n",
+    "stderr": "e-packager dev\r\n",
+    "elapsed_ms": 640,
+    "timed_out": false
+  }
+}

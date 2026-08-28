@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a > b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n\"},\"explanation\":\"将 C 风格的条件语句改写为易语言的 .如果/.否则 结构，去掉花括号、if、else、return，使用全角括号的 返回 () 语句，参数 a、b 为整数型，子程序设为公开。\",\"expected_behavior\":\"调用 取较大值(a, b) 时，若 a 大于 b 返回 a，否则返回 b；启动子程序入口保持返回 0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 取较大值, 整数型, 公开\\n.参数 a, 整数型\\n.参数 b, 整数型\\n\\n.如果 (a > b)\\n    返回 (a)\\n.否则\\n    返回 (b)\\n\"},\"explanation\":\"将 C 风格的条件语句改写为易语言的 .如果/.否则 结构，去掉花括号、if、else、return，使用全角括号的 返回 () 语句，参数 a、b 为整数型，子程序设为公开。\",\"expected_behavior\":\"调用 取较大值(a, b) 时，若 a 大于 b 返回 a，否则返回 b；启动子程序入口保持返回 0。\"}",
+          "reasoning_content": "Need to write 易语言 code. Subroutine 取较大值 with two integer params. Note \"入口调用后返回0\" — startup returns 0. Use proper syntax:\n\n.子程序 取较大值, 整数型, 公开\n.参数 a, 整数型\n.参数 b, 整数型\n.如果 (a > b)\n返回 (a)\n.否则\n返回 (b)\n\nThe task says \"公开子程序\" — add 公开 flag. Actually in 易语言, .子程序 name, type, 公开. Format: .子程序 取较大值, 整数型, 公开, . Parameters lines: .参数 a, 整数型. Also \"不得保留半角赋值符号\" — fine.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893665,
+    "id": "2026082813073661e381aaf5124fe5",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "2026082813073661e381aaf5124fe5",
+    "usage": {
+      "completion_tokens": 383,
+      "completion_tokens_details": {
+        "reasoning_tokens": 158
+      },
+      "prompt_tokens": 301,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 684
+    }
+  },
+  "elapsed_ms": 9403,
+  "attempt_count": 1,
+  "error": null
+}

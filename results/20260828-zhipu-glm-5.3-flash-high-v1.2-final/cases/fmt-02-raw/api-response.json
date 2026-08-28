@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 50)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 计算折扣, 整数型, 公开, 计算折扣后金额\\n.参数 原价, 整数型, , 商品原价\\n.参数 折扣率, 整数型, , 折扣百分比\\n.局部变量 结果, 整数型, , 折扣后的结果\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"保留原启动子程序，在其后新增公开子程序 计算折扣，参数 原价、折扣率 依次声明并各带说明，局部变量 结果 为整数型并带说明，所有声明行保留中间空槽位。计算使用全角运算符 ＝ × ÷，入口子程序调用一次 计算折扣 后返回 0。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，调用一次 计算折扣(100, 50)，计算 100 × 50 ÷ 100 = 50 并返回该结果，随后入口子程序返回 0，程序正常退出。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 50)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 计算折扣, 整数型, 公开, 计算折扣后金额\\n.参数 原价, 整数型, , 商品原价\\n.参数 折扣率, 整数型, , 折扣百分比\\n.局部变量 结果, 整数型, , 折扣后的结果\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"保留原启动子程序，在其后新增公开子程序 计算折扣，参数 原价、折扣率 依次声明并各带说明，局部变量 结果 为整数型并带说明，所有声明行保留中间空槽位。计算使用全角运算符 ＝ × ÷，入口子程序调用一次 计算折扣 后返回 0。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，调用一次 计算折扣(100, 50)，计算 100 × 50 ÷ 100 = 50 并返回该结果，随后入口子程序返回 0，程序正常退出。\"}",
+          "reasoning_content": "Need to produce 易语言 code with a public subroutine 计算折扣 with parameters 原价, 折扣率, local variable 结果, all with comments (说明 means remarks/comments). \"正确保留所有中间空槽\" - in 易语言, parameters with remarks: .子程序 计算折扣, 整数型, 公开, 说明. Parameters: .参数 原价, 整数型, , 说明. Local variable: .局部变量 结果, 整数型, , 说明.\n\nThe calculation: 原价 × 折扣率 ÷ 100. Integer arithmetic.\n\nText format of 易语言 code:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n\n计算折扣 (100, 50)\n返回 (0)\n\n.子程序 计算折扣, 整数型, 公开, 计算折扣金额\n.参数 原价, 整数型, , 商品原价\n.参数 折扣率, 整数型, , 折扣率百分比\n.局部变量 结果, 整数型, , 折扣后结果\n\n结果 ＝ 原价 × 折扣率 ÷ 100\n返回 (结果)\n\nFull-width operators ＝ × ÷. The call in entry should call once then return 0. Possibly assign? \"入口调用一次该子程序后返回0\" — just call it.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893285,
+    "id": "20260828130108d3410e8f275145cb",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130108d3410e8f275145cb",
+    "usage": {
+      "completion_tokens": 636,
+      "completion_tokens_details": {
+        "reasoning_tokens": 315
+      },
+      "prompt_tokens": 331,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 967
+    }
+  },
+  "elapsed_ms": 17077,
+  "attempt_count": 1,
+  "error": null
+}

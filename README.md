@@ -97,10 +97,10 @@
 
 ## 🏆 当前跑分
 
-**测试日期**：2026-08-15 至 2026-08-19<br>
+**测试日期**：2026-08-15 至 2026-08-28<br>
 **数据集版本**：`v1-compile`<br>
 **评分规则版本**：`v1.2-compile-gated`<br>
-**样本数**：30（每组），并发数：2
+**样本数**：30（每组）；本次 `glm-5.3-flash` 使用并发数：1
 
 结果目录沿用模型生成时的 run-id，其中部分名称包含 `v1.1`；重算后的权威评分版本以各目录 manifest 和 scorecard 中的 `v1.2-compile-gated` 为准。
 
@@ -119,6 +119,7 @@
 | grok-4.6 | `high` | **13.34** | 6.67 | 20.00 | 13.34 | 72.74 | 13.3% | 13.3% | 14/30 | +13.33 | [报告](results/20260819-xai-grok-4.6-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-xai-grok-4.6-high-v1.2-p2-r2/scorecard.json) |
 | gemini-3.7-flash | `high` | **10.00** | 6.67 | 13.33 | 10.00 | 84.20 | 10.0% | 10.0% | 8/30 | +6.66 | [报告](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json) |
 | deepseek-v4-flash | `max` | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
+| glm-5.3-flash | `high` | **9.66** | 19.33 | 0.00 | 10.00 | 79.85 | 10.0% | 6.7% | 12/30 | -19.33 | [报告](results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/report.md) / [JSON](results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/scorecard.json) |
 | hy3 | `high` | **9.66** | 6.00 | 13.33 | 10.00 | 68.20 | 10.0% | 6.7% | 18/30 | +7.33 | [报告](results/20260817-tokenhub-hy3-high-v1.2-p2/report.md) / [JSON](results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json) |
 | claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
 | glm-5.3 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 70.47 | 6.7% | 6.7% | 15/30 | +0.00 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
@@ -149,6 +150,7 @@
 - `mimo-v2.5-pro` 和 `mimo-v2.5` 通过小米官方 Responses 端点完成，显式发送最高枚举值 `reasoning.effort=high`；小米当前不支持调节实际思考强度，`low`、`medium`、`high` 均映射为启用思考，因此榜单标记为 `high (enabled)`
 - 两组 MiMo 响应均包含 reasoning 输出块和 reasoning token 计数，且 30 次响应的服务端模型标识分别与请求模型一致
 - `glm-5.3` 成绩通过火山引擎 `https://ark.cn-beijing.volces.com/api/coding/v3` 完成，服务端模型标识为 `glm-5.3`
+- `glm-5.3-flash` 成绩通过智谱 AI 官方 `https://open.bigmodel.cn/api/paas/v4` 完成，使用 OpenAI Chat Completions 传输和 `reasoning_effort=high`；30 次响应的服务端模型标识均为 `glm-5.3-flash`
 - `hy3` 成绩通过 TokenHub `https://tokenhub.tencentmaas.com/` 的 OpenAI Responses 端点完成，服务端模型标识为 `hy3`；该端点的 `reasoning.effort` 仅接受 `no_think`、`low`、`high`，本次按最高档 `high` 运行
 - `doubao-seed-2.0-lite`、`doubao-seed-2.1-turbo` 和 `minimax-m3` 通过同一火山 Coding Responses 端点完成；三者按官方开关式配置发送 `thinking.type=enabled`，不宣称存在 `max` 强度档位
 - 请求 `doubao-seed-2.1-turbo` 时，服务端在全部响应中标识模型为版本化的 `doubao-seed-2-1-turbo-260628`

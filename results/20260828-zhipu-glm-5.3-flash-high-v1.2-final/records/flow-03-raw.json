@@ -1,0 +1,168 @@
+{
+  "task_id": "flow-03",
+  "title": "多路判断与变量循环",
+  "category": "flow",
+  "track": "raw",
+  "response": {
+    "ok": true,
+    "status": 200,
+    "elapsed_ms": 11949,
+    "attempt_count": 1,
+    "error": null,
+    "model": "glm-5.3-flash"
+  },
+  "state": {
+    "contract_ok": true,
+    "utf8_ok": true,
+    "paths_ok": true,
+    "validate_ok": false,
+    "pack_attempt_count": 1,
+    "pack_failure_count": 1,
+    "pack_ok": false,
+    "reunpack_ok": false,
+    "compare_ok": false,
+    "ide_open_ok": false,
+    "compile_ok": false,
+    "semantic_earned": 15,
+    "semantic_total": 20,
+    "diagnostics": [
+      {
+        "stage": "validate",
+        "code": "flow_counter_variable_invalid",
+        "message": "variable loop receiver must be a scalar numeric variable",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 24,
+        "deduction": 9.0
+      },
+      {
+        "stage": "pack",
+        "code": "flow_counter_variable_invalid",
+        "message": "variable loop receiver must be a scalar numeric variable",
+        "severity": "error",
+        "file": "src/程序集1.txt",
+        "line": 24,
+        "deduction": 0.0
+      },
+      {
+        "stage": "score",
+        "code": "pack_failure_attempts",
+        "message": "1 e-packager pack attempts failed; precompile structure deduction is 15.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 15.0
+      },
+      {
+        "stage": "score",
+        "code": "validation_failed",
+        "message": "total score capped at 0.0",
+        "severity": "error",
+        "file": null,
+        "line": null,
+        "deduction": 0.0
+      }
+    ]
+  },
+  "score": {
+    "scoring_version": "v1.2-compile-gated",
+    "format_score": 0.0,
+    "precompile_format_score": 46.0,
+    "format_components": {
+      "contract_utf8": 10.0,
+      "declarations_syntax": 20.0,
+      "flow_names": 16.0,
+      "pack": 0.0,
+      "pack_failure_attempts": -0.0,
+      "roundtrip": 0.0,
+      "ide_open": 0.0
+    },
+    "pack_failure_count": 1,
+    "pack_failure_deduction": 15.0,
+    "compile_score": 0.0,
+    "semantic_score": 0.0,
+    "precompile_semantic_score": 75.0,
+    "uncapped_total": 0.0,
+    "score_cap": 0.0,
+    "cap_reason": "validation_failed",
+    "total_score": 0.0,
+    "passed": false
+  },
+  "commands": {
+    "prepare": {
+      "argv": [
+        "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+        "unpack",
+        "work\\glm-5.3-flash-toolchain\\eproj\\e-console-exe-new-proj.e",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-03-raw\\workspace",
+        "--main-only"
+      ],
+      "exit_code": 0,
+      "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-03-raw\\workspace\r\n",
+      "stderr": "e-packager dev\r\n",
+      "elapsed_ms": 625,
+      "timed_out": false
+    },
+    "validate": {
+      "argv": [
+        "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+        "validate",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-03-raw\\workspace"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\nvalidate failed: files=5, lines=32, errors=1, warnings=0\r\nsource_preflight_error: file=src/程序集1.txt, line=24, code=flow_counter_variable_invalid, detail=variable loop receiver must be a scalar numeric variable\r\n",
+      "elapsed_ms": 635,
+      "timed_out": false
+    },
+    "pack": {
+      "argv": [
+        "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+        "pack",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-03-raw\\workspace",
+        "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-03-raw\\candidate.e"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "e-packager dev\r\npack failed: source_preflight_failed: files=5, lines=32, errors=1, warnings=0\r\nsource_preflight_error: file=src/程序集1.txt, line=24, code=flow_counter_variable_invalid, detail=variable loop receiver must be a scalar numeric variable\r\n",
+      "elapsed_ms": 617,
+      "timed_out": false
+    },
+    "semantic_checks": [
+      {
+        "name": "判断开始",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "后续判断",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "默认闭合",
+        "passed": true,
+        "points": 5
+      },
+      {
+        "name": "变量循环",
+        "passed": false,
+        "points": 5
+      }
+    ]
+  },
+  "prepare": {
+    "argv": [
+      "work\\glm-5.3-flash-toolchain\\bin\\e-packager.exe",
+      "unpack",
+      "work\\glm-5.3-flash-toolchain\\eproj\\e-console-exe-new-proj.e",
+      "D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-03-raw\\workspace",
+      "--main-only"
+    ],
+    "exit_code": 0,
+    "stdout": "unpack: source_files=1, form_files=0, resources=0, ecom_modules=0, elib_files=0, output=D:\\git\\e-language-bench\\results\\20260828-zhipu-glm-5.3-flash-high-v1.2-final\\cases\\flow-03-raw\\workspace\r\n",
+    "stderr": "e-packager dev\r\n",
+    "elapsed_ms": 625,
+    "timed_out": false
+  }
+}

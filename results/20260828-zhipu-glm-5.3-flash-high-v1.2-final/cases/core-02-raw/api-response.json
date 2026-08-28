@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n    取绝对平方根整数 (-81)  ' 入口以 -81 调用新增子程序\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 取绝对平方根整数, 整数型, 公开, 先对值取绝对值，再求平方根，四舍五入保留0位后转换为整数型返回\\n    .参数 值, 整数型\\n    .局部变量 结果, 整数型\\n\\n    结果 = 取整 (四舍五入 (求平方根 (取绝对值 (值)), 0))\\n    返回 (结果)\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数：使用核心命令 取绝对值、求平方根、四舍五入（保留0位）、取整 完成计算并返回整数型结果。入口子程序中以 -81 调用该子程序，随后返回 0。全程仅使用易语言核心命令，未混入其他语言语法。\",\"expected_behavior\":\"程序启动后，入口子程序以 -81 调用 取绝对平方根整数，该子程序对值取绝对值得到 81，求平方根得到 9，四舍五入保留0位并取整后返回整数 9；随后入口子程序返回 0，程序正常结束。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n    取绝对平方根整数 (-81)  ' 入口以 -81 调用新增子程序\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 取绝对平方根整数, 整数型, 公开, 先对值取绝对值，再求平方根，四舍五入保留0位后转换为整数型返回\\n    .参数 值, 整数型\\n    .局部变量 结果, 整数型\\n\\n    结果 = 取整 (四舍五入 (求平方根 (取绝对值 (值)), 0))\\n    返回 (结果)\\n\"},\"explanation\":\"新增公开子程序 取绝对平方根整数：使用核心命令 取绝对值、求平方根、四舍五入（保留0位）、取整 完成计算并返回整数型结果。入口子程序中以 -81 调用该子程序，随后返回 0。全程仅使用易语言核心命令，未混入其他语言语法。\",\"expected_behavior\":\"程序启动后，入口子程序以 -81 调用 取绝对平方根整数，该子程序对值取绝对值得到 81，求平方根得到 9，四舍五入保留0位并取整后返回整数 9；随后入口子程序返回 0，程序正常结束。\"}",
+          "reasoning_content": "Wait, \"入口以 -81 调用后返回0\" — hmm, taking absolute value of -81 = 81, sqrt = 9, round = 9. But the task says returns 0? Odd. Probably they mean testing behavior... Actually maybe it's a trap: \"四舍五入保留0位\" then converts to integer. sqrt(81)=9. But statement says returns 0? Perhaps \"入口以 -81 调用后返回0\" means the entry point calls with -81 and returns... hmm \"返回0\" — maybe the entry returns 0 as usual. Actually likely: the entry program calls the subroutine with -81 to test, and returns 0. Or perhaps expected behavior: 取绝对平方根整数(-81) returns 9? But text says \"返回0\". Ambiguous. Maybe \"入口以 -81 调用后返回0\" means after calling with -81 the program returns 0 (main returns 0). I'll implement main calling 取绝对平方根整数(-81) and then 返回(0). Expected behavior: subroutine returns 9 for -81, program returns 0.\n\nActually maybe they intend: 取绝对值(-81)=81, 求平方根(81)=9... rounding gives 9. Perhaps they wrote -81 thinking sqrt of... Whatever, I'll follow the literal spec: take absolute value, sqrt, round to 0 decimals, to int, return. Main calls it with -81 and returns 0.\n\nE language code:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n    取绝对平方根整数 (-81)\n    返回 (0)\n\n.子程序 取绝对平方根整数, 整数型, 公开, 对值先取绝对值再求平方根并四舍五入取整\n    .参数 值, 整数型\n    .局部变量 结果, 整数型\n    结果 = 取整 (四舍五入 (求平方根 (取绝对值 (值)), 0))\n    返回 (结果)\n\n四舍五入 command: 四舍五入(数值, 被舍入的位置) returns 小数型? Actually 四舍五入 returns 小数型 I think. 取整 converts to integer. 取整 is core command. Use 取整 (四舍五入 (求平方根 (取绝对值 (值)), )). 四舍五入's second param optional? 四舍五入(欲被四舍五入的数值,[被四舍入的位置]) — default 0. Fine.\n\nPublic: 公开 keyword: .子程序 取绝对平方根整数, 整数型, 公开.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893402,
+    "id": "20260828130259db401d261a934db6",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130259db401d261a934db6",
+    "usage": {
+      "completion_tokens": 937,
+      "completion_tokens_details": {
+        "reasoning_tokens": 584
+      },
+      "prompt_tokens": 296,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 1233
+    }
+  },
+  "elapsed_ms": 22750,
+  "attempt_count": 1,
+  "error": null
+}

@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 控制台入口，返回整数型 0\\n\"},\"explanation\":\"重写程序集1，仅保留一个合法的控制台入口 _启动子程序，返回整数型 0，并附一行单引号说明注释，未添加任何支持库。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，立即返回整数型 0 并正常退出。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n返回 (0)  ' 控制台入口，返回整数型 0\\n\"},\"explanation\":\"重写程序集1，仅保留一个合法的控制台入口 _启动子程序，返回整数型 0，并附一行单引号说明注释，未添加任何支持库。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，立即返回整数型 0 并正常退出。\"}",
+          "reasoning_content": "The task: rewrite 程序集1 to contain only a valid console entry _启动子程序, returning integer 0, with a single-quote comment. Keep format. The original already nearly does. Provide clean version.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893266,
+    "id": "20260828130102d07796dc9d1d4a4a",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130102d07796dc9d1d4a4a",
+    "usage": {
+      "completion_tokens": 185,
+      "completion_tokens_details": {
+        "reasoning_tokens": 45
+      },
+      "prompt_tokens": 535,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 720
+    }
+  },
+  "elapsed_ms": 3967,
+  "attempt_count": 1,
+  "error": null
+}

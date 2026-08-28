@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 二维坐标\\n.成员 X, 整数型\\n.成员 Y, 整数型\\n.成员 标签, 文本型, , 坐标的文字标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, , , 程序默认使用的二维坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开数据类型 坐标记录，含 X、Y 整数型成员和带说明的文本型成员 标签；新增全局变量 默认坐标，类型为坐标记录，公开属性与数组维数空槽均保留并附带说明；程序集入口保持原样，仅返回 0，不访问该全局变量成员。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，直接返回 0，不读取或写入全局变量 默认坐标；数据类型与全局变量声明在工程中可供其他代码引用。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 二维坐标\\n.成员 X, 整数型\\n.成员 Y, 整数型\\n.成员 标签, 文本型, , 坐标的文字标签\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, , , 程序默认使用的二维坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开数据类型 坐标记录，含 X、Y 整数型成员和带说明的文本型成员 标签；新增全局变量 默认坐标，类型为坐标记录，公开属性与数组维数空槽均保留并附带说明；程序集入口保持原样，仅返回 0，不访问该全局变量成员。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，直接返回 0，不读取或写入全局变量 默认坐标；数据类型与全局变量声明在工程中可供其他代码引用。\"}",
+          "reasoning_content": "Need to write .数据类型.txt and .全局变量.txt in e-packager format. Data type format: .数据类型 名称, 说明 then .成员 成员名, 类型, 公开属性?, 说明. Actually .成员 fields: 名称, 类型, 数组?, 说明? Keep simple: .成员 X, 整数型 and .成员 标签, 文本型, , 坐标标签说明.\n\nGlobal variable: .全局变量 默认坐标, 坐标记录, , , 说明 — fields: 名称, 类型, 公开属性, 数组维数, 说明.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893342,
+    "id": "2026082813021149207fe392fc4103",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "2026082813021149207fe392fc4103",
+    "usage": {
+      "completion_tokens": 414,
+      "completion_tokens_details": {
+        "reasoning_tokens": 122
+      },
+      "prompt_tokens": 609,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 1023
+    }
+  },
+  "elapsed_ms": 11842,
+  "attempt_count": 1,
+  "error": null
+}

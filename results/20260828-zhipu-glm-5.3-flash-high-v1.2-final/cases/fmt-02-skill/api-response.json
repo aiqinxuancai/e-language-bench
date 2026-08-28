@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 50)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 计算折扣, 整数型, 公开, 计算折扣后的价格\\n.参数 原价, 整数型, , 商品原价\\n.参数 折扣率, 整数型, , 折扣百分比\\n.局部变量 结果, 整数型, , , 折扣后的价格\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"保留入口 _启动子程序，并新增公开子程序 计算折扣，参数与局部变量均按槽位顺序填写说明，中间空槽保留，计算原价×折扣率÷100并返回结果。\",\"expected_behavior\":\"程序启动后调用 计算折扣(100, 50) 得到结果 50，然后入口返回 0 正常退出。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n计算折扣 (100, 50)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 计算折扣, 整数型, 公开, 计算折扣后的价格\\n.参数 原价, 整数型, , 商品原价\\n.参数 折扣率, 整数型, , 折扣百分比\\n.局部变量 结果, 整数型, , , 折扣后的价格\\n\\n结果 ＝ 原价 × 折扣率 ÷ 100\\n返回 (结果)\\n\"},\"explanation\":\"保留入口 _启动子程序，并新增公开子程序 计算折扣，参数与局部变量均按槽位顺序填写说明，中间空槽保留，计算原价×折扣率÷100并返回结果。\",\"expected_behavior\":\"程序启动后调用 计算折扣(100, 50) 得到结果 50，然后入口返回 0 正常退出。\"}",
+          "reasoning_content": "Need to write the file with 计算折扣 public subroutine (公开属性 = 公开? Typically 公开 slot value \"公开\" or 3? In e-language text format, the third field is 公开属性; commonly written as \"公开\". Use \"公开\".)\n\nFields: .子程序 名称, 返回类型, 公开属性, 说明. Params: .参数 名称, 类型, 参数属性, 说明. Local vars: .局部变量 名称, 类型, 静态属性, 数组维数, 说明 — 说明 with empty middle slots: .局部变量 结果, 整数型, , , 计算结果说明? Wait spec: 局部变量 slots: 名称、类型、静态属性、数组维数、说明. So \"结果, 整数型, , , 说明\" with two empty middle slots. For 参数: 名称、类型、参数属性、说明 → one empty slot if no 属性: \".参数 原价, 整数型, , 商品原价\".\n\nSubroutine: \".子程序 计算折扣, 整数型, 公开, 计算折扣后的价格\". Entry stays.\n\nCode:\n结果 ＝ 原价 × 折扣率 ÷ 100\n返回 (结果)\n\nEntry:\n计算折扣 (100, 50) — need to call once; just call, ignore result. Write \"计算折扣 (100, 50)\".",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893303,
+    "id": "202608281301289fbc0dc206bb4f21",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "202608281301289fbc0dc206bb4f21",
+    "usage": {
+      "completion_tokens": 558,
+      "completion_tokens_details": {
+        "reasoning_tokens": 292
+      },
+      "prompt_tokens": 590,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 1148
+    }
+  },
+  "elapsed_ms": 15877,
+  "attempt_count": 1,
+  "error": null
+}

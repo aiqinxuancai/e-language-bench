@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 = 3\\n乙 = 7\\n交换整数 (甲, 乙)\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，两个参数均为整数型参考参数，用局部变量 临时值 完成交换；在 _启动子程序 中声明并赋值两个整数后调用，最后返回0。\",\"expected_behavior\":\"程序启动后甲=3、乙=7，调用交换整数后甲=7、乙=3，子程序返回0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲, 整数型\\n.局部变量 乙, 整数型\\n\\n甲 = 3\\n乙 = 7\\n交换整数 (甲, 乙)\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，两个参数均为整数型参考参数，用局部变量 临时值 完成交换；在 _启动子程序 中声明并赋值两个整数后调用，最后返回0。\",\"expected_behavior\":\"程序启动后甲=3、乙=7，调用交换整数后甲=7、乙=3，子程序返回0。\"}",
+          "reasoning_content": "易语言 reference parameter syntax: 参数 甲, 整数型, 参考. Actually format: .子程序 交换整数, , 公开, ... 参数 line: .参数 甲, 整数型, 参考. Public requires 公开 attribute: .子程序 交换整数, 整数型, 公开? Return void — return type empty. Format: .子程序 交换整数, , 公开.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893572,
+    "id": "202608281306061dbef5c3a0ce424b",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "202608281306061dbef5c3a0ce424b",
+    "usage": {
+      "completion_tokens": 353,
+      "completion_tokens_details": {
+        "reasoning_tokens": 86
+      },
+      "prompt_tokens": 284,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 637
+    }
+  },
+  "elapsed_ms": 6395,
+  "attempt_count": 1,
+  "error": null
+}

@@ -19,7 +19,7 @@ async function preparePage(viewport) {
   });
   page.on("pageerror", (error) => browserErrors.push(`pageerror: ${error.message}`));
   await page.goto(baseUrl, { waitUntil: "networkidle" });
-  await expect(page.locator("#leaderboard-body tr")).toHaveCount(21);
+  await expect(page.locator("#leaderboard-body tr")).toHaveCount(22);
   await expect(page.locator("#leader-score")).toHaveText("36.16");
   const leaderLayout = await page.locator(".leader-callout").evaluate((element) => {
     const scoreBox = element.querySelector("#leader-score").getBoundingClientRect();
@@ -48,7 +48,7 @@ try {
   await desktop.locator("#model-search").fill("claude-opus-5");
   await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
   await desktop.locator("#model-search").fill("");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(21);
+  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(22);
 
   await desktop.locator("#model-search").fill("gemini-3.1-pro");
   await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
@@ -79,7 +79,7 @@ try {
   await desktop.screenshot({ path: resolve(artifacts, "scoring.png"), fullPage: true });
 
   await desktop.locator('[data-tab="matrix"]').click();
-  await expect(desktop.locator("#matrix-body tr")).toHaveCount(21);
+  await expect(desktop.locator("#matrix-body tr")).toHaveCount(22);
   await desktop.screenshot({ path: resolve(artifacts, "matrix.png"), fullPage: true });
 
   await desktop.locator('[data-tab="leaderboard"]').click();

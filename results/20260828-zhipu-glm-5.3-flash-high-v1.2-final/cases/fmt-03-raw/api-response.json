@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型, , , 横坐标\\n    .成员 Y, 整数型, , , 纵坐标\\n    .成员 标签, 文本型, , , 坐标的标签说明\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认使用的二维坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开数据类型 坐标记录，含整数型成员 X、Y 和带说明的文本型成员 标签；新增公开全局变量 默认坐标，类型为坐标记录，带说明并保留空的数组维数槽；启动子程序保持只返回 0，不访问该全局变量成员。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，直接返回 0 退出，不访问全局变量 默认坐标 的任何成员；数据类型与全局变量的定义可通过编译检查。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/.数据类型.txt\":\".版本 2\\n\\n.数据类型 坐标记录, 公开, 二维坐标\\n    .成员 X, 整数型, , , 横坐标\\n    .成员 Y, 整数型, , , 纵坐标\\n    .成员 标签, 文本型, , , 坐标的标签说明\\n\",\"src/.全局变量.txt\":\".版本 2\\n\\n.全局变量 默认坐标, 坐标记录, 公开, , 默认使用的二维坐标\\n\",\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\"},\"explanation\":\"新增公开数据类型 坐标记录，含整数型成员 X、Y 和带说明的文本型成员 标签；新增公开全局变量 默认坐标，类型为坐标记录，带说明并保留空的数组维数槽；启动子程序保持只返回 0，不访问该全局变量成员。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，直接返回 0 退出，不访问全局变量 默认坐标 的任何成员；数据类型与全局变量的定义可通过编译检查。\"}",
+          "reasoning_content": "E-language fixed tables format. Data type file:\n\n.版本 2\n\n.数据类型 坐标记录, 公开, 二维坐标\n    .成员 X, 整数型\n    .成员 Y, 整数型\n    .成员 标签, 文本型, , , 标签说明\n\nGlobal variable file:\n\n.版本 2\n\n.全局变量 默认坐标, 坐标记录, 公开, 默认坐标说明\n\nNote \"数组维数空槽\" — global variable line with empty array slot: .全局变量 默认坐标, 坐标记录, 公开, , , 说明? Format: .全局变量 名称, 类型, 公开, 数组, 注释... Actually format: .全局变量 变量名, 类型, 公开, , 说明. In e-language, global variable line: .全局变量 名, 数据类型, 公开, , 说明? The slot is: .全局变量 名称, 类型, 是否公开, 数组维数, 备注. E.g. \".全局变量 计次数, 整数型, 公开, , 计数用\". So include empty array slot.\n\nData type member with note: \".成员 标签, 文本型, , , 坐标标签说明\". Members also might have 公开 slot? Member format: .成员 名称, 类型, 公开?, ... Standard: .成员 名称, 数据类型, , , 注释. I'll use empty slots.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893324,
+    "id": "20260828130149dec21d8b67ff4236",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130149dec21d8b67ff4236",
+    "usage": {
+      "completion_tokens": 613,
+      "completion_tokens_details": {
+        "reasoning_tokens": 308
+      },
+      "prompt_tokens": 344,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 957
+    }
+  },
+  "elapsed_ms": 14683,
+  "attempt_count": 1,
+  "error": null
+}

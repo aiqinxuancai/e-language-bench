@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n    阶乘 (6)\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n.参数 n, 整数型\\n\\n.如果 (n ≤ 1)\\n    返回 (1)\\n.否则\\n    返回 (n × 阶乘 (n - 1))\\n\"},\"explanation\":\"新增公开递归子程序 阶乘，参数 n 为整数型，返回长整数型；n 小于等于 1 时返回 1，否则返回 n 乘以 阶乘(n-1)。启动子程序中以 6 调用该子程序后返回 0。\",\"expected_behavior\":\"程序启动后调用 阶乘(6)，递归计算得到 720，随后 _启动子程序 返回 0，程序正常结束。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n    阶乘 (6)\\n    返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n.参数 n, 整数型\\n\\n.如果 (n ≤ 1)\\n    返回 (1)\\n.否则\\n    返回 (n × 阶乘 (n - 1))\\n\"},\"explanation\":\"新增公开递归子程序 阶乘，参数 n 为整数型，返回长整数型；n 小于等于 1 时返回 1，否则返回 n 乘以 阶乘(n-1)。启动子程序中以 6 调用该子程序后返回 0。\",\"expected_behavior\":\"程序启动后调用 阶乘(6)，递归计算得到 720，随后 _启动子程序 返回 0，程序正常结束。\"}",
+          "reasoning_content": "Need to write 易语言 code: recursive subroutine 阶乘, parameter n 整数型, return 长整数型, public (公开). In 易语言, public is .子程序 阶乘, 长整数型, 公开, 参数 n 为 整数型.\n\nFormat:\n\n.子程序 阶乘, 长整数型, 公开\n.参数 n, 整数型\n\n.如果 (n ≤ 1)\n    返回 (1)\n.否则\n    返回 (n × 阶乘 (n - 1))\n\n\"入口以6调用后返回0\" — the startup subroutine calls 阶乘(6) then returns 0.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893601,
+    "id": "202608281306345ec6493b3c9a446f",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "202608281306345ec6493b3c9a446f",
+    "usage": {
+      "completion_tokens": 407,
+      "completion_tokens_details": {
+        "reasoning_tokens": 142
+      },
+      "prompt_tokens": 294,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 701
+    }
+  },
+  "elapsed_ms": 6900,
+  "attempt_count": 1,
+  "error": null
+}

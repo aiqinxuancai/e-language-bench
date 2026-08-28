@@ -3,14 +3,14 @@
     "title": "易语言模型基准",
     "benchmarkVersion": "v1-compile",
     "scoringVersion": "v1.2-compile-gated",
-    "modelCount": 21,
+    "modelCount": 22,
     "samplesPerModel": 30,
     "taskCount": 15,
     "tracks": [
       "Raw",
       "Skill"
     ],
-    "latestResultAt": "2026-08-19T09:06:56.664124+00:00",
+    "latestResultAt": "2026-08-28T05:00:43.106434+00:00",
     "repositoryUrl": "https://github.com/aiqinxuancai/e-language-bench"
   },
   "summary": {
@@ -20,10 +20,10 @@
     "compileLeaderRate": 36.7,
     "skillLeader": "gpt-5.6-luna",
     "skillLeaderGain": 26.33,
-    "averageScore": 13.88,
-    "averageCompileRate": 14.13,
-    "averageEffectiveFormat": 14.13,
-    "averagePrecompileFormat": 69.79
+    "averageScore": 13.69,
+    "averageCompileRate": 13.94,
+    "averageEffectiveFormat": 13.94,
+    "averagePrecompileFormat": 70.25
   },
   "scoring": {
     "weights": [
@@ -1103,6 +1103,85 @@
     },
     {
       "rank": 14,
+      "model": "glm-5.3-flash",
+      "provider": "智谱 AI 官方 API",
+      "degraded": false,
+      "degradationNote": null,
+      "effort": "high",
+      "total": 9.66,
+      "raw": 19.33,
+      "skill": 0,
+      "effectiveFormat": 10,
+      "precompileFormat": 79.85,
+      "compileRate": 10,
+      "passAt1": 6.7,
+      "packFailures": 12,
+      "packAttempts": 30,
+      "skillGain": -19.33,
+      "runId": "20260828-zhipu-glm-5.3-flash-high-v1.2-final",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "observedModels": [
+        "glm-5.3-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 31.67,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 72.92,
+          "passAt1": 16.7
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 84.17,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 76,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 16.67,
+          "effectiveFormat": 16.67,
+          "precompileFormat": 91.83,
+          "passAt1": 16.7
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 74.33,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "compile_failed": 14,
+        "validation_failed": 6,
+        "none": 3,
+        "pack_failed": 6,
+        "packed_project_unusable": 1
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 6,
+        "semantic_method_rebuild_failed": 6
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/scorecard.json"
+    },
+    {
+      "rank": 15,
       "model": "hy3",
       "provider": null,
       "degraded": false,
@@ -1181,7 +1260,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 15,
+      "rank": 16,
       "model": "claude-sonnet-5",
       "provider": null,
       "degraded": false,
@@ -1261,7 +1340,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 16,
+      "rank": 17,
       "model": "glm-5.3",
       "provider": null,
       "degraded": false,
@@ -1340,7 +1419,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 17,
+      "rank": 18,
       "model": "grok-4.6",
       "provider": "RightAPI 中转（降智版本）",
       "degraded": true,
@@ -1417,7 +1496,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 18,
+      "rank": 19,
       "model": "mimo-v2.5",
       "provider": null,
       "degraded": false,
@@ -1496,7 +1575,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 19,
+      "rank": 20,
       "model": "doubao-seed-2.0-lite",
       "provider": null,
       "degraded": false,
@@ -1575,7 +1654,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 20,
+      "rank": 21,
       "model": "doubao-seed-2.1-turbo",
       "provider": null,
       "degraded": false,
@@ -1655,7 +1734,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 21,
+      "rank": 22,
       "model": "mimo-v2.5-pro",
       "provider": null,
       "degraded": false,

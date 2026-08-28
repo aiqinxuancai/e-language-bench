@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲值, 整数型\\n.局部变量 乙值, 整数型\\n\\n甲值 ＝ 3\\n乙值 ＝ 7\\n交换整数 (甲值, 乙值)\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 交换整数, , 公开, 交换两个整数型参考参数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，参数 甲、乙 均为整数型参考参数，通过局部变量 临时值 完成交换；入口子程序声明并赋值两个整数后调用交换整数，最后返回0。\",\"expected_behavior\":\"程序启动后声明两个整数并分别赋值 3 和 7，调用交换整数后两变量的值互换（甲值变为7，乙值变为3），子程序返回0，程序正常退出。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n.局部变量 甲值, 整数型\\n.局部变量 乙值, 整数型\\n\\n甲值 ＝ 3\\n乙值 ＝ 7\\n交换整数 (甲值, 乙值)\\n\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 交换整数, , 公开, 交换两个整数型参考参数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 ＝ 甲\\n甲 ＝ 乙\\n乙 ＝ 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，参数 甲、乙 均为整数型参考参数，通过局部变量 临时值 完成交换；入口子程序声明并赋值两个整数后调用交换整数，最后返回0。\",\"expected_behavior\":\"程序启动后声明两个整数并分别赋值 3 和 7，调用交换整数后两变量的值互换（甲值变为7，乙值变为3），子程序返回0，程序正常退出。\"}",
+          "reasoning_content": "Need to write the file with a new public subroutine 交换整数 with reference parameters. Note reference parameter syntax in易语言: 参数名, 整数型, 参考. Format: .参数 名称, 类型, 属性, 说明.\n\nThe entry subroutine: declare local variables 甲值, 乙值 integers, assign, call swap, return 0.\n\nLocal variable field: 名称, 类型, 静态属性, 数组维数, 说明.\n\nFor 参考 parameters: third field \"参考\". Public: third field of .子程序 \"公开\".",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893588,
+    "id": "20260828130618cbdb8cca084e4de3",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130618cbdb8cca084e4de3",
+    "usage": {
+      "completion_tokens": 412,
+      "completion_tokens_details": {
+        "reasoning_tokens": 112
+      },
+      "prompt_tokens": 549,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 961
+    }
+  },
+  "elapsed_ms": 9853,
+  "attempt_count": 1,
+  "error": null
+}

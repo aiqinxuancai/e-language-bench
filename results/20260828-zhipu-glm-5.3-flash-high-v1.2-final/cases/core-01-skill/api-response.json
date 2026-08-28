@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n规范用户名 (\\\"  Alice  \\\")\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转成小写\\n.参数 输入, 文本型\\n\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 规范用户名：先用删首尾空去掉参数两端空格，再用到小写转换并返回。启动子程序中调用 规范用户名（\\\"  Alice  \\\"）后返回 0。\",\"expected_behavior\":\"程序启动后调用 规范用户名（\\\"  Alice  \\\"），该子程序返回 \\\"alice\\\"，随后入口返回 0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n规范用户名 (\\\"  Alice  \\\")\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 规范用户名, 文本型, 公开, 去掉两端空格并转成小写\\n.参数 输入, 文本型\\n\\n\\n返回 (到小写 (删首尾空 (输入)))\\n\"},\"explanation\":\"新增公开子程序 规范用户名：先用删首尾空去掉参数两端空格，再用到小写转换并返回。启动子程序中调用 规范用户名（\\\"  Alice  \\\"）后返回 0。\",\"expected_behavior\":\"程序启动后调用 规范用户名（\\\"  Alice  \\\"），该子程序返回 \\\"alice\\\"，随后入口返回 0。\"}",
+          "reasoning_content": "Simple: add subroutine 规范用户名, call it in entry. Note \"入口调用 规范用户名（\"  Alice  \"）后返回0\" — so call and ignore result? Probably call then 返回(0). Actually to avoid unused warning, just call it.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893373,
+    "id": "20260828130245336173d3e6864af7",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130245336173d3e6864af7",
+    "usage": {
+      "completion_tokens": 289,
+      "completion_tokens_details": {
+        "reasoning_tokens": 60
+      },
+      "prompt_tokens": 568,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 857
+    }
+  },
+  "elapsed_ms": 8409,
+  "attempt_count": 1,
+  "error": null
+}

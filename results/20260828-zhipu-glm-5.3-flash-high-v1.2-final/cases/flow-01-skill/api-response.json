@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n评级 (95)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开, 根据分数返回评级文本\\n.参数 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (“优秀”)\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (“及格”)\\n    .否则\\n        返回 (“不及格”)\\n    .如果结束\\n.如果结束\\n\"},\"explanation\":\"新增公开子程序 评级，使用嵌套的 .如果/.否则/.如果结束 判断分数区间；入口 _启动子程序 中调用一次评级后返回0。\",\"expected_behavior\":\"分数≥90 返回“优秀”，否则分数≥60 返回“及格”，其余返回“不及格”；程序启动时调用一次评级并正常返回0。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n评级 (95)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 评级, 文本型, 公开, 根据分数返回评级文本\\n.参数 分数, 整数型\\n\\n.如果 (分数 ≥ 90)\\n    返回 (“优秀”)\\n.否则\\n    .如果 (分数 ≥ 60)\\n        返回 (“及格”)\\n    .否则\\n        返回 (“不及格”)\\n    .如果结束\\n.如果结束\\n\"},\"explanation\":\"新增公开子程序 评级，使用嵌套的 .如果/.否则/.如果结束 判断分数区间；入口 _启动子程序 中调用一次评级后返回0。\",\"expected_behavior\":\"分数≥90 返回“优秀”，否则分数≥60 返回“及格”，其余返回“不及格”；程序启动时调用一次评级并正常返回0。\"}",
+          "reasoning_content": "Need to write the file with new public subroutine 评级, text return, integer param. Use nested 如果/否则/如果结束.\n\nEntry calls it once then return 0. \"入口调用一次后返回0\" — call 评级 once in _启动子程序, perhaps assign to a local or just call. Since return value is text, we can just call 评级 (90) — but calling as statement with return value unused is fine? In e language, calling a function with return value as a statement is allowed (调用命令). Actually easier: 评级 (95) as standalone call... E language allows calling methods with return values as statements. I'll do that.\n\nNested structure:\n\n.如果 (分数 ≥ 90)\n    返回 (“优秀”)\n.否则\n    .如果 (分数 ≥ 60)\n        返回 (“及格”)\n    .否则\n        返回 (“不及格”)\n    .如果结束\n.如果结束\n\nPublic attribute: .子程序 评级, 文本型, 公开 — the公开 slot is the third field. Actually field order: 名称, 返回类型, 公开属性, 说明. So \"公开\" in third slot.",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893495,
+    "id": "202608281304443af2ca176f804c60",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "202608281304443af2ca176f804c60",
+    "usage": {
+      "completion_tokens": 492,
+      "completion_tokens_details": {
+        "reasoning_tokens": 245
+      },
+      "prompt_tokens": 577,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 1069
+    }
+  },
+  "elapsed_ms": 11128,
+  "attempt_count": 1,
+  "error": null
+}

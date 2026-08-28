@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n阶乘 (6)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n.参数 n, 整数型\\n\\n\\n.如果 (n ≤ 1)\\n    返回 (1)\\n.否则\\n    返回 (n × 阶乘 (n － 1))\\n.如果结束\\n\"},\"explanation\":\"新增公开递归子程序 阶乘，参数 n 为整数型，返回长整数型；使用 .如果/.否则/.如果结束 判断 n 是否小于等于1，递归调用自身计算 n×阶乘(n-1)。入口子程序中以 6 调用阶乘后返回 0。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，调用 阶乘(6) 递归计算得到 720，随后返回 0 作为程序退出码。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n\\n阶乘 (6)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n\\n.子程序 阶乘, 长整数型, 公开, 递归计算阶乘\\n.参数 n, 整数型\\n\\n\\n.如果 (n ≤ 1)\\n    返回 (1)\\n.否则\\n    返回 (n × 阶乘 (n － 1))\\n.如果结束\\n\"},\"explanation\":\"新增公开递归子程序 阶乘，参数 n 为整数型，返回长整数型；使用 .如果/.否则/.如果结束 判断 n 是否小于等于1，递归调用自身计算 n×阶乘(n-1)。入口子程序中以 6 调用阶乘后返回 0。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，调用 阶乘(6) 递归计算得到 720，随后返回 0 作为程序退出码。\"}",
+          "reasoning_content": "Need to add recursive 阶乘 subroutine, call it with 6 in _启动子程序 and return 0.\n\nLong integer type is 长整数型. Recursive call 阶乘(n-1) → 阶乘 (n － 1).",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893609,
+    "id": "2026082813064324d6b429886a4490",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "2026082813064324d6b429886a4490",
+    "usage": {
+      "completion_tokens": 322,
+      "completion_tokens_details": {
+        "reasoning_tokens": 53
+      },
+      "prompt_tokens": 685,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 1007
+    }
+  },
+  "elapsed_ms": 6468,
+  "attempt_count": 1,
+  "error": null
+}

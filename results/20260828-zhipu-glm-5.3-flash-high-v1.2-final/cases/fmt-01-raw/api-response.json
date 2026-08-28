@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 这是控制台程序入口，返回整数型 0 表示正常退出\\n返回 (0)\\n\"},\"explanation\":\"重写程序集1，仅保留一个合法的控制台入口 _启动子程序，返回整数型 0，并添加一行单引号说明注释，未引入任何支持库。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，返回整数型 0 后正常退出。\"}",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n' 这是控制台程序入口，返回整数型 0 表示正常退出\\n返回 (0)\\n\"},\"explanation\":\"重写程序集1，仅保留一个合法的控制台入口 _启动子程序，返回整数型 0，并添加一行单引号说明注释，未引入任何支持库。\",\"expected_behavior\":\"程序启动后执行 _启动子程序，返回整数型 0 后正常退出。\"}",
+          "reasoning_content": "E-language console entry: return integer 0 with a single-quote comment. Keep format valid. The requirement: entrance returns integer 0, single quote comment line. \"用单引号写一行说明注释\" — write one explanatory comment line with single quote. So:\n\n.版本 2\n\n.程序集 程序集1\n\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\n' 说明：控制台入口，返回整数型 0\n返回 (0)",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1787893255,
+    "id": "20260828130049ab0a7c9a7d824178",
+    "model": "glm-5.3-flash",
+    "object": "chat.completion",
+    "request_id": "20260828130049ab0a7c9a7d824178",
+    "usage": {
+      "completion_tokens": 251,
+      "completion_tokens_details": {
+        "reasoning_tokens": 110
+      },
+      "prompt_tokens": 276,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 527
+    }
+  },
+  "elapsed_ms": 6634,
+  "attempt_count": 1,
+  "error": null
+}
