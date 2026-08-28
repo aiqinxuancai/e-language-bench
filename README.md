@@ -119,7 +119,7 @@
 | grok-4.6 | `high` | **13.34** | 6.67 | 20.00 | 13.34 | 72.74 | 13.3% | 13.3% | 14/30 | +13.33 | [报告](results/20260819-xai-grok-4.6-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-xai-grok-4.6-high-v1.2-p2-r2/scorecard.json) |
 | gemini-3.7-flash | `high` | **10.00** | 6.67 | 13.33 | 10.00 | 84.20 | 10.0% | 10.0% | 8/30 | +6.66 | [报告](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/report.md) / [JSON](results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json) |
 | deepseek-v4-flash | `max` | **9.84** | 13.00 | 6.67 | 10.00 | 68.25 | 10.0% | 6.7% | 16/30 | -6.33 | [报告](results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json) |
-| glm-5.3-flash | `high` | **9.66** | 19.33 | 0.00 | 10.00 | 79.85 | 10.0% | 6.7% | 12/30 | -19.33 | [报告](results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/report.md) / [JSON](results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/scorecard.json) | 
+| glm-5.3-flash | `high` | **9.66** | 19.33 | 0.00 | 10.00 | 79.85 | 10.0% | 6.7% | 12/30 | -19.33 | [报告](results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/report.md) / [JSON](results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/scorecard.json) |
 | hy3 | `high` | **9.66** | 6.00 | 13.33 | 10.00 | 68.20 | 10.0% | 6.7% | 18/30 | +7.33 | [报告](results/20260817-tokenhub-hy3-high-v1.2-p2/report.md) / [JSON](results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json) |
 | claude-sonnet-5 | `high` | **9.50** | 6.00 | 13.00 | 10.00 | 54.87 | 10.0% | 3.3% | 20/29 | +7.00 | [报告](results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md) / [JSON](results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json) |
 | glm-5.3 | `max` | **6.67** | 6.67 | 6.67 | 6.67 | 70.47 | 6.7% | 6.7% | 15/30 | +0.00 | [报告](results/20260816-ark-glm-5.3-max-v1.1-p2/report.md) / [JSON](results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json) |
@@ -155,7 +155,6 @@
 - `doubao-seed-2.0-lite`、`doubao-seed-2.1-turbo` 和 `minimax-m3` 通过同一火山 Coding Responses 端点完成；三者按官方开关式配置发送 `thinking.type=enabled`，不宣称存在 `max` 强度档位
 - 请求 `doubao-seed-2.1-turbo` 时，服务端在全部响应中标识模型为版本化的 `doubao-seed-2-1-turbo-260628`
 - 请求 `gpt-5.6-luna` 时，服务端在全部响应中标识模型为 `gpt-5.6-terra`
-- 请求 `glm-5.2` 时，服务端标识为 `glm-5.3`
 - Claude 端点的原生 Responses 路由返回 `not implemented`，因此适配器保持统一 Responses 语义，但 wire 层显式桥接到 Anthropic Messages
 
 这些差异均在 manifest、scorecard 和报告中保留，避免把请求名或适配层协议误当成服务端实际行为。
