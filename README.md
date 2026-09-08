@@ -97,7 +97,7 @@
 
 ## 🏆 当前跑分
 
-**测试日期**：2026-08-15 至 2026-08-28<br>
+**测试日期**：2026-08-15 至 2026-09-08<br>
 **数据集版本**：`v1-compile`<br>
 **评分规则版本**：`v1.2-compile-gated`<br>
 **样本数**：30（每组）；本次 `glm-5.3-flash` 使用并发数：1
@@ -112,6 +112,7 @@
 | deepseek-v4-pro | `max` | **22.66** | 19.33 | 26.00 | 23.33 | 74.93 | 23.3% | 13.3% | 13/30 | +6.67 | [报告](results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md) / [JSON](results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json) |
 | gpt-5.6-luna | `max` | **19.84** | 6.67 | 33.00 | 20.00 | 65.73 | 20.0% | 16.7% | 16/28 | +26.33 | [报告](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md) / [JSON](results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json) |
 | claude-opus-5 | `max` | **19.83** | 13.33 | 26.33 | 20.00 | 65.40 | 20.0% | 16.7% | 7/24 | +13.00 | [报告](results/20260816-right-claude-opus-5-max-v1.2-p2/report.md) / [JSON](results/20260816-right-claude-opus-5-max-v1.2-p2/scorecard.json) |
+| deepseek-v4.1-flash-expires-on-0910 | `max` | **16.66** | 20.00 | 13.33 | 16.67 | 72.53 | 16.7% | 16.7% | 16/30 | -6.67 | [报告](results/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/report.md) / [JSON](results/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/scorecard.json) |
 | gemini-3.1-pro | `high` | **16.50** | 19.67 | 13.33 | 16.67 | 92.20 | 16.7% | 13.3% | 2/29 | -6.34 | [报告](results/20260819-right-gemini-3.1-pro-high-v1.2-p2/report.md) / [JSON](results/20260819-right-gemini-3.1-pro-high-v1.2-p2/scorecard.json) |
 | minimax-m3 | `enabled` | **16.33** | 19.33 | 13.33 | 16.67 | 70.33 | 16.7% | 10.0% | 16/30 | -6.00 | [报告](results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md) / [JSON](results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json) |
 | glm-5.2 | `max` | **16.00** | 19.00 | 13.00 | 16.67 | 74.30 | 16.7% | 6.7% | 13/30 | -6.00 | [报告](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md) / [JSON](results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json) |
@@ -142,6 +143,7 @@
 
 ### 供应商行为说明
 
+- `deepseek-v4.1-flash-expires-on-0910` 通过 DeepSeek 官方 `https://api.deepseek.com` 的 OpenAI Responses 端点完成，按 `reasoning_effort=max` 运行；30 次响应的服务端模型标识均与请求模型一致。该批次使用 e-packager Release `v1.1.3`。
 - `gemini-3.1-pro`、`gemini-3.5-flash`、`gemini-3.6-flash` 和 `gemini-3.7-flash` 通过 RightAPI `https://www.rightapi.ai/gemini/v1/responses` 完成，按 `reasoning.effort=high` 运行；四组各 30 次响应的服务端模型标识均与请求模型一致，且每次响应均报告非零 reasoning token
 - `grok-4.6` 官方成绩通过 xAI 官方 `https://api.x.ai/v1/responses` 完成，使用 `reasoning.effort=high` 和 SSE 流式传输；30 次响应的服务端模型标识均为 `grok-4.6`，每次均报告非零 reasoning token。该批次平均响应耗时约 81.82 秒，reasoning token 平均 4,166.9
 - 旧的 `grok-4.6（降智）` 成绩来自 RightAPI 中转站，不代表 xAI 官方模型能力；旧批次保留用于历史对照，manifest、scorecard、报告和 Web 均标记为“降智”
@@ -173,8 +175,11 @@ Grok 的 `repair-03/skill` 首轮请求经历 3 次 HTTP 504；按供应商 `ret
 |------|------------|----------------|----------------|
 | 2026-08-15 至 2026-08-17 | `09d7f1e291d2…` | `57cc17e7584f…` | `cba2e177c86d…` |
 | 2026-08-19 Gemini 3.1 Pro、3.5/3.6/3.7 Flash | `09d7f1e291d2…` | `309534632abe…` | `309824c0714e…` |
+| 2026-09-08 DeepSeek v4.1 Flash | `f6c01ef725ab…` | `0af273394b34…` | `83117ef182af…` |
 
 2026-08-19 Gemini 批次使用了更新后的 AutoLinker 工具链和依赖仓库版本，因此与此前结果并非严格的模型单变量对照；榜单保留结果，但跨批次比较时应同时核对 manifest。
+
+2026-09-08 DeepSeek v4.1 Flash 批次使用 e-packager Release `v1.1.3`（e-packager commit `614ac9de…`）重新编译的 Win32 Release 二进制；其 e-packager、AutoLinker 和支持库指纹与历史批次不同，跨批次比较时应以对应 manifest 为准。
 
 不同 `.e` 工程已验证可并发编译，每个 case 使用独立 candidate、EXE、结果 JSON 和编译临时目录。
 
@@ -187,7 +192,7 @@ Grok 的 `repair-03/skill` 首轮请求经历 3 次 HTTP 504；按供应商 `ret
 默认配置位于 `bench.json`，需要以下本地依赖：
 
 ```
-D:\git\e-packager\bin\Win32\Release\e-packager.exe
+D:\git\e-packager\bin\Win32\Release\e-packager.exe (Release v1.1.3)
 D:\git\e-packager\eproj
 D:\git\AutoLinker\bin\fne_release\AutoLinkerTest.exe
 C:\Users\aiqin\OneDrive\e5.6\lib\AutoLinker.fne

@@ -1,0 +1,79 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n标准输出 (1, “HELLO”)\\n安全除法 (10, 2, 结果变量)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 安全除法, 逻辑型, 公开\\n.参数 被除数, 整数型\\n.参数 除数, 整数型\\n.参数 结果, 整数型, 参考\\n\\n.如果真 (除数 ＝ 0)\\n    结果 ＝ 0\\n    返回 (假)\\n.如果真结束\\n\\n结果 ＝ 被除数 ÷ 除数\\n返回 (真)\\n\"},\"explanation\":\"新增公开子程序“安全除法”，参数（被除数、除数、结果参考）全部位于局部变量与语句之前；用“如果真”块处理除数为0的分支并正确闭合，否则执行整数除法并返回真。入口 _启动子程序 中调用一次该子程序。\",\"expected_behavior\":\"启动后先输出 HELLO，然后以 10 和 2 调用安全除法：除数不为 0，结果变量被置为 5（整数除法），子程序返回真；若除数为 0，则结果置 0 并返回假。\"}",
+  "raw": {
+    "id": "a6040336-87f7-43dd-b398-227f3ab3bf44",
+    "object": "response",
+    "created_at": 1788855554,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1788855555,
+    "content_filters": null,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "deepseek-v4.1-flash-expires-on-0910",
+    "moderation": null,
+    "output": [
+      {
+        "type": "message",
+        "id": "c4abb900-e941-4895-b5ae-2a53a78fc82b",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n标准输出 (1, “HELLO”)\\n安全除法 (10, 2, 结果变量)\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 安全除法, 逻辑型, 公开\\n.参数 被除数, 整数型\\n.参数 除数, 整数型\\n.参数 结果, 整数型, 参考\\n\\n.如果真 (除数 ＝ 0)\\n    结果 ＝ 0\\n    返回 (假)\\n.如果真结束\\n\\n结果 ＝ 被除数 ÷ 除数\\n返回 (真)\\n\"},\"explanation\":\"新增公开子程序“安全除法”，参数（被除数、除数、结果参考）全部位于局部变量与语句之前；用“如果真”块处理除数为0的分支并正确闭合，否则执行整数除法并返回真。入口 _启动子程序 中调用一次该子程序。\",\"expected_behavior\":\"启动后先输出 HELLO，然后以 10 和 2 调用安全除法：除数不为 0，结果变量被置为 5（整数除法），子程序返回真；若除数为 0，则结果置 0 并返回假。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": null,
+    "reasoning": {
+      "effort": "max",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": null
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1.0,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 337,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 311,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 648
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 1279,
+  "attempt_count": 1,
+  "error": null
+}

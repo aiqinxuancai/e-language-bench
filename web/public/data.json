@@ -3,14 +3,14 @@
     "title": "易语言模型基准",
     "benchmarkVersion": "v1-compile",
     "scoringVersion": "v1.2-compile-gated",
-    "modelCount": 22,
+    "modelCount": 23,
     "samplesPerModel": 30,
     "taskCount": 15,
     "tracks": [
       "Raw",
       "Skill"
     ],
-    "latestResultAt": "2026-08-28T05:00:43.106434+00:00",
+    "latestResultAt": "2026-09-08T08:37:10.572452+00:00",
     "repositoryUrl": "https://github.com/aiqinxuancai/e-language-bench"
   },
   "summary": {
@@ -20,10 +20,10 @@
     "compileLeaderRate": 36.7,
     "skillLeader": "gpt-5.6-luna",
     "skillLeaderGain": 26.33,
-    "averageScore": 13.69,
-    "averageCompileRate": 13.94,
-    "averageEffectiveFormat": 13.94,
-    "averagePrecompileFormat": 70.25
+    "averageScore": 13.82,
+    "averageCompileRate": 14.06,
+    "averageEffectiveFormat": 14.06,
+    "averagePrecompileFormat": 70.35
   },
   "scoring": {
     "weights": [
@@ -548,6 +548,87 @@
     },
     {
       "rank": 7,
+      "model": "deepseek-v4.1-flash-expires-on-0910",
+      "provider": null,
+      "degraded": false,
+      "degradationNote": null,
+      "effort": "max",
+      "total": 16.66,
+      "raw": 20,
+      "skill": 13.33,
+      "effectiveFormat": 16.67,
+      "precompileFormat": 72.53,
+      "compileRate": 16.7,
+      "passAt1": 16.7,
+      "packFailures": 16,
+      "packAttempts": 30,
+      "skillGain": -6.67,
+      "runId": "20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113",
+      "protocol": "openai_responses",
+      "wireProtocol": "openai_responses",
+      "observedModels": [
+        "deepseek-v4.1-flash-expires-on-0910"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 33.33,
+          "effectiveFormat": 33.33,
+          "precompileFormat": 72,
+          "passAt1": 33.3
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 76.67,
+          "passAt1": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 59.5,
+          "passAt1": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 50,
+          "effectiveFormat": 50,
+          "precompileFormat": 85,
+          "passAt1": 50
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0,
+          "effectiveFormat": 0,
+          "precompileFormat": 69.5,
+          "passAt1": 0
+        }
+      ],
+      "capReasons": {
+        "pack_failed": 8,
+        "none": 5,
+        "compile_failed": 7,
+        "validation_failed": 8,
+        "packed_project_unusable": 2
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 6,
+        "source_preflight_failed": 8,
+        "other": 1,
+        "function_not_found": 1
+      },
+      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/report.md",
+      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/scorecard.json"
+    },
+    {
+      "rank": 8,
       "model": "gemini-3.1-pro",
       "provider": null,
       "degraded": false,
@@ -626,7 +707,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.1-pro-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "model": "minimax-m3",
       "provider": null,
       "degraded": false,
@@ -707,7 +788,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "model": "glm-5.2",
       "provider": null,
       "degraded": false,
@@ -786,7 +867,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 10,
+      "rank": 11,
       "model": "gemini-3.5-flash",
       "provider": null,
       "degraded": false,
@@ -865,7 +946,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.5-flash-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 11,
+      "rank": 12,
       "model": "grok-4.6",
       "provider": "xAI 官方 API",
       "degraded": false,
@@ -944,7 +1025,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-xai-grok-4.6-high-v1.2-p2-r2/scorecard.json"
     },
     {
-      "rank": 12,
+      "rank": 13,
       "model": "gemini-3.7-flash",
       "provider": null,
       "degraded": false,
@@ -1023,7 +1104,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json"
     },
     {
-      "rank": 13,
+      "rank": 14,
       "model": "deepseek-v4-flash",
       "provider": null,
       "degraded": false,
@@ -1102,7 +1183,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 14,
+      "rank": 15,
       "model": "glm-5.3-flash",
       "provider": "智谱 AI 官方 API",
       "degraded": false,
@@ -1181,7 +1262,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/scorecard.json"
     },
     {
-      "rank": 15,
+      "rank": 16,
       "model": "hy3",
       "provider": null,
       "degraded": false,
@@ -1260,7 +1341,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 16,
+      "rank": 17,
       "model": "claude-sonnet-5",
       "provider": null,
       "degraded": false,
@@ -1340,7 +1421,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 17,
+      "rank": 18,
       "model": "glm-5.3",
       "provider": null,
       "degraded": false,
@@ -1419,7 +1500,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 18,
+      "rank": 19,
       "model": "grok-4.6",
       "provider": "RightAPI 中转（降智版本）",
       "degraded": true,
@@ -1496,7 +1577,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 19,
+      "rank": 20,
       "model": "mimo-v2.5",
       "provider": null,
       "degraded": false,
@@ -1575,7 +1656,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json"
     },
     {
-      "rank": 20,
+      "rank": 21,
       "model": "doubao-seed-2.0-lite",
       "provider": null,
       "degraded": false,
@@ -1654,7 +1735,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 21,
+      "rank": 22,
       "model": "doubao-seed-2.1-turbo",
       "provider": null,
       "degraded": false,
@@ -1734,7 +1815,7 @@
       "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json"
     },
     {
-      "rank": 22,
+      "rank": 23,
       "model": "mimo-v2.5-pro",
       "provider": null,
       "degraded": false,

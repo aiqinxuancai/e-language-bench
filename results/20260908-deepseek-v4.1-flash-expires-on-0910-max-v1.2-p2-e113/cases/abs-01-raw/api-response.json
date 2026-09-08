@@ -1,0 +1,79 @@
+{
+  "ok": true,
+  "status": 200,
+  "content": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n.局部变量 整数甲, 整数型\\n.局部变量 整数乙, 整数型\\n\\n整数甲 = 10\\n整数乙 = 20\\n\\n交换整数 (整数甲, 整数乙)\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，参数 甲、乙 为整数型参考参数，使用局部整数变量 临时值 进行交换；在 _启动子程序 中声明两个整数变量并赋值后调用该子程序，最后返回 0。\",\"expected_behavior\":\"启动程序后，整数甲 与 整数乙 的值被交换（10 与 20 互换），_启动子程序 返回 0。\"}",
+  "raw": {
+    "id": "ebee8794-27f3-4dda-87c2-4f3d4db1c8b9",
+    "object": "response",
+    "created_at": 1788856933,
+    "status": "completed",
+    "background": false,
+    "completed_at": 1788856934,
+    "content_filters": null,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "incomplete_details": null,
+    "instructions": "你正在参加易语言代码生成基准测试。请独立完成用户任务。\n输出必须严格遵守用户给出的 JSON 契约。不要使用 Markdown 代码围栏，不要输出 JSON 之外的文字。\n不要把 C、C++、C#、JavaScript 或 Python 语法混入易语言源码。",
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "model": "deepseek-v4.1-flash-expires-on-0910",
+    "moderation": null,
+    "output": [
+      {
+        "type": "message",
+        "id": "e50475e1-03d2-484e-bb3c-3d263953d2a5",
+        "status": "completed",
+        "content": [
+          {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"files\":{\"src/程序集1.txt\":\".版本 2\\n\\n.程序集 程序集1\\n\\n.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行\\n\\n.局部变量 整数甲, 整数型\\n.局部变量 整数乙, 整数型\\n\\n整数甲 = 10\\n整数乙 = 20\\n\\n交换整数 (整数甲, 整数乙)\\n\\n返回 (0)  ' 可以根据您的需要返回任意数值\\n\\n.子程序 交换整数, , 公开, 交换两个整数参考参数的值\\n.参数 甲, 整数型, 参考\\n.参数 乙, 整数型, 参考\\n.局部变量 临时值, 整数型\\n\\n临时值 = 甲\\n甲 = 乙\\n乙 = 临时值\\n\"},\"explanation\":\"新增公开子程序 交换整数，参数 甲、乙 为整数型参考参数，使用局部整数变量 临时值 进行交换；在 _启动子程序 中声明两个整数变量并赋值后调用该子程序，最后返回 0。\",\"expected_behavior\":\"启动程序后，整数甲 与 整数乙 的值被交换（10 与 20 互换），_启动子程序 返回 0。\"}"
+          }
+        ],
+        "phase": "final_answer",
+        "role": "assistant"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "prompt_cache_retention": null,
+    "reasoning": {
+      "effort": "max",
+      "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "store": false,
+    "temperature": 1.0,
+    "text": {
+      "format": {
+        "type": "text"
+      },
+      "verbosity": null
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 1.0,
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 298,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 285,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 583
+    },
+    "user": null,
+    "metadata": {}
+  },
+  "elapsed_ms": 1089,
+  "attempt_count": 1,
+  "error": null
+}
