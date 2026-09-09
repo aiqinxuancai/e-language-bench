@@ -92,7 +92,7 @@ const escapeHtml = (value) =>
     .replaceAll("'", "&#039;");
 
 const score = (value) => Number(value).toFixed(2);
-const percentage = (value) => `${Number(value).toFixed(1)}%`;
+const percentage = (value) => `${(Number(value) * 100).toFixed(1)}%`;
 const clamp = (value) => Math.max(0, Math.min(100, Number(value)));
 
 function refreshIcons() {
