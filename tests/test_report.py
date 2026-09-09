@@ -13,6 +13,23 @@ from elang_bench.scoring import SCORING_VERSION
 
 
 class ReportTests(unittest.TestCase):
+    def test_raw_total_requires_twenty_unique_tasks(self):
+        manifest = {"benchmark_version": "v2-compile", "run_id": "raw-test", "model": "model", "reasoning_effort": "high"}
+        records = [{
+            "task_id": f"task-{index}", "track": "raw", "category": "format",
+            "response": {"ok": True}, "state": {"compile_ok": True, "pack_ok": True},
+            "score": {"total_score": index, "format_score": 100, "passed": True},
+        } for index in range(20)]
+        result = summarize(records, manifest)
+        self.assertEqual(result["run_status"], "complete")
+        self.assertEqual(result["total_score"], 9.5)
+        self.assertEqual(result["expected_records"], 20)
+        self.assertNotIn("skill_gain", result)
+        self.assertIsNone(summarize(records[:-1], manifest)["total_score"])
+        self.assertIsNone(summarize(records[:-1] + [records[0]], manifest)["total_score"])
+        with self.assertRaisesRegex(ValueError, "Only raw records"):
+            summarize(records + [{**records[0], "track": "skill"}], manifest)
+
     def test_api_failure_is_not_counted_as_model_score(self):
         manifest = {
             "benchmark_version": "v2-compile",
@@ -77,7 +94,7 @@ class ReportTests(unittest.TestCase):
             pack_ok=True,
             reunpack_ok=True,
             compare_ok=True,
-            ide_open_ok=True,
+            compile_tool_ok=True,
             compile_ok=False,
             semantic_earned=20,
             semantic_total=20,

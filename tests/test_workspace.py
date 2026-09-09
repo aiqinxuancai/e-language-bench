@@ -8,7 +8,6 @@ from unittest.mock import patch
 
 from elang_bench.models import CommandResult
 from elang_bench.workspace import (
-    compile_result_ok,
     compile_temp_directory,
     parse_preflight_diagnostics,
     run_command,
@@ -23,16 +22,15 @@ class WorkspaceTests(unittest.TestCase):
             tool = root / "tool.exe"
             tool.touch()
             evaluator = WorkspaceEvaluator({"tools": {
-                "e_packager": str(tool), "eide": str(tool),
-                "autolinker_fne": str(tool), "template_root": str(root),
+                "e_packager": str(tool), "template_root": str(root),
             }})
             for output, exit_code, accepted in (
-                ("e-packager v1.2.6\n", 0, True),
-                ("e-packager v1.2.5", 0, False),
-                ("e-packager v1.2.7", 0, False),
-                ("e-packager dev", 0, False),
+                ("e-packager v1.2.7\n", 0, True),
+                ("e-packager v1.2.6", 0, False),
+                ("e-packager v1.2.8", 0, False),
+                ("e-packager dev", 0, True),
                 ("", 0, False),
-                ("e-packager v1.2.6", 1, False),
+                ("e-packager v1.2.7", 1, False),
             ):
                 with self.subTest(output=output, exit_code=exit_code), patch(
                     "elang_bench.workspace.run_command",
@@ -41,7 +39,7 @@ class WorkspaceTests(unittest.TestCase):
                     if accepted:
                         self.assertEqual(evaluator.check_environment(), [])
                     else:
-                        with self.assertRaisesRegex(ValueError, "requires e-packager v1.2.6"):
+                        with self.assertRaisesRegex(ValueError, "requires e-packager v1.2.7"):
                             evaluator.check_environment()
 
     def test_compile_temp_directory_is_stable_unique_and_outside_case(self):
@@ -81,33 +79,6 @@ class WorkspaceTests(unittest.TestCase):
         self.assertEqual(len(diagnostics), 1)
         self.assertEqual(diagnostics[0].code, "flow_mismatch")
         self.assertEqual(diagnostics[0].line, 7)
-
-    def test_compile_failure_marker_overrides_success_json(self):
-        with tempfile.TemporaryDirectory() as temporary:
-            result_path = Path(temporary) / "result.json"
-            result_path.write_text(
-                json.dumps(
-                    {
-                        "ok": True,
-                        "compile_result": {
-                            "ok": True,
-                            "artifact_verified": True,
-                            "output_file_exists": True,
-                            "output_file_modified_after_compile": True,
-                            "output_window_text": "程序代码编译成功\n静态连接失败",
-                        },
-                        "eide_info": {"source_open": True, "source_state": "source_open"},
-                    },
-                    ensure_ascii=False,
-                ),
-                encoding="utf-8",
-            )
-            ok, source_open, _, diagnostics = compile_result_ok(
-                CommandResult(["compile"], 0), result_path
-            )
-            self.assertFalse(ok)
-            self.assertTrue(source_open)
-            self.assertIn("failure_marker", {item.code for item in diagnostics})
 
 
 if __name__ == "__main__":

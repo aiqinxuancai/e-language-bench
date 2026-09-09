@@ -23,7 +23,6 @@ class Task:
     template: str
     prompt: str
     allowed_files: tuple[str, ...]
-    skill_sections: tuple[str, ...]
     checks: tuple[Check, ...]
 
     @classmethod
@@ -35,7 +34,6 @@ class Task:
             template=data.get("template", "e-console-exe-new-proj.e"),
             prompt=data["prompt"],
             allowed_files=tuple(data["allowed_files"]),
-            skill_sections=tuple(data.get("skill_sections", [])),
             checks=tuple(Check(**item) for item in data.get("checks", [])),
         )
 
@@ -85,7 +83,7 @@ class StageState:
     pack_ok: bool = False
     reunpack_ok: bool = False
     compare_ok: bool = False
-    ide_open_ok: bool = False
+    compile_tool_ok: bool = False
     compile_ok: bool = False
     semantic_earned: int = 0
     semantic_total: int = 0

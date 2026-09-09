@@ -2,7 +2,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   Ban,
-  BookOpenCheck,
   ChevronRight,
   CloudOff,
   ExternalLink,
@@ -24,7 +23,6 @@ const iconSet = {
   ArrowRight,
   ArrowUpRight,
   Ban,
-  BookOpenCheck,
   ChevronRight,
   CloudOff,
   ExternalLink,
@@ -95,7 +93,6 @@ const escapeHtml = (value) =>
 
 const score = (value) => Number(value).toFixed(2);
 const percentage = (value) => `${Number(value).toFixed(1)}%`;
-const signed = (value) => `${value >= 0 ? "+" : ""}${Number(value).toFixed(2)}`;
 const clamp = (value) => Math.max(0, Math.min(100, Number(value)));
 
 function refreshIcons() {
@@ -108,7 +105,7 @@ function renderSummary() {
   if (!state.data.models.length) {
     elements.leaderScore.textContent = "--";
     elements.leaderName.textContent = "等待 V2 首批成绩";
-    elements.resultDate.textContent = "0 个模型 · 15 题 × Raw / Skill";
+    elements.resultDate.textContent = "0 个模型 · 20 题 · Raw";
     return;
   }
   elements.leaderScore.textContent = score(summary.leaderScore);
@@ -126,9 +123,6 @@ function sortedModels() {
     `${model.model} ${model.effort} ${model.provider ?? ""} ${model.degraded ? "降智" : ""}`.toLocaleLowerCase("zh-CN").includes(query),
   );
   return filtered.sort((a, b) => {
-    if (state.sort === "skillGain") {
-      return b.skillGain - a.skillGain || b.total - a.total;
-    }
     return b[state.sort] - a[state.sort] || b.total - a.total || a.rank - b.rank;
   });
 }
@@ -141,7 +135,6 @@ function renderLeaderboard() {
   elements.leaderboardBody.hidden = models.length === 0;
   elements.leaderboardBody.innerHTML = models
     .map((model, index) => {
-      const deltaClass = model.skillGain > 0 ? "positive" : model.skillGain < 0 ? "negative" : "neutral";
       const rankClass = index < 3 && state.sort === "total" ? ` top-${index + 1}` : "";
       return `
         <tr data-run-id="${escapeHtml(model.runId)}">
@@ -157,11 +150,6 @@ function renderLeaderboard() {
           <td class="number-cell score-cell">
             <strong>${score(model.total)}</strong>
             <span class="micro-bar"><i style="width:${clamp(model.total)}%"></i></span>
-          </td>
-          <td class="number-cell optional-column">${score(model.raw)}</td>
-          <td class="number-cell optional-column">
-            ${score(model.skill)}
-            <small class="delta ${deltaClass}">${signed(model.skillGain)}</small>
           </td>
           <td class="number-cell format-cell">${score(model.effectiveFormat)}</td>
           <td class="number-cell optional-column mobile-keep">${percentage(model.compileRate)}</td>
@@ -270,7 +258,7 @@ function failureList(reasons, labels) {
       ([key, count]) => `
         <div class="failure-row">
           <span>${escapeHtml(labels[key] ?? key)}</span>
-          <span class="failure-track"><i style="width:${clamp((count / 30) * 100)}%"></i></span>
+          <span class="failure-track"><i style="width:${clamp((count / state.data.meta.samplesPerModel) * 100)}%"></i></span>
           <strong>${count}</strong>
         </div>`,
     )
@@ -293,14 +281,6 @@ function openModel(runId) {
     </section>
 
     <section class="detail-section">
-      <div class="subsection-heading"><h3>Raw / Skill</h3><p>Skill 增益 <strong class="${model.skillGain >= 0 ? "positive" : "negative"}">${signed(model.skillGain)}</strong></p></div>
-      <div class="track-comparison">
-        <div><span>Raw</span><i><b style="width:${clamp(model.raw)}%"></b></i><strong>${score(model.raw)}</strong></div>
-        <div><span>Skill</span><i><b style="width:${clamp(model.skill)}%"></b></i><strong>${score(model.skill)}</strong></div>
-      </div>
-    </section>
-
-    <section class="detail-section">
       <div class="subsection-heading"><h3>五类能力</h3><p>编译门槛后的实际得分</p></div>
       <div class="category-bars">
         ${model.categories
@@ -314,7 +294,7 @@ function openModel(runId) {
 
     <section class="detail-section two-column-detail">
       <div>
-        <div class="subsection-heading"><h3>硬门槛状态</h3><p>30 个样本</p></div>
+        <div class="subsection-heading"><h3>硬门槛状态</h3><p>${state.data.meta.samplesPerModel} 个样本</p></div>
         <div class="failure-list">${failureList(model.capReasons, capReasonLabels)}</div>
       </div>
       <div>
@@ -377,8 +357,11 @@ async function initialize() {
     const response = await fetch(`/data.json?ts=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.data = await response.json();
-    if (state.data.meta.benchmarkVersion !== "v2-compile" || state.data.meta.ePackagerVersion !== "1.2.6") {
-      throw new Error("基准数据版本不匹配，需要 V2 / e-packager 1.2.6");
+    if (JSON.stringify(state.data.meta.tracks) !== '["Raw"]' || state.data.meta.samplesPerModel !== 20) {
+      throw new Error("V2 仅接受 20 个 Raw 样本");
+    }
+    if (state.data.meta.benchmarkVersion !== "v2-compile" || state.data.meta.ePackagerVersion !== "1.2.7") {
+      throw new Error("基准数据版本不匹配，需要 V2 / e-packager 1.2.7");
     }
     renderSummary();
     renderLeaderboard();
@@ -392,7 +375,7 @@ async function initialize() {
     setTab(initialTab);
     refreshIcons();
   } catch (error) {
-    elements.leaderboardBody.innerHTML = `<tr class="loading-row error-row"><td colspan="9">评分数据加载失败：${escapeHtml(error.message)}</td></tr>`;
+    elements.leaderboardBody.innerHTML = `<tr class="loading-row error-row"><td colspan="7">评分数据加载失败：${escapeHtml(error.message)}</td></tr>`;
     console.error(error);
   }
 }

@@ -14,8 +14,9 @@ try {
     page.on("pageerror", error => errors.push(error.message));
     page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
     await page.goto(baseUrl, { waitUntil: "networkidle" });
-    await expect(page.locator("#version-label")).toHaveText("V2 · e-packager 1.2.6");
+    await expect(page.locator("#version-label")).toHaveText("V2 · e-packager 1.2.7");
     await expect(page.locator("#leaderboard-body tr")).toHaveCount(data.models.length);
+    await expect(page.locator('[data-sort="skillGain"]')).toHaveCount(0);
     if (!data.models.length) {
       await expect(page.locator("#leader-score")).toHaveText("--");
       await expect(page.locator("#empty-state")).toContainText("V2 暂无已发布成绩");
@@ -34,9 +35,9 @@ try {
   const page = await browser.newPage();
   const models = ["Fixture Alpha", "Fixture Beta"].map((model, index) => ({
     model, rank: index + 1, runId: `fixture-${index}`, effort: "high", total: 80 - index * 10,
-    raw: 70, skill: 80, skillGain: 10 + index, effectiveFormat: 80, precompileFormat: 90,
-    compileRate: 80, passAt1: 70, categories: data.categories.map(c => ({ ...c, score: 80 })),
-    capReasons: {}, packFailureReasons: {}, packFailures: 0, packAttempts: 30,
+    effectiveFormat: 80, precompileFormat: 90,
+    compileRate: 80 + index, passAt1: 70, categories: data.categories.map(c => ({ ...c, score: 80 })),
+    capReasons: {}, packFailureReasons: {}, packFailures: 0, packAttempts: 15,
     protocol: "openai_responses", wireProtocol: "openai_responses", observedModels: [], reportUrl: "#",
   }));
   await page.route("**/data.json?*", route => route.fulfill({ json: {
@@ -46,13 +47,15 @@ try {
   page.on("pageerror", error => errors.push(error.message));
   await page.goto(baseUrl);
   await expect(page.locator("#leaderboard-body tr")).toHaveCount(2);
-  await page.locator('[data-sort="skillGain"]').click();
+  await page.locator('[data-sort="compileRate"]').click();
   await expect(page.locator(".model-button").first()).toContainText("Fixture Beta");
   await page.locator("#model-search").fill("Alpha");
   await expect(page.locator("#leaderboard-body tr")).toHaveCount(1);
   await page.locator(".model-button").click();
   await expect(page.locator("#model-dialog")).toBeVisible();
   await expect(page.locator("#dialog-title")).toHaveText("Fixture Alpha");
+  await expect(page.locator("#dialog-body")).not.toContainText("Skill");
+    await expect(page.locator("#dialog-body")).toContainText("20 个样本");
   await page.locator("#dialog-close").click();
   await page.locator("#model-search").fill("no-match");
   await expect(page.locator("#empty-state")).toContainText("没有匹配的模型");

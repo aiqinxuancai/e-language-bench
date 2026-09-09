@@ -28,6 +28,8 @@ def _pack_counts(record: dict[str, Any]) -> tuple[int, int]:
 
 
 def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[str, Any]:
+    if any(item.get("track") != "raw" for item in records):
+        raise ValueError("Only raw records can be included in this benchmark report")
     valid = [
         item
         for item in records
@@ -72,9 +74,8 @@ def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[s
             "count": len(items),
         }
     raw_score = track_scores.get("raw", {}).get("score", 0.0)
-    skill_score = track_scores.get("skill", {}).get("score", 0.0)
-    complete = len(valid) == 30 and all(track in track_scores for track in ("raw", "skill"))
-    total_score = round((raw_score + skill_score) / 2.0, 2) if complete else None
+    complete = len(valid) == len(records) == 20 and len({item["task_id"] for item in valid}) == 20
+    total_score = raw_score if complete else None
 
     category_scores = {
         category: {
@@ -136,11 +137,6 @@ def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[s
         "run_status": "complete" if complete else ("blocked_api" if infrastructure_failures else "incomplete"),
         "total_score": total_score,
         "track_scores": track_scores,
-        "skill_gain": (
-            round(skill_score - raw_score, 2)
-            if all(track in track_scores for track in ("raw", "skill"))
-            else None
-        ),
         "category_scores": category_scores,
         "cap_reason_counts": dict(cap_reasons),
         "pack_failure_reason_counts": dict(pack_failure_reasons),
@@ -148,7 +144,7 @@ def summarize(records: list[dict[str, Any]], manifest: dict[str, Any]) -> dict[s
         "pack_failure_count": pack_failure_count,
         "pack_failure_precompile_deduction": 15.0 * pack_failure_count,
         "completed_records": len(valid),
-        "expected_records": 30,
+        "expected_records": 20,
         "infrastructure_failures": infrastructure_failures,
     }
 
@@ -190,7 +186,7 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
         "| 轨道 | 得分 | 有效格式 | 预编译结构 | 回包失败/尝试 | 编译率 | pass@1 |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
-    for track in ("raw", "skill"):
+    for track in ("raw",):
         data = scorecard["track_scores"].get(track, {})
         if data:
             lines.append(
@@ -201,13 +197,8 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
             )
         else:
             lines.append(f"| {track} | N/A | N/A | N/A | N/A | N/A | N/A |")
-    skill_gain = (
-        f"{scorecard['skill_gain']:+.2f}" if scorecard["skill_gain"] is not None else "N/A"
-    )
     lines.extend(
         [
-            "",
-            f"Skill 增益：**{skill_gain}**",
             "",
             "## 能力分项",
             "",
@@ -276,7 +267,7 @@ def render_markdown(scorecard: dict[str, Any], records: list[dict[str, Any]]) ->
             "## 说明",
             "",
             "本机 Defender 阻止新编译的易语言 EXE 启动，因此本报告不包含运行断言。"
-            "预编译结构分覆盖严格响应、声明与流程格式、回包、再次解包、一致性比较和 IDE 打开。"
+            "预编译结构分覆盖严格响应、声明与流程格式、回包和再次解包一致性比较。"
             "源码只有通过真实编译后才能获得有效格式分、语义分和总分。",
             "",
         ]

@@ -54,8 +54,8 @@ def load_tasks(path: Path) -> list[Task]:
         raise ValueError(f"unsupported dataset version: {data.get('version')}")
     tasks = [Task.from_dict(item) for item in data["tasks"]]
     ids = [task.id for task in tasks]
-    if len(tasks) != 15 or len(ids) != len(set(ids)):
-        raise ValueError("v2-compile must contain exactly 15 uniquely identified tasks")
+    if len(tasks) != 20 or len(ids) != len(set(ids)):
+        raise ValueError("v2-compile must contain exactly 20 uniquely identified tasks")
     return tasks
 
 
@@ -82,14 +82,7 @@ def build_manifest(
     parallel_workers: int,
 ) -> dict[str, Any]:
     tools = config["tools"]
-    eide = Path(tools["eide"])
-    hash_paths = {
-        "e_packager": Path(tools["e_packager"]),
-        "autolinker_fne": Path(
-            tools.get("autolinker_fne", eide.parent / "lib" / "AutoLinker.fne")
-        ),
-        "eide": eide,
-    }
+    hash_paths = {"e_packager": Path(tools["e_packager"])}
     template_root = Path(tools["template_root"])
     tool_hashes = {
         name: sha256_file(path) for name, path in hash_paths.items() if path.is_file()
@@ -100,7 +93,8 @@ def build_manifest(
     return {
         "run_id": run_id,
         "benchmark_version": config["benchmark_version"],
-        "e_packager_version": "1.2.6",
+        "e_packager_version": "1.2.7",
+        "tracks": ["raw"],
         "scoring_version": SCORING_VERSION,
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "model": config["model"],
@@ -122,16 +116,14 @@ def build_manifest(
         "tool_paths": {name: str(path) for name, path in hash_paths.items()},
         "tool_hashes": tool_hashes,
         "template_hashes": template_hashes,
-        "dependency_commits": {
-            "e-packager": git_commit(template_root.parent),
-            "e-language-skill": git_commit(Path(tools["skill_root"])),
-        },
+        "dependency_commits": {"e-packager": git_commit(template_root.parent)},
         "dataset_sha256": sha256_file(project_root / config["dataset"]),
         "credential_persisted": False,
     }
 
 
 MANIFEST_IDENTITY_FIELDS = (
+    "tracks",
     "benchmark_version",
     "scoring_version",
     "model",
@@ -164,17 +156,6 @@ def transport_protocol(config: dict[str, Any]) -> str:
     return str(config.get("responses_transport", config["protocol"]))
 
 
-def system_prompt(track: str, task: Task, skill_context: dict[str, str]) -> str:
-    if track == "raw":
-        return RAW_SYSTEM
-    sections = []
-    for name in task.skill_sections:
-        if name not in skill_context:
-            raise KeyError(f"missing skill context section: {name}")
-        sections.append(f"## {name}\n{skill_context[name]}")
-    return RAW_SYSTEM + "\n\n以下是本题可使用的易语言实现规范：\n\n" + "\n\n".join(sections)
-
-
 class BenchmarkRunner:
     def __init__(self, project_root: Path, config: dict[str, Any]) -> None:
         if config.get("benchmark_version") != "v2-compile":
@@ -182,20 +163,18 @@ class BenchmarkRunner:
         self.project_root = project_root
         self.config = config
         self.tasks = load_tasks(project_root / config["dataset"])
-        context_doc = load_json(project_root / "benchmarks/v2/skill-context.json")
-        self.skill_context: dict[str, str] = context_doc["sections"]
         self.evaluator = WorkspaceEvaluator(config)
 
     def run(
         self,
         *,
         run_id: str | None = None,
-        tracks: tuple[str, ...] = ("raw", "skill"),
+        tracks: tuple[str, ...] = ("raw",),
         workers: int = 1,
         response_provider: Callable[[str, str, Task, str], ApiResponse] | None = None,
     ) -> dict[str, Any]:
-        if any(track not in {"raw", "skill"} for track in tracks):
-            raise ValueError("tracks must be raw and/or skill")
+        if tracks != ("raw",):
+            raise ValueError("V2 only supports the raw track")
         if workers < 1:
             raise ValueError("workers must be at least 1")
         missing = self.evaluator.check_environment()
@@ -350,7 +329,7 @@ class BenchmarkRunner:
             return self._finalize_record(task, track, state, {}, None, prepare.to_dict())
 
         user_prompt = build_prompt(task, workspace)
-        prompt_system = system_prompt(track, task, self.skill_context)
+        prompt_system = RAW_SYSTEM
         write_json(
             case_root / "request.json",
             {"system": prompt_system, "user": user_prompt, "model": self.config["model"]},

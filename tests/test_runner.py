@@ -17,6 +17,18 @@ class DummyEvaluator:
 
 
 class RunnerTests(unittest.TestCase):
+    def test_only_one_raw_track_is_allowed(self):
+        runner = object.__new__(BenchmarkRunner)
+        for tracks in (("skill",), ("raw", "skill"), (), ("raw", "raw")):
+            with self.subTest(tracks=tracks), self.assertRaisesRegex(ValueError, "only supports the raw track"):
+                runner.run(tracks=tracks)
+
+    def test_resume_rejects_old_dual_track_manifest(self):
+        self.assertIn("tracks", manifest_mismatches(
+            {"tracks": ["raw", "skill"]}, {"tracks": ["raw"]}
+        ))
+        self.assertIn("tracks", manifest_mismatches({}, {"tracks": ["raw"]}))
+
     def test_retired_benchmark_rejected_before_tool_or_api_access(self):
         with self.assertRaisesRegex(ValueError, "V1 is retired"):
             BenchmarkRunner(Path("."), {"benchmark_version": "v1-compile"})
@@ -158,10 +170,9 @@ class RunnerTests(unittest.TestCase):
             }
             runner.tasks = [
                 SimpleNamespace(id=f"task-{index:02d}", title="task", category="format")
-                for index in range(15)
+                for index in range(20)
             ]
             runner.evaluator = DummyEvaluator()
-            runner.skill_context = {}
             runner._execute_case = execute_case
             manifest = {
                 "run_id": "parallel-run",
@@ -186,8 +197,9 @@ class RunnerTests(unittest.TestCase):
 
             self.assertGreaterEqual(max_active, 2)
             self.assertEqual(scorecard["run_status"], "complete")
-            self.assertEqual(scorecard["completed_records"], 30)
-            self.assertEqual(len(list((root / "results/parallel-run/records").glob("*.json"))), 30)
+            self.assertEqual(scorecard["completed_records"], 20)
+            self.assertEqual(scorecard["total_score"], 100)
+            self.assertEqual(len(list((root / "results/parallel-run/records").glob("*.json"))), 20)
 
 
 if __name__ == "__main__":

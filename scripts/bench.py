@@ -24,7 +24,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--check", action="store_true", help="只检查本地工具链")
     parser.add_argument("--run-id")
-    parser.add_argument("--tracks", default="raw,skill")
+    parser.add_argument("--tracks", choices=("raw",), default="raw")
     parser.add_argument("--workers", type=int)
     parser.add_argument("--model")
     parser.add_argument("--base-url")

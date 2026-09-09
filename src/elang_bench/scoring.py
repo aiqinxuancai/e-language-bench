@@ -41,7 +41,7 @@ def _format_components(state: StageState) -> dict[str, float]:
             "pack": 0.0,
             "pack_failure_attempts": 0.0,
             "roundtrip": 0.0,
-            "ide_open": 0.0,
+            "compile_tool": 0.0,
         }
 
     contract = 10.0 if state.paths_ok and state.utf8_ok else 5.0
@@ -74,7 +74,7 @@ def _format_components(state: StageState) -> dict[str, float]:
         "pack": PACK_FAILURE_DEDUCTION if state.pack_ok else 0.0,
         "pack_failure_attempts": -PACK_FAILURE_DEDUCTION * additional_pack_failures,
         "roundtrip": (7.5 if state.reunpack_ok else 0.0) + (7.5 if state.compare_ok else 0.0),
-        "ide_open": 15.0 if state.ide_open_ok else 0.0,
+        "compile_tool": 15.0 if state.compile_tool_ok else 0.0,
     }
 
 
@@ -103,7 +103,7 @@ def score_state(state: StageState) -> dict[str, Any]:
         cap, cap_reason = 0.0, "validation_failed"
     elif not state.pack_ok:
         cap, cap_reason = 0.0, "pack_failed"
-    elif not state.reunpack_ok or not state.compare_ok or not state.ide_open_ok:
+    elif not state.reunpack_ok or not state.compare_ok or not state.compile_tool_ok:
         cap, cap_reason = 0.0, "packed_project_unusable"
     elif not state.compile_ok:
         cap, cap_reason = 0.0, "compile_failed"
@@ -114,7 +114,7 @@ def score_state(state: StageState) -> dict[str, Any]:
         and state.pack_ok
         and state.reunpack_ok
         and state.compare_ok
-        and state.ide_open_ok
+        and state.compile_tool_ok
         and state.compile_ok
         and state.semantic_total > 0
         and state.semantic_earned == state.semantic_total
@@ -180,7 +180,7 @@ def assign_deductions(state: StageState, scoring: dict[str, Any]) -> None:
         "reunpack": 7.5,
         "revalidate": 7.5,
         "compare": 7.5,
-        "ide_open": 15.0,
+        "compile_tool": 15.0,
     }
     for item in state.diagnostics:
         if item.deduction == 0.0 and item.stage in stage_deductions:

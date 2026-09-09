@@ -14,7 +14,7 @@ class ScoringTests(unittest.TestCase):
             pack_ok=True,
             reunpack_ok=True,
             compare_ok=True,
-            ide_open_ok=True,
+            compile_tool_ok=True,
             compile_ok=True,
             semantic_earned=20,
             semantic_total=20,
@@ -32,7 +32,7 @@ class ScoringTests(unittest.TestCase):
         state.pack_ok = False
         state.reunpack_ok = False
         state.compare_ok = False
-        state.ide_open_ok = False
+        state.compile_tool_ok = False
         state.compile_ok = False
         state.diagnostics.append(
             Diagnostic("validate", "declaration_field_count", "bad declaration", file="src/a.txt", line=2)
@@ -52,7 +52,7 @@ class ScoringTests(unittest.TestCase):
         state.pack_ok = False
         state.reunpack_ok = False
         state.compare_ok = False
-        state.ide_open_ok = False
+        state.compile_tool_ok = False
         state.compile_ok = False
         result = score_state(state)
         self.assertEqual(result["score_cap"], 0.0)
@@ -67,7 +67,7 @@ class ScoringTests(unittest.TestCase):
         once.pack_ok = False
         once.reunpack_ok = False
         once.compare_ok = False
-        once.ide_open_ok = False
+        once.compile_tool_ok = False
         once.compile_ok = False
 
         twice = self.valid_state()
@@ -76,7 +76,7 @@ class ScoringTests(unittest.TestCase):
         twice.pack_ok = False
         twice.reunpack_ok = False
         twice.compare_ok = False
-        twice.ide_open_ok = False
+        twice.compile_tool_ok = False
         twice.compile_ok = False
 
         once_score = score_state(once)
@@ -144,7 +144,7 @@ class ScoringTests(unittest.TestCase):
         state.pack_ok = False
         state.reunpack_ok = False
         state.compare_ok = False
-        state.ide_open_ok = False
+        state.compile_tool_ok = False
         state.compile_ok = False
         state.diagnostics.extend(
             [

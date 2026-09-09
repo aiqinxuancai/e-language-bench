@@ -45,7 +45,7 @@ def command_check(config: dict) -> int:
             print(f"missing: {path}")
         return 1
     print("environment: ok")
-    for name in ("e_packager", "autolinker_fne", "eide"):
+    for name in ("e_packager",):
         path = getattr(evaluator, name)
         print(f"{name}: {path} sha256={sha256_file(path)}")
     return 0
@@ -80,7 +80,7 @@ def main(argv: list[str] | None = None) -> int:
     subparsers.add_parser("check", help="检查本地工具链")
     run_parser = subparsers.add_parser("run", help="执行基准")
     run_parser.add_argument("--run-id")
-    run_parser.add_argument("--tracks", default="raw,skill")
+    run_parser.add_argument("--tracks", choices=("raw",), default="raw")
     run_parser.add_argument("--workers", type=int)
     report_parser = subparsers.add_parser("report", help="重新生成报告")
     report_parser.add_argument("run_id")

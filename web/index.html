@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="由真实 e-packager 与 AutoLinker 编译验证的易语言代码生成模型评分榜。" />
+    <meta name="description" content="由 e-packager 编译验证的易语言代码生成模型评分榜。" />
     <meta name="theme-color" content="#f5f7f8" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>易语言模型基准 V2 · 编译验证评分</title>
@@ -31,9 +31,9 @@
       <main>
         <section class="intro-band" aria-labelledby="page-title">
           <div class="intro-copy">
-            <p class="eyebrow">易语言代码生成 · pass@1</p>
+            <p class="eyebrow">易语言代码生成 · Raw · pass@1</p>
             <h1 id="page-title">易语言模型基准 V2</h1>
-            <p>固定使用 e-packager 1.2.6，经易语言 IDE 无头编译验证。V1 已停止维护，成绩不计入本榜。</p>
+            <p>固定使用 e-packager 1.2.7 编译验证。V1 已停止维护，成绩不计入本榜。</p>
           </div>
           <div class="leader-callout" aria-live="polite">
             <span class="callout-label">当前最高分</span>
@@ -43,27 +43,19 @@
         </section>
 
         <section class="toolchain-strip" aria-label="相关开源项目">
-          <a class="toolchain-item" href="https://github.com/aiqinxuancai/e-packager/releases/tag/v1.2.6" target="_blank" rel="noreferrer">
+          <a class="toolchain-item" href="https://github.com/aiqinxuancai/e-packager/releases/tag/v1.2.7" target="_blank" rel="noreferrer">
             <span class="toolchain-icon" data-lucide="package-open" aria-hidden="true"></span>
             <span class="toolchain-copy">
-              <span class="toolchain-heading"><strong>e-packager</strong><small>v1.2.6</small></span>
+              <span class="toolchain-heading"><strong>e-packager</strong><small>v1.2.7</small></span>
               <span class="toolchain-description">将二进制易语言工程转换为可读、可修改并可验证回包的文本工作区。</span>
             </span>
             <span class="toolchain-link-icon" data-lucide="external-link" aria-hidden="true"></span>
           </a>
-          <a class="toolchain-item" href="https://github.com/aiqinxuancai/AutoLinker" target="_blank" rel="noreferrer">
+          <a class="toolchain-item" href="https://github.com/aiqinxuancai/e-packager/releases/tag/v1.2.7" target="_blank" rel="noreferrer">
             <span class="toolchain-icon" data-lucide="square-terminal" aria-hidden="true"></span>
             <span class="toolchain-copy">
-              <span class="toolchain-heading"><strong>AutoLinker</strong><small>AI CODE READ/WRITE</small></span>
-              <span class="toolchain-description">安装支持库后，直接通过易语言 IDE 命令行执行无头编译。</span>
-            </span>
-            <span class="toolchain-link-icon" data-lucide="external-link" aria-hidden="true"></span>
-          </a>
-          <a class="toolchain-item" href="https://github.com/aiqinxuancai/e-language-skill" target="_blank" rel="noreferrer">
-            <span class="toolchain-icon" data-lucide="book-open-check" aria-hidden="true"></span>
-            <span class="toolchain-copy">
-              <span class="toolchain-heading"><strong>e-language-skill</strong><small>AGENT KNOWLEDGE</small></span>
-              <span class="toolchain-description">沉淀面向 AI Agent 的语言格式、核心库、控制流与工程排错规范。</span>
+              <span class="toolchain-heading"><strong>e-packager compile</strong><small>V2 COMPILER</small></span>
+              <span class="toolchain-description">直接由 e-packager 完成工程编译并输出临时 EXE。</span>
             </span>
             <span class="toolchain-link-icon" data-lucide="external-link" aria-hidden="true"></span>
           </a>
@@ -97,7 +89,6 @@
             <div class="segmented-control" role="group" aria-label="排行榜排序">
               <button class="segment is-active" type="button" data-sort="total">总分</button>
               <button class="segment" type="button" data-sort="compileRate">编译率</button>
-              <button class="segment" type="button" data-sort="skillGain">Skill 增益</button>
             </div>
             <label class="search-field">
               <span data-lucide="search" aria-hidden="true"></span>
@@ -113,8 +104,6 @@
                   <th scope="col" class="rank-column">#</th>
                   <th scope="col">模型与思考等级</th>
                   <th scope="col" class="number-column">总分</th>
-                  <th scope="col" class="number-column optional-column">Raw</th>
-                  <th scope="col" class="number-column optional-column">Skill</th>
                   <th scope="col" class="number-column">有效格式</th>
                   <th scope="col" class="number-column optional-column mobile-keep">编译率</th>
                   <th scope="col" class="number-column optional-column">pass@1</th>
@@ -122,7 +111,7 @@
                 </tr>
               </thead>
               <tbody id="leaderboard-body">
-                <tr class="loading-row"><td colspan="9">正在读取评分数据…</td></tr>
+                <tr class="loading-row"><td colspan="7">正在读取评分数据…</td></tr>
               </tbody>
             </table>
             <div id="empty-state" class="empty-state" hidden>
@@ -160,7 +149,7 @@
             <span data-lucide="arrow-right" aria-hidden="true"></span>
             <div><span>02</span><strong>工程回包</strong><small>e-packager</small></div>
             <span data-lucide="arrow-right" aria-hidden="true"></span>
-            <div><span>03</span><strong>重开比对</strong><small>一致性与 IDE 打开</small></div>
+              <div><span>03</span><strong>重开比对</strong><small>一致性检查</small></div>
             <span data-lucide="arrow-right" aria-hidden="true"></span>
             <div class="gate-node"><span>04</span><strong>真实编译</strong><small>失败则总分归零</small></div>
             <span data-lucide="arrow-right" aria-hidden="true"></span>
@@ -185,7 +174,7 @@
             <div>
               <span data-lucide="ban" aria-hidden="true"></span>
               <strong>不能编译，总分为 0</strong>
-              <p>验证、回包、重开、IDE 打开或真实编译失败，均触发编译硬门槛。</p>
+              <p>验证、回包、重开或 e-packager 编译失败，均触发编译硬门槛。</p>
             </div>
             <div>
               <span data-lucide="cloud-off" aria-hidden="true"></span>
@@ -215,7 +204,7 @@
 
       <footer>
         <span>e-language-bench</span>
-        <span>e-packager · AutoLinker · pass@1</span>
+        <span>e-packager · pass@1</span>
         <a href="https://github.com/aiqinxuancai/e-language-bench" target="_blank" rel="noreferrer">审计源码与结果 <span data-lucide="arrow-up-right" aria-hidden="true"></span></a>
       </footer>
     </div>

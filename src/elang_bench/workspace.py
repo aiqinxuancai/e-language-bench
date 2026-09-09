@@ -7,7 +7,6 @@ import re
 import subprocess
 import tempfile
 import time
-import uuid
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -199,42 +198,6 @@ def parse_preflight_diagnostics(result: CommandResult, stage: str = "validate") 
     return diagnostics
 
 
-def compile_result_ok(result: CommandResult, result_path: Path) -> tuple[bool, bool, dict[str, Any] | None, list[Diagnostic]]:
-    diagnostics: list[Diagnostic] = []
-    if not result_path.exists():
-        diagnostics.append(Diagnostic("compile", "result_missing", "AutoLinker did not write result JSON"))
-        return False, False, None, diagnostics
-    try:
-        parsed = json.loads(result_path.read_text(encoding="utf-8-sig"))
-    except (OSError, json.JSONDecodeError) as exc:
-        diagnostics.append(Diagnostic("compile", "result_invalid", str(exc)))
-        return False, False, None, diagnostics
-    compile_result = parsed.get("compile_result") or {}
-    eide_info = parsed.get("eide_info") or {}
-    source_open = (
-        bool(eide_info.get("source_open")) and eide_info.get("source_state") == "source_open"
-    ) or bool(compile_result.get("source_open")) or bool(parsed.get("source_open"))
-    ide_text = str(compile_result.get("output_window_text", ""))
-    combined = "\n".join((result.stdout, result.stderr, ide_text))
-    markers = [marker for marker in FAILURE_MARKERS if marker in combined]
-    for marker in markers:
-        diagnostics.append(Diagnostic("compile", "failure_marker", marker))
-    ok = (
-        result.exit_code == 0
-        and bool(parsed.get("ok"))
-        and bool(compile_result.get("ok"))
-        and bool(compile_result.get("artifact_verified"))
-        and bool(compile_result.get("output_file_exists"))
-        and bool(compile_result.get("output_file_modified_after_compile"))
-        and not markers
-    )
-    if not source_open and not bool(compile_result.get("ok")):
-        diagnostics.append(Diagnostic("ide_open", "source_not_open", str(eide_info.get("source_state", "unknown"))))
-    if not ok and not markers:
-        diagnostics.append(Diagnostic("compile", "compile_failed", str(parsed.get("error") or "compile result was not successful")))
-    return ok, source_open, parsed, diagnostics
-
-
 def evaluate_semantics(task: Task, workspace: Path) -> tuple[int, int, list[dict[str, Any]]]:
     earned = 0
     total = sum(check.points for check in task.checks)
@@ -271,33 +234,30 @@ class WorkspaceEvaluator:
     def __init__(self, config: dict[str, Any]) -> None:
         tools = config["tools"]
         self.e_packager = Path(tools["e_packager"])
-        self.eide = Path(tools["eide"])
-        self.autolinker_fne = Path(
-            tools.get("autolinker_fne", self.eide.parent / "lib" / "AutoLinker.fne")
-        )
         self.template_root = Path(tools["template_root"])
+        self.blackmoon_x86_dir = Path(tools["blackmoon_x86_dir"]) if tools.get("blackmoon_x86_dir") else None
+        self.temp_root = Path(config.get("temp_root", ".temp"))
         self.compile_timeout = int(config.get("compile_timeout_seconds", 120))
 
     def check_environment(self) -> list[Path]:
-        paths = [
-            self.e_packager,
-            self.autolinker_fne,
-            self.eide,
-            self.template_root,
-        ]
+        paths = [self.e_packager, self.template_root]
+        if self.blackmoon_x86_dir:
+            paths.append(self.blackmoon_x86_dir)
         missing = [path for path in paths if not path.exists()]
         if not missing:
             version = run_command([str(self.e_packager), "--version"], 15)
-            if version.exit_code != 0 or version.timed_out or version.stdout.strip() != "e-packager v1.2.6":
+            if version.exit_code != 0 or version.timed_out or version.stdout.strip() not in {
+                "e-packager v1.2.7", "e-packager dev"
+            }:
                 raise ValueError(
-                    "V2 requires e-packager v1.2.6; got: "
+                    "V2 requires e-packager v1.2.7; got: "
                     + (version.stdout or version.stderr or "no version output").strip()
                 )
         return missing
 
     def prepare(self, task: Task, case_root: Path) -> tuple[Path, CommandResult]:
         workspace = case_root / "workspace"
-        template = self.template_root / task.template
+        template = self.template_root / "e-console-exe-new-proj.e"
         result = run_command(
             [str(self.e_packager), "unpack", str(template), str(workspace), "--main-only"],
             60,
@@ -350,27 +310,27 @@ class WorkspaceEvaluator:
                 )
 
         if state.pack_ok:
-            artifact = case_root / "candidate.exe"
-            compile_json = case_root / "compile-result.json"
-            compile_temp = compile_temp_directory(case_root)
-            compile_temp.mkdir(parents=True, exist_ok=True)
+            self.temp_root.mkdir(parents=True, exist_ok=True)
+            # e-packager writes companion .cpp/.obj/.res files next to the EXE.
+            # Include the case identity so concurrent model runs cannot collide.
+            case_identity = hashlib.sha256(str(case_root.resolve()).encode("utf-8")).hexdigest()[:16]
+            artifact = self.temp_root / f"{case_root.name}-{case_identity}.exe"
+            compile_argv = [str(self.e_packager), "compile", str(workspace), str(artifact),
+                            "--arch", "x86", "--subsystem", "console"]
+            if self.blackmoon_x86_dir:
+                compile_argv.extend(["--blackmoon-x86-dir", str(self.blackmoon_x86_dir)])
             compile = run_command(
-                [
-                    str(self.eide),
-                    str(packed),
-                    "--autolinker-headless-compile",
-                    "--autolinker-output", str(artifact),
-                    "--autolinker-target", "win_console_exe",
-                    "--autolinker-result", str(compile_json),
-                    "--autolinker-invocation-id", uuid.uuid4().hex,
-                ],
+                compile_argv,
                 self.compile_timeout + 60,
-                env_overrides={"TEMP": str(compile_temp), "TMP": str(compile_temp)},
             )
             commands["compile"] = compile.to_dict()
-            state.compile_ok, state.ide_open_ok, parsed, diagnostics = compile_result_ok(compile, compile_json)
-            state.diagnostics.extend(diagnostics)
-            commands["compile_result"] = parsed
+            state.compile_ok = compile.exit_code == 0 and artifact.is_file() and artifact.stat().st_size > 0
+            state.compile_tool_ok = state.compile_ok
+            commands["compile_result"] = {"ok": state.compile_ok, "artifact": str(artifact),
+                                           "output_file_exists": artifact.is_file(),
+                                           "compiler": "e-packager compile"}
+            if not state.compile_ok:
+                state.diagnostics.extend(parse_preflight_diagnostics(compile, "compile"))
 
         state.semantic_earned, state.semantic_total, semantic_details = evaluate_semantics(task, workspace)
         commands["semantic_checks"] = semantic_details

@@ -35,7 +35,7 @@ class ToolchainIntegrationTests(unittest.TestCase):
             self.assertTrue(state.pack_ok, commands.get("pack"))
             self.assertTrue(state.reunpack_ok, commands.get("reunpack"))
             self.assertTrue(state.compare_ok, commands.get("compare"))
-            self.assertTrue(state.ide_open_ok, commands.get("compile_result"))
+            self.assertTrue(state.compile_tool_ok, commands.get("compile_result"))
             self.assertTrue(state.compile_ok, commands.get("compile_result"))
 
     def test_new_class_page_can_be_packed_and_compiled(self):
@@ -58,7 +58,7 @@ class ToolchainIntegrationTests(unittest.TestCase):
             self.assertTrue(state.validate_ok, commands.get("validate"))
             self.assertTrue(state.pack_ok, commands.get("pack"))
             self.assertTrue(state.reunpack_ok, commands.get("reunpack"))
-            self.assertTrue(state.ide_open_ok, commands.get("compile_result"))
+            self.assertTrue(state.compile_tool_ok, commands.get("compile_result"))
             self.assertTrue(state.compile_ok, commands.get("compile_result"))
 
     def test_fixed_tables_can_be_packed_and_compiled(self):
@@ -84,7 +84,7 @@ class ToolchainIntegrationTests(unittest.TestCase):
             self.assertTrue(state.validate_ok, commands.get("validate"))
             self.assertTrue(state.pack_ok, commands.get("pack"))
             self.assertTrue(state.reunpack_ok, commands.get("reunpack"))
-            self.assertTrue(state.ide_open_ok, commands.get("compile_result"))
+            self.assertTrue(state.compile_tool_ok, commands.get("compile_result"))
             self.assertTrue(state.compile_ok, commands.get("compile_result"))
 
     def test_distinct_projects_can_compile_in_parallel(self):
@@ -107,7 +107,7 @@ class ToolchainIntegrationTests(unittest.TestCase):
             for state, commands in results:
                 self.assertIsNotNone(state, commands)
                 self.assertTrue(state.pack_ok, commands.get("pack"))
-                self.assertTrue(state.ide_open_ok, commands.get("compile_result"))
+                self.assertTrue(state.compile_tool_ok, commands.get("compile_result"))
                 self.assertTrue(state.compile_ok, commands.get("compile_result"))
 
 

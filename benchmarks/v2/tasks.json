@@ -8,7 +8,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "重写程序集1，使它只包含一个合法的控制台入口 _启动子程序。入口返回整数型 0，并用单引号写一行说明注释。不要添加支持库。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "排错与验证"],
       "checks": [
         {"name": "版本头", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.版本 2\\s*$", "points": 5},
         {"name": "程序集头", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.程序集 程序集1\\s*$", "points": 5},
@@ -23,7 +22,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "在程序集1中保留入口并新增公开子程序 计算折扣，返回整数型且带说明。参数依次为 原价(整数型，带说明)和 折扣率(整数型，带说明)；局部变量 结果 为整数型且带说明。正确保留所有中间空槽。计算 原价 × 折扣率 ÷ 100 并返回结果。入口调用一次该子程序后返回0。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "排错与验证"],
       "checks": [
         {"name": "公开说明槽", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.子程序 计算折扣, 整数型, 公开, .+$", "points": 5},
         {"name": "参数说明槽", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 原价, 整数型, , .+$", "points": 5},
@@ -38,7 +36,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开数据类型 坐标记录，说明为二维坐标；成员 X、Y 为整数型，成员 标签 为文本型且带说明。新增全局变量 默认坐标，类型为坐标记录，带说明并正确保留公开属性和数组维数空槽。程序集入口只返回0，不访问该全局变量的成员。",
       "allowed_files": ["src/.数据类型.txt", "src/.全局变量.txt", "src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "子程序与类型"],
       "checks": [
         {"name": "数据类型", "file": "src/.数据类型.txt", "kind": "regex", "value": "(?m)^\\.数据类型 坐标记录, 公开, 二维坐标$", "points": 5},
         {"name": "成员X", "file": "src/.数据类型.txt", "kind": "regex", "value": "(?m)^\\s*\\.成员 X, 整数型(?:\\s*)$", "points": 5},
@@ -53,7 +50,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开子程序 规范用户名，参数 输入 为文本型，返回文本型。先用 删首尾空 去掉两端空格，再用 到小写 转成小写并返回。入口调用 规范用户名（“  Alice  ”）后返回0。只使用核心库中真实存在的命令。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "核心库"],
       "checks": [
         {"name": "函数签名", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.子程序 规范用户名, 文本型, 公开", "points": 5},
         {"name": "输入参数", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 输入, 文本型", "points": 5},
@@ -68,7 +64,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开子程序 取绝对平方根整数，参数 值 为整数型，返回整数型。对值先取绝对值，再求平方根，使用 四舍五入 保留0位并转换为整数型后返回。入口以 -81 调用后返回0。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "核心库"],
       "checks": [
         {"name": "取绝对值", "file": "src/程序集1.txt", "kind": "contains", "value": "取绝对值", "points": 5},
         {"name": "平方根", "file": "src/程序集1.txt", "kind": "contains", "value": "求平方根", "points": 5},
@@ -83,7 +78,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开子程序 生成奇数，参数 数量 为整数型，参数 结果 为整数型参考数组，返回结果数组成员数。先清除结果，再用计次循环依次加入 1、3、5……共 数量 个成员，最后调用 取数组成员数 返回数量。入口声明动态整数数组并调用一次。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "核心库", "流程控制"],
       "checks": [
         {"name": "参考数组", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 结果, 整数型, 参考 数组", "points": 5},
         {"name": "清除数组", "file": "src/程序集1.txt", "kind": "contains", "value": "清除数组 (结果)", "points": 5},
@@ -98,7 +92,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开子程序 评级，参数 分数 为整数型，返回文本型。分数大于等于90返回“优秀”，否则分数大于等于60返回“及格”，其余返回“不及格”。必须使用正确嵌套的 .如果/.否则/.如果结束。入口调用一次后返回0。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "流程控制"],
       "checks": [
         {"name": "双分支", "file": "src/程序集1.txt", "kind": "contains", "value": ".否则", "points": 5},
         {"name": "两个如果", "file": "src/程序集1.txt", "kind": "count_regex", "value": "(?m)^\\.如果 \\(::2", "points": 5},
@@ -113,7 +106,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开子程序 求范围内奇数和，参数 上限 为整数型，返回整数型。使用 .计次循环首 从1遍历到上限；遇到偶数时用 到循环尾 跳过；累加奇数并返回。入口以10调用后返回0。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "流程控制"],
       "checks": [
         {"name": "计次循环", "file": "src/程序集1.txt", "kind": "contains", "value": ".计次循环首 (上限, i)", "points": 5},
         {"name": "偶数判断", "file": "src/程序集1.txt", "kind": "regex", "value": "i (?:%|％) 2 ＝ 0", "points": 5},
@@ -128,7 +120,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开子程序 拼接等级，参数 等级 为整数型，返回文本型。先用 .判断开始/.判断/.默认 把1、2、其他映射为“低”“中”“高”；再使用变量循环从1到3，把映射文本重复拼接3次后返回。入口调用一次。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "流程控制"],
       "checks": [
         {"name": "判断开始", "file": "src/程序集1.txt", "kind": "contains", "value": ".判断开始 (等级 ＝ 1)", "points": 5},
         {"name": "后续判断", "file": "src/程序集1.txt", "kind": "contains", "value": ".判断 (等级 ＝ 2)", "points": 5},
@@ -143,7 +134,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开子程序 交换整数，无返回值，参数 甲、乙 都是整数型参考参数。使用一个局部整数 临时值 完成交换。入口声明两个整数，赋值后调用交换整数，最后返回0。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "子程序与类型"],
       "checks": [
         {"name": "甲参考", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 甲, 整数型, 参考", "points": 5},
         {"name": "乙参考", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 乙, 整数型, 参考", "points": 5},
@@ -158,7 +148,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开递归子程序 阶乘，参数 n 为整数型，返回长整数型。n小于等于1时返回1，否则返回 n 乘以 阶乘(n-1)。入口以6调用后返回0。使用易语言条件和返回语法。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "流程控制", "子程序与类型"],
       "checks": [
         {"name": "长整数返回", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.子程序 阶乘, 长整数型, 公开", "points": 5},
         {"name": "终止条件", "file": "src/程序集1.txt", "kind": "regex", "value": "n ≤ 1", "points": 5},
@@ -173,7 +162,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "新增公开类程序集 计数器，包含程序集变量 当前值(整数型)，生命周期子程序 _初始化、_销毁，以及公开方法 增加(整数型参数 增量)和 取当前值(返回整数型)。增加方法累加当前值。程序集1入口只返回0；本题只验证新类自身，不在入口实例化或调用新类。",
       "allowed_files": ["src/计数器.txt", "src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "子程序与类型", "排错与验证"],
       "checks": [
         {"name": "公开类", "file": "src/计数器.txt", "kind": "regex", "value": "(?m)^\\.程序集 计数器, , 公开", "points": 5},
         {"name": "生命周期", "file": "src/计数器.txt", "kind": "regex", "value": "\\.子程序 _初始化[\\s\\S]*\\.子程序 _销毁", "points": 5},
@@ -188,7 +176,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "把以下错误思想正确实现为易语言公开子程序 取较大值(a,b)，返回整数型：`if (a > b) { return a; } else { return b; }`。不得保留花括号、if、else、return 或半角赋值符号。入口调用后返回0。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "流程控制", "排错与验证"],
       "checks": [
         {"name": "易语言如果", "file": "src/程序集1.txt", "kind": "regex", "value": "\\.如果 \\(a ＞ b\\)[\\s\\S]*\\.否则[\\s\\S]*\\.如果结束", "points": 5},
         {"name": "返回a", "file": "src/程序集1.txt", "kind": "contains", "value": "返回 (a)", "points": 5},
@@ -203,7 +190,6 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "实现公开子程序 安全除法，参数 被除数、除数 为整数型，参数 结果 为整数型参考参数，返回逻辑型。除数为0时把结果置0并返回假，否则计算整数除法并返回真。注意参数必须全部位于局部变量和语句之前，双分支必须正确闭合。入口调用一次。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "流程控制", "子程序与类型", "排错与验证"],
       "checks": [
         {"name": "逻辑返回", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.子程序 安全除法, 逻辑型, 公开", "points": 5},
         {"name": "结果参考", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 结果, 整数型, 参考", "points": 5},
@@ -218,12 +204,82 @@
       "template": "e-console-exe-new-proj.e",
       "prompt": "实现公开子程序 统计非空项，参数 输入 为文本型，参数 分隔符 为文本型，返回整数型。使用 分割文本 得到动态文本数组，用 取数组成员数 和计次循环从1遍历；每项经 删首尾空 后非空则计数。入口以“甲, ,乙,丙”和“,”调用后返回0。",
       "allowed_files": ["src/程序集1.txt"],
-      "skill_sections": ["格式与声明", "核心库", "流程控制", "排错与验证"],
       "checks": [
         {"name": "分割文本", "file": "src/程序集1.txt", "kind": "contains", "value": "分割文本 (输入, 分隔符, )", "points": 5},
         {"name": "动态文本数组", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.局部变量 .+, 文本型, , \"0\"", "points": 5},
         {"name": "一基遍历", "file": "src/程序集1.txt", "kind": "regex", "value": "\\.计次循环首 \\(取数组成员数 \\(.+\\), i\\)", "points": 5},
         {"name": "删除空白判断", "file": "src/程序集1.txt", "kind": "regex", "value": "删首尾空 \\(.+\\[i\\]\\) ≠ “”", "points": 5}
+      ]
+    }
+    ,
+    {
+      "id": "fmt-04",
+      "title": "纯置入代码整数加法",
+      "category": "format",
+      "template": "e-console-exe-new-proj.e",
+      "prompt": "新增公开子程序 机器码加法，返回整数型，两个按值整数型参数依次为 甲、乙。对任意两个32位整数求和，溢出时保留低32位。目标为经典易语言 IDE 的 Win32 x86 编译：参数位于 EBP+8、EBP+12，返回值放入 EAX，需恢复栈帧并由被调用方清理8字节参数。该子程序不得声明局部变量，执行体必须只有一条使用十进制字节字面量的 置入代码；不得用易语言算术、返回语句、DLL、外部文件或辅助子程序实现功能。可添加解释汇编的注释。入口分别调用 机器码加法 (7, 5) 和 机器码加法 (-9, 4)，然后返回0；纯置入代码限制仅针对 机器码加法 的执行体。",
+      "allowed_files": ["src/程序集1.txt"],
+      "checks": [
+        {"name": "按值整数签名", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.子程序 机器码加法, 整数型, 公开[^\\n]*\\n\\.参数 甲, 整数型[ \\t]*\\n\\.参数 乙, 整数型[ \\t]*$", "points": 5},
+        {"name": "纯机器码执行体", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.子程序 机器码加法,[^\\n]*\\n(?:\\.参数 [^\\n]*\\n|[ \\t]*(?:'[^\\n]*)?\\n)*[ \\t]*置入代码 \\(\\{[0-9, \\t]+\\}\\)[ \\t]*(?:'[^\\n]*)?\\n(?:[ \\t]*(?:'[^\\n]*)?\\n)*(?=\\.子程序|\\Z)", "points": 5},
+        {"name": "读取参数并相加", "file": "src/程序集1.txt", "kind": "regex", "value": "置入代码 \\(\\{\\s*139,\\s*69,\\s*(?:8,\\s*3,\\s*69,\\s*12|12,\\s*3,\\s*69,\\s*8),", "points": 5},
+        {"name": "恢复栈帧并清理参数", "file": "src/程序集1.txt", "kind": "regex", "value": "(?:201|139,\\s*229,\\s*93),\\s*194,\\s*8,\\s*0\\s*\\}\\)", "points": 5}
+      ]
+    },
+    {
+      "id": "core-04",
+      "title": "键值文本解析",
+      "category": "core",
+      "template": "e-console-exe-new-proj.e",
+      "prompt": "实现公开子程序 解析键值，返回逻辑型，参数 输入 为文本型，键、值 为文本型参考参数。先清空两个输出，按第一个半角等号分开输入，再删除键和值的首尾空格；没有等号或去空格后的键为空时返回假并保持两个输出为空，否则返回真。值可以为空，也可以含更多等号。例如“ name = Alice=admin ”得到键“name”、值“Alice=admin”；“name=”成功，“=x”和“name”失败。请使用 寻找文本、取文本左边、取文本中间 和 删首尾空。入口声明输出变量并调用一次，然后返回0。",
+      "allowed_files": ["src/程序集1.txt"],
+      "checks": [
+        {"name": "参考输出参数", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 键, 文本型, 参考[^\\n]*\\n\\.参数 值, 文本型, 参考", "points": 5},
+        {"name": "从首位寻找等号", "file": "src/程序集1.txt", "kind": "contains", "value": "寻找文本 (输入, “=”, 1, 假)", "points": 5},
+        {"name": "提取键和值并去空格", "file": "src/程序集1.txt", "kind": "regex", "value": "删首尾空 \\(取文本左边 \\(输入,[^\\n]+\\)\\)[\\s\\S]*删首尾空 \\(取文本中间 \\(输入,[^\\n]+\\)\\)", "points": 5},
+        {"name": "失败清空输出", "file": "src/程序集1.txt", "kind": "regex", "value": "键 ＝ “”(?:[\\s\\S]*?)值 ＝ “”(?:[\\s\\S]*?)返回 \\(假\\)", "points": 5}
+      ]
+    },
+    {
+      "id": "abs-04",
+      "title": "整数数组稳定去重",
+      "category": "abstraction",
+      "template": "e-console-exe-new-proj.e",
+      "prompt": "实现公开子程序 稳定去重，返回整数型，输入 为整数型数组参数，输出 为整数型参考数组参数。输入和输出保证不是同一个数组。先清空输出，按输入顺序遍历，以内层循环检查当前值是否已存在，仅首次出现时加入输出；返回输出成员数。不得排序或通过文本转换去重，不得修改输入。空输入得到空输出；输入 3、-1、3、0、-1、2 得到 3、-1、0、2。入口建立动态整数输入和输出数组，加入上述样例成员并调用一次，然后返回0。",
+      "allowed_files": ["src/程序集1.txt"],
+      "checks": [
+        {"name": "数组参数", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 输入, 整数型, 数组[^\\n]*\\n\\.参数 输出, 整数型, 参考 数组", "points": 5},
+        {"name": "清空并顺序遍历输入", "file": "src/程序集1.txt", "kind": "regex", "value": "清除数组 \\(输出\\)[\\s\\S]*\\.计次循环首 \\(取数组成员数 \\(输入\\),", "points": 5},
+        {"name": "比较输入输出成员", "file": "src/程序集1.txt", "kind": "regex", "value": "输入\\[[^\\]\\n]+\\] ＝ 输出\\[[^\\]\\n]+\\]|输出\\[[^\\]\\n]+\\] ＝ 输入\\[[^\\]\\n]+\\]", "points": 5},
+        {"name": "加入成员并返回数量", "file": "src/程序集1.txt", "kind": "regex", "value": "加入成员 \\(输出, 输入\\[[^\\]\\n]+\\]\\)[\\s\\S]*返回 \\(取数组成员数 \\(输出\\)\\)", "points": 5}
+      ]
+    },
+    {
+      "id": "flow-04",
+      "title": "欧几里得最大公约数",
+      "category": "flow",
+      "template": "e-console-exe-new-proj.e",
+      "prompt": "实现公开子程序 最大公约数，整数型参数 a、b，返回整数型。输入范围为0到2147483647；使用迭代欧几里得算法：当b不为0时计算余数 r=a模b，再令a=b、b=r；循环结束返回a。约定两个输入都为0时返回0。不得递归、枚举因子或硬编码答案。入口分别以48和18、0和7、0和0调用，然后返回0。",
+      "allowed_files": ["src/程序集1.txt"],
+      "checks": [
+        {"name": "整数函数签名", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.子程序 最大公约数, 整数型, 公开", "points": 5},
+        {"name": "非零循环条件", "file": "src/程序集1.txt", "kind": "contains", "value": ".判断循环首 (b ≠ 0)", "points": 5},
+        {"name": "求余并推进状态", "file": "src/程序集1.txt", "kind": "regex", "value": "r ＝ a (?:%|％) b[\\s\\S]*a ＝ b[\\s\\S]*b ＝ r", "points": 5},
+        {"name": "循环结束返回结果", "file": "src/程序集1.txt", "kind": "regex", "value": "\\.判断循环尾 \\(\\)[\\s\\S]*返回 \\(a\\)", "points": 5}
+      ]
+    },
+    {
+      "id": "repair-04",
+      "title": "文本整数与字节集往返转换",
+      "category": "repair",
+      "template": "e-console-exe-new-proj.e",
+      "prompt": "实现公开子程序 转换往返，返回文本型，输入 为文本型参数，文本数据、整数数据 为字节集参考参数。输入保证是32位有符号整数范围内的十进制ASCII文本，可带正负号和前导零。把输入直接转换为字节集保存到 文本数据；先把输入转换为整数型局部变量 数值，再把数值的二进制表示保存到 整数数据；从整数数据第1字节按 #整数型 读取，转换为整数型后再到文本并返回规范十进制表示。禁止把整数数据当作十进制字符解码。入口以“-00123”调用，文本数据可到文本恢复“-00123”，整数数据长度为4，返回文本为“-123”；另以“0”调用，然后返回0。只使用核心库，ASCII范围不要求额外编码支持库。",
+      "allowed_files": ["src/程序集1.txt"],
+      "checks": [
+        {"name": "字节集参考输出", "file": "src/程序集1.txt", "kind": "regex", "value": "(?m)^\\.参数 文本数据, 字节集, 参考[^\\n]*\\n\\.参数 整数数据, 字节集, 参考", "points": 5},
+        {"name": "文本直接编码", "file": "src/程序集1.txt", "kind": "contains", "value": "文本数据 ＝ 到字节集 (输入)", "points": 5},
+        {"name": "整数二进制编码", "file": "src/程序集1.txt", "kind": "regex", "value": "数值 ＝ 到整数 \\(输入\\)[\\s\\S]*整数数据 ＝ 到字节集 \\(数值\\)", "points": 5},
+        {"name": "按类型解码并规范化", "file": "src/程序集1.txt", "kind": "contains", "value": "返回 (到文本 (到整数 (取字节集数据 (整数数据, #整数型, 1))))", "points": 5}
       ]
     }
   ]

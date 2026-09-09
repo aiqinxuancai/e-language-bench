@@ -10,12 +10,11 @@
   "retry_count": 2,
   "tools": {
     "e_packager": "D:/tools/e-packager.exe",
-    "autolinker_fne": "C:/tools/lib/AutoLinker.fne",
-    "eide": "C:/tools/eide.exe",
     "template_root": "D:/tools/eproj",
-    "skill_root": "D:/tools/e-language-skill"
+    "blackmoon_x86_dir": "D:/tools/BlackMoonModernCore/artifacts/validation2/adapter"
   },
   "compile_timeout_seconds": 120,
+  "temp_root": ".temp",
   "weights": {
     "format": 45,
     "compile": 35,
