@@ -31,8 +31,15 @@ def apply_overrides(config: dict, args: argparse.Namespace) -> dict:
 
 
 def command_check(config: dict) -> int:
+    if config.get("benchmark_version") != "v2-compile":
+        print("V1 is retired; use benchmark_version v2-compile and benchmarks/v2/tasks.json")
+        return 1
     evaluator = WorkspaceEvaluator(config)
-    missing = evaluator.check_environment()
+    try:
+        missing = evaluator.check_environment()
+    except ValueError as exc:
+        print(str(exc))
+        return 1
     if missing:
         for path in missing:
             print(f"missing: {path}")

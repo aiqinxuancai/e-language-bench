@@ -50,12 +50,12 @@ def write_json(path: Path, value: Any) -> None:
 
 def load_tasks(path: Path) -> list[Task]:
     data = load_json(path)
-    if data.get("version") != "v1-compile":
+    if data.get("version") != "v2-compile":
         raise ValueError(f"unsupported dataset version: {data.get('version')}")
     tasks = [Task.from_dict(item) for item in data["tasks"]]
     ids = [task.id for task in tasks]
     if len(tasks) != 15 or len(ids) != len(set(ids)):
-        raise ValueError("v1-compile must contain exactly 15 uniquely identified tasks")
+        raise ValueError("v2-compile must contain exactly 15 uniquely identified tasks")
     return tasks
 
 
@@ -100,6 +100,7 @@ def build_manifest(
     return {
         "run_id": run_id,
         "benchmark_version": config["benchmark_version"],
+        "e_packager_version": "1.2.6",
         "scoring_version": SCORING_VERSION,
         "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "model": config["model"],
@@ -176,10 +177,12 @@ def system_prompt(track: str, task: Task, skill_context: dict[str, str]) -> str:
 
 class BenchmarkRunner:
     def __init__(self, project_root: Path, config: dict[str, Any]) -> None:
+        if config.get("benchmark_version") != "v2-compile":
+            raise ValueError("V1 is retired; use benchmark_version v2-compile and benchmarks/v2/tasks.json")
         self.project_root = project_root
         self.config = config
         self.tasks = load_tasks(project_root / config["dataset"])
-        context_doc = load_json(project_root / "benchmarks/v1/skill-context.json")
+        context_doc = load_json(project_root / "benchmarks/v2/skill-context.json")
         self.skill_context: dict[str, str] = context_doc["sections"]
         self.evaluator = WorkspaceEvaluator(config)
 

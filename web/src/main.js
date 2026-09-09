@@ -104,7 +104,13 @@ function refreshIcons() {
 
 function renderSummary() {
   const { meta, summary } = state.data;
-  elements.versionLabel.textContent = `${meta.benchmarkVersion} · ${meta.scoringVersion}`;
+  elements.versionLabel.textContent = `V2 · e-packager ${meta.ePackagerVersion}`;
+  if (!state.data.models.length) {
+    elements.leaderScore.textContent = "--";
+    elements.leaderName.textContent = "等待 V2 首批成绩";
+    elements.resultDate.textContent = "0 个模型 · 15 题 × Raw / Skill";
+    return;
+  }
   elements.leaderScore.textContent = score(summary.leaderScore);
   elements.leaderName.textContent = summary.leader;
   elements.resultDate.textContent = `最近结果 ${new Intl.DateTimeFormat("zh-CN", {
@@ -130,6 +136,8 @@ function sortedModels() {
 function renderLeaderboard() {
   const models = sortedModels();
   elements.emptyState.hidden = models.length !== 0;
+  elements.emptyState.querySelector("strong").textContent = state.data.models.length
+    ? "没有匹配的模型" : "V2 暂无已发布成绩";
   elements.leaderboardBody.hidden = models.length === 0;
   elements.leaderboardBody.innerHTML = models
     .map((model, index) => {
@@ -171,6 +179,8 @@ function renderLeaderboard() {
 
 function renderFormatGap() {
   const { summary, models } = state.data;
+  document.querySelector(".format-gap-section").hidden = models.length === 0;
+  if (!models.length) return;
   elements.gapSummary.innerHTML = `
     <div><span>平均预编译结构</span><strong>${score(summary.averagePrecompileFormat)}</strong></div>
     <span data-lucide="arrow-right" aria-hidden="true"></span>
@@ -226,7 +236,8 @@ function renderScoring() {
 }
 
 function renderMatrix() {
-  const categories = state.data.models[0].categories;
+  const categories = state.data.categories;
+  document.querySelector("#matrix-empty").hidden = state.data.models.length !== 0;
   elements.matrixHead.innerHTML = `
     <tr>
       <th scope="col">模型</th>
@@ -366,6 +377,9 @@ async function initialize() {
     const response = await fetch(`/data.json?ts=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.data = await response.json();
+    if (state.data.meta.benchmarkVersion !== "v2-compile" || state.data.meta.ePackagerVersion !== "1.2.6") {
+      throw new Error("基准数据版本不匹配，需要 V2 / e-packager 1.2.6");
+    }
     renderSummary();
     renderLeaderboard();
     renderFormatGap();

@@ -17,9 +17,13 @@ class DummyEvaluator:
 
 
 class RunnerTests(unittest.TestCase):
+    def test_retired_benchmark_rejected_before_tool_or_api_access(self):
+        with self.assertRaisesRegex(ValueError, "V1 is retired"):
+            BenchmarkRunner(Path("."), {"benchmark_version": "v1-compile"})
+
     def test_manifest_identity_detects_toolchain_and_worker_changes(self):
         base = {
-            "benchmark_version": "v1-compile",
+            "benchmark_version": "v2-compile",
             "scoring_version": "v1.1-pack-failure-count",
             "model": "model",
             "reasoning_effort": "max",
@@ -42,7 +46,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_manifest_identity_detects_output_budget_changes(self):
         base = {
-            "benchmark_version": "v1-compile",
+            "benchmark_version": "v2-compile",
             "scoring_version": "v1.2-compile-gated",
             "model": "claude-opus-5",
             "reasoning_effort": "max",
@@ -72,7 +76,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_manifest_identity_detects_responses_thinking_changes(self):
         base = {
-            "benchmark_version": "v1-compile",
+            "benchmark_version": "v2-compile",
             "scoring_version": "v1.1-pack-failure-count",
             "model": "model",
             "reasoning_effort": "enabled",
@@ -145,7 +149,7 @@ class RunnerTests(unittest.TestCase):
             runner = object.__new__(BenchmarkRunner)
             runner.project_root = root
             runner.config = {
-                "benchmark_version": "v1-compile",
+                "benchmark_version": "v2-compile",
                 "model": "parallel-model",
                 "reasoning_effort": "max",
                 "protocol": "openai_responses",
@@ -161,7 +165,7 @@ class RunnerTests(unittest.TestCase):
             runner._execute_case = execute_case
             manifest = {
                 "run_id": "parallel-run",
-                "benchmark_version": "v1-compile",
+                "benchmark_version": "v2-compile",
                 "scoring_version": "v1.1-pack-failure-count",
                 "model": "parallel-model",
                 "reasoning_effort": "max",

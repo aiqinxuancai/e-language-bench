@@ -6,7 +6,7 @@
 
 ## 快速开始
 
-需要 Windows、Python 3.11+、e-packager 及其工程模板、易语言 IDE。将 `AutoLinker.fne` 安装到 IDE 的 `lib/` 目录并启用支持库。
+需要 Windows、Python 3.11+、[e-packager v1.2.6 正式包](https://github.com/aiqinxuancai/e-packager/releases/tag/v1.2.6)及其工程模板、易语言 IDE。V2 在运行前核对 e-packager 版本；其他依赖不限定版本。将 `AutoLinker.fne` 安装到 IDE 的 `lib/` 目录并启用支持库。
 
 ```powershell
 Copy-Item config/bench.example.json config/bench.json
@@ -30,11 +30,13 @@ python scripts/bench.py config/bench.json --model your-model --reasoning-effort 
 
 ## 基准与评分
 
-`v1-compile` 包含 15 道题目，覆盖格式与工程、核心库、流程控制、子程序与数据结构、修复与综合五类能力。每题分别运行 `raw` 和 `skill` 两条独立轨道，共 30 个 pass@1 样本；Skill 轨道额外提供版本化的易语言实现规范。
+`v2-compile` 包含 15 道题目，覆盖格式与工程、核心库、流程控制、子程序与数据结构、修复与综合五类能力。每题分别运行 `raw` 和 `skill` 两条独立轨道，共 30 个 pass@1 样本；Skill 轨道额外提供版本化的易语言实现规范。
+
+V2 沿用原有题目和编译门槛评分规则，以 e-packager v1.2.6 重新评测。V1 已废弃，旧成绩不进入 V2 榜单。
 
 每题总分 100 分：格式与工程可靠性 45%、真实编译 35%、隐藏静态语义断言 20%。源码只有通过真实编译才能获得总分。预编译结构分用于诊断格式、回包和工程打开问题；每次回包失败扣 15 分。HTTP 和网络重试不计入回包失败。本版本验证编译，不执行生成的 EXE。
 
-## 结果与目录
+## 项目目录
 
 - `src/elang_bench/`：API、执行器和评分逻辑。
 - `scripts/bench.py`：一键运行入口。
@@ -43,7 +45,7 @@ python scripts/bench.py config/bench.json --model your-model --reasoning-effort 
 - `tests/`：单元测试和真实工具链集成测试。
 - `web/`：评分网站及公开报告。
 
-完整运行输出保存到 `results/<run-id>/`，包括 `manifest.json`、逐题 `records/`、请求响应和编译工作区 `cases/`、`scorecard.json`、`report.md`。配置、运行明细、缓存及编译产物被 Git 忽略，本机文件仍可用于续跑和审计。
+运行输出保存到被 Git 忽略的 `results/<run-id>/`，配置、运行明细、缓存及编译产物不会上传。
 
 重新生成本地报告无需请求模型：
 

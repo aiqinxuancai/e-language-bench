@@ -12,10 +12,38 @@ from elang_bench.workspace import (
     compile_temp_directory,
     parse_preflight_diagnostics,
     run_command,
+    WorkspaceEvaluator,
 )
 
 
 class WorkspaceTests(unittest.TestCase):
+    def test_environment_requires_exact_packager_release(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            tool = root / "tool.exe"
+            tool.touch()
+            evaluator = WorkspaceEvaluator({"tools": {
+                "e_packager": str(tool), "eide": str(tool),
+                "autolinker_fne": str(tool), "template_root": str(root),
+            }})
+            for output, exit_code, accepted in (
+                ("e-packager v1.2.6\n", 0, True),
+                ("e-packager v1.2.5", 0, False),
+                ("e-packager v1.2.7", 0, False),
+                ("e-packager dev", 0, False),
+                ("", 0, False),
+                ("e-packager v1.2.6", 1, False),
+            ):
+                with self.subTest(output=output, exit_code=exit_code), patch(
+                    "elang_bench.workspace.run_command",
+                    return_value=CommandResult([str(tool), "--version"], exit_code, stdout=output),
+                ):
+                    if accepted:
+                        self.assertEqual(evaluator.check_environment(), [])
+                    else:
+                        with self.assertRaisesRegex(ValueError, "requires e-packager v1.2.6"):
+                            evaluator.check_environment()
+
     def test_compile_temp_directory_is_stable_unique_and_outside_case(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

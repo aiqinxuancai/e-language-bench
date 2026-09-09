@@ -1,6 +1,6 @@
 {
-  "benchmark_version": "v1-compile",
-  "dataset": "benchmarks/v1/tasks.json",
+  "benchmark_version": "v2-compile",
+  "dataset": "benchmarks/v2/tasks.json",
   "base_url": "https://api.example.com/v1",
   "protocol": "openai_responses",
   "model": "your-model",

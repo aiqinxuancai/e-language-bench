@@ -285,7 +285,15 @@ class WorkspaceEvaluator:
             self.eide,
             self.template_root,
         ]
-        return [path for path in paths if not path.exists()]
+        missing = [path for path in paths if not path.exists()]
+        if not missing:
+            version = run_command([str(self.e_packager), "--version"], 15)
+            if version.exit_code != 0 or version.timed_out or version.stdout.strip() != "e-packager v1.2.6":
+                raise ValueError(
+                    "V2 requires e-packager v1.2.6; got: "
+                    + (version.stdout or version.stderr or "no version output").strip()
+                )
+        return missing
 
     def prepare(self, task: Task, case_root: Path) -> tuple[Path, CommandResult]:
         workspace = case_root / "workspace"

@@ -1,123 +1,63 @@
 import { mkdir, readFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 import { chromium, expect } from "@playwright/test";
 
-const scriptDir = dirname(fileURLToPath(import.meta.url));
-const projectRoot = resolve(scriptDir, "../..");
-const artifacts = resolve(projectRoot, "web/test-artifacts");
+const artifacts = resolve("web/test-artifacts");
 const baseUrl = process.env.WEB_BASE_URL ?? "http://127.0.0.1:4173";
-const data = JSON.parse(await readFile(resolve(projectRoot, "web/public/data.json"), "utf8"));
+const data = JSON.parse(await readFile("web/public/data.json", "utf8"));
 await mkdir(artifacts, { recursive: true });
-
 const browser = await chromium.launch();
-const browserErrors = [];
-
-async function preparePage(viewport) {
-  const page = await browser.newPage({ viewport });
-  page.on("console", (message) => {
-    if (message.type() === "error") browserErrors.push(`console: ${message.text()}`);
-  });
-  page.on("pageerror", (error) => browserErrors.push(`pageerror: ${error.message}`));
-  await page.goto(baseUrl, { waitUntil: "networkidle" });
-  await expect(page.locator("#leaderboard-body tr")).toHaveCount(data.models.length);
-  await expect(page.locator("#leader-score")).toHaveText("36.16");
-  const leaderLayout = await page.locator(".leader-callout").evaluate((element) => {
-    const scoreBox = element.querySelector("#leader-score").getBoundingClientRect();
-    const name = element.querySelector("#leader-name");
-    const nameBox = name.getBoundingClientRect();
-    return {
-      nameBelowScore: nameBox.top >= scoreBox.bottom,
-      nameUnclipped: name.scrollWidth <= name.clientWidth && name.scrollHeight <= name.clientHeight,
-    };
-  });
-  if (!leaderLayout.nameBelowScore || !leaderLayout.nameUnclipped) {
-    throw new Error("leader model name must render below the score without clipping");
-  }
-  await expect(page.getByText("编译率最高", { exact: true })).toHaveCount(0);
-  await expect(page.locator(".toolchain-item")).toHaveCount(3);
-  for (const project of ["e-packager", "AutoLinker", "e-language-skill"]) {
-    await expect(page.locator(`.toolchain-item:has-text("${project}")`)).toBeVisible();
-  }
-  return page;
-}
-
+const errors = [];
 try {
-  const desktop = await preparePage({ width: 1440, height: 1000 });
-  await desktop.screenshot({ path: resolve(artifacts, "desktop.png"), fullPage: true });
-
-  await desktop.locator("#model-search").fill("claude-opus-5");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
-  await desktop.locator("#model-search").fill("");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(data.models.length);
-
-  await desktop.locator("#model-search").fill("gemini-3.1-pro");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
-  await expect(desktop.locator("#leaderboard-body .score-cell")).toHaveText("16.50");
-
-  await desktop.locator("#model-search").fill("gemini-3.5-flash");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
-  await expect(desktop.locator("#leaderboard-body .score-cell")).toHaveText("16.00");
-
-  await desktop.locator("#model-search").fill("gemini-3.7-flash");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
-  await expect(desktop.locator("#leaderboard-body .score-cell")).toHaveText("10.00");
-  await desktop.locator("#model-search").fill("");
-
-  await desktop.locator("#model-search").fill("hy3");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
-  await expect(desktop.locator("#leaderboard-body .score-cell")).toHaveText("9.66");
-  await desktop.locator("#model-search").fill("");
-
-  await desktop.locator("#model-search").fill("grok-4.6");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(2);
-  await expect(desktop.locator("#leaderboard-body .quality-badge")).toHaveCount(1);
-  await expect(desktop.locator("#leaderboard-body .score-cell")).toHaveText(["13.34", "6.67"]);
-  await desktop.locator("#model-search").fill("");
-
-  await desktop.locator('[data-tab="scoring"]').click();
-  await expect(desktop.locator('[data-view="scoring"]')).toBeVisible();
-  await desktop.screenshot({ path: resolve(artifacts, "scoring.png"), fullPage: true });
-
-  await desktop.locator('[data-tab="matrix"]').click();
-  await expect(desktop.locator("#matrix-body tr")).toHaveCount(data.models.length);
-  await desktop.screenshot({ path: resolve(artifacts, "matrix.png"), fullPage: true });
-
-  await desktop.locator('[data-tab="leaderboard"]').click();
-  await desktop.locator("#leaderboard-body .model-button").first().click();
-  await expect(desktop.locator("#model-dialog")).toBeVisible();
-  await expect(desktop.locator("#dialog-title")).toHaveText("gemini-3.6-flash");
-  await desktop.screenshot({ path: resolve(artifacts, "detail.png") });
-  await desktop.locator("#dialog-close").click();
-  await desktop.close();
-
-  const mobile = await preparePage({ width: 390, height: 844 });
-  for (const selector of [".model-cell", ".score-cell", ".format-cell", ".mobile-keep"]) {
-    const box = await mobile.locator(`#leaderboard-body ${selector}`).first().boundingBox();
-    if (!box || box.x < 0 || box.x + box.width > 390) {
-      throw new Error(`${selector} is outside the mobile viewport`);
+  for (const width of [1440, 390, 320]) {
+    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    page.on("pageerror", error => errors.push(error.message));
+    page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
+    await page.goto(baseUrl, { waitUntil: "networkidle" });
+    await expect(page.locator("#version-label")).toHaveText("V2 · e-packager 1.2.6");
+    await expect(page.locator("#leaderboard-body tr")).toHaveCount(data.models.length);
+    if (!data.models.length) {
+      await expect(page.locator("#leader-score")).toHaveText("--");
+      await expect(page.locator("#empty-state")).toContainText("V2 暂无已发布成绩");
+      await expect(page.locator(".format-gap-section")).toBeHidden();
     }
-  }
-  await mobile.screenshot({ path: resolve(artifacts, "mobile.png"), fullPage: true });
-  await mobile.locator("#leaderboard-body .model-button").first().click();
-  await expect(mobile.locator("#model-dialog")).toBeVisible();
-  await mobile.screenshot({ path: resolve(artifacts, "mobile-detail.png") });
-  await mobile.close();
-
-  const narrow = await preparePage({ width: 320, height: 760 });
-  for (const selector of [".model-cell", ".score-cell", ".format-cell", ".mobile-keep"]) {
-    const box = await narrow.locator(`#leaderboard-body ${selector}`).first().boundingBox();
-    if (!box || box.x < 0 || box.x + box.width > 320) {
-      throw new Error(`${selector} is outside the 320px viewport`);
+    for (const tab of ["leaderboard", "scoring", "matrix"]) {
+      await page.locator(`[data-tab="${tab}"]`).click();
+      await expect(page.locator(`[data-view="${tab}"]`)).toBeVisible();
+      if (tab === "matrix" && !data.models.length) await expect(page.locator("#matrix-empty")).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), `${width}px ${tab} overflow`).toBe(false);
+      await page.screenshot({ path: resolve(artifacts, `${width}-${tab}.png`), fullPage: true });
     }
+    await page.close();
   }
-  await narrow.screenshot({ path: resolve(artifacts, "mobile-320.png"), fullPage: true });
-  await narrow.close();
-
-  if (browserErrors.length > 0) {
-    throw new Error(browserErrors.join("\n"));
-  }
-  console.log(`web smoke: desktop/mobile views and interactions passed (${baseUrl})`);
+  // Exercise populated views without publishing invented benchmark scores.
+  const page = await browser.newPage();
+  const models = ["Fixture Alpha", "Fixture Beta"].map((model, index) => ({
+    model, rank: index + 1, runId: `fixture-${index}`, effort: "high", total: 80 - index * 10,
+    raw: 70, skill: 80, skillGain: 10 + index, effectiveFormat: 80, precompileFormat: 90,
+    compileRate: 80, passAt1: 70, categories: data.categories.map(c => ({ ...c, score: 80 })),
+    capReasons: {}, packFailureReasons: {}, packFailures: 0, packAttempts: 30,
+    protocol: "openai_responses", wireProtocol: "openai_responses", observedModels: [], reportUrl: "#",
+  }));
+  await page.route("**/data.json?*", route => route.fulfill({ json: {
+    ...data, models, meta: { ...data.meta, modelCount: 2, latestResultAt: "2026-09-09T00:00:00Z" },
+    summary: { ...data.summary, leader: models[0].model, leaderScore: 80, averagePrecompileFormat: 90, averageEffectiveFormat: 80 },
+  } }));
+  page.on("pageerror", error => errors.push(error.message));
+  await page.goto(baseUrl);
+  await expect(page.locator("#leaderboard-body tr")).toHaveCount(2);
+  await page.locator('[data-sort="skillGain"]').click();
+  await expect(page.locator(".model-button").first()).toContainText("Fixture Beta");
+  await page.locator("#model-search").fill("Alpha");
+  await expect(page.locator("#leaderboard-body tr")).toHaveCount(1);
+  await page.locator(".model-button").click();
+  await expect(page.locator("#model-dialog")).toBeVisible();
+  await expect(page.locator("#dialog-title")).toHaveText("Fixture Alpha");
+  await page.locator("#dialog-close").click();
+  await page.locator("#model-search").fill("no-match");
+  await expect(page.locator("#empty-state")).toContainText("没有匹配的模型");
+  expect(errors).toEqual([]);
+  console.log("web smoke: V2 desktop/mobile views, empty states, search, sort and details passed");
 } finally {
   await browser.close();
 }

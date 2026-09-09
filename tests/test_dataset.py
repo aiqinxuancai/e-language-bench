@@ -5,9 +5,9 @@ from elang_bench.runner import load_tasks
 
 
 class DatasetTests(unittest.TestCase):
-    def test_v1_has_fifteen_tasks_and_five_categories(self):
+    def test_v2_has_fifteen_tasks_and_five_categories(self):
         root = Path(__file__).resolve().parents[1]
-        tasks = load_tasks(root / "benchmarks/v1/tasks.json")
+        tasks = load_tasks(root / "benchmarks/v2/tasks.json")
         self.assertEqual(len(tasks), 15)
         self.assertEqual(
             {task.category for task in tasks},
@@ -18,4 +18,3 @@ class DatasetTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

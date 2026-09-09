@@ -6,7 +6,7 @@
     <meta name="description" content="由真实 e-packager 与 AutoLinker 编译验证的易语言代码生成模型评分榜。" />
     <meta name="theme-color" content="#f5f7f8" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <title>易语言模型基准 · 编译验证评分</title>
+    <title>易语言模型基准 V2 · 编译验证评分</title>
   </head>
   <body>
     <div class="app-shell">
@@ -32,8 +32,8 @@
         <section class="intro-band" aria-labelledby="page-title">
           <div class="intro-copy">
             <p class="eyebrow">易语言代码生成 · pass@1</p>
-            <h1 id="page-title">易语言模型基准</h1>
-            <p>每个分数都经过源码回包、工程重开与 AutoLinker 真实编译。编译失败的样本，总分归零。</p>
+            <h1 id="page-title">易语言模型基准 V2</h1>
+            <p>固定使用 e-packager 1.2.6，经易语言 IDE 无头编译验证。V1 已停止维护，成绩不计入本榜。</p>
           </div>
           <div class="leader-callout" aria-live="polite">
             <span class="callout-label">当前最高分</span>
@@ -43,10 +43,10 @@
         </section>
 
         <section class="toolchain-strip" aria-label="相关开源项目">
-          <a class="toolchain-item" href="https://github.com/aiqinxuancai/e-packager" target="_blank" rel="noreferrer">
+          <a class="toolchain-item" href="https://github.com/aiqinxuancai/e-packager/releases/tag/v1.2.6" target="_blank" rel="noreferrer">
             <span class="toolchain-icon" data-lucide="package-open" aria-hidden="true"></span>
             <span class="toolchain-copy">
-              <span class="toolchain-heading"><strong>e-packager</strong><small>TEXT WORKSPACE</small></span>
+              <span class="toolchain-heading"><strong>e-packager</strong><small>v1.2.6</small></span>
               <span class="toolchain-description">将二进制易语言工程转换为可读、可修改并可验证回包的文本工作区。</span>
             </span>
             <span class="toolchain-link-icon" data-lucide="external-link" aria-hidden="true"></span>
@@ -55,7 +55,7 @@
             <span class="toolchain-icon" data-lucide="square-terminal" aria-hidden="true"></span>
             <span class="toolchain-copy">
               <span class="toolchain-heading"><strong>AutoLinker</strong><small>AI CODE READ/WRITE</small></span>
-              <span class="toolchain-description">易语言 AI Agent \ MCP 自动操作源码读写，并提供无头编译等功能。</span>
+              <span class="toolchain-description">安装支持库后，直接通过易语言 IDE 命令行执行无头编译。</span>
             </span>
             <span class="toolchain-link-icon" data-lucide="external-link" aria-hidden="true"></span>
           </a>
@@ -147,7 +147,7 @@
         <section class="view-panel" data-view="scoring" id="scoring" aria-labelledby="scoring-title" hidden>
           <div class="section-heading">
             <div>
-              <p class="section-kicker">v1.2 compile-gated</p>
+              <p class="section-kicker">v2 compile</p>
               <h2 id="scoring-title">评分规则</h2>
             </div>
             <p class="section-meta">每题 100 分 · 仅编译成功后生效</p>
@@ -208,6 +208,7 @@
               <thead id="matrix-head"></thead>
               <tbody id="matrix-body"></tbody>
             </table>
+            <p id="matrix-empty" class="empty-state" hidden>V2 暂无能力评分</p>
           </div>
         </section>
       </main>

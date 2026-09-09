@@ -15,7 +15,7 @@ from elang_bench.scoring import SCORING_VERSION
 class ReportTests(unittest.TestCase):
     def test_api_failure_is_not_counted_as_model_score(self):
         manifest = {
-            "benchmark_version": "v1-compile",
+            "benchmark_version": "v2-compile",
             "run_id": "test",
             "model": "gpt-5.6-luna",
             "reasoning_effort": "max",
@@ -40,7 +40,7 @@ class ReportTests(unittest.TestCase):
 
     def test_pack_failure_attempts_are_counted_separately_from_api_attempts(self):
         manifest = {
-            "benchmark_version": "v1-compile",
+            "benchmark_version": "v2-compile",
             "scoring_version": "v1.1-pack-failure-count",
             "run_id": "test",
             "model": "gpt-5.6-sol",
@@ -83,7 +83,7 @@ class ReportTests(unittest.TestCase):
             semantic_total=20,
         )
         manifest = {
-            "benchmark_version": "v1-compile",
+            "benchmark_version": "v2-compile",
             "scoring_version": "v1.1-pack-failure-count",
             "run_id": "rescore-test",
             "model": "model",
