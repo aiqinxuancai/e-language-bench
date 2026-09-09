@@ -145,8 +145,8 @@
       "packFailureReasons": {
         "source_preflight_failed": 9
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.6-flash-high-v1.2-p2-r2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.6-flash-high-v1.2-p2-r2/scorecard.json"
+      "reportUrl": "/reports/20260819-right-gemini-3.6-flash-high-v1.2-p2-r2/report.md",
+      "scorecardUrl": "/reports/20260819-right-gemini-3.6-flash-high-v1.2-p2-r2/scorecard.json"
     },
     {
       "rank": 2,
@@ -222,8 +222,8 @@
       "packFailureReasons": {
         "source_preflight_failed": 5
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260816-0elog-gpt-5.6-sol-max-v1.1-p2/scorecard.json"
     },
     {
       "rank": 3,
@@ -303,8 +303,8 @@
         "other": 2,
         "semantic_method_rebuild_failed": 1
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260815-right-gpt-5.6-sol-medium-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260815-right-gpt-5.6-sol-medium-v1.1-p2/scorecard.json"
     },
     {
       "rank": 4,
@@ -382,8 +382,8 @@
         "semantic_method_rebuild_failed": 1,
         "other": 1
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-pro-max-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260815-deepseek-v4-pro-max-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260815-deepseek-v4-pro-max-v1.1-p2/scorecard.json"
     },
     {
       "rank": 5,
@@ -462,8 +462,8 @@
         "other": 4,
         "semantic_method_rebuild_failed": 2
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260815-right-gpt-5.6-luna-max-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260815-right-gpt-5.6-luna-max-v1.1-p2/scorecard.json"
     },
     {
       "rank": 6,
@@ -543,8 +543,8 @@
         "source_preflight_failed": 5,
         "function_not_found": 2
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-right-claude-opus-5-max-v1.2-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-right-claude-opus-5-max-v1.2-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-right-claude-opus-5-max-v1.2-p2/report.md",
+      "scorecardUrl": "/reports/20260816-right-claude-opus-5-max-v1.2-p2/scorecard.json"
     },
     {
       "rank": 7,
@@ -624,8 +624,8 @@
         "other": 1,
         "function_not_found": 1
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/scorecard.json"
+      "reportUrl": "/reports/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/report.md",
+      "scorecardUrl": "/reports/20260908-deepseek-v4.1-flash-expires-on-0910-max-v1.2-p2-e113/scorecard.json"
     },
     {
       "rank": 8,
@@ -703,8 +703,8 @@
         "other": 1,
         "source_preflight_failed": 2
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.1-pro-high-v1.2-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.1-pro-high-v1.2-p2/scorecard.json"
+      "reportUrl": "/reports/20260819-right-gemini-3.1-pro-high-v1.2-p2/report.md",
+      "scorecardUrl": "/reports/20260819-right-gemini-3.1-pro-high-v1.2-p2/scorecard.json"
     },
     {
       "rank": 9,
@@ -784,8 +784,8 @@
         "function_not_found": 1,
         "other": 2
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-ark-minimax-m3-thinking-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260816-ark-minimax-m3-thinking-v1.1-p2/scorecard.json"
     },
     {
       "rank": 10,
@@ -863,8 +863,8 @@
         "semantic_method_rebuild_failed": 4,
         "source_preflight_failed": 9
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260815-ark-glm-5.2-max-responses-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260815-ark-glm-5.2-max-responses-v1.1-p2/scorecard.json"
     },
     {
       "rank": 11,
@@ -942,8 +942,8 @@
         "function_not_found": 1,
         "source_preflight_failed": 7
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.5-flash-high-v1.2-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.5-flash-high-v1.2-p2/scorecard.json"
+      "reportUrl": "/reports/20260819-right-gemini-3.5-flash-high-v1.2-p2/report.md",
+      "scorecardUrl": "/reports/20260819-right-gemini-3.5-flash-high-v1.2-p2/scorecard.json"
     },
     {
       "rank": 12,
@@ -1021,8 +1021,8 @@
         "other": 2,
         "semantic_method_rebuild_failed": 2
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-xai-grok-4.6-high-v1.2-p2-r2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-xai-grok-4.6-high-v1.2-p2-r2/scorecard.json"
+      "reportUrl": "/reports/20260819-xai-grok-4.6-high-v1.2-p2-r2/report.md",
+      "scorecardUrl": "/reports/20260819-xai-grok-4.6-high-v1.2-p2-r2/scorecard.json"
     },
     {
       "rank": 13,
@@ -1100,8 +1100,8 @@
         "source_preflight_failed": 7,
         "function_not_found": 1
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json"
+      "reportUrl": "/reports/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/report.md",
+      "scorecardUrl": "/reports/20260819-right-gemini-3.7-flash-high-v1.2-p2-r2/scorecard.json"
     },
     {
       "rank": 14,
@@ -1179,8 +1179,8 @@
         "function_not_found": 1,
         "semantic_method_rebuild_failed": 4
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-flash-max-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260815-deepseek-v4-flash-max-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260815-deepseek-v4-flash-max-v1.1-p2/scorecard.json"
     },
     {
       "rank": 15,
@@ -1258,8 +1258,8 @@
         "source_preflight_failed": 6,
         "semantic_method_rebuild_failed": 6
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260828-zhipu-glm-5.3-flash-high-v1.2-final/scorecard.json"
+      "reportUrl": "/reports/20260828-zhipu-glm-5.3-flash-high-v1.2-final/report.md",
+      "scorecardUrl": "/reports/20260828-zhipu-glm-5.3-flash-high-v1.2-final/scorecard.json"
     },
     {
       "rank": 16,
@@ -1337,8 +1337,8 @@
         "function_not_found": 1,
         "semantic_method_rebuild_failed": 4
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260817-tokenhub-hy3-high-v1.2-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json"
+      "reportUrl": "/reports/20260817-tokenhub-hy3-high-v1.2-p2/report.md",
+      "scorecardUrl": "/reports/20260817-tokenhub-hy3-high-v1.2-p2/scorecard.json"
     },
     {
       "rank": 17,
@@ -1417,8 +1417,8 @@
         "semantic_method_rebuild_failed": 3,
         "other": 1
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260815-right-claude-sonnet-5-high-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260815-right-claude-sonnet-5-high-v1.1-p2/scorecard.json"
     },
     {
       "rank": 18,
@@ -1496,8 +1496,8 @@
         "semantic_method_rebuild_failed": 1,
         "other": 2
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-glm-5.3-max-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-ark-glm-5.3-max-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260816-ark-glm-5.3-max-v1.1-p2/scorecard.json"
     },
     {
       "rank": 19,
@@ -1573,8 +1573,8 @@
         "source_preflight_failed": 25,
         "other": 3
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260815-right-grok-4.6-max-responses-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260815-right-grok-4.6-max-responses-v1.1-p2/scorecard.json"
     },
     {
       "rank": 20,
@@ -1652,8 +1652,8 @@
         "other": 3,
         "source_preflight_failed": 18
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/report.md",
+      "scorecardUrl": "/reports/20260816-xiaomi-mimo-v2.5-high-v1.2-p2/scorecard.json"
     },
     {
       "rank": 21,
@@ -1731,8 +1731,8 @@
         "source_preflight_failed": 7,
         "function_not_found": 1
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260816-ark-doubao-seed-2.0-lite-thinking-v1.1-p2/scorecard.json"
     },
     {
       "rank": 22,
@@ -1811,8 +1811,8 @@
         "semantic_method_rebuild_failed": 3,
         "function_not_found": 1
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/report.md",
+      "scorecardUrl": "/reports/20260816-ark-doubao-seed-2.1-turbo-thinking-v1.1-p2/scorecard.json"
     },
     {
       "rank": 23,
@@ -1891,8 +1891,8 @@
         "other": 3,
         "semantic_method_rebuild_failed": 3
       },
-      "reportUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/report.md",
-      "scorecardUrl": "https://github.com/aiqinxuancai/e-language-bench/blob/main/results/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/scorecard.json"
+      "reportUrl": "/reports/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/report.md",
+      "scorecardUrl": "/reports/20260816-xiaomi-mimo-v2.5-pro-high-v1.2-p2/scorecard.json"
     }
   ]
 }

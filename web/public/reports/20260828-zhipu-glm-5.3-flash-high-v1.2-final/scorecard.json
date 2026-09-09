@@ -1,0 +1,96 @@
+{
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.2-compile-gated",
+  "run_id": "20260828-zhipu-glm-5.3-flash-high-v1.2-final",
+  "model": "glm-5.3-flash",
+  "provider": "智谱 AI 官方 API",
+  "degraded": false,
+  "degradation_note": null,
+  "reasoning_effort": "high",
+  "protocol": "openai_chat",
+  "wire_protocol": "openai_chat",
+  "observed_models": [
+    "glm-5.3-flash"
+  ],
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "run_status": "complete",
+  "total_score": 9.66,
+  "track_scores": {
+    "raw": {
+      "score": 19.33,
+      "format_score": 20.0,
+      "precompile_format_score": 75.67,
+      "compile_rate": 0.2,
+      "pass_at_1": 0.1333,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 7,
+      "count": 15
+    },
+    "skill": {
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 84.03,
+      "compile_rate": 0.0,
+      "pass_at_1": 0.0,
+      "pack_attempt_count": 15,
+      "pack_failure_count": 5,
+      "count": 15
+    }
+  },
+  "skill_gain": -19.33,
+  "category_scores": {
+    "abstraction": {
+      "label": "子程序与数据结构",
+      "score": 16.67,
+      "format_score": 16.67,
+      "precompile_format_score": 91.83,
+      "pass_at_1": 0.1667
+    },
+    "core": {
+      "label": "核心库指令",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 84.17,
+      "pass_at_1": 0.0
+    },
+    "flow": {
+      "label": "流程控制",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 76.0,
+      "pass_at_1": 0.0
+    },
+    "format": {
+      "label": "格式与工程",
+      "score": 31.67,
+      "format_score": 33.33,
+      "precompile_format_score": 72.92,
+      "pass_at_1": 0.1667
+    },
+    "repair": {
+      "label": "修复与综合",
+      "score": 0.0,
+      "format_score": 0.0,
+      "precompile_format_score": 74.33,
+      "pass_at_1": 0.0
+    }
+  },
+  "cap_reason_counts": {
+    "compile_failed": 14,
+    "validation_failed": 6,
+    "none": 3,
+    "pack_failed": 6,
+    "packed_project_unusable": 1
+  },
+  "pack_failure_reason_counts": {
+    "source_preflight_failed": 6,
+    "semantic_method_rebuild_failed": 6
+  },
+  "pack_attempt_count": 30,
+  "pack_failure_count": 12,
+  "pack_failure_precompile_deduction": 180.0,
+  "completed_records": 30,
+  "expected_records": 30,
+  "infrastructure_failures": []
+}

@@ -1,0 +1,44 @@
+{
+  "run_id": "20260819-right-gemini-3.7-flash-high-v1.2-p2-r2",
+  "benchmark_version": "v1-compile",
+  "scoring_version": "v1.2-compile-gated",
+  "created_at": "2026-08-19T07:38:15.151749+00:00",
+  "model": "gemini-3.7-flash",
+  "reasoning_effort": "high",
+  "max_output_tokens": null,
+  "responses_thinking_type": null,
+  "protocol": "openai_responses",
+  "wire_protocol": "openai_responses",
+  "base_url": "https://www.rightapi.ai/gemini",
+  "parallel_workers": 2,
+  "runtime_available": false,
+  "runtime_status": "runtime_unavailable_defender_blocked",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.28000-SP0",
+  "tool_paths": {
+    "e_packager": "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe",
+    "autolinker_test": "D:\\git\\AutoLinker\\bin\\fne_release\\AutoLinkerTest.exe",
+    "autolinker_fne": "C:\\Users\\aiqin\\OneDrive\\e5.6\\lib\\AutoLinker.fne",
+    "eide": "C:\\Users\\aiqin\\OneDrive\\e5.6\\e5.95.exe"
+  },
+  "tool_hashes": {
+    "e_packager": "09d7f1e291d2ba190c28fcdc07d2460a6222baf1b7e935c34a9660807aed7785",
+    "autolinker_test": "309534632abe1e8bb2e9cf187cb1a31ec0961602c1cb6db953136f787d1a4b68",
+    "autolinker_fne": "309824c0714e5a0e7a304a90a20ed0cf503a4ccc8902f3e2b7ce750d4f88de3c",
+    "eide": "368cbbd323d2c5bc00f0c072b116333f75339fc0742e238d3e5e6ff17abe1409"
+  },
+  "template_hashes": {
+    "e-console-exe-for-10000.e": "e7dcab0c1f55ed2d2ae1e9e2cb4df81619c11680751921f4b9e46b06093b5d12",
+    "e-console-exe-full-test.e": "4a75585920dd91f533ac3fd4b8942e703d5ea0d99503bd0a96a0ef5991725667",
+    "e-console-exe-new-proj.e": "e1073bc2b7824065142a0787e64bf8f568b43b47fb6548a82540a6ae974291fe",
+    "e-window-exe-full.e": "62c4756ae84e83786076f3945da3095034b3bfe60335f349d7525e08ca670816",
+    "e-window-exe-new-proj.e": "1e51103e3438b61a4078c1fd74dd02bdd79ed2c02198bd481e9f1403bef6c830"
+  },
+  "dependency_commits": {
+    "e-packager": "5ca7864d682cbe6570140f7f6e15c05f9762b873",
+    "AutoLinker": "c015355887275d9fc8fa9f6cbb46d85db38c3ef8",
+    "e-language-skill": "e0da33c4d654a431005f3db416c9d3b65b9c8206"
+  },
+  "dataset_sha256": "18804373822c00c0e93d1f904ee8f820ebbe5ef6cbf87a95d653c19b1e98ac83",
+  "credential_persisted": false
+}

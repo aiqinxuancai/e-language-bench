@@ -1,4 +1,4 @@
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium, expect } from "@playwright/test";
@@ -7,6 +7,7 @@ const scriptDir = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(scriptDir, "../..");
 const artifacts = resolve(projectRoot, "web/test-artifacts");
 const baseUrl = process.env.WEB_BASE_URL ?? "http://127.0.0.1:4173";
+const data = JSON.parse(await readFile(resolve(projectRoot, "web/public/data.json"), "utf8"));
 await mkdir(artifacts, { recursive: true });
 
 const browser = await chromium.launch();
@@ -19,7 +20,7 @@ async function preparePage(viewport) {
   });
   page.on("pageerror", (error) => browserErrors.push(`pageerror: ${error.message}`));
   await page.goto(baseUrl, { waitUntil: "networkidle" });
-  await expect(page.locator("#leaderboard-body tr")).toHaveCount(22);
+  await expect(page.locator("#leaderboard-body tr")).toHaveCount(data.models.length);
   await expect(page.locator("#leader-score")).toHaveText("36.16");
   const leaderLayout = await page.locator(".leader-callout").evaluate((element) => {
     const scoreBox = element.querySelector("#leader-score").getBoundingClientRect();
@@ -48,7 +49,7 @@ try {
   await desktop.locator("#model-search").fill("claude-opus-5");
   await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
   await desktop.locator("#model-search").fill("");
-  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(22);
+  await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(data.models.length);
 
   await desktop.locator("#model-search").fill("gemini-3.1-pro");
   await expect(desktop.locator("#leaderboard-body tr")).toHaveCount(1);
@@ -79,7 +80,7 @@ try {
   await desktop.screenshot({ path: resolve(artifacts, "scoring.png"), fullPage: true });
 
   await desktop.locator('[data-tab="matrix"]').click();
-  await expect(desktop.locator("#matrix-body tr")).toHaveCount(22);
+  await expect(desktop.locator("#matrix-body tr")).toHaveCount(data.models.length);
   await desktop.screenshot({ path: resolve(artifacts, "matrix.png"), fullPage: true });
 
   await desktop.locator('[data-tab="leaderboard"]').click();

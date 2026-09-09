@@ -7,6 +7,7 @@ import re
 import subprocess
 import tempfile
 import time
+import uuid
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -210,7 +211,9 @@ def compile_result_ok(result: CommandResult, result_path: Path) -> tuple[bool, b
         return False, False, None, diagnostics
     compile_result = parsed.get("compile_result") or {}
     eide_info = parsed.get("eide_info") or {}
-    source_open = bool(eide_info.get("source_open")) and eide_info.get("source_state") == "source_open"
+    source_open = (
+        bool(eide_info.get("source_open")) and eide_info.get("source_state") == "source_open"
+    ) or bool(compile_result.get("source_open")) or bool(parsed.get("source_open"))
     ide_text = str(compile_result.get("output_window_text", ""))
     combined = "\n".join((result.stdout, result.stderr, ide_text))
     markers = [marker for marker in FAILURE_MARKERS if marker in combined]
@@ -225,7 +228,7 @@ def compile_result_ok(result: CommandResult, result_path: Path) -> tuple[bool, b
         and bool(compile_result.get("output_file_modified_after_compile"))
         and not markers
     )
-    if not source_open:
+    if not source_open and not bool(compile_result.get("ok")):
         diagnostics.append(Diagnostic("ide_open", "source_not_open", str(eide_info.get("source_state", "unknown"))))
     if not ok and not markers:
         diagnostics.append(Diagnostic("compile", "compile_failed", str(parsed.get("error") or "compile result was not successful")))
@@ -268,7 +271,6 @@ class WorkspaceEvaluator:
     def __init__(self, config: dict[str, Any]) -> None:
         tools = config["tools"]
         self.e_packager = Path(tools["e_packager"])
-        self.autolinker_test = Path(tools["autolinker_test"])
         self.eide = Path(tools["eide"])
         self.autolinker_fne = Path(
             tools.get("autolinker_fne", self.eide.parent / "lib" / "AutoLinker.fne")
@@ -279,7 +281,6 @@ class WorkspaceEvaluator:
     def check_environment(self) -> list[Path]:
         paths = [
             self.e_packager,
-            self.autolinker_test,
             self.autolinker_fne,
             self.eide,
             self.template_root,
@@ -347,17 +348,13 @@ class WorkspaceEvaluator:
             compile_temp.mkdir(parents=True, exist_ok=True)
             compile = run_command(
                 [
-                    str(self.autolinker_test),
-                    "headless-compile",
                     str(self.eide),
                     str(packed),
-                    str(artifact),
-                    "--target",
-                    "win_console_exe",
-                    "--result",
-                    str(compile_json),
-                    "--timeout",
-                    str(self.compile_timeout),
+                    "--autolinker-headless-compile",
+                    "--autolinker-output", str(artifact),
+                    "--autolinker-target", "win_console_exe",
+                    "--autolinker-result", str(compile_json),
+                    "--autolinker-invocation-id", uuid.uuid4().hex,
                 ],
                 self.compile_timeout + 60,
                 env_overrides={"TEMP": str(compile_temp), "TMP": str(compile_temp)},

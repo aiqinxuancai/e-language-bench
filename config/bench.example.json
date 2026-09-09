@@ -1,0 +1,24 @@
+{
+  "benchmark_version": "v1-compile",
+  "dataset": "benchmarks/v1/tasks.json",
+  "base_url": "https://api.example.com/v1",
+  "protocol": "openai_responses",
+  "model": "your-model",
+  "reasoning_effort": "high",
+  "parallel_workers": 1,
+  "request_timeout_seconds": 900,
+  "retry_count": 2,
+  "tools": {
+    "e_packager": "D:/tools/e-packager.exe",
+    "autolinker_fne": "C:/tools/lib/AutoLinker.fne",
+    "eide": "C:/tools/eide.exe",
+    "template_root": "D:/tools/eproj",
+    "skill_root": "D:/tools/e-language-skill"
+  },
+  "compile_timeout_seconds": 120,
+  "weights": {
+    "format": 45,
+    "compile": 35,
+    "semantic": 20
+  }
+}

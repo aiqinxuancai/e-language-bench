@@ -19,6 +19,17 @@ def load_config(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def apply_overrides(config: dict, args: argparse.Namespace) -> dict:
+    """Apply optional command-line values without persisting credentials or config."""
+    values = {
+        "model": args.model,
+        "base_url": args.base_url,
+        "protocol": args.protocol,
+        "reasoning_effort": args.reasoning_effort,
+    }
+    return {**config, **{key: value for key, value in values.items() if value is not None}}
+
+
 def command_check(config: dict) -> int:
     evaluator = WorkspaceEvaluator(config)
     missing = evaluator.check_environment()
@@ -27,8 +38,8 @@ def command_check(config: dict) -> int:
             print(f"missing: {path}")
         return 1
     print("environment: ok")
-    for name in ("e_packager", "autolinker_test", "eide"):
-        path = Path(config["tools"][name])
+    for name in ("e_packager", "autolinker_fne", "eide"):
+        path = getattr(evaluator, name)
         print(f"{name}: {path} sha256={sha256_file(path)}")
     return 0
 
@@ -53,7 +64,11 @@ def command_report(root: Path, run_id: str, *, rescore: bool = False) -> int:
 def main(argv: list[str] | None = None) -> int:
     root = project_root()
     parser = argparse.ArgumentParser(description="易语言大模型编译基准")
-    parser.add_argument("--config", type=Path, default=root / "bench.json")
+    parser.add_argument("--config", type=Path, default=root / "config" / "bench.json")
+    parser.add_argument("--model", help="覆盖配置中的模型名")
+    parser.add_argument("--base-url", help="覆盖配置中的 API 地址")
+    parser.add_argument("--protocol", help="覆盖配置中的传输协议")
+    parser.add_argument("--reasoning-effort", help="覆盖配置中的思考等级")
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("check", help="检查本地工具链")
     run_parser = subparsers.add_parser("run", help="执行基准")
@@ -64,11 +79,16 @@ def main(argv: list[str] | None = None) -> int:
     report_parser.add_argument("run_id")
     report_parser.add_argument("--rescore", action="store_true", help="按当前评分规则重算记录")
     args = parser.parse_args(argv)
-    config = load_config(args.config)
-    if args.command == "check":
-        return command_check(config)
     if args.command == "report":
         return command_report(root, args.run_id, rescore=args.rescore)
+    if not args.config.is_file():
+        parser.error(
+            f"configuration not found: {args.config}. "
+            "Copy config/bench.example.json to config/bench.json first."
+        )
+    config = apply_overrides(load_config(args.config), args)
+    if args.command == "check":
+        return command_check(config)
     if args.command == "run":
         tracks = tuple(item.strip() for item in args.tracks.split(",") if item.strip())
         runner = BenchmarkRunner(root, config)

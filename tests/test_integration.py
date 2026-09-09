@@ -14,7 +14,7 @@ from elang_bench.workspace import WorkspaceEvaluator, write_source
 class ToolchainIntegrationTests(unittest.TestCase):
     def setUp(self):
         self.root = Path(__file__).resolve().parents[1]
-        self.config = json.loads((self.root / "bench.json").read_text(encoding="utf-8"))
+        self.config = json.loads((self.root / "config" / "bench.json").read_text(encoding="utf-8"))
         self.tasks = load_tasks(self.root / self.config["dataset"])
         self.evaluator = WorkspaceEvaluator(self.config)
 

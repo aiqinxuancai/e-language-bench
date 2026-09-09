@@ -85,7 +85,6 @@ def build_manifest(
     eide = Path(tools["eide"])
     hash_paths = {
         "e_packager": Path(tools["e_packager"]),
-        "autolinker_test": Path(tools["autolinker_test"]),
         "autolinker_fne": Path(
             tools.get("autolinker_fne", eide.parent / "lib" / "AutoLinker.fne")
         ),
@@ -124,7 +123,6 @@ def build_manifest(
         "template_hashes": template_hashes,
         "dependency_commits": {
             "e-packager": git_commit(template_root.parent),
-            "AutoLinker": git_commit(Path(tools["autolinker_test"]).parents[2]),
             "e-language-skill": git_commit(Path(tools["skill_root"])),
         },
         "dataset_sha256": sha256_file(project_root / config["dataset"]),
