@@ -1,6 +1,6 @@
 # 易语言大模型基准测试报告
 
-- 运行编号：`20260909-right-claude-opus-5-max-v2`
+- 运行编号：`20260910-recheck-right-claude-opus-5-max-v2`
 - 模型：`claude-opus-5`
 - 服务来源：`未标注`
 - 质量标志：`正常`
@@ -11,14 +11,14 @@
 - 基准版本：`v2-compile`
 - 评分版本：`v1.2-compile-gated`
 - 运行状态：`complete`
-- 总分：**38.00 / 100**
+- 总分：**42.75 / 100**
 - 运行期验证：`runtime_unavailable_defender_blocked`
 
 ## 轨道成绩
 
 | 轨道 | 得分 | 有效格式 | 预编译结构 | 回包失败/尝试 | 编译率 | pass@1 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| raw | 38.00 | 40.00 | 66.35 | 9/18 | 40.0% | 15.0% |
+| raw | 42.75 | 45.00 | 68.60 | 8/18 | 45.0% | 15.0% |
 
 ## 能力分项
 
@@ -28,13 +28,13 @@
 | 核心库指令 | 48.75 | 50.00 | 61.75 | 25.0% |
 | 流程控制 | 0.00 | 0.00 | 37.25 | 0.0% |
 | 子程序与数据结构 | 71.25 | 75.00 | 85.75 | 25.0% |
-| 修复与综合 | 0.00 | 0.00 | 50.75 | 0.0% |
+| 修复与综合 | 23.75 | 25.00 | 62.00 | 0.0% |
 
 ## 失败分布
 
-- 回包尝试：`18` 次，失败 `9` 次，累计预编译结构分扣除 `135` 分。
-- 编译硬门槛/失败原因：`none` 8，`validation_failed` 6，`contract_invalid` 2，`pack_failed` 3，`packed_project_unusable` 1
-- 回包失败根因：`source_preflight_failed` 6，`other` 2，`function_not_found` 1，`semantic_method_rebuild_failed` 2
+- 回包尝试：`18` 次，失败 `8` 次，累计预编译结构分扣除 `120` 分。
+- 编译硬门槛/失败原因：`none` 9，`validation_failed` 6，`contract_invalid` 2，`pack_failed` 2，`packed_project_unusable` 1
+- 回包失败根因：`source_preflight_failed` 6，`other` 2，`function_not_found` 1，`semantic_method_rebuild_failed` 1
 
 ## 逐题结果
 
@@ -57,7 +57,7 @@
 | fmt-03 固定表与自定义类型 | raw | 格式与工程 | 85.00 | 100.00 | 100.00 | 100 | 25.00 | FAIL |
 | fmt-04 纯置入代码整数加法 | raw | 格式与工程 | 0.00 | 0.00 | 85.00 | 0 | 0.00 | packed_project_unusable |
 | repair-01 跨语言语法修复 | raw | 修复与综合 | 0.00 | 0.00 | 47.00 | 0 | 0.00 | validation_failed |
-| repair-02 声明与控制块纠错 | raw | 修复与综合 | 0.00 | 0.00 | 55.00 | 0 | 0.00 | pack_failed |
+| repair-02 声明与控制块纠错 | raw | 修复与综合 | 95.00 | 100.00 | 100.00 | 100 | 75.00 | FAIL |
 | repair-03 综合文本数组统计 | raw | 修复与综合 | 0.00 | 0.00 | 46.00 | 0 | 0.00 | validation_failed |
 | repair-04 文本整数与字节集往返转换 | raw | 修复与综合 | 0.00 | 0.00 | 55.00 | 0 | 0.00 | pack_failed |
 

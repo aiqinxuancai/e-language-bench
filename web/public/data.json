@@ -3,25 +3,25 @@
     "title": "易语言模型基准 V2",
     "benchmarkVersion": "v2-compile",
     "scoringVersion": "v1.2-compile-gated",
-    "modelCount": 10,
+    "modelCount": 11,
     "samplesPerModel": 20,
     "taskCount": 20,
     "tracks": [
       "Raw"
     ],
-    "latestResultAt": "2026-09-09T09:30:32.984101+00:00",
+    "latestResultAt": "2026-09-10T10:10:31.867138+08:00",
     "repositoryUrl": "https://github.com/aiqinxuancai/e-language-bench",
     "ePackagerVersion": "1.2.7"
   },
   "summary": {
-    "leader": "gpt-5.6-sol",
-    "leaderScore": 58,
-    "compileLeader": "gpt-5.6-sol",
-    "compileLeaderRate": 0.6,
-    "averageScore": 46.325,
-    "averageCompileRate": 0.49000000000000005,
-    "averageEffectiveFormat": 48.962,
-    "averagePrecompileFormat": 69.092
+    "leader": "glm-5.3-flash",
+    "leaderScore": 84,
+    "compileLeader": "glm-5.3-flash",
+    "compileLeaderRate": 0.9,
+    "averageScore": 60.86363636363637,
+    "averageCompileRate": 0.6409090909090911,
+    "averageEffectiveFormat": 64.0909090909091,
+    "averagePrecompileFormat": 76.69545454545454
   },
   "scoring": {
     "weights": [
@@ -70,6 +70,121 @@
   },
   "models": [
     {
+      "runId": "20260909-volc-glm-5.3-flash-v2",
+      "model": "glm-5.3-flash",
+      "provider": "火山引擎",
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 84,
+      "effectiveFormat": 90,
+      "precompileFormat": 94.4,
+      "compileRate": 0.9,
+      "passAt1": 0.25,
+      "packAttempts": 20,
+      "packFailures": 2,
+      "capReasons": {
+        "none": 18,
+        "validation_failed": 2
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 2
+      },
+      "observedModels": [
+        "glm-5-3-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 72.5
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 95
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 88.75
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 96.25
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 67.5
+        }
+      ],
+      "reportUrl": "reports/20260909-volc-glm-5.3-flash-v2/report.md",
+      "rank": 1
+    },
+    {
+      "runId": "20260909-volc-deepseek-v4-pro-v2",
+      "model": "deepseek-v4-pro",
+      "provider": "火山引擎",
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 75.25,
+      "effectiveFormat": 80,
+      "precompileFormat": 89.85,
+      "compileRate": 0.8,
+      "passAt1": 0.3,
+      "packAttempts": 20,
+      "packFailures": 4,
+      "capReasons": {
+        "none": 16,
+        "pack_failed": 2,
+        "validation_failed": 2
+      },
+      "packFailureReasons": {
+        "other": 1,
+        "function_not_found": 1,
+        "source_preflight_failed": 2
+      },
+      "observedModels": [
+        "deepseek-v4-pro"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 50
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 70
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 90
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 72.5
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 93.75
+        }
+      ],
+      "reportUrl": "reports/20260909-volc-deepseek-v4-pro-v2/report.md",
+      "rank": 2
+    },
+    {
       "runId": "20260909-right-codex-gpt-5.6-sol-medium-v2",
       "model": "gpt-5.6-sol",
       "provider": "RIGHT 中转站",
@@ -78,26 +193,139 @@
       "wireProtocol": "openai_responses",
       "degraded": false,
       "degradationNote": null,
-      "total": 58,
-      "effectiveFormat": 60,
-      "precompileFormat": 81.05,
-      "compileRate": 0.6,
-      "passAt1": 0.3,
+      "total": 72.25,
+      "effectiveFormat": 75,
+      "precompileFormat": 87.8,
+      "compileRate": 0.75,
+      "passAt1": 0.35,
       "packAttempts": 20,
-      "packFailures": 8,
+      "packFailures": 5,
       "capReasons": {
-        "none": 12,
-        "pack_failed": 5,
+        "none": 15,
+        "pack_failed": 2,
         "validation_failed": 3
       },
       "packFailureReasons": {
-        "semantic_method_rebuild_failed": 3,
         "other": 2,
         "source_preflight_failed": 3
       },
       "observedModels": [
         "gpt-5.6-sol"
       ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 75
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 73.75
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 46.25
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 95
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 71.25
+        }
+      ],
+      "reportUrl": "reports/20260909-right-codex-gpt-5.6-sol-medium-v2/report.md",
+      "rank": 3
+    },
+    {
+      "runId": "20260909-volc-glm-5.3-v2",
+      "model": "glm-5.3",
+      "provider": "火山引擎",
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 71,
+      "effectiveFormat": 75,
+      "precompileFormat": 89.35,
+      "compileRate": 0.75,
+      "passAt1": 0.25,
+      "packAttempts": 20,
+      "packFailures": 4,
+      "capReasons": {
+        "pack_failed": 3,
+        "none": 15,
+        "packed_project_unusable": 1,
+        "validation_failed": 1
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 1,
+        "other": 2,
+        "source_preflight_failed": 1
+      },
+      "observedModels": [
+        "glm-5.3"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 72.5
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 75
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 68.75
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 46.25
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 92.5
+        }
+      ],
+      "reportUrl": "reports/20260909-volc-glm-5.3-v2/report.md",
+      "rank": 4
+    },
+    {
+      "runId": "20260909-right-gemini-3.6-flash-high-v2",
+      "model": "gemini-3.6-flash",
+      "provider": "RIGHT 中转站",
+      "effort": "high",
+      "protocol": "gemini_generate_content",
+      "wireProtocol": "gemini_generate_content",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 68.75,
+      "effectiveFormat": 70,
+      "precompileFormat": 81.9,
+      "compileRate": 0.7,
+      "passAt1": 0.5,
+      "packAttempts": 20,
+      "packFailures": 6,
+      "capReasons": {
+        "none": 14,
+        "validation_failed": 6
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 6
+      },
+      "observedModels": [],
       "categories": [
         {
           "key": "format",
@@ -112,121 +340,7 @@
         {
           "key": "flow",
           "label": "流程控制",
-          "score": 22.5
-        },
-        {
-          "key": "abstraction",
-          "label": "子程序与数据结构",
-          "score": 72.5
-        },
-        {
-          "key": "repair",
-          "label": "修复与综合",
-          "score": 71.25
-        }
-      ],
-      "reportUrl": "reports/20260909-right-codex-gpt-5.6-sol-medium-v2/report.md",
-      "rank": 1
-    },
-    {
-      "runId": "20260909-volc-glm-5.3-flash-v2",
-      "model": "glm-5.3-flash",
-      "provider": "火山引擎",
-      "effort": "max",
-      "protocol": "openai_chat",
-      "wireProtocol": "openai_chat",
-      "degraded": false,
-      "degradationNote": null,
-      "total": 56.75,
-      "effectiveFormat": 60,
-      "precompileFormat": 80.9,
-      "compileRate": 0.6,
-      "passAt1": 0.25,
-      "packAttempts": 20,
-      "packFailures": 8,
-      "capReasons": {
-        "none": 12,
-        "pack_failed": 6,
-        "validation_failed": 2
-      },
-      "packFailureReasons": {
-        "semantic_method_rebuild_failed": 6,
-        "source_preflight_failed": 2
-      },
-      "observedModels": [
-        "glm-5-3-flash"
-      ],
-      "categories": [
-        {
-          "key": "format",
-          "label": "格式与工程",
-          "score": 48.75
-        },
-        {
-          "key": "core",
-          "label": "核心库指令",
-          "score": 72.5
-        },
-        {
-          "key": "flow",
-          "label": "流程控制",
-          "score": 22.5
-        },
-        {
-          "key": "abstraction",
-          "label": "子程序与数据结构",
-          "score": 96.25
-        },
-        {
-          "key": "repair",
-          "label": "修复与综合",
-          "score": 43.75
-        }
-      ],
-      "reportUrl": "reports/20260909-volc-glm-5.3-flash-v2/report.md",
-      "rank": 2
-    },
-    {
-      "runId": "20260909-right-gemini-3.6-flash-high-v2",
-      "model": "gemini-3.6-flash",
-      "provider": "RIGHT 中转站",
-      "effort": "high",
-      "protocol": "gemini_generate_content",
-      "wireProtocol": "gemini_generate_content",
-      "degraded": false,
-      "degradationNote": null,
-      "total": 53.75,
-      "effectiveFormat": 55,
-      "precompileFormat": 75.15,
-      "compileRate": 0.55,
-      "passAt1": 0.35,
-      "packAttempts": 20,
-      "packFailures": 9,
-      "capReasons": {
-        "none": 11,
-        "validation_failed": 6,
-        "pack_failed": 3
-      },
-      "packFailureReasons": {
-        "source_preflight_failed": 6,
-        "semantic_method_rebuild_failed": 3
-      },
-      "observedModels": [],
-      "categories": [
-        {
-          "key": "format",
-          "label": "格式与工程",
-          "score": 25
-        },
-        {
-          "key": "core",
-          "label": "核心库指令",
-          "score": 73.75
-        },
-        {
-          "key": "flow",
-          "label": "流程控制",
-          "score": 25
+          "score": 75
         },
         {
           "key": "abstraction",
@@ -240,68 +354,65 @@
         }
       ],
       "reportUrl": "reports/20260909-right-gemini-3.6-flash-high-v2/report.md",
-      "rank": 3
+      "rank": 5
     },
     {
-      "runId": "20260909-volc-deepseek-v4-pro-v2",
-      "model": "deepseek-v4-pro",
-      "provider": "火山引擎",
-      "effort": "max",
-      "protocol": "openai_chat",
-      "wireProtocol": "openai_chat",
+      "runId": "20260909-right-gemini-3.7-flash-high-v2",
+      "model": "gemini-3.7-flash",
+      "provider": "RIGHT 中转站",
+      "effort": "high",
+      "protocol": "gemini_generate_content",
+      "wireProtocol": "gemini_generate_content",
       "degraded": false,
       "degradationNote": null,
-      "total": 52.5,
-      "effectiveFormat": 59.62,
-      "precompileFormat": 80.47,
-      "compileRate": 0.6,
-      "passAt1": 0.25,
-      "packAttempts": 20,
-      "packFailures": 8,
+      "total": 67.25,
+      "effectiveFormat": 70,
+      "precompileFormat": 75.05,
+      "compileRate": 0.7,
+      "passAt1": 0.4,
+      "packAttempts": 16,
+      "packFailures": 2,
       "capReasons": {
-        "none": 11,
-        "pack_failed": 6,
-        "packed_project_unusable": 1,
-        "validation_failed": 2
+        "none": 14,
+        "contract_invalid": 4,
+        "pack_failed": 1,
+        "validation_failed": 1
       },
       "packFailureReasons": {
-        "other": 1,
+        "other": 4,
         "function_not_found": 1,
-        "semantic_method_rebuild_failed": 4,
-        "source_preflight_failed": 2
+        "source_preflight_failed": 1
       },
-      "observedModels": [
-        "deepseek-v4-pro"
-      ],
+      "observedModels": [],
       "categories": [
         {
           "key": "format",
           "label": "格式与工程",
-          "score": 25
+          "score": 75
         },
         {
           "key": "core",
           "label": "核心库指令",
-          "score": 48.75
+          "score": 25
         },
         {
           "key": "flow",
           "label": "流程控制",
-          "score": 22.5
+          "score": 97.5
         },
         {
           "key": "abstraction",
           "label": "子程序与数据结构",
-          "score": 72.5
+          "score": 68.75
         },
         {
           "key": "repair",
           "label": "修复与综合",
-          "score": 93.75
+          "score": 70
         }
       ],
-      "reportUrl": "reports/20260909-volc-deepseek-v4-pro-v2/report.md",
-      "rank": 4
+      "reportUrl": "reports/20260909-right-gemini-3.7-flash-high-v2/report.md",
+      "rank": 6
     },
     {
       "runId": "20260909-volc-doubao-seed-2.1-turbo-v2",
@@ -312,23 +423,22 @@
       "wireProtocol": "openai_chat",
       "degraded": false,
       "degradationNote": null,
-      "total": 52.25,
-      "effectiveFormat": 55,
-      "precompileFormat": 77.4,
-      "compileRate": 0.55,
+      "total": 61.25,
+      "effectiveFormat": 65,
+      "precompileFormat": 81.9,
+      "compileRate": 0.65,
       "passAt1": 0.25,
       "packAttempts": 20,
-      "packFailures": 8,
+      "packFailures": 6,
       "capReasons": {
-        "none": 11,
-        "pack_failed": 4,
+        "none": 13,
+        "pack_failed": 2,
         "validation_failed": 4,
         "packed_project_unusable": 1
       },
       "packFailureReasons": {
         "other": 1,
         "source_preflight_failed": 4,
-        "semantic_method_rebuild_failed": 2,
         "function_not_found": 1
       },
       "observedModels": [
@@ -348,7 +458,7 @@
         {
           "key": "flow",
           "label": "流程控制",
-          "score": 46.25
+          "score": 91.25
         },
         {
           "key": "abstraction",
@@ -362,66 +472,7 @@
         }
       ],
       "reportUrl": "reports/20260909-volc-doubao-seed-2.1-turbo-v2/report.md",
-      "rank": 5
-    },
-    {
-      "runId": "20260909-right-gemini-3.7-flash-high-v2",
-      "model": "gemini-3.7-flash",
-      "provider": "RIGHT 中转站",
-      "effort": "high",
-      "protocol": "gemini_generate_content",
-      "wireProtocol": "gemini_generate_content",
-      "degraded": false,
-      "degradationNote": null,
-      "total": 52.25,
-      "effectiveFormat": 55,
-      "precompileFormat": 68.3,
-      "compileRate": 0.55,
-      "passAt1": 0.25,
-      "packAttempts": 16,
-      "packFailures": 5,
-      "capReasons": {
-        "none": 11,
-        "contract_invalid": 4,
-        "pack_failed": 4,
-        "validation_failed": 1
-      },
-      "packFailureReasons": {
-        "other": 4,
-        "function_not_found": 1,
-        "semantic_method_rebuild_failed": 3,
-        "source_preflight_failed": 1
-      },
-      "observedModels": [],
-      "categories": [
-        {
-          "key": "format",
-          "label": "格式与工程",
-          "score": 50
-        },
-        {
-          "key": "core",
-          "label": "核心库指令",
-          "score": 25
-        },
-        {
-          "key": "flow",
-          "label": "流程控制",
-          "score": 47.5
-        },
-        {
-          "key": "abstraction",
-          "label": "子程序与数据结构",
-          "score": 68.75
-        },
-        {
-          "key": "repair",
-          "label": "修复与综合",
-          "score": 70
-        }
-      ],
-      "reportUrl": "reports/20260909-right-gemini-3.7-flash-high-v2/report.md",
-      "rank": 6
+      "rank": 7
     },
     {
       "runId": "20260909-right-gemini-3.8-flash-high-v2",
@@ -432,22 +483,21 @@
       "wireProtocol": "gemini_generate_content",
       "degraded": false,
       "degradationNote": null,
-      "total": 43,
-      "effectiveFormat": 45,
-      "precompileFormat": 50.5,
-      "compileRate": 0.45,
+      "total": 47.5,
+      "effectiveFormat": 50,
+      "precompileFormat": 52.75,
+      "compileRate": 0.5,
       "passAt1": 0.25,
       "packAttempts": 11,
-      "packFailures": 2,
+      "packFailures": 1,
       "capReasons": {
-        "none": 9,
+        "none": 10,
         "contract_invalid": 9,
-        "pack_failed": 2
+        "pack_failed": 1
       },
       "packFailureReasons": {
         "other": 9,
-        "function_not_found": 1,
-        "semantic_method_rebuild_failed": 1
+        "function_not_found": 1
       },
       "observedModels": [],
       "categories": [
@@ -464,7 +514,7 @@
         {
           "key": "flow",
           "label": "流程控制",
-          "score": 22.5
+          "score": 45
         },
         {
           "key": "abstraction",
@@ -478,7 +528,7 @@
         }
       ],
       "reportUrl": "reports/20260909-right-gemini-3.8-flash-high-v2/report.md",
-      "rank": 7
+      "rank": 8
     },
     {
       "runId": "20260909-right-claude-opus-5-max-v2",
@@ -489,25 +539,25 @@
       "wireProtocol": "anthropic_messages",
       "degraded": false,
       "degradationNote": null,
-      "total": 38,
-      "effectiveFormat": 40,
-      "precompileFormat": 66.35,
-      "compileRate": 0.4,
+      "total": 42.75,
+      "effectiveFormat": 45,
+      "precompileFormat": 68.6,
+      "compileRate": 0.45,
       "passAt1": 0.15,
       "packAttempts": 18,
-      "packFailures": 9,
+      "packFailures": 8,
       "capReasons": {
-        "none": 8,
+        "none": 9,
         "validation_failed": 6,
         "contract_invalid": 2,
-        "pack_failed": 3,
+        "pack_failed": 2,
         "packed_project_unusable": 1
       },
       "packFailureReasons": {
         "source_preflight_failed": 6,
         "other": 2,
         "function_not_found": 1,
-        "semantic_method_rebuild_failed": 2
+        "semantic_method_rebuild_failed": 1
       },
       "observedModels": [
         "claude-opus-5"
@@ -536,11 +586,69 @@
         {
           "key": "repair",
           "label": "修复与综合",
-          "score": 0
+          "score": 23.75
         }
       ],
       "reportUrl": "reports/20260909-right-claude-opus-5-max-v2/report.md",
-      "rank": 8
+      "rank": 9
+    },
+    {
+      "runId": "20260909-volc-deepseek-v4-flash-v2",
+      "model": "deepseek-v4-flash",
+      "provider": "火山引擎",
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 41.5,
+      "effectiveFormat": 45,
+      "precompileFormat": 67.8,
+      "compileRate": 0.45,
+      "passAt1": 0.15,
+      "packAttempts": 20,
+      "packFailures": 11,
+      "capReasons": {
+        "pack_failed": 1,
+        "validation_failed": 10,
+        "none": 9
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 1,
+        "source_preflight_failed": 10
+      },
+      "observedModels": [
+        "deepseek-v4-flash-ga-260731"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 46.25
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 50
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 46.25
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 0
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 65
+        }
+      ],
+      "reportUrl": "reports/20260909-volc-deepseek-v4-flash-v2/report.md",
+      "rank": 10
     },
     {
       "runId": "20260909-right-claude-sonnet-5-max-v2",
@@ -551,23 +659,21 @@
       "wireProtocol": "anthropic_messages",
       "degraded": false,
       "degradationNote": null,
-      "total": 28.75,
-      "effectiveFormat": 30,
-      "precompileFormat": 49.75,
-      "compileRate": 0.3,
+      "total": 38,
+      "effectiveFormat": 40,
+      "precompileFormat": 54.25,
+      "compileRate": 0.4,
       "passAt1": 0.15,
       "packAttempts": 14,
-      "packFailures": 8,
+      "packFailures": 6,
       "capReasons": {
-        "none": 6,
+        "none": 8,
         "validation_failed": 6,
-        "contract_invalid": 6,
-        "pack_failed": 2
+        "contract_invalid": 6
       },
       "packFailureReasons": {
         "source_preflight_failed": 6,
-        "other": 6,
-        "semantic_method_rebuild_failed": 2
+        "other": 6
       },
       "observedModels": [
         "claude-sonnet-5"
@@ -576,7 +682,7 @@
         {
           "key": "format",
           "label": "格式与工程",
-          "score": 47.5
+          "score": 70
         },
         {
           "key": "core",
@@ -596,69 +702,11 @@
         {
           "key": "repair",
           "label": "修复与综合",
-          "score": 0
+          "score": 23.75
         }
       ],
       "reportUrl": "reports/20260909-right-claude-sonnet-5-max-v2/report.md",
-      "rank": 9
-    },
-    {
-      "runId": "20260909-volc-deepseek-v4-flash-v2",
-      "model": "deepseek-v4-flash",
-      "provider": "火山引擎",
-      "effort": "max",
-      "protocol": "openai_chat",
-      "wireProtocol": "openai_chat",
-      "degraded": false,
-      "degradationNote": null,
-      "total": 28,
-      "effectiveFormat": 30,
-      "precompileFormat": 61.05,
-      "compileRate": 0.3,
-      "passAt1": 0.15,
-      "packAttempts": 20,
-      "packFailures": 14,
-      "capReasons": {
-        "pack_failed": 4,
-        "validation_failed": 10,
-        "none": 6
-      },
-      "packFailureReasons": {
-        "semantic_method_rebuild_failed": 4,
-        "source_preflight_failed": 10
-      },
-      "observedModels": [
-        "deepseek-v4-flash-ga-260731"
-      ],
-      "categories": [
-        {
-          "key": "format",
-          "label": "格式与工程",
-          "score": 25
-        },
-        {
-          "key": "core",
-          "label": "核心库指令",
-          "score": 50
-        },
-        {
-          "key": "flow",
-          "label": "流程控制",
-          "score": 22.5
-        },
-        {
-          "key": "abstraction",
-          "label": "子程序与数据结构",
-          "score": 0
-        },
-        {
-          "key": "repair",
-          "label": "修复与综合",
-          "score": 42.5
-        }
-      ],
-      "reportUrl": "reports/20260909-volc-deepseek-v4-flash-v2/report.md",
-      "rank": 10
+      "rank": 11
     }
   ],
   "categories": [

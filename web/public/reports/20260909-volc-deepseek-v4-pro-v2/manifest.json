@@ -1,12 +1,12 @@
 {
-  "run_id": "20260909-volc-deepseek-v4-pro-v2",
+  "run_id": "20260910-recheck-volc-deepseek-v4-pro-v2",
   "benchmark_version": "v2-compile",
   "e_packager_version": "1.2.7",
   "tracks": [
     "raw"
   ],
   "scoring_version": "v1.2-compile-gated",
-  "created_at": "2026-09-09T09:08:58.502931+00:00",
+  "created_at": "2026-09-09T23:56:31.697647+00:00",
   "model": "deepseek-v4-pro",
   "provider": null,
   "degraded": false,
@@ -18,16 +18,16 @@
   "protocol": "openai_chat",
   "wire_protocol": "openai_chat",
   "base_url": "https://ark.cn-beijing.volces.com/api/coding/v3",
-  "parallel_workers": 2,
+  "parallel_workers": 6,
   "runtime_available": false,
   "runtime_status": "runtime_unavailable_defender_blocked",
   "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
   "platform": "Windows-11-10.0.28000-SP0",
   "tool_paths": {
-    "e_packager": "D:\\git\\e-packager\\bin\\Win32\\Release\\e-packager.exe"
+    "e_packager": "D:/git/e-packager/bin/Win32/Release/e-packager.exe"
   },
   "tool_hashes": {
-    "e_packager": "cdcb8068a518728f70b73da342242052f3cb79bd4ca73f31737fcc57c5ec856b"
+    "e_packager": "3c35bec7d383c452f14cff1b8939abbcc8c9240461fa19a85c71c18f282965ff"
   },
   "template_hashes": {
     "e-console-exe-for-10000.e": "e7dcab0c1f55ed2d2ae1e9e2cb4df81619c11680751921f4b9e46b06093b5d12",
@@ -42,8 +42,9 @@
     "e-window-exe-new-proj.e": "1e51103e3438b61a4078c1fd74dd02bdd79ed2c02198bd481e9f1403bef6c830"
   },
   "dependency_commits": {
-    "e-packager": "b363e266a233f5e1b6d15168799910acf7c0a45f"
+    "e-packager": "c5694bb699e86538db9115aef2adf2cc8130f6a6"
   },
   "dataset_sha256": "72809cbf6526ebeadb34a0bffb09e2d6c4be1ef01179ee64a7c2396347227568",
-  "credential_persisted": false
+  "credential_persisted": false,
+  "rechecked_from": "20260909-volc-deepseek-v4-pro-v2"
 }
