@@ -3,13 +3,13 @@
     "title": "易语言模型基准 V2",
     "benchmarkVersion": "v2-compile",
     "scoringVersion": "v1.2-compile-gated",
-    "modelCount": 11,
+    "modelCount": 15,
     "samplesPerModel": 20,
     "taskCount": 20,
     "tracks": [
       "Raw"
     ],
-    "latestResultAt": "2026-09-10T10:10:31.867138+08:00",
+    "latestResultAt": "2026-09-10T13:57:38.902147+08:00",
     "repositoryUrl": "https://github.com/aiqinxuancai/e-language-bench",
     "ePackagerVersion": "1.2.7"
   },
@@ -18,10 +18,10 @@
     "leaderScore": 84,
     "compileLeader": "glm-5.3-flash",
     "compileLeaderRate": 0.9,
-    "averageScore": 60.86363636363637,
-    "averageCompileRate": 0.6409090909090911,
-    "averageEffectiveFormat": 64.0909090909091,
-    "averagePrecompileFormat": 76.69545454545454
+    "averageScore": 55.166666666666664,
+    "averageCompileRate": 0.5800000000000001,
+    "averageEffectiveFormat": 58,
+    "averagePrecompileFormat": 74.13466666666665
   },
   "scoring": {
     "weights": [
@@ -475,6 +475,67 @@
       "rank": 7
     },
     {
+      "runId": "20260910-deepseek-flash-v2",
+      "model": "deepseek-flash",
+      "provider": null,
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": "当前路由到 deepseek-v4.1-flash",
+      "total": 57.5,
+      "effectiveFormat": 60,
+      "precompileFormat": 79.12,
+      "compileRate": 0.6,
+      "passAt1": 0.3,
+      "packAttempts": 19,
+      "packFailures": 6,
+      "capReasons": {
+        "pack_failed": 2,
+        "none": 12,
+        "contract_invalid": 1,
+        "validation_failed": 4,
+        "packed_project_unusable": 1
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 2,
+        "other": 1,
+        "source_preflight_failed": 4
+      },
+      "observedModels": [
+        "deepseek-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 72.5
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 97.5
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 45
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 50
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 22.5
+        }
+      ],
+      "reportUrl": "reports/20260910-deepseek-flash-v2/report.md",
+      "rank": 8
+    },
+    {
       "runId": "20260909-right-gemini-3.8-flash-high-v2",
       "model": "gemini-3.8-flash",
       "provider": "RIGHT 中转站",
@@ -528,7 +589,7 @@
         }
       ],
       "reportUrl": "reports/20260909-right-gemini-3.8-flash-high-v2/report.md",
-      "rank": 8
+      "rank": 9
     },
     {
       "runId": "20260909-right-claude-opus-5-max-v2",
@@ -590,7 +651,65 @@
         }
       ],
       "reportUrl": "reports/20260909-right-claude-opus-5-max-v2/report.md",
-      "rank": 9
+      "rank": 10
+    },
+    {
+      "runId": "20260910-deepseek-v4.1-flash-expires-on-0910-v2",
+      "model": "deepseek-v4.1-flash-expires-on-0910",
+      "provider": null,
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 42.75,
+      "effectiveFormat": 45,
+      "precompileFormat": 72,
+      "compileRate": 0.45,
+      "passAt1": 0.2,
+      "packAttempts": 20,
+      "packFailures": 11,
+      "capReasons": {
+        "none": 9,
+        "validation_failed": 6,
+        "pack_failed": 5
+      },
+      "packFailureReasons": {
+        "source_preflight_failed": 6,
+        "semantic_method_rebuild_failed": 5
+      },
+      "observedModels": [
+        "deepseek-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 47.5
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 0
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 68.75
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 75
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 22.5
+        }
+      ],
+      "reportUrl": "reports/20260910-deepseek-v4.1-flash-expires-on-0910-v2/report.md",
+      "rank": 11
     },
     {
       "runId": "20260909-volc-deepseek-v4-flash-v2",
@@ -648,7 +767,66 @@
         }
       ],
       "reportUrl": "reports/20260909-volc-deepseek-v4-flash-v2/report.md",
-      "rank": 10
+      "rank": 12
+    },
+    {
+      "runId": "20260910-final-recheck-aliyun-qwen3.8-max-0902-v2",
+      "model": "qwen3.8-max-0902",
+      "provider": null,
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 38.5,
+      "effectiveFormat": 40,
+      "precompileFormat": 59.9,
+      "compileRate": 0.4,
+      "passAt1": 0.2,
+      "packAttempts": 16,
+      "packFailures": 8,
+      "capReasons": {
+        "none": 8,
+        "pack_failed": 4,
+        "validation_failed": 4,
+        "contract_invalid": 4
+      },
+      "packFailureReasons": {
+        "other": 8,
+        "source_preflight_failed": 4
+      },
+      "observedModels": [
+        "qwen3.8-max-0902"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 48.75
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 50
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 46.25
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 47.5
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0
+        }
+      ],
+      "reportUrl": "reports/20260910-final-recheck-aliyun-qwen3.8-max-0902-v2/report.md",
+      "rank": 13
     },
     {
       "runId": "20260909-right-claude-sonnet-5-max-v2",
@@ -706,7 +884,67 @@
         }
       ],
       "reportUrl": "reports/20260909-right-claude-sonnet-5-max-v2/report.md",
-      "rank": 11
+      "rank": 14
+    },
+    {
+      "runId": "20260910-final-recheck-aliyun-qwen3.8-flash-v2",
+      "model": "qwen3.8-flash",
+      "provider": null,
+      "effort": "max",
+      "protocol": "openai_chat",
+      "wireProtocol": "openai_chat",
+      "degraded": false,
+      "degradationNote": null,
+      "total": 19.25,
+      "effectiveFormat": 20,
+      "precompileFormat": 57.35,
+      "compileRate": 0.2,
+      "passAt1": 0.1,
+      "packAttempts": 20,
+      "packFailures": 15,
+      "capReasons": {
+        "none": 4,
+        "pack_failed": 4,
+        "validation_failed": 11,
+        "packed_project_unusable": 1
+      },
+      "packFailureReasons": {
+        "semantic_method_rebuild_failed": 2,
+        "source_preflight_failed": 11,
+        "other": 2
+      },
+      "observedModels": [
+        "qwen3.8-flash"
+      ],
+      "categories": [
+        {
+          "key": "format",
+          "label": "格式与工程",
+          "score": 25
+        },
+        {
+          "key": "core",
+          "label": "核心库指令",
+          "score": 25
+        },
+        {
+          "key": "flow",
+          "label": "流程控制",
+          "score": 0
+        },
+        {
+          "key": "abstraction",
+          "label": "子程序与数据结构",
+          "score": 46.25
+        },
+        {
+          "key": "repair",
+          "label": "修复与综合",
+          "score": 0
+        }
+      ],
+      "reportUrl": "reports/20260910-final-recheck-aliyun-qwen3.8-flash-v2/report.md",
+      "rank": 15
     }
   ],
   "categories": [

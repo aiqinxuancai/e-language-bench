@@ -102,6 +102,10 @@ def build_manifest(
         "degraded": bool(config.get("degraded", False)),
         "degradation_note": config.get("degradation_note"),
         "reasoning_effort": config["reasoning_effort"],
+        "request_first_byte_timeout_seconds": int(
+            config.get("request_first_byte_timeout_seconds", 120)
+        ),
+        "request_total_timeout_seconds": int(config.get("request_total_timeout_seconds", 300)),
         "max_output_tokens": config.get("max_output_tokens"),
         "responses_thinking_type": config.get("responses_thinking_type"),
         "responses_streaming": bool(config.get("responses_streaming", False)),
@@ -131,6 +135,8 @@ MANIFEST_IDENTITY_FIELDS = (
     "degraded",
     "degradation_note",
     "reasoning_effort",
+    "request_first_byte_timeout_seconds",
+    "request_total_timeout_seconds",
     "max_output_tokens",
     "responses_thinking_type",
     "responses_streaming",
@@ -148,6 +154,10 @@ def manifest_mismatches(existing: dict[str, Any], current: dict[str, Any]) -> li
     return [
         field
         for field in MANIFEST_IDENTITY_FIELDS
+        if not (
+            field in {"request_first_byte_timeout_seconds", "request_total_timeout_seconds"}
+            and field not in existing
+        )
         if existing.get(field) != current.get(field)
     ]
 
@@ -224,7 +234,12 @@ class BenchmarkRunner:
                 "api_key": api_key,
                 "model": self.config["model"],
                 "reasoning_effort": self.config["reasoning_effort"],
-                "timeout_seconds": int(self.config["request_timeout_seconds"]),
+                "first_byte_timeout_seconds": int(
+                    self.config.get("request_first_byte_timeout_seconds", 120)
+                ),
+                "total_timeout_seconds": int(
+                    self.config.get("request_total_timeout_seconds", 300)
+                ),
                 "retry_count": int(self.config["retry_count"]),
             }
             if client_type is OpenAIResponsesClient:

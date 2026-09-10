@@ -103,15 +103,56 @@ class OpenAIChatClient:
         api_key: str,
         model: str,
         reasoning_effort: str,
-        timeout_seconds: int,
+        timeout_seconds: int | None = None,
         retry_count: int,
+        first_byte_timeout_seconds: int | None = None,
+        total_timeout_seconds: int | None = None,
     ) -> None:
         self.endpoint = chat_completions_endpoint(base_url)
         self.api_key = api_key
         self.model = model
         self.reasoning_effort = reasoning_effort
-        self.timeout_seconds = timeout_seconds
+        # timeout_seconds remains as a compatibility alias for callers using the
+        # original API. New callers should provide the two phase timeouts.
+        fallback_timeout = int(timeout_seconds or 300)
+        self.first_byte_timeout_seconds = int(first_byte_timeout_seconds or fallback_timeout)
+        self.total_timeout_seconds = int(total_timeout_seconds or fallback_timeout)
         self.retry_count = retry_count
+
+    def _open(self, request: urllib.request.Request) -> Any:
+        return urllib.request.urlopen(request, timeout=self.first_byte_timeout_seconds)
+
+    @staticmethod
+    def _socket(response: Any) -> Any | None:
+        candidates = [
+            getattr(response, "_sock", None),
+            getattr(getattr(response, "fp", None), "_sock", None),
+            getattr(getattr(getattr(response, "fp", None), "raw", None), "_sock", None),
+        ]
+        return next((item for item in candidates if item is not None and hasattr(item, "settimeout")), None)
+
+    def _set_read_timeout(self, response: Any, deadline: float) -> None:
+        remaining = max(0.1, deadline - time.monotonic())
+        sock = self._socket(response)
+        if sock is not None:
+            sock.settimeout(remaining)
+
+    def _read_body(self, response: Any, started: float) -> bytes:
+        total_deadline = started + self.total_timeout_seconds
+        first_byte_deadline = started + self.first_byte_timeout_seconds
+        chunks: list[bytes] = []
+        first_chunk = True
+        while True:
+            self._set_read_timeout(
+                response,
+                min(first_byte_deadline, total_deadline) if first_chunk else total_deadline,
+            )
+            chunk = response.read(64 * 1024)
+            if not chunk:
+                break
+            chunks.append(chunk)
+            first_chunk = False
+        return b"".join(chunks)
 
     def complete(self, system: str, user: str) -> ApiResponse:
         body = {
@@ -130,6 +171,7 @@ class OpenAIChatClient:
         last_raw: dict[str, Any] | str | None = None
 
         for attempt in range(1, self.retry_count + 2):
+            attempt_started = time.monotonic()
             request = urllib.request.Request(
                 self.endpoint,
                 data=encoded,
@@ -142,8 +184,8 @@ class OpenAIChatClient:
                 },
             )
             try:
-                with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
-                    response_bytes = response.read()
+                with self._open(request) as response:
+                    response_bytes = self._read_body(response, attempt_started)
                     last_status = response.status
                 raw = json.loads(response_bytes.decode("utf-8"))
                 content = self._extract_content(raw)
@@ -153,7 +195,7 @@ class OpenAIChatClient:
                 return ApiResponse(True, last_status, content, raw, elapsed, attempt)
             except urllib.error.HTTPError as exc:
                 last_status = exc.code
-                payload = exc.read().decode("utf-8", errors="replace")
+                payload = self._read_body(exc, attempt_started).decode("utf-8", errors="replace")
                 last_raw = self._maybe_json(payload)
                 last_error = f"HTTP {exc.code}: {payload[:1000]}"
                 retryable = exc.code == 429 or 500 <= exc.code < 600
@@ -212,8 +254,10 @@ class AnthropicMessagesClient(OpenAIChatClient):
         model: str,
         reasoning_effort: str,
         max_output_tokens: int = 32768,
-        timeout_seconds: int,
+        timeout_seconds: int | None = None,
         retry_count: int,
+        first_byte_timeout_seconds: int | None = None,
+        total_timeout_seconds: int | None = None,
     ) -> None:
         super().__init__(
             base_url=base_url,
@@ -222,6 +266,8 @@ class AnthropicMessagesClient(OpenAIChatClient):
             reasoning_effort=reasoning_effort,
             timeout_seconds=timeout_seconds,
             retry_count=retry_count,
+            first_byte_timeout_seconds=first_byte_timeout_seconds,
+            total_timeout_seconds=total_timeout_seconds,
         )
         self.endpoint = anthropic_messages_endpoint(base_url)
         self.max_output_tokens = max_output_tokens
@@ -243,6 +289,7 @@ class AnthropicMessagesClient(OpenAIChatClient):
         last_error: str | None = None
         last_raw: dict[str, Any] | str | None = None
         for attempt in range(1, self.retry_count + 2):
+            attempt_started = time.monotonic()
             request = urllib.request.Request(
                 self.endpoint,
                 data=encoded,
@@ -257,8 +304,8 @@ class AnthropicMessagesClient(OpenAIChatClient):
                 },
             )
             try:
-                with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
-                    response_bytes = response.read()
+                with self._open(request) as response:
+                    response_bytes = self._read_body(response, attempt_started)
                     last_status = response.status
                 raw = json.loads(response_bytes.decode("utf-8"))
                 content = self._extract_anthropic_content(raw)
@@ -268,7 +315,7 @@ class AnthropicMessagesClient(OpenAIChatClient):
                 return ApiResponse(True, last_status, content, raw, elapsed, attempt)
             except urllib.error.HTTPError as exc:
                 last_status = exc.code
-                payload = exc.read().decode("utf-8", errors="replace")
+                payload = self._read_body(exc, attempt_started).decode("utf-8", errors="replace")
                 last_raw = self._maybe_json(payload)
                 last_error = f"HTTP {exc.code}: {payload[:1000]}"
                 retryable = exc.code == 429 or 500 <= exc.code < 600
@@ -312,8 +359,10 @@ class GeminiGenerateContentClient(OpenAIChatClient):
         api_key: str,
         model: str,
         reasoning_effort: str,
-        timeout_seconds: int,
+        timeout_seconds: int | None = None,
         retry_count: int,
+        first_byte_timeout_seconds: int | None = None,
+        total_timeout_seconds: int | None = None,
     ) -> None:
         super().__init__(
             base_url=base_url,
@@ -322,6 +371,8 @@ class GeminiGenerateContentClient(OpenAIChatClient):
             reasoning_effort=reasoning_effort,
             timeout_seconds=timeout_seconds,
             retry_count=retry_count,
+            first_byte_timeout_seconds=first_byte_timeout_seconds,
+            total_timeout_seconds=total_timeout_seconds,
         )
         self.endpoint = gemini_generate_content_endpoint(base_url, model)
 
@@ -340,6 +391,7 @@ class GeminiGenerateContentClient(OpenAIChatClient):
         last_error: str | None = None
         last_raw: dict[str, Any] | str | None = None
         for attempt in range(1, self.retry_count + 2):
+            attempt_started = time.monotonic()
             request = urllib.request.Request(
                 self.endpoint,
                 data=encoded,
@@ -353,8 +405,8 @@ class GeminiGenerateContentClient(OpenAIChatClient):
                 },
             )
             try:
-                with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
-                    response_bytes = response.read()
+                with self._open(request) as response:
+                    response_bytes = self._read_body(response, attempt_started)
                     last_status = response.status
                 raw = json.loads(response_bytes.decode("utf-8"))
                 content = self._extract_gemini_content(raw)
@@ -364,7 +416,7 @@ class GeminiGenerateContentClient(OpenAIChatClient):
                 return ApiResponse(True, last_status, content, raw, elapsed, attempt)
             except urllib.error.HTTPError as exc:
                 last_status = exc.code
-                payload = exc.read().decode("utf-8", errors="replace")
+                payload = self._read_body(exc, attempt_started).decode("utf-8", errors="replace")
                 last_raw = self._maybe_json(payload)
                 last_error = f"HTTP {exc.code}: {payload[:1000]}"
                 retryable = exc.code == 429 or 500 <= exc.code < 600
@@ -415,8 +467,10 @@ class OpenAIResponsesClient(OpenAIChatClient):
         reasoning_effort: str,
         responses_thinking_type: str | None = None,
         streaming: bool = False,
-        timeout_seconds: int,
+        timeout_seconds: int | None = None,
         retry_count: int,
+        first_byte_timeout_seconds: int | None = None,
+        total_timeout_seconds: int | None = None,
     ) -> None:
         super().__init__(
             base_url=base_url,
@@ -425,6 +479,8 @@ class OpenAIResponsesClient(OpenAIChatClient):
             reasoning_effort=reasoning_effort,
             timeout_seconds=timeout_seconds,
             retry_count=retry_count,
+            first_byte_timeout_seconds=first_byte_timeout_seconds,
+            total_timeout_seconds=total_timeout_seconds,
         )
         self.endpoint = responses_endpoint(base_url)
         self.responses_thinking_type = responses_thinking_type
@@ -458,6 +514,7 @@ class OpenAIResponsesClient(OpenAIChatClient):
         last_error: str | None = None
         last_raw: dict[str, Any] | str | None = None
         for attempt in range(1, self.retry_count + 2):
+            attempt_started = time.monotonic()
             request = urllib.request.Request(
                 self.endpoint,
                 data=encoded,
@@ -470,12 +527,16 @@ class OpenAIResponsesClient(OpenAIChatClient):
                 },
             )
             try:
-                with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
+                with self._open(request) as response:
                     last_status = response.status
                     if self.streaming:
-                        raw = self._read_stream(response)
+                        raw = self._read_stream(
+                            response,
+                            attempt_started + self.total_timeout_seconds,
+                            attempt_started + self.first_byte_timeout_seconds,
+                        )
                     else:
-                        response_bytes = response.read()
+                        response_bytes = self._read_body(response, attempt_started)
                         raw = json.loads(response_bytes.decode("utf-8"))
                 content = self._extract_responses_content(raw)
                 elapsed = int((time.monotonic() - started) * 1000)
@@ -484,7 +545,7 @@ class OpenAIResponsesClient(OpenAIChatClient):
                 return ApiResponse(True, last_status, content, raw, elapsed, attempt)
             except urllib.error.HTTPError as exc:
                 last_status = exc.code
-                payload = exc.read().decode("utf-8", errors="replace")
+                payload = self._read_body(exc, attempt_started).decode("utf-8", errors="replace")
                 last_raw = self._maybe_json(payload)
                 last_error = f"HTTP {exc.code}: {payload[:1000]}"
                 retryable = exc.code == 429 or 500 <= exc.code < 600
@@ -509,9 +570,26 @@ class OpenAIResponsesClient(OpenAIChatClient):
         )
 
     @staticmethod
-    def _read_stream(response: Any) -> dict[str, Any]:
+    def _read_stream(
+        response: Any,
+        deadline: float | None = None,
+        first_byte_deadline: float | None = None,
+    ) -> dict[str, Any]:
         """Read an xAI/OpenResponses SSE stream until its completed event."""
-        for line in iter(response.readline, b""):
+        first_chunk = True
+        while True:
+            if deadline is not None:
+                read_deadline = deadline
+                if first_chunk and first_byte_deadline is not None:
+                    read_deadline = min(read_deadline, first_byte_deadline)
+                remaining = max(0.1, read_deadline - time.monotonic())
+                sock = OpenAIChatClient._socket(response)
+                if sock is not None:
+                    sock.settimeout(remaining)
+            line = response.readline()
+            if line == b"":
+                break
+            first_chunk = False
             text = line.decode("utf-8", errors="replace").strip()
             if not text.startswith("data: "):
                 continue

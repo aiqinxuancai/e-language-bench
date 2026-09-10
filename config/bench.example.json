@@ -6,7 +6,8 @@
   "model": "your-model",
   "reasoning_effort": "high",
   "parallel_workers": 1,
-  "request_timeout_seconds": 900,
+  "request_first_byte_timeout_seconds": 120,
+  "request_total_timeout_seconds": 300,
   "retry_count": 2,
   "tools": {
     "e_packager": "D:/tools/e-packager.exe",

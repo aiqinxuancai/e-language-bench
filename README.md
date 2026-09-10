@@ -28,6 +28,8 @@ python scripts/bench.py config/bench.json --model your-model --reasoning-effort 
 
 `--base-url`、`--protocol` 可覆盖 API 设置。默认并发来自配置的 `parallel_workers`。使用相同配置和 `--run-id` 续跑时会跳过已有模型响应，只重试基础设施失败项。模型、工具链、数据集或并发数变化时应使用新的运行编号。
 
+API 每次尝试默认最多等待首个响应数据 120 秒，收到首包后该次请求总时长最多 300 秒；可在 `config/bench.json` 中通过 `request_first_byte_timeout_seconds` 和 `request_total_timeout_seconds` 调整。网络重试次数仍由 `retry_count` 控制，每次重试重新计算这两个时限。
+
 ## 基准与评分
 
 `v2-compile` 包含 20 道题目，覆盖格式与工程、核心库、流程控制、子程序与数据结构、修复与综合五类能力。仅测试 `raw` 轨道，不提供 Skill 上下文，共 20 个 pass@1 样本。总分为全部题目的平均分。

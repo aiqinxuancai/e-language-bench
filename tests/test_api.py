@@ -3,6 +3,7 @@ import unittest
 from elang_bench.api import (
     AnthropicMessagesClient,
     GeminiGenerateContentClient,
+    OpenAIChatClient,
     OpenAIResponsesClient,
     anthropic_messages_endpoint,
     anthropic_response_has_content,
@@ -16,6 +17,66 @@ from elang_bench.api import (
 
 
 class EndpointTests(unittest.TestCase):
+    def test_two_phase_timeout_defaults_and_overrides(self):
+        default_client = OpenAIResponsesClient(
+            base_url="https://api.example.com/v1",
+            api_key="secret",
+            model="timeout-model",
+            reasoning_effort="max",
+            timeout_seconds=30,
+            retry_count=0,
+        )
+        self.assertEqual(default_client.first_byte_timeout_seconds, 30)
+        self.assertEqual(default_client.total_timeout_seconds, 30)
+
+        configured_client = OpenAIResponsesClient(
+            base_url="https://api.example.com/v1",
+            api_key="secret",
+            model="timeout-model",
+            reasoning_effort="max",
+            first_byte_timeout_seconds=120,
+            total_timeout_seconds=300,
+            retry_count=0,
+        )
+        self.assertEqual(configured_client.first_byte_timeout_seconds, 120)
+        self.assertEqual(configured_client.total_timeout_seconds, 300)
+
+    def test_body_read_switches_from_first_byte_to_total_deadline(self):
+        client = OpenAIChatClient(
+            base_url="https://api.example.com/v1",
+            api_key="secret",
+            model="timeout-model",
+            reasoning_effort="max",
+            first_byte_timeout_seconds=120,
+            total_timeout_seconds=300,
+            retry_count=0,
+        )
+
+        class Socket:
+            def __init__(self):
+                self.timeouts = []
+
+            def settimeout(self, value):
+                self.timeouts.append(value)
+
+        class Response:
+            def __init__(self):
+                self._sock = Socket()
+                self.chunks = iter([b"first", b"second", b""])
+
+            def read(self, size):
+                self.asserted_size = size
+                return next(self.chunks)
+
+        response = Response()
+        import time
+
+        self.assertEqual(client._read_body(response, time.monotonic()), b"firstsecond")
+        self.assertEqual(response.asserted_size, 64 * 1024)
+        self.assertEqual(len(response._sock.timeouts), 3)
+        self.assertLessEqual(response._sock.timeouts[0], 120)
+        self.assertGreater(response._sock.timeouts[1], response._sock.timeouts[0])
+
     def test_root_url_gets_v1_path(self):
         self.assertEqual(
             chat_completions_endpoint("https://api.example.com/"),
